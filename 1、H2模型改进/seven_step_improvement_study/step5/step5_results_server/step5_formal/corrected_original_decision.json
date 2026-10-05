@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "protocol": "Step4-corrected-original-protocol",
+  "source_protocol": "h2-ann-step4-feature-information-v1",
+  "status": "complete",
+  "rule_change": false,
+  "implementation_corrections": [
+    "eligibility_before_ranking",
+    "all_registered_epoch_threshold_combinations",
+    "high_density_fa_in_noninferiority",
+    "overall_pd_fa_in_noninferiority",
+    "missing_or_nonfinite_required_metrics_are_ineligible"
+  ],
+  "combination_counts": {
+    "total": 120,
+    "full_replacement": 0,
+    "noninferior": 5
+  },
+  "selected": {
+    "epoch": 8,
+    "threshold": 0.4,
+    "average_precision": 0.9317999361948396,
+    "overall_iou": 0.7868339501158348,
+    "overall_pd": 0.8440139095876801,
+    "overall_fa": 1.266763675948594e-05,
+    "high_recall": 0.5680137749417603,
+    "high_iou": 0.4874826147426982,
+    "high_fa": 3.453666339477224e-05,
+    "ordinary_iou": 0.9452905719412874,
+    "ordinary_recall": 0.9883575483498509,
+    "ordinary_pd": 0.9765957446808511,
+    "ordinary_fa": 6.9107241187400436e-06,
+    "train_089_iou": 0.21032863849765257,
+    "train_092_iou": 0.5940546395474786
+  },
+  "eligibility_level": 1,
+  "produces_original_protocol_replacement": false,
+  "validation_used": false,
+  "test_used": false
+}

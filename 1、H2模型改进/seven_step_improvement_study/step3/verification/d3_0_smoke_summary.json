@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "smoke_complete",
+  "validation_used": false,
+  "test_used": false,
+  "sampling_audit": "sampling_prior_audit.json",
+  "dual_threshold": "dual_threshold_diagnostic.json",
+  "probe_mean_ap": {
+    "base32": 0.21833067892402908,
+    "plus_density": 0.38782509394386355,
+    "plus_history": 0.16490799465328243,
+    "drop_sequence_time": 0.0707869937062276,
+    "drop_coordinates": 0.08956539662209384
+  },
+  "probe_ap_gain_over_base32": {
+    "base32": 0.0,
+    "plus_density": 0.16949441501983448,
+    "plus_history": -0.053422684270746645,
+    "drop_sequence_time": -0.14754368521780148,
+    "drop_coordinates": -0.12876528230193524
+  },
+  "interpretation_rule": "A failed finite probe is not an information-theoretic upper bound.",
+  "probes": {
+    "base32": {
+      "42": "probes\\base32-seed42\\summary.json",
+      "43": "probes\\base32-seed43\\summary.json"
+    },
+    "plus_density": {
+      "42": "probes\\plus_density-seed42\\summary.json",
+      "43": "probes\\plus_density-seed43\\summary.json"
+    },
+    "plus_history": {
+      "42": "probes\\plus_history-seed42\\summary.json",
+      "43": "probes\\plus_history-seed43\\summary.json"
+    },
+    "drop_sequence_time": {
+      "42": "probes\\drop_sequence_time-seed42\\summary.json",
+      "43": "probes\\drop_sequence_time-seed43\\summary.json"
+    },
+    "drop_coordinates": {
+      "42": "probes\\drop_coordinates-seed42\\summary.json",
+      "43": "probes\\drop_coordinates-seed43\\summary.json"
+    }
+  }
+}

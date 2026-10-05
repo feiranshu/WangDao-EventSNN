@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "python": "3.8.20 (default, Oct  3 2024, 15:19:54) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "1.9.1",
+  "numpy": "1.24.3",
+  "cuda_available": false,
+  "cuda_device": null,
+  "require_cuda": false,
+  "train_main_sequences": 79,
+  "train_dev_sequences": 10,
+  "validation_used": false,
+  "test_used": false,
+  "h2_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "runtime_root": "D:\\望道SNN项目\\1、H2_S1模型改进研究计划\\implementation"
+}

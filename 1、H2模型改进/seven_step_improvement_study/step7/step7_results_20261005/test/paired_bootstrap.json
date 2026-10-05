@@ -1,0 +1,38 @@
+{
+  "method": "density-stratified sequence paired percentile bootstrap",
+  "high_density_sequences": 3,
+  "ordinary_density_sequences": 21,
+  "iterations": 10000,
+  "seed": 20261005,
+  "ap_compute_backend": "torch_cuda_float64",
+  "delta_event_iou": {
+    "mean": 0.00947273753627319,
+    "lower_95": 0.0005646773479523221,
+    "upper_95": 0.022877687419371517
+  },
+  "delta_event_precision": {
+    "mean": 0.013029639923045408,
+    "lower_95": 0.0021950680270183876,
+    "upper_95": 0.029834296135365274
+  },
+  "delta_event_recall": {
+    "mean": -0.002604842395044525,
+    "lower_95": -0.004519117010754395,
+    "upper_95": -0.0010000845399363138
+  },
+  "delta_average_precision": {
+    "mean": 0.001632128477555768,
+    "lower_95": -0.002518201642821935,
+    "upper_95": 0.005721397185258355
+  },
+  "delta_pd": {
+    "mean": -0.0009767687474666713,
+    "lower_95": -0.003910273260880409,
+    "upper_95": 0.0017973792163752606
+  },
+  "delta_fa": {
+    "mean": -7.134325489190975e-07,
+    "lower_95": -1.3405701104069452e-06,
+    "upper_95": 1.1154995042020834e-07
+  }
+}

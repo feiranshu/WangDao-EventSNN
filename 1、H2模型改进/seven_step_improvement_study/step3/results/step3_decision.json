@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "validation_used": false,
+  "test_used": false,
+  "zero_update_status": "pass",
+  "d3_0_status": "complete",
+  "models": {
+    "A3-1-seed42": "runs/A3-1-seed42/summary.json",
+    "A3-2-seed42": "runs/A3-2-seed42/summary.json"
+  },
+  "noninferiority": {
+    "A3-1-seed42": {
+      "passes": true,
+      "checks": {
+        "working_point_exists": true,
+        "ap_loss_within_0_1pp": true,
+        "overall_iou_loss_within_0_3pp": true,
+        "high_iou_loss_within_0_3pp": true,
+        "high_recall_loss_within_0_3pp": true,
+        "ordinary_iou_loss_within_0_3pp": true,
+        "ordinary_recall_loss_within_0_3pp": true,
+        "ordinary_pd_loss_within_0_3pp": true,
+        "ordinary_fa_rise_within_5pct": true
+      }
+    },
+    "A3-2-seed42": {
+      "passes": false,
+      "checks": {
+        "working_point_exists": true,
+        "ap_loss_within_0_1pp": true,
+        "overall_iou_loss_within_0_3pp": true,
+        "high_iou_loss_within_0_3pp": true,
+        "high_recall_loss_within_0_3pp": false,
+        "ordinary_iou_loss_within_0_3pp": true,
+        "ordinary_recall_loss_within_0_3pp": true,
+        "ordinary_pd_loss_within_0_3pp": true,
+        "ordinary_fa_rise_within_5pct": true
+      }
+    }
+  },
+  "noninferiority_passing_models": [
+    "A3-1-seed42"
+  ],
+  "step3_produces_replacement": false,
+  "next_step": "review_passing_A3_before_step4"
+}

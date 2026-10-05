@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step4-feature-information-v1",
+  "roles_allowed": ["Train-main", "Train-dev"],
+  "roles_forbidden": ["Validation", "Test"],
+  "density_boundary_eps": 20000.0,
+  "batch_size": 4096,
+  "seed": 42,
+  "initial_epochs": [0, 1, 2, 5, 8, 10],
+  "continuation_epochs": [11, 12, 15, 18, 20],
+  "maximum_epoch": 20,
+  "selection_numeric_path": "exact_int8_replay",
+  "deployment_threshold_policy": "one_global_threshold",
+  "four_gpu_policy": "one_independent_candidate_per_GPU",
+  "models": {
+    "A4-1": "density",
+    "A4-1-null": "density null",
+    "A4-2": "history",
+    "A4-2-null": "history null",
+    "A4-3": "drop sequence_time",
+    "A4-3-control": "matched 32D retraining",
+    "A4-4": "conditional density+history",
+    "A4-5": "conditional selected information+drop sequence_time"
+  }
+}

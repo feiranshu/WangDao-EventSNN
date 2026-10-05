@@ -1,0 +1,203 @@
+{
+  "package": "H2_step6_server_20261005",
+  "dataset_included": false,
+  "step5_server_results_included": true,
+  "validation_or_test_results_included": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2826,
+      "sha256": "96e98004bb459b97335984a4e82b066a80beda024331e49cb62dc4c54b2eadcf"
+    },
+    {
+      "path": "README_SERVER.md",
+      "bytes": 2826,
+      "sha256": "96e98004bb459b97335984a4e82b066a80beda024331e49cb62dc4c54b2eadcf"
+    },
+    {
+      "path": "collect_step6_results.py",
+      "bytes": 2647,
+      "sha256": "47237c0716274b04804408d0f8428b8db8b05a90d7b4940aefb04ad902ed0ea2"
+    },
+    {
+      "path": "data/EV-UAV-dataset/PLACE_DATASET_HERE.txt",
+      "bytes": 71,
+      "sha256": "9483237e3ead6de68a3f1ac3355641aec720e986770e069b40721a1e3666cc2c"
+    },
+    {
+      "path": "data/index.json",
+      "bytes": 36663,
+      "sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+    },
+    {
+      "path": "input/step4_results/runs/A4-2-null-seed42/summary.json",
+      "bytes": 7330687,
+      "sha256": "6701ff4c306671db6edf51d82c41eb176a0be0f7d2ee154d45e9dc824cb2ab5e"
+    },
+    {
+      "path": "input/step4_results/work/density_transform.json",
+      "bytes": 283,
+      "sha256": "6ed3e02522b7c1d0750c82d2185d7181e050c2ad56820bfd7e59534476ecddc5"
+    },
+    {
+      "path": "input/step5_results/artifacts/epoch_008.pt",
+      "bytes": 64736,
+      "sha256": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f"
+    },
+    {
+      "path": "input/step5_results/frozen_candidate.json",
+      "bytes": 22680,
+      "sha256": "0c720bfbedef34b63f9a9194b5fd8f8624a923c785145eee4e6495550bfa5718"
+    },
+    {
+      "path": "input/step5_results/metrics/A4-2/int8/bootstrap_event_scores.npz",
+      "bytes": 1987401,
+      "sha256": "f1ce9e8aacb2012b7261573e454788a35f612a8edbada1a37b4f8f565ded849e"
+    },
+    {
+      "path": "input/step5_results/metrics/A4-2/int8/summary.json",
+      "bytes": 232493,
+      "sha256": "92900176d3de35adfca887f0d3a6a5ed4dcb63d1f7a8264bd5d96707912e3f0c"
+    },
+    {
+      "path": "input/step5_results/metrics/H2-R/int8/bootstrap_event_scores.npz",
+      "bytes": 1955775,
+      "sha256": "c15c10ede67135c62b497795c9c422546417e5b1a1c21d3203d4888f06f1ec29"
+    },
+    {
+      "path": "input/step5_results/metrics/H2-R/int8/summary.json",
+      "bytes": 232412,
+      "sha256": "1192f1d199700df17eecbb11523473d14c22ed53f737dc6f862b9be87dc4a453"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 12,
+      "sha256": "72cabbf383d3b033df0eb37be00bb7079f51b0d08d793f0ac9d7eec4709dffbb"
+    },
+    {
+      "path": "run_server.sh",
+      "bytes": 63,
+      "sha256": "3e9c61d4cdf5ae813720c7b9b661dbbff8562044cbcad7ef9be24e8385418332"
+    },
+    {
+      "path": "run_step6.py",
+      "bytes": 20645,
+      "sha256": "09b1e3567eaacd522620b2129bd605f92017e67bfb71bc138e58802815e17b19"
+    },
+    {
+      "path": "software/wangdao/__init__.py",
+      "bytes": 31,
+      "sha256": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617"
+    },
+    {
+      "path": "software/wangdao/data.py",
+      "bytes": 2529,
+      "sha256": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f"
+    },
+    {
+      "path": "software/wangdao/h2/__init__.py",
+      "bytes": 169,
+      "sha256": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409"
+    },
+    {
+      "path": "software/wangdao/h2/constants.py",
+      "bytes": 1008,
+      "sha256": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6"
+    },
+    {
+      "path": "software/wangdao/h2/export.py",
+      "bytes": 2195,
+      "sha256": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2"
+    },
+    {
+      "path": "software/wangdao/h2/features.py",
+      "bytes": 4556,
+      "sha256": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16"
+    },
+    {
+      "path": "software/wangdao/h2/numpy_model.py",
+      "bytes": 8294,
+      "sha256": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee"
+    },
+    {
+      "path": "software/wangdao/h2/representation.py",
+      "bytes": 11553,
+      "sha256": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003"
+    },
+    {
+      "path": "software/wangdao/h2/torch_model.py",
+      "bytes": 3877,
+      "sha256": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87"
+    },
+    {
+      "path": "software/wangdao/h2_refiner.py",
+      "bytes": 9487,
+      "sha256": "fa5f05b70c55d1c19d76b845936ad2b25dd46b734963e066566a53a147b1a121"
+    },
+    {
+      "path": "software/wangdao/h2_research.py",
+      "bytes": 11576,
+      "sha256": "d00c3dda9d04c7697d8a480c631e3f730b98e4e25b5276c9d90baf94f270ced1"
+    },
+    {
+      "path": "software/wangdao/phase1_common.py",
+      "bytes": 11764,
+      "sha256": "cbf41f8b4774d980c88085c7efbda101202994696cb4a4b7195093e85e498352"
+    },
+    {
+      "path": "software/wangdao/phase1_metrics.py",
+      "bytes": 5144,
+      "sha256": "9a3e01d89de08564fb89afceabfe438b2528bc5d1d38d9c4f852691bcde4e4b8"
+    },
+    {
+      "path": "software/wangdao/runtime.py",
+      "bytes": 1288,
+      "sha256": "0a357438c9460c7eb73793478d51c2e95dc3e11393f32287148bb1e688f9c711"
+    },
+    {
+      "path": "software/weights/H2_D1_seed42.npz",
+      "bytes": 16970,
+      "sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2"
+    },
+    {
+      "path": "step3_common.py",
+      "bytes": 32843,
+      "sha256": "5233a4a8159c11e3f417f6a0e98a6fef841687a5dab126e4d2472b75ec625e95"
+    },
+    {
+      "path": "step4_common.py",
+      "bytes": 20169,
+      "sha256": "8b3c4fee163ee789a6e5566365ecec432d7ca4b1ef51928845689c02b40de8b3"
+    },
+    {
+      "path": "step4_training.py",
+      "bytes": 26139,
+      "sha256": "64b157cb227fde0420b3d743d3d08acbff28c6f29de3b566f3d7fc57aa171ea2"
+    },
+    {
+      "path": "step5_common.py",
+      "bytes": 10980,
+      "sha256": "32af89fdcfd288deafb956be6be537a0cf68300889e0899ca2f30eb4c9fb718b"
+    },
+    {
+      "path": "step6_common.py",
+      "bytes": 15282,
+      "sha256": "43df6064c29597c023b3345786830db6db7635e79a6196caec1a71a896698599"
+    },
+    {
+      "path": "step6_protocol.json",
+      "bytes": 847,
+      "sha256": "bf0f204657ad369b9c4edf310d848a27ef093cb96e7cee3236bde218e762b393"
+    },
+    {
+      "path": "step6_training.py",
+      "bytes": 4604,
+      "sha256": "df40cd7751ffdc542c730fd8b89184e91070a47bad6cb8eb19e42789061232f3"
+    },
+    {
+      "path": "tests/test_step6.py",
+      "bytes": 3521,
+      "sha256": "38c46cca07062314593ee63b1f8a876c7aa2f6672c3145b5bb24035e32fd3af3"
+    }
+  ]
+}

@@ -1,0 +1,931 @@
+{
+  "status": "ok",
+  "experiment_id": "HW-CAL-COMPUTE-PROFILE-v1",
+  "scope": {
+    "role": "hw_calibration",
+    "test_used": false,
+    "validation_used": false,
+    "training_performed": false,
+    "complete_role": true,
+    "sequences": 10,
+    "device": "cuda",
+    "elapsed_s": 5.7668054999999185
+  },
+  "inputs": {
+    "dataset_index": "data/index.json",
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "h2_weight": "software/weights/H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "s0p_weight": "software/weights/S0P_T4_POS15_KD50_S42.npz",
+    "s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+    "s0p_configuration": {
+      "beta": 0.875,
+      "candidate": {
+        "distillation_weight": 0.5,
+        "name": "POS15-KD50",
+        "positive_fraction": 0.15
+      },
+      "candidates": [
+        {
+          "distillation_weight": 0.25,
+          "name": "POS10-KD25",
+          "positive_fraction": 0.1,
+          "sampling_seed": 1042
+        },
+        {
+          "distillation_weight": 0.25,
+          "name": "POS15-KD25",
+          "positive_fraction": 0.15,
+          "sampling_seed": 2042
+        },
+        {
+          "distillation_weight": 0.5,
+          "name": "POS15-KD50",
+          "positive_fraction": 0.15,
+          "sampling_seed": 3042
+        }
+      ],
+      "chunk_size": 4096,
+      "command": [
+        "software\\scripts\\train_s0p.py",
+        "--train",
+        "--targeted-sweep",
+        "--role",
+        "train_main",
+        "--time-steps",
+        "4",
+        "--readout",
+        "mean_membrane",
+        "--beta",
+        "0.875",
+        "--threshold",
+        "0.25",
+        "--surrogate-slope",
+        "10",
+        "--epochs",
+        "20",
+        "--chunk-size",
+        "4096",
+        "--learning-rate",
+        "0.001",
+        "--spike-rate-weight",
+        "0.01",
+        "--seed",
+        "42",
+        "--progress-interval",
+        "5",
+        "--device",
+        "cuda",
+        "--output",
+        "results\\runs\\S0P-SWEEP-T4-S42"
+      ],
+      "cuda": "12.1",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "device": "cuda",
+      "epochs": 20,
+      "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "learning_rate": 0.001,
+      "max_dev_sequences": 0,
+      "max_sequences": 0,
+      "mode": "targeted_sweep",
+      "numpy": "2.2.6",
+      "progress_interval": 5,
+      "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+      "readout": "mean_membrane",
+      "role": "train_main",
+      "seed": 42,
+      "source_manifest": {
+        "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+        "pyproject.toml": "c148ec2c692d3ea197ad0e51c5182b9899803ed955366518e645ed6aeafecc29",
+        "software/scripts/audit_data.py": "097f6ae21887fb68e82b1cddec2d7d27dd5269fdfedc63fe12f7cb16fd016db3",
+        "software/scripts/evaluate.py": "b0d0550fd50cda41e43473fc513235cd879aa68bca5ca8735b74c656497e1f06",
+        "software/scripts/train_s0p.py": "d17d2482f93c2be972a66fb3a99d69a3418b78b626c5a47538ff512ce6cfaf6b",
+        "software/tests/test_core.py": "ae8891bc0a73de009e9b9df985cce6a7c3122ae2f6b945d82eaa5e0d62fabfab",
+        "software/tests/test_snn.py": "1f1dc2874093f470d67765dd0545034236f40a4c240203d82efec46d7259c9cb",
+        "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+        "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+        "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+        "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+        "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+        "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+        "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+        "software/wangdao/h2/numpy_model.py": "26615ae803adc4c027ea06167b31f7ff5255a205745693ee573072743ad5dc1a",
+        "software/wangdao/h2/representation.py": "1a32b17723316b6f8b8546e8f294e2bd97c75117f75e4a3cc610d9122d278f4d",
+        "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+        "software/wangdao/metrics.py": "379c0e84761f876e0055936e40b4ea9c8cb916f6103bfc9470c2da8464f0ad6a",
+        "software/wangdao/s0p.py": "20183f660fff97c5775a06544a5cc22ef2a01f09e8d507cb923eae537dae879f",
+        "software/wangdao/snn.py": "dda3c98703fe5fb8f86149ab15d60d92e9e68dd59c69a2aaa1fa23260f459f6f"
+      },
+      "spike_rate_weight": 0.01,
+      "surrogate_slope": 10.0,
+      "threshold": 0.25,
+      "time_steps": 4,
+      "torch": "2.5.1+cu121"
+    },
+    "s0p_metadata": {
+      "checkpoint_epoch": 20,
+      "checkpoint_sha256": "800ee5a78993f61697ccd04d3343e105c5a9583dbc1e72c47b9338d2f9d5b8ae",
+      "model_id": "S0-P-BAL-T4-POS15-KD50-S42",
+      "proposal_threshold": 0.51,
+      "source_checkpoint": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\results\\runs\\S0P-SWEEP-T4-S42\\POS15-KD50-best.pt"
+    }
+  },
+  "definitions": {
+    "ann_scheduled_mac": "稠密 ANN 每个输入通道与输出通道的一次整数乘加。",
+    "ann_zero_skip_product_proxy": "假设硬件能跳过零激活时，需要执行的输入非零值×扇出数；不是当前 NumPy 延迟。",
+    "snn_event_driven_synaptic_accumulation": "非零时间片输入或上游脉冲触发的一次权重累加；第一层仍含非二值 uint8×权重。",
+    "membrane_update": "一个神经元在一个微时间步的一次膜状态更新；输出同时维护读出膜和发放膜，因此计两份。",
+    "hybrid_synaptic_proxy": "Proposal 的对应突触运算代理加候选事件上的 H2 Refiner 稠密 MAC；不含预处理、路由、膜更新和后处理。",
+    "logical_memory_access": "未假设片上缓存复用时的逻辑访问次数，用于后续体系结构设计，不能直接换算功耗。"
+  },
+  "architecture": {
+    "proposal_dimensions": [
+      128,
+      48,
+      24,
+      16
+    ],
+    "refiner_dimensions": [
+      32,
+      64,
+      32,
+      4
+    ],
+    "proposal_weights": 7680,
+    "refiner_weights": 4224,
+    "h2_proposal_weight_nonzero": [
+      6104,
+      1142,
+      384
+    ],
+    "s0p_proposal_weight_nonzero": [
+      6144,
+      1152,
+      384
+    ],
+    "current_weight_storage": {
+      "h2_proposal_int8_weight_bytes": 7680,
+      "s0p_proposal_fp32_weight_bytes": 30720,
+      "note": "S0-P 尚未定点；此处是当前文件格式，不是最终 FPGA 位宽。"
+    }
+  },
+  "aggregate": {
+    "events": 838440,
+    "target_events": 23916,
+    "patches": 268800,
+    "ann_proposal": {
+      "activation_nonzero": [
+        2206755,
+        7780780,
+        4158501
+      ],
+      "activation_values": [
+        34406400,
+        12902400,
+        6451200
+      ],
+      "activation_nonzero_rates": [
+        0.06413792201450892,
+        0.6030490451388889,
+        0.6446089099702381
+      ],
+      "scheduled_macs": 2064384000,
+      "zero_skip_product_proxy_by_layer": [
+        105924240,
+        186738720,
+        66536016
+      ],
+      "zero_skip_product_proxy": 359198976,
+      "candidate_events": 293045,
+      "candidate_fraction": 0.3495121893039454,
+      "proposal_recall": 0.9846964375313597,
+      "logical_memory_access": {
+        "weight_reads_dense": 2064384000,
+        "activation_reads_dense": 2064384000,
+        "accumulator_updates_dense": 2064384000,
+        "activation_writes": 23654400
+      }
+    },
+    "snn_proposal": {
+      "time_steps": 4,
+      "input_nonzero": 2726264,
+      "input_values": 137625600,
+      "input_nonzero_rate": 0.01980927966889881,
+      "spike_counts": [
+        11811864,
+        8236670,
+        112226
+      ],
+      "spike_rates": [
+        0.22886951264880953,
+        0.31919139074900793,
+        0.006523553757440476
+      ],
+      "scheduled_dense_synaptic_products": 8257536000,
+      "event_driven_synaptic_accumulations_by_layer": [
+        130860672,
+        283484736,
+        131786720
+      ],
+      "event_driven_synaptic_accumulations": 546132128,
+      "membrane_updates": 111820800,
+      "candidate_events": 288655,
+      "candidate_fraction": 0.3442762749868804,
+      "proposal_recall": 0.9482354908847633,
+      "logical_memory_access": {
+        "weight_reads_event_driven": 546132128,
+        "synaptic_accumulator_updates": 546132128,
+        "membrane_state_reads": 111820800,
+        "membrane_state_writes": 111820800,
+        "spike_writes": 20160760
+      }
+    },
+    "hybrid_comparison": {
+      "ann_refiner_macs": 1237822080,
+      "snn_route_refiner_macs": 1219278720,
+      "ann_total_synaptic_proxy": 3302206080,
+      "snn_total_synaptic_proxy": 1765410848,
+      "proposal_snn_event_driven_to_ann_dense_ratio": 0.26454968067956347,
+      "proposal_snn_event_driven_reduction": 0.7354503193204365,
+      "hybrid_snn_to_ann_synaptic_ratio": 0.5346155888611288,
+      "hybrid_synaptic_reduction": 0.4653844111388712,
+      "snn_membrane_updates_reported_separately": 111820800
+    }
+  },
+  "distribution": {
+    "ann_candidate_fraction": {
+      "mean": 0.24353484238793452,
+      "p95": 0.36785692493061656,
+      "max": 0.39080959698958406
+    },
+    "snn_candidate_fraction": {
+      "mean": 0.29527255933328667,
+      "p95": 0.37278880341999004,
+      "max": 0.3811914323962517
+    },
+    "snn_input_nonzero_rate": {
+      "mean": 0.019809279668898807,
+      "p95": 0.08483176458449576,
+      "max": 0.146416509719122
+    },
+    "snn_spike_rates": [
+      {
+        "mean": 0.22886951264880953,
+        "p95": 0.5430776154048854,
+        "max": 0.7503204830109127
+      },
+      {
+        "mean": 0.31919139074900793,
+        "p95": 0.5456000434027775,
+        "max": 0.6813003782242063
+      },
+      {
+        "mean": 0.006523553757440477,
+        "p95": 0.015771484374999985,
+        "max": 0.021620396205357145
+      }
+    ],
+    "proposal_snn_to_ann_ratio": {
+      "mean": 0.2645496806795635,
+      "p95": 0.7064282245938732,
+      "max": 1.0549851965525794
+    },
+    "hybrid_snn_to_ann_ratio": {
+      "mean": 0.3497945210618069,
+      "p95": 0.7361633705561105,
+      "max": 0.9434856751332131
+    }
+  },
+  "interpretation_limits": [
+    "这些是模型活动与逻辑访问计数，不是 FPGA 延迟、功耗或能量实测。",
+    "第一层的非零时间片输入是 uint8 计数，仍需要乘法或后续 PoT/移位实现，不能按二值脉冲累加处理。",
+    "SNN 的突触运算减少必须与额外膜更新、T 个时间步、控制逻辑和状态存储一起评估。",
+    "下一阶段需用位精确 ANN/SNN 黄金模型和同器件 RTL 结果验证真实收益。"
+  ],
+  "per_sequence": [
+    {
+      "file": "train_022.npz",
+      "events": 21165,
+      "target_events": 715,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          73404,
+          885458,
+          458409
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          3523392,
+          21250992,
+          7334544
+        ],
+        "zero_skip_product_proxy": 32108928,
+        "candidate_events": 1573,
+        "candidate_fraction": 0.07432081266241436,
+        "proposal_recall": 0.9874125874125874
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 75814,
+        "input_values": 13762560,
+        "spike_counts": [
+          900156,
+          804898,
+          4475
+        ],
+        "spike_rates": [
+          0.1744163876488095,
+          0.31191793774801585,
+          0.002601260230654762
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          3639072,
+          21603744,
+          12878368
+        ],
+        "event_driven_synaptic_accumulations": 38121184,
+        "membrane_updates": 11182080,
+        "candidate_events": 2733,
+        "candidate_fraction": 0.12912827781715094,
+        "proposal_recall": 0.9916083916083916
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.1846613033234127,
+        "hybrid_synaptic_proxy_ann": 213082752,
+        "hybrid_synaptic_proxy_snn": 49665376,
+        "hybrid_snn_to_ann_ratio": 0.23308022603349896
+      },
+      "elapsed_s": 0.6320439000000988
+    },
+    {
+      "file": "train_049.npz",
+      "events": 22833,
+      "target_events": 4674,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          69107,
+          807035,
+          421479
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          3317136,
+          19368840,
+          6743664
+        ],
+        "zero_skip_product_proxy": 29429640,
+        "candidate_events": 6525,
+        "candidate_fraction": 0.28577059519117065,
+        "proposal_recall": 0.9980744544287549
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 75673,
+        "input_values": 13762560,
+        "spike_counts": [
+          831404,
+          747585,
+          14834
+        ],
+        "spike_rates": [
+          0.16109483506944444,
+          0.28970772879464285,
+          0.008622814360119047
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          3632304,
+          19953696,
+          11961360
+        ],
+        "event_driven_synaptic_accumulations": 35547360,
+        "membrane_updates": 11182080,
+        "candidate_events": 7419,
+        "candidate_fraction": 0.324924451451846,
+        "proposal_recall": 0.9905862216516902
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.17219354538690476,
+        "hybrid_synaptic_proxy_ann": 234000000,
+        "hybrid_synaptic_proxy_snn": 66885216,
+        "hybrid_snn_to_ann_ratio": 0.2858342564102564
+      },
+      "elapsed_s": 0.5863699000001361
+    },
+    {
+      "file": "train_058.npz",
+      "events": 14707,
+      "target_events": 1468,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          48929,
+          678696,
+          353950
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          2348592,
+          16288704,
+          5663200
+        ],
+        "zero_skip_product_proxy": 24300496,
+        "candidate_events": 2305,
+        "candidate_fraction": 0.15672808866526144,
+        "proposal_recall": 0.997275204359673
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 51115,
+        "input_values": 13762560,
+        "spike_counts": [
+          558299,
+          572005,
+          5871
+        ],
+        "spike_rates": [
+          0.10817735460069444,
+          0.22166612413194445,
+          0.0034127371651785712
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          2453520,
+          13399176,
+          9152080
+        ],
+        "event_driven_synaptic_accumulations": 25004776,
+        "membrane_updates": 11182080,
+        "candidate_events": 3073,
+        "candidate_fraction": 0.20894811994288434,
+        "proposal_recall": 0.9816076294277929
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.12112463572668651,
+        "hybrid_synaptic_proxy_ann": 216174720,
+        "hybrid_synaptic_proxy_snn": 37985128,
+        "hybrid_snn_to_ann_ratio": 0.17571494021132536
+      },
+      "elapsed_s": 0.5499029000002338
+    },
+    {
+      "file": "train_059.npz",
+      "events": 44257,
+      "target_events": 888,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          121094,
+          945082,
+          483157
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          5812512,
+          22681968,
+          7730512
+        ],
+        "zero_skip_product_proxy": 36224992,
+        "candidate_events": 12748,
+        "candidate_fraction": 0.28804482906658835,
+        "proposal_recall": 0.9988738738738738
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 131591,
+        "input_values": 13762560,
+        "spike_counts": [
+          1495547,
+          979922,
+          8726
+        ],
+        "spike_rates": [
+          0.28978077721974205,
+          0.37974407862103177,
+          0.00507231212797619
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          6316368,
+          35893128,
+          15678752
+        ],
+        "event_driven_synaptic_accumulations": 57888248,
+        "membrane_updates": 11182080,
+        "candidate_events": 16044,
+        "candidate_fraction": 0.3625189235601148,
+        "proposal_recall": 0.9864864864864865
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.28041414775545637,
+        "hybrid_synaptic_proxy_ann": 260285952,
+        "hybrid_synaptic_proxy_snn": 125658104,
+        "hybrid_snn_to_ann_ratio": 0.4827694427396527
+      },
+      "elapsed_s": 0.49293840000018463
+    },
+    {
+      "file": "train_065.npz",
+      "events": 33115,
+      "target_events": 1555,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          101851,
+          918207,
+          470950
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          4888848,
+          22036968,
+          7535200
+        ],
+        "zero_skip_product_proxy": 34461016,
+        "candidate_events": 8040,
+        "candidate_fraction": 0.24279027630982938,
+        "proposal_recall": 0.9935691318327974
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 109634,
+        "input_values": 13762560,
+        "spike_counts": [
+          1295016,
+          925613,
+          10666
+        ],
+        "spike_rates": [
+          0.2509254092261905,
+          0.358697994171627,
+          0.006200009300595238
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          5262432,
+          31080384,
+          14809808
+        ],
+        "event_driven_synaptic_accumulations": 51152624,
+        "membrane_updates": 11182080,
+        "candidate_events": 9696,
+        "candidate_fraction": 0.2927978257587196,
+        "proposal_recall": 0.9871382636655949
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.247786380828373,
+        "hybrid_synaptic_proxy_ann": 240399360,
+        "hybrid_synaptic_proxy_snn": 92108528,
+        "hybrid_snn_to_ann_ratio": 0.38314797510276233
+      },
+      "elapsed_s": 0.5161951000000045
+    },
+    {
+      "file": "train_067.npz",
+      "events": 32582,
+      "target_events": 2404,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          98950,
+          890475,
+          458482
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          4749600,
+          21371400,
+          7335712
+        ],
+        "zero_skip_product_proxy": 33456712,
+        "candidate_events": 6327,
+        "candidate_fraction": 0.19418697440304464,
+        "proposal_recall": 0.9979201331114809
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 108081,
+        "input_values": 13762560,
+        "spike_counts": [
+          1221621,
+          873883,
+          10870
+        ],
+        "spike_rates": [
+          0.23670421781994047,
+          0.33865133618551585,
+          0.006318591889880952
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          5187888,
+          29318904,
+          13982128
+        ],
+        "event_driven_synaptic_accumulations": 48488920,
+        "membrane_updates": 11182080,
+        "candidate_events": 10088,
+        "candidate_fraction": 0.3096188079307593,
+        "proposal_recall": 0.9987520798668885
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.23488323877728173,
+        "hybrid_synaptic_proxy_ann": 233163648,
+        "hybrid_synaptic_proxy_snn": 91100632,
+        "hybrid_snn_to_ann_ratio": 0.39071541718201286
+      },
+      "elapsed_s": 0.5160779000002549
+    },
+    {
+      "file": "train_071.npz",
+      "events": 32667,
+      "target_events": 2027,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          97976,
+          858759,
+          442930
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          4702848,
+          20610216,
+          7086880
+        ],
+        "zero_skip_product_proxy": 32399944,
+        "candidate_events": 8346,
+        "candidate_fraction": 0.2554871889062357,
+        "proposal_recall": 0.9960532807104094
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 105848,
+        "input_values": 13762560,
+        "spike_counts": [
+          1205786,
+          862194,
+          9790
+        ],
+        "spike_rates": [
+          0.23363599020337303,
+          0.3341215587797619,
+          0.005690801711309524
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          5080704,
+          28938864,
+          13795104
+        ],
+        "event_driven_synaptic_accumulations": 47814672,
+        "membrane_updates": 11182080,
+        "candidate_events": 10895,
+        "candidate_fraction": 0.33351700492852115,
+        "proposal_recall": 0.9728663048840651
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.2316171409970238,
+        "hybrid_synaptic_proxy_ann": 241691904,
+        "hybrid_synaptic_proxy_snn": 93835152,
+        "hybrid_snn_to_ann_ratio": 0.3882428432522092
+      },
+      "elapsed_s": 0.5260326000002351
+    },
+    {
+      "file": "train_079.npz",
+      "events": 7372,
+      "target_events": 1270,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          24112,
+          500517,
+          266734
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          1157376,
+          12012408,
+          4267744
+        ],
+        "zero_skip_product_proxy": 17437528,
+        "candidate_events": 1529,
+        "candidate_fraction": 0.20740640260444926,
+        "proposal_recall": 0.9834645669291339
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 25647,
+        "input_values": 13762560,
+        "spike_counts": [
+          208592,
+          355088,
+          4277
+        ],
+        "spike_rates": [
+          0.040417286706349205,
+          0.13760540674603175,
+          0.0024861653645833334
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          1231056,
+          5006208,
+          5681408
+        ],
+        "event_driven_synaptic_accumulations": 11918672,
+        "membrane_updates": 11182080,
+        "candidate_events": 1844,
+        "candidate_fraction": 0.2501356483993489,
+        "proposal_recall": 0.974015748031496
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.057734762524801586,
+        "hybrid_synaptic_proxy_ann": 212896896,
+        "hybrid_synaptic_proxy_snn": 19707728,
+        "hybrid_snn_to_ann_ratio": 0.09256935338315125
+      },
+      "elapsed_s": 0.4830349999997452
+    },
+    {
+      "file": "train_081.npz",
+      "events": 8964,
+      "target_events": 2778,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          25567,
+          505066,
+          268835
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          1227216,
+          12121584,
+          4301360
+        ],
+        "zero_skip_product_proxy": 17650160,
+        "candidate_events": 3046,
+        "candidate_fraction": 0.33980365908076754,
+        "proposal_recall": 0.994240460763139
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 27795,
+        "input_values": 13762560,
+        "spike_counts": [
+          223069,
+          357400,
+          5523
+        ],
+        "spike_rates": [
+          0.04322238498263889,
+          0.1385013640873016,
+          0.00321044921875
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          1334160,
+          5353656,
+          5718400
+        ],
+        "event_driven_synaptic_accumulations": 12406216,
+        "membrane_updates": 11182080,
+        "candidate_events": 3417,
+        "candidate_fraction": 0.3811914323962517,
+        "proposal_recall": 0.9953203743700504
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 0.06009645492311508,
+        "hybrid_synaptic_proxy_ann": 219304704,
+        "hybrid_synaptic_proxy_snn": 26839624,
+        "hybrid_snn_to_ann_ratio": 0.12238508116998713
+      },
+      "elapsed_s": 0.48567339999999604
+    },
+    {
+      "file": "train_093.npz",
+      "events": 620778,
+      "target_events": 6137,
+      "patches": 26880,
+      "ann": {
+        "activation_nonzero": [
+          1545765,
+          791485,
+          533575
+        ],
+        "activation_values": [
+          3440640,
+          1290240,
+          645120
+        ],
+        "scheduled_macs": 206438400,
+        "zero_skip_product_proxy_by_layer": [
+          74196720,
+          18995640,
+          8537200
+        ],
+        "zero_skip_product_proxy": 101729560,
+        "candidate_events": 242606,
+        "candidate_fraction": 0.39080959698958406,
+        "proposal_recall": 0.9538862636467329
+      },
+      "snn": {
+        "time_steps": 4,
+        "input_nonzero": 2015066,
+        "input_values": 13762560,
+        "spike_counts": [
+          3872374,
+          1758082,
+          37194
+        ],
+        "spike_rates": [
+          0.7503204830109127,
+          0.6813003782242063,
+          0.021620396205357145
+        ],
+        "scheduled_dense_synaptic_products": 825753600,
+        "event_driven_synaptic_accumulations_by_layer": [
+          96723168,
+          92936976,
+          28129312
+        ],
+        "event_driven_synaptic_accumulations": 217789456,
+        "membrane_updates": 11182080,
+        "candidate_events": 223446,
+        "candidate_fraction": 0.35994510114727,
+        "proposal_recall": 0.8329802835261528
+      },
+      "comparison": {
+        "proposal_event_driven_to_ann_dense_ratio": 1.0549851965525794,
+        "hybrid_synaptic_proxy_ann": 1231206144,
+        "hybrid_synaptic_proxy_snn": 1161625360,
+        "hybrid_snn_to_ann_ratio": 0.9434856751332131
+      },
+      "elapsed_s": 0.977026499999738
+    }
+  ],
+  "reproducibility": {
+    "command": [
+      "software\\scripts\\profile_compute.py",
+      "--device",
+      "cuda",
+      "--experiment-id",
+      "HW-CAL-COMPUTE-PROFILE-v1",
+      "--output",
+      "results\\compute_profile.json"
+    ],
+    "script_sha256": "2a0a70be11c278de5d765b64f46dec880c42bb7b7e5f8344349f21f36340d6a5",
+    "snn_source_sha256": "ba83fe84e53ada41b83c842b5a80d1653e1361ae68f0090e94a509d98f13eea0",
+    "h2_numpy_source_sha256": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee"
+  }
+}

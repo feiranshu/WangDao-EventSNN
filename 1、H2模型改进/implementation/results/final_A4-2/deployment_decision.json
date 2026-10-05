@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "accepted_for_deployment",
+  "decision_date": "2026-10-05",
+  "decision_basis": "Prioritize overall IoU, precision and false-alarm control",
+  "model": {
+    "model_id": "A4-2",
+    "seed": 42,
+    "epoch": 8,
+    "threshold": 0.4,
+    "numeric_path": "exact_int8_replay",
+    "refiner_dimensions": [36, 64, 32, 4]
+  },
+  "test_delta_vs_H2_R": {
+    "average_precision_pp": 0.1712306358641058,
+    "overall_iou_pp": 0.9430530736848852,
+    "precision_pp": 1.2933494400865664,
+    "recall_pp": -0.25907824162896276,
+    "f1_pp": 0.5427211290935152,
+    "overall_fa_relative_percent": -6.112973948929601,
+    "high_density_iou_pp": 3.094465124556367,
+    "high_density_recall_pp": -1.2137726034183838,
+    "high_density_fa_relative_percent": -13.490813648293964
+  },
+  "test_iou_bootstrap_95_pp": [0.05646773479523221, 2.2877687419371517],
+  "known_tradeoff": "The pre-frozen Step7 high-density recall guardrail failed; A4-2 is accepted as a precision/IoU/false-alarm-priority deployment model, not as an unconditional winner on every metric.",
+  "step6_original_passes": false,
+  "step7_all_pre_frozen_checks_pass": false,
+  "historical_results_rewritten": false,
+  "test_driven_retuning_allowed": false,
+  "artifact_sha256": {
+    "H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "A4-2_seed42_epoch008.pt": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+    "A4-2_seed42_epoch008_int8.npz": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4"
+  }
+}
+

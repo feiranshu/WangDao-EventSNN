@@ -1,0 +1,85 @@
+{
+  "protocol_version": "2026-10-03",
+  "scope": "H2 ANN step-2 only",
+  "baseline": {
+    "name": "原始H2模型",
+    "weight": "software/weights/H2_D1_seed42.npz",
+    "h2_f_event_threshold": 0.2800000011920929,
+    "h2_r_fair_working_point": 0.30
+  },
+  "data_roles": {
+    "train": "Train-main only",
+    "checkpoint_and_candidate_selection": "Train-dev only",
+    "validation": "forbidden in step 2",
+    "test": "forbidden in step 2"
+  },
+  "density_boundaries_eps": {
+    "train_window_100ms": 6820.0,
+    "report_sequence": 6889.9906
+  },
+  "training": {
+    "epochs": 20,
+    "batch_size": 4096,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "evaluation_epochs": [0, 5, 10, 15, 20],
+    "progress_reporting": {
+      "every_epoch": ["total_loss", "classification_loss", "soft_iou_loss", "learning_rate", "wall_seconds", "sampling_coverage", "repeat_fraction"],
+      "train_dev_epochs": [5, 10, 15, 20],
+      "persistent_file": "training_progress.csv",
+      "stdout_flush_each_epoch": true
+    },
+    "continuation": {
+      "allowed_additional_epochs": 10,
+      "requires_saved_checkpoint": true,
+      "preserve_original_run_directory": true,
+      "continuation_uses_new_output_directory": true,
+      "legacy_checkpoint_optimizer_state": "unavailable; restart optimizer and disclose it",
+      "new_checkpoint_optimizer_state": "saved and restored when present"
+    },
+    "seeds": [42, 43, 44],
+    "batch_quota": {
+      "high_hard_positive": 256,
+      "high_positive": 256,
+      "ordinary_positive": 512,
+      "high_hard_negative": 768,
+      "high_negative": 768,
+      "ordinary_hard_negative": 768,
+      "ordinary_negative": 768
+    }
+  },
+  "candidates": {
+    "A2-1": "density-stratified hierarchical sampling",
+    "A2-2": "A2-1 plus density-aware focal sample weights",
+    "A2-3": "A2-1 plus evidence-gated 32-D feature-group mask",
+    "A2-4": "A2-1 plus released-code STC classification loss and 0.5 soft-IoU",
+    "A2-4-null": "strict implementation control; computes STC context but optimizes A2-1 loss"
+  },
+  "losses": {
+    "A2-1": "focal + 0.5 * soft_iou",
+    "A2-2": "density_weighted_focal + 0.5 * soft_iou",
+    "A2-3": "focal + 0.5 * soft_iou",
+    "A2-4": "released_centered_detached_stc + 0.5 * soft_iou",
+    "stc": {
+      "spatial_kernel": 3,
+      "temporal_tau_ms": 5.0,
+      "centered_neighborhood": true,
+      "detach_weights": true,
+      "paper_gamma_not_used": true
+    }
+  },
+  "selection": {
+    "primary": "Train-dev overall Event IoU subject to fairness and density protection",
+    "minimum_iou_gain_over_h2_r_percentage_points": 0.5,
+    "early_stop_over_a2_1": "IoU +0.2 percentage points and AP not lower",
+    "constraints": [
+      "high-density FN must not increase",
+      "ordinary-density FP must not increase",
+      "sequence train_089 and train_092 FN must not increase",
+      "full Train-dev precision and recall must not decrease by more than 0.5 percentage points"
+    ],
+    "budget": "at most three real seed-42 candidates; A2-4-null is a control and does not consume the budget",
+    "multi_seed": "only the best passing seed-42 candidate is repeated with seeds 43 and 44"
+  }
+}

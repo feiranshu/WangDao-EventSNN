@@ -1,0 +1,194 @@
+{
+  "package": "H2_step7_server_20261005",
+  "dataset_included": false,
+  "step5_frozen_candidate_included": true,
+  "step6_decision_included": true,
+  "validation_or_test_results_included": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4008,
+      "sha256": "898b957135f4bbcff56fa76e2abb9f3107a3be68e02ac25e7a5a53f9691ad023"
+    },
+    {
+      "path": "README_SERVER.md",
+      "bytes": 4008,
+      "sha256": "898b957135f4bbcff56fa76e2abb9f3107a3be68e02ac25e7a5a53f9691ad023"
+    },
+    {
+      "path": "collect_step7_results.py",
+      "bytes": 2641,
+      "sha256": "0c5eee6336fc3831bb4cf1a36227e53f4d4a970bee13b76d2bb323be6c40ac37"
+    },
+    {
+      "path": "data/EV-UAV-dataset/PLACE_DATASET_HERE.txt",
+      "bytes": 71,
+      "sha256": "9483237e3ead6de68a3f1ac3355641aec720e986770e069b40721a1e3666cc2c"
+    },
+    {
+      "path": "data/index.json",
+      "bytes": 36663,
+      "sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+    },
+    {
+      "path": "input/step4_results/work/density_transform.json",
+      "bytes": 283,
+      "sha256": "6ed3e02522b7c1d0750c82d2185d7181e050c2ad56820bfd7e59534476ecddc5"
+    },
+    {
+      "path": "input/step5_results/artifacts/A4-2_frozen_refiner_int8.npz",
+      "bytes": 6993,
+      "sha256": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4"
+    },
+    {
+      "path": "input/step5_results/artifacts/epoch_008.pt",
+      "bytes": 64736,
+      "sha256": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f"
+    },
+    {
+      "path": "input/step5_results/frozen_candidate.json",
+      "bytes": 22680,
+      "sha256": "0c720bfbedef34b63f9a9194b5fd8f8624a923c785145eee4e6495550bfa5718"
+    },
+    {
+      "path": "input/step6_results/step6_decision.json",
+      "bytes": 14310,
+      "sha256": "4c0aebe85a069a9174f6b8634437d62ee0f04ebd47ac112c6b9ee39ba1da6a53"
+    },
+    {
+      "path": "input/step6_results/step6_protocol.json",
+      "bytes": 847,
+      "sha256": "bf0f204657ad369b9c4edf310d848a27ef093cb96e7cee3236bde218e762b393"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 28,
+      "sha256": "370f68c13686b678d3440d521db4ec97cd62f6b32b32f10596c5149407f551cb"
+    },
+    {
+      "path": "run_server.sh",
+      "bytes": 64,
+      "sha256": "200c3c91ed3d73ee2d03b3e67ed1df2184fe5d063d35555064fb22f75dad0f63"
+    },
+    {
+      "path": "run_step7.py",
+      "bytes": 23135,
+      "sha256": "0d5663b8c215bff9560b38abc564b924308ae31dc518c67868bb301ff376a460"
+    },
+    {
+      "path": "software/wangdao/__init__.py",
+      "bytes": 31,
+      "sha256": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617"
+    },
+    {
+      "path": "software/wangdao/data.py",
+      "bytes": 2529,
+      "sha256": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f"
+    },
+    {
+      "path": "software/wangdao/h2/__init__.py",
+      "bytes": 169,
+      "sha256": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409"
+    },
+    {
+      "path": "software/wangdao/h2/constants.py",
+      "bytes": 1008,
+      "sha256": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6"
+    },
+    {
+      "path": "software/wangdao/h2/export.py",
+      "bytes": 2195,
+      "sha256": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2"
+    },
+    {
+      "path": "software/wangdao/h2/features.py",
+      "bytes": 4556,
+      "sha256": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16"
+    },
+    {
+      "path": "software/wangdao/h2/numpy_model.py",
+      "bytes": 8294,
+      "sha256": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee"
+    },
+    {
+      "path": "software/wangdao/h2/representation.py",
+      "bytes": 11553,
+      "sha256": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003"
+    },
+    {
+      "path": "software/wangdao/h2/torch_model.py",
+      "bytes": 3877,
+      "sha256": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87"
+    },
+    {
+      "path": "software/wangdao/h2_refiner.py",
+      "bytes": 9487,
+      "sha256": "fa5f05b70c55d1c19d76b845936ad2b25dd46b734963e066566a53a147b1a121"
+    },
+    {
+      "path": "software/wangdao/h2_research.py",
+      "bytes": 11576,
+      "sha256": "d00c3dda9d04c7697d8a480c631e3f730b98e4e25b5276c9d90baf94f270ced1"
+    },
+    {
+      "path": "software/wangdao/phase1_common.py",
+      "bytes": 11764,
+      "sha256": "cbf41f8b4774d980c88085c7efbda101202994696cb4a4b7195093e85e498352"
+    },
+    {
+      "path": "software/wangdao/phase1_metrics.py",
+      "bytes": 5144,
+      "sha256": "9a3e01d89de08564fb89afceabfe438b2528bc5d1d38d9c4f852691bcde4e4b8"
+    },
+    {
+      "path": "software/wangdao/runtime.py",
+      "bytes": 1288,
+      "sha256": "0a357438c9460c7eb73793478d51c2e95dc3e11393f32287148bb1e688f9c711"
+    },
+    {
+      "path": "software/weights/H2_D1_seed42.npz",
+      "bytes": 16970,
+      "sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2"
+    },
+    {
+      "path": "step3_common.py",
+      "bytes": 32843,
+      "sha256": "5233a4a8159c11e3f417f6a0e98a6fef841687a5dab126e4d2472b75ec625e95"
+    },
+    {
+      "path": "step4_common.py",
+      "bytes": 20169,
+      "sha256": "8b3c4fee163ee789a6e5566365ecec432d7ca4b1ef51928845689c02b40de8b3"
+    },
+    {
+      "path": "step4_training.py",
+      "bytes": 26139,
+      "sha256": "64b157cb227fde0420b3d743d3d08acbff28c6f29de3b566f3d7fc57aa171ea2"
+    },
+    {
+      "path": "step5_common.py",
+      "bytes": 10980,
+      "sha256": "32af89fdcfd288deafb956be6be537a0cf68300889e0899ca2f30eb4c9fb718b"
+    },
+    {
+      "path": "step6_common.py",
+      "bytes": 15282,
+      "sha256": "43df6064c29597c023b3345786830db6db7635e79a6196caec1a71a896698599"
+    },
+    {
+      "path": "step7_common.py",
+      "bytes": 19196,
+      "sha256": "ed95301557f0e910f3d53780ef691a43d7f34ef2198d0e2fcda3646893058a2f"
+    },
+    {
+      "path": "step7_protocol.json",
+      "bytes": 1797,
+      "sha256": "67efd86fb7a509110df173d95ba293f74a33bebe3ee3a0d04b366c074a09e5f2"
+    },
+    {
+      "path": "tests/test_step7.py",
+      "bytes": 4341,
+      "sha256": "b84d8ae19c26a20816ee0638645903951cf26f16f6ecfa8f266e226d2671326a"
+    }
+  ]
+}

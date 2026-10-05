@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step4-feature-information-v1",
+  "status": "pass",
+  "python": "3.10.18 (main, Jun  5 2025, 13:14:17) [GCC 11.2.0]",
+  "torch": "2.5.1+cu124",
+  "numpy": "2.2.6",
+  "cuda_available": true,
+  "cuda_device_count": 4,
+  "cuda_devices": [
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090"
+  ],
+  "require_cuda": true,
+  "require_gpus": 4,
+  "h2_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "runtime_root": "/export01/frshu/experiment/SNN-model/H2-seven-steps/H2_step4_server_20261004",
+  "train_main_sequences": 79,
+  "train_dev_sequences": 10,
+  "validation_used": false,
+  "test_used": false,
+  "step3_frozen_reference": {
+    "H2_R_int8_ap": 0.927410633080494,
+    "H2_R_iou": 0.7805328724,
+    "A3_1_selected_ap": 0.9276521875,
+    "A3_1_selected_iou": 0.782304379,
+    "decision": "no Step3 replacement; Step4 starts from original H2"
+  }
+}

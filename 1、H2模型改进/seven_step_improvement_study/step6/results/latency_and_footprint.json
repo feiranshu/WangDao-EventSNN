@@ -1,0 +1,165 @@
+{
+  "scope": "complete in-memory H2 Proposal, routing, causal history and A4-2 int8 Refiner; file I/O also reported separately",
+  "sequences": [
+    {
+      "file": "train_002.npz",
+      "events": 44571,
+      "candidates": 7102,
+      "io_s": 0.020964917726814747,
+      "compute_s": 0.8719023754820228,
+      "total_with_io_s": 0.8928672932088375,
+      "new_refiner_int8_s": 0.06659156735986471,
+      "pipeline_stages_s": {
+        "representation_s": 0.34049032162874937,
+        "proposal_s": 0.37844378501176834,
+        "routing_s": 0.02231551520526409,
+        "refiner_features_s": 0.06238843593746424
+      }
+    },
+    {
+      "file": "train_020.npz",
+      "events": 23042,
+      "candidates": 2036,
+      "io_s": 0.014991233125329018,
+      "compute_s": 0.6415573973208666,
+      "total_with_io_s": 0.6565486304461956,
+      "new_refiner_int8_s": 0.018507855013012886,
+      "pipeline_stages_s": {
+        "representation_s": 0.21309902053326368,
+        "proposal_s": 0.3665143381804228,
+        "routing_s": 0.011515319347381592,
+        "refiner_features_s": 0.031043920665979385
+      }
+    },
+    {
+      "file": "train_034.npz",
+      "events": 20849,
+      "candidates": 8935,
+      "io_s": 0.014616421423852444,
+      "compute_s": 0.7409885423257947,
+      "total_with_io_s": 0.7556049637496471,
+      "new_refiner_int8_s": 0.05742537043988705,
+      "pipeline_stages_s": {
+        "representation_s": 0.22149324882775545,
+        "proposal_s": 0.362385586835444,
+        "routing_s": 0.010734744369983673,
+        "refiner_features_s": 0.08768234774470329
+      }
+    },
+    {
+      "file": "train_039.npz",
+      "events": 20340,
+      "candidates": 6635,
+      "io_s": 0.01244206540286541,
+      "compute_s": 0.6679195230826735,
+      "total_with_io_s": 0.680361588485539,
+      "new_refiner_int8_s": 0.045826361514627934,
+      "pipeline_stages_s": {
+        "representation_s": 0.18318367842584848,
+        "proposal_s": 0.365682334639132,
+        "routing_s": 0.010628717951476574,
+        "refiner_features_s": 0.06159975379705429
+      }
+    },
+    {
+      "file": "train_041.npz",
+      "events": 44937,
+      "candidates": 6060,
+      "io_s": 0.02384170051664114,
+      "compute_s": 0.8211646154522896,
+      "total_with_io_s": 0.8450063159689307,
+      "new_refiner_int8_s": 0.04084146209061146,
+      "pipeline_stages_s": {
+        "representation_s": 0.32716607209295034,
+        "proposal_s": 0.3660602681338787,
+        "routing_s": 0.02129256073385477,
+        "refiner_features_s": 0.06408328749239445
+      }
+    },
+    {
+      "file": "train_050.npz",
+      "events": 18300,
+      "candidates": 3281,
+      "io_s": 0.011752579361200333,
+      "compute_s": 0.6115240398794413,
+      "total_with_io_s": 0.6232766192406416,
+      "new_refiner_int8_s": 0.023895256221294403,
+      "pipeline_stages_s": {
+        "representation_s": 0.16382295172661543,
+        "proposal_s": 0.36957703437656164,
+        "routing_s": 0.00950801931321621,
+        "refiner_features_s": 0.04386381059885025
+      }
+    },
+    {
+      "file": "train_060.npz",
+      "events": 43606,
+      "candidates": 13258,
+      "io_s": 0.024213279597461224,
+      "compute_s": 0.9042707160115242,
+      "total_with_io_s": 0.9284839956089854,
+      "new_refiner_int8_s": 0.07919896859675646,
+      "pipeline_stages_s": {
+        "representation_s": 0.3448778474703431,
+        "proposal_s": 0.3653955301269889,
+        "routing_s": 0.021777359768748283,
+        "refiner_features_s": 0.09120405558496714
+      }
+    },
+    {
+      "file": "train_066.npz",
+      "events": 20297,
+      "candidates": 5345,
+      "io_s": 0.01098716538399458,
+      "compute_s": 0.6478655636310577,
+      "total_with_io_s": 0.6588527290150523,
+      "new_refiner_int8_s": 0.037253000773489475,
+      "pipeline_stages_s": {
+        "representation_s": 0.17895646672695875,
+        "proposal_s": 0.36823759134858847,
+        "routing_s": 0.01037752628326416,
+        "refiner_features_s": 0.05216688755899668
+      }
+    },
+    {
+      "file": "train_089.npz",
+      "events": 405722,
+      "candidates": 161401,
+      "io_s": 0.18467256426811218,
+      "compute_s": 7.706089021638036,
+      "total_with_io_s": 7.890761585906148,
+      "new_refiner_int8_s": 1.566215768456459,
+      "pipeline_stages_s": {
+        "representation_s": 4.78192438185215,
+        "proposal_s": 0.3928910670801997,
+        "routing_s": 0.15848799515515566,
+        "refiner_features_s": 0.7869864460080862
+      }
+    },
+    {
+      "file": "train_092.npz",
+      "events": 595519,
+      "candidates": 230512,
+      "io_s": 0.2933943774551153,
+      "compute_s": 11.598134680651128,
+      "total_with_io_s": 11.891529058106244,
+      "new_refiner_int8_s": 2.1953637721017003,
+      "pipeline_stages_s": {
+        "representation_s": 7.651917136274278,
+        "proposal_s": 0.40112361684441566,
+        "routing_s": 0.23295537382364273,
+        "refiner_features_s": 1.084497814066708
+      }
+    }
+  ],
+  "compute_mean_s": 2.5211416475474833,
+  "compute_p95_s": 9.846714134095233,
+  "with_io_mean_s": 2.582329277973622,
+  "with_io_p95_s": 10.091183695616197,
+  "parameter_count": 4480,
+  "history_buffer": {
+    "two_34x44_heatmaps": true,
+    "software_float32_bytes": 11968,
+    "deployment_uint8_target_bytes": 2992
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-04",
+  "status": "pass",
+  "source_unit_tests": 13,
+  "extracted_package_unit_tests": 13,
+  "extracted_package_compile": "pass",
+  "package": "H2_step3_server_20261004.zip",
+  "package_sha256": "720f7de1ab76052f3cc440f20f1d5e00ca1b2e92acfaba12c680cae409c107dc",
+  "forbidden_cache_members_in_package": 0,
+  "checks": {
+    "formal_resume_rejects_smoke": true,
+    "d3_0_resume_requires_complete_summary": true,
+    "continuation_results_are_inside_formal_result_tree": true,
+    "both_hidden_layer_saturation_fields_are_in_progress_csv": true,
+    "readme_commands_are_single_line": true
+  },
+  "validation_used": false,
+  "test_used": false,
+  "formal_cuda_training_run": false
+}

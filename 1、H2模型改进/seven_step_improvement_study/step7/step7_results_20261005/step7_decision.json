@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step7-supplemental-independent-acceptance-v1",
+  "status": "complete",
+  "candidate": {
+    "model_id": "A4-2",
+    "seed": 42,
+    "epoch": 8,
+    "threshold": 0.4
+  },
+  "conclusion": "test_improvement_observed_but_one_or_more_guardrails_or_confidence_checks_failed",
+  "passes_all_independent_acceptance_checks": false,
+  "checks": {
+    "validation_fixed_protocol_complete": true,
+    "test_fixed_protocol_complete": true,
+    "validation_safety_gates_pass": true,
+    "test_safety_gates_pass": false,
+    "test_iou_improves": true,
+    "test_ap_not_lower": true,
+    "test_iou_bootstrap_lower_95_positive": true
+  },
+  "validation": "validation/split_summary.json",
+  "test": "test/split_summary.json",
+  "original_step6_passes": false,
+  "original_step6_result_rewritten": false,
+  "interpretation": "Step7 is a pre-frozen supplemental independent acceptance requested after Step6; it does not retroactively change the Step6 decision.",
+  "validation_used": true,
+  "test_used": true,
+  "retraining_or_threshold_search": false
+}

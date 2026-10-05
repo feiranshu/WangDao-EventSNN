@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step4-feature-information-v1",
+  "status": "pass",
+  "smoke": false,
+  "validation_used": false,
+  "test_used": false,
+  "checks": {
+    "A4-1_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-1-null_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-2_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-2-null_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-4_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-4-null_epoch0": {
+      "float_max_abs": 0.0,
+      "int8_max_abs": 0.0,
+      "passes": true
+    },
+    "A4-1-null_one_step": {
+      "old_parameter_max_abs": 0.0,
+      "new_weights_remain_zero": true,
+      "passes": true
+    },
+    "A4-2-null_one_step": {
+      "old_parameter_max_abs": 0.0,
+      "new_weights_remain_zero": true,
+      "passes": true
+    },
+    "A4-4-null_one_step": {
+      "old_parameter_max_abs": 0.0,
+      "new_weights_remain_zero": true,
+      "passes": true
+    }
+  },
+  "reference_int8_ap": 0.927410633080494
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450.0" y="30" text-anchor="middle" font-size="22">Threshold metrics</text>
+<line x1="90" y1="525" x2="850" y2="525" stroke="black"/>
+<line x1="90" y1="55" x2="90" y2="525" stroke="black"/>
+<text x="470.0" y="592" text-anchor="middle">Threshold</text>
+<text transform="translate(24 290.0) rotate(-90)" text-anchor="middle">Metric</text>
+<text x="90.0" y="547" text-anchor="middle" font-size="12">0.05</text>
+<text x="80" y="529.0" text-anchor="end" font-size="12">0.131</text>
+<line x1="90.0" y1="55" x2="90.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="525.0" x2="850" y2="525.0" stroke="#eee"/>
+<text x="242.0" y="547" text-anchor="middle" font-size="12">0.23</text>
+<text x="80" y="435.0" text-anchor="end" font-size="12">0.302</text>
+<line x1="242.0" y1="55" x2="242.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="431.0" x2="850" y2="431.0" stroke="#eee"/>
+<text x="394.0" y="547" text-anchor="middle" font-size="12">0.41</text>
+<text x="80" y="341.0" text-anchor="end" font-size="12">0.472</text>
+<line x1="394.0" y1="55" x2="394.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="337.0" x2="850" y2="337.0" stroke="#eee"/>
+<text x="546.0" y="547" text-anchor="middle" font-size="12">0.59</text>
+<text x="80" y="247.0" text-anchor="end" font-size="12">0.642</text>
+<line x1="546.0" y1="55" x2="546.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="243.0" x2="850" y2="243.0" stroke="#eee"/>
+<text x="698.0" y="547" text-anchor="middle" font-size="12">0.77</text>
+<text x="80" y="153.0" text-anchor="end" font-size="12">0.812</text>
+<line x1="698.0" y1="55" x2="698.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="149.0" x2="850" y2="149.0" stroke="#eee"/>
+<text x="850.0" y="547" text-anchor="middle" font-size="12">0.95</text>
+<text x="80" y="59.0" text-anchor="end" font-size="12">0.982</text>
+<line x1="850.0" y1="55" x2="850.0" y2="525" stroke="#eee"/>
+<line x1="90" y1="55.0" x2="850" y2="55.0" stroke="#eee"/>
+<polyline fill="none" stroke="#2e7d32" stroke-width="2" points="90.00,525.00 132.22,499.73 174.44,478.75 216.67,460.13 258.89,442.80 284.22,432.81 301.11,426.30 343.33,410.38 385.56,394.73 427.78,379.60 470.00,363.86 512.22,348.44 554.44,332.52 596.67,316.62 638.89,300.19 681.11,283.28 723.33,266.34 765.56,248.80 807.78,233.04 850.00,239.42"/>
+<text x="700" y="75" fill="#2e7d32">IoU</text>
+<polyline fill="none" stroke="#c62828" stroke-width="2" points="90.00,55.00 132.22,56.28 174.44,57.76 216.67,59.45 258.89,61.47 284.22,62.57 301.11,63.25 343.33,65.79 385.56,68.60 427.78,72.11 470.00,75.68 512.22,79.82 554.44,84.16 596.67,89.60 638.89,96.54 681.11,104.46 723.33,114.87 765.56,128.89 807.78,152.28 850.00,209.40"/>
+<text x="700" y="95" fill="#c62828">Recall</text>
+</svg>

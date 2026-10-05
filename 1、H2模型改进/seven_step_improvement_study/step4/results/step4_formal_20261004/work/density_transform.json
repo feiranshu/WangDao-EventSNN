@@ -1,0 +1,9 @@
+{
+  "kind": "log1p_minmax_uint8",
+  "fit_role": "Train-main only",
+  "log1p_min": 5.802118375377063,
+  "log1p_max": 11.516927446349527,
+  "train_candidates": 2249852,
+  "train_sequences": 79,
+  "parameter_sha256": "756448bd4f9fc6488ae53359bc31e46774b19d112221687ebc7751820bbdf53f"
+}

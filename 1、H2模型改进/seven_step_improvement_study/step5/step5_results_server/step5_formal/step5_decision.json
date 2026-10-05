@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step5-history-freeze-v1",
+  "status": "complete",
+  "candidate_frozen": true,
+  "frozen_candidate": "frozen_candidate.json",
+  "selected_model": "A4-2",
+  "selected_epoch": 8,
+  "selected_threshold": 0.4,
+  "corrected_original_replacement": false,
+  "next_step": "Step6_three_seed_optimization_stability",
+  "validation_used": false,
+  "test_used": false
+}

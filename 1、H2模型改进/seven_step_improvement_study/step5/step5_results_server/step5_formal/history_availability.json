@@ -1,0 +1,53 @@
+{
+  "scope": "Train-dev candidate diagnostic",
+  "groups": {
+    "0": {
+      "available_prior_windows": 0,
+      "candidate_events": 5393,
+      "positive_candidate_events": 269,
+      "scope": "Proposal candidates only; diagnostic, not full-event AP",
+      "candidate_average_precision": 0.9357192504143674,
+      "candidate_iou": 0.7874564459930313,
+      "candidate_precision": 0.9262295081967213,
+      "candidate_recall": 0.8401486988847584,
+      "h2_average_precision": 0.9317408104349166,
+      "h2_iou": 0.7602523659305994,
+      "h2_precision": 0.8339100346020761,
+      "h2_recall": 0.895910780669145,
+      "delta_iou": 0.027204080062431912,
+      "delta_average_precision": 0.0039784399794507985
+    },
+    "1": {
+      "available_prior_windows": 1,
+      "candidate_events": 5080,
+      "positive_candidate_events": 274,
+      "scope": "Proposal candidates only; diagnostic, not full-event AP",
+      "candidate_average_precision": 0.9378168688821973,
+      "candidate_iou": 0.7432835820895523,
+      "candidate_precision": 0.8032258064516129,
+      "candidate_recall": 0.9087591240875912,
+      "h2_average_precision": 0.9388833601976811,
+      "h2_iou": 0.7309941520467836,
+      "h2_precision": 0.7861635220125787,
+      "h2_recall": 0.9124087591240876,
+      "delta_iou": 0.012289430042768612,
+      "delta_average_precision": -0.001066491315483864
+    },
+    "2": {
+      "available_prior_windows": 2,
+      "candidate_events": 434092,
+      "positive_candidate_events": 29638,
+      "scope": "Proposal candidates only; diagnostic, not full-event AP",
+      "candidate_average_precision": 0.9464583826096659,
+      "candidate_iou": 0.7989855929302673,
+      "candidate_precision": 0.9113074957410562,
+      "candidate_recall": 0.8663540049935893,
+      "h2_average_precision": 0.9420096227863213,
+      "h2_iou": 0.7927630564210136,
+      "h2_precision": 0.902415899992977,
+      "h2_recall": 0.8670962952965787,
+      "delta_iou": 0.00622253650925364,
+      "delta_average_precision": 0.0044487598233445835
+    }
+  }
+}

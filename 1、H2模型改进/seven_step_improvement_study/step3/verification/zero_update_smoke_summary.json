@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "validation_used": false,
+  "test_used": false,
+  "float_reference_ap": 0.9274303901825619,
+  "int8_reference_ap": 0.927410633080494,
+  "controls": {
+    "A3-1": {
+      "checks": {
+        "state_unchanged_after_backward": true,
+        "state_unchanged_after_reload": true,
+        "optimizer_step_count_zero": true,
+        "scheduler_step_count_zero": true,
+        "float_reference": true,
+        "int8_reference": true,
+        "float_probability_max_abs_le_1e_7": true,
+        "int8_probability_max_abs_le_1e_7": true,
+        "loader_contract": true
+      },
+      "passes": true,
+      "sampling": {
+        "kind": "natural_full_pass",
+        "draws": 4096,
+        "unique_candidates": 4096,
+        "coverage": 0.02048624830573325,
+        "repeat_fraction": 0.0,
+        "omitted": 195843
+      },
+      "float_ap": [
+        0.9274303892423152,
+        0.9274303892423152,
+        0.9274303892423152
+      ],
+      "int8_ap": [
+        0.927410633080494,
+        0.927410633080494,
+        0.927410633080494
+      ],
+      "float_probability_max_abs": 0.0,
+      "int8_probability_max_abs": 0.0,
+      "checkpoint": "zero_update_A3-1.pt",
+      "checkpoint_sha256": "f86c1e7ccf099051a857dd0cd845010009f96234fe2e29167a95df613802b34e"
+    },
+    "A3-2": {
+      "checks": {
+        "state_unchanged_after_backward": true,
+        "state_unchanged_after_reload": true,
+        "optimizer_step_count_zero": true,
+        "scheduler_step_count_zero": true,
+        "float_reference": true,
+        "int8_reference": true,
+        "float_probability_max_abs_le_1e_7": true,
+        "int8_probability_max_abs_le_1e_7": true,
+        "loader_contract": true
+      },
+      "passes": true,
+      "sampling": {
+        "kind": "corrected_stratified_with_replacement",
+        "draws": 4096,
+        "unique_candidates": 4056,
+        "coverage": 0.020286187287122573,
+        "repeat_fraction": 0.009765625,
+        "quotas": {
+          "high_positive": 512,
+          "high_negative": 1536,
+          "ordinary_positive": 512,
+          "ordinary_negative": 1536
+        },
+        "natural_stratum_probability": {
+          "high_positive": 0.039126933714783006,
+          "high_negative": 0.47500987801279393,
+          "ordinary_positive": 0.1881923986815979,
+          "ordinary_negative": 0.2976707895908252
+        },
+        "sampled_stratum_probability": {
+          "high_positive": 0.125,
+          "high_negative": 0.375,
+          "ordinary_positive": 0.125,
+          "ordinary_negative": 0.375
+        },
+        "importance_weight": {
+          "high_positive": 0.31301546971826405,
+          "high_negative": 1.2666930080341172,
+          "ordinary_positive": 1.5055391894527832,
+          "ordinary_negative": 0.7937887722422006
+        }
+      },
+      "float_ap": [
+        0.9274303892423152,
+        0.9274303892423152,
+        0.9274303892423152
+      ],
+      "int8_ap": [
+        0.927410633080494,
+        0.927410633080494,
+        0.927410633080494
+      ],
+      "float_probability_max_abs": 0.0,
+      "int8_probability_max_abs": 0.0,
+      "checkpoint": "zero_update_A3-2.pt",
+      "checkpoint_sha256": "5642f1cafbec045f9b9e62f7d3f145bb906e771807da5660ed4b1f158ef3998c"
+    }
+  }
+}

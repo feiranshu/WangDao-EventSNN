@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "validation_used": false,
+  "test_used": false,
+  "attempted_seed42_models": [
+    "A2-1",
+    "A2-2"
+  ],
+  "skipped": [],
+  "feature_audit_decision": "skip_A2-3",
+  "selected_feature_group": null,
+  "stc_decision": "skip_A2-4",
+  "seed42_passing_models": [],
+  "multiseed": null,
+  "step2_passes": false,
+  "next_step": "stop_step2_without_promoting_a_model",
+  "runs": {
+    "A2-1-seed42": "runs/A2-1-seed42/summary.json",
+    "A2-2-seed42": "runs/A2-2-seed42/summary.json"
+  }
+}

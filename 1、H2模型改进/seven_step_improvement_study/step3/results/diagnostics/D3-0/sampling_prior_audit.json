@@ -1,0 +1,171 @@
+{
+  "sequence_density_boundary_eps": 20000.0,
+  "sequence_distribution": {
+    "sequence_count": 79,
+    "ordinary_count": 67,
+    "ordinary_max_eps": 7684.055709403893,
+    "high_count": 12,
+    "high_min_eps": 31575.614461602425,
+    "high_max_eps": 81457.11869469052
+  },
+  "new_sequence_strata": [
+    {
+      "stratum": "high_positive",
+      "candidates": 50354,
+      "natural_probability": 0.022381027729824005,
+      "density_positive_rate": 0.029099445160716154
+    },
+    {
+      "stratum": "high_negative",
+      "candidates": 1680057,
+      "natural_probability": 0.7467411189713812,
+      "density_positive_rate": 0.029099445160716154
+    },
+    {
+      "stratum": "ordinary_positive",
+      "candidates": 166899,
+      "natural_probability": 0.07418221287444685,
+      "density_positive_rate": 0.3213050182792656
+    },
+    {
+      "stratum": "ordinary_negative",
+      "candidates": 352542,
+      "natural_probability": 0.15669564042434792,
+      "density_positive_rate": 0.3213050182792656
+    }
+  ],
+  "legacy_window_strata": [
+    {
+      "stratum": "high_positive",
+      "candidates": 86061,
+      "natural_probability": 0.03825184945498637,
+      "density_positive_rate": 0.04521340310175262
+    },
+    {
+      "stratum": "high_negative",
+      "candidates": 1817379,
+      "natural_probability": 0.8077771337848001,
+      "density_positive_rate": 0.04521340310175262
+    },
+    {
+      "stratum": "ordinary_positive",
+      "candidates": 131192,
+      "natural_probability": 0.058311391149284485,
+      "density_positive_rate": 0.3787166726325878
+    },
+    {
+      "stratum": "ordinary_negative",
+      "candidates": 215220,
+      "natural_probability": 0.09565962561092907,
+      "density_positive_rate": 0.3787166726325878
+    }
+  ],
+  "legacy_hard_pool_overlap": {
+    "high_hard_positive": 10902,
+    "high_positive": 86061,
+    "ordinary_positive": 131192,
+    "high_hard_negative": 454938,
+    "high_negative": 1817379,
+    "ordinary_hard_negative": 55547,
+    "ordinary_negative": 215220
+  },
+  "legacy_sampler_observed": {
+    "updates": 550,
+    "draws": 2252800,
+    "unique_candidates": 671546,
+    "coverage": 0.2984845225374825,
+    "repeat_fraction": 0.7019060724431818,
+    "stratum_draws": {
+      "high_hard_positive": 140800,
+      "high_positive": 140800,
+      "ordinary_positive": 281600,
+      "high_hard_negative": 422400,
+      "high_negative": 422400,
+      "ordinary_hard_negative": 422400,
+      "ordinary_negative": 422400
+    },
+    "sequence_draws": {
+      "train_000.npz": 17002,
+      "train_001.npz": 16819,
+      "train_003.npz": 46256,
+      "train_004.npz": 46214,
+      "train_005.npz": 46260,
+      "train_006.npz": 46157,
+      "train_007.npz": 46375,
+      "train_008.npz": 46146,
+      "train_009.npz": 46162,
+      "train_010.npz": 46299,
+      "train_011.npz": 46218,
+      "train_012.npz": 46044,
+      "train_013.npz": 45890,
+      "train_014.npz": 46503,
+      "train_015.npz": 16831,
+      "train_016.npz": 38692,
+      "train_017.npz": 16800,
+      "train_018.npz": 16584,
+      "train_019.npz": 16599,
+      "train_021.npz": 16742,
+      "train_023.npz": 16667,
+      "train_024.npz": 16653,
+      "train_025.npz": 16848,
+      "train_026.npz": 16965,
+      "train_027.npz": 16970,
+      "train_028.npz": 45839,
+      "train_029.npz": 46169,
+      "train_030.npz": 45928,
+      "train_031.npz": 46056,
+      "train_032.npz": 16772,
+      "train_033.npz": 16712,
+      "train_035.npz": 16830,
+      "train_036.npz": 16910,
+      "train_037.npz": 16654,
+      "train_038.npz": 42160,
+      "train_040.npz": 46604,
+      "train_042.npz": 46371,
+      "train_043.npz": 46321,
+      "train_044.npz": 29555,
+      "train_045.npz": 29298,
+      "train_046.npz": 29390,
+      "train_047.npz": 29216,
+      "train_048.npz": 16919,
+      "train_051.npz": 16544,
+      "train_052.npz": 16853,
+      "train_053.npz": 16894,
+      "train_054.npz": 16881,
+      "train_055.npz": 16869,
+      "train_056.npz": 46336,
+      "train_057.npz": 16847,
+      "train_061.npz": 42519,
+      "train_062.npz": 16782,
+      "train_063.npz": 16843,
+      "train_064.npz": 16845,
+      "train_068.npz": 16855,
+      "train_069.npz": 42332,
+      "train_070.npz": 16875,
+      "train_072.npz": 46234,
+      "train_073.npz": 45904,
+      "train_074.npz": 46127,
+      "train_075.npz": 16874,
+      "train_076.npz": 16721,
+      "train_077.npz": 16885,
+      "train_078.npz": 16716,
+      "train_080.npz": 16735,
+      "train_082.npz": 16690,
+      "train_083.npz": 16881,
+      "train_084.npz": 17019,
+      "train_085.npz": 16714,
+      "train_086.npz": 16934,
+      "train_087.npz": 16991,
+      "train_088.npz": 29346,
+      "train_090.npz": 29232,
+      "train_091.npz": 29561,
+      "train_094.npz": 29086,
+      "train_095.npz": 29504,
+      "train_096.npz": 29174,
+      "train_097.npz": 29304,
+      "train_098.npz": 29493
+    },
+    "min_sequence_draws": 16544,
+    "max_sequence_draws": 46604
+  }
+}

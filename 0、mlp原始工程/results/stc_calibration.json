@@ -1,0 +1,579 @@
+{
+  "schema_version": 1,
+  "status": "gate_failed",
+  "experiment_id": "S0P-STC-CALIBRATION-v1",
+  "stage": "S0-P-STC",
+  "data_role": "train_dev",
+  "primary_metrics": {
+    "diagnostic_best_auroc": 0.8837613595449124,
+    "selected_candidate": null,
+    "selected_event_iou": null,
+    "selected_pd": null
+  },
+  "decision": "reject_stc",
+  "conclusion": "没有正 STC 权重候选通过全部门槛，保留现有 S0-P/S1 并恢复 S3。",
+  "scope": {
+    "test_used": false,
+    "validation_used": false,
+    "diagnostic_sequences": 10,
+    "selection_role": "train_dev"
+  },
+  "diagnostic": {
+    "schema_version": 1,
+    "status": "ok",
+    "experiment_id": "STC-DIAG-train-dev-v1",
+    "stage": "S0-P-STC-diagnostic",
+    "data_role": "train_dev",
+    "primary_metrics": {
+      "best_auroc": 0.8837613595449124,
+      "best_target_weight_median": 0.8404471278190613,
+      "best_false_weight_median": 0.5919280052185059,
+      "selected_kernel": {
+        "spatial": 1,
+        "temporal_micro_steps": 3
+      }
+    },
+    "decision": "proceed_to_training",
+    "conclusion": "Train-dev 时空相关性通过预设门槛，允许执行受限 STC 训练扫描。",
+    "scope": {
+      "test_used": false,
+      "training_performed": false,
+      "sequence_count": 10,
+      "windows_per_sequence": 80,
+      "micro_time_steps": 4,
+      "micro_step_ms": 25.0,
+      "coarse_cell_pixels": 8
+    },
+    "model": {
+      "checkpoint": "S0P_T4_POS15_KD50_S42.npz",
+      "checkpoint_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+      "metadata": {
+        "checkpoint_epoch": 20,
+        "checkpoint_sha256": "800ee5a78993f61697ccd04d3343e105c5a9583dbc1e72c47b9338d2f9d5b8ae",
+        "model_id": "S0-P-BAL-T4-POS15-KD50-S42",
+        "proposal_threshold": 0.51,
+        "source_checkpoint": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\results\\runs\\S0P-SWEEP-T4-S42\\POS15-KD50-best.pt"
+      }
+    },
+    "protocol": {
+      "paper_formula_gamma": 2.0,
+      "training_variant": "released_centered_detached",
+      "prediction_threshold": 0.5,
+      "candidate_kernels": [
+        {
+          "spatial": 1,
+          "temporal_micro_steps": 3
+        },
+        {
+          "spatial": 3,
+          "temporal_micro_steps": 3
+        },
+        {
+          "spatial": 3,
+          "temporal_micro_steps": 5
+        }
+      ],
+      "gates": {
+        "auroc_minimum": 0.6,
+        "target_median_above_false": true,
+        "maximum_saturated_fraction": 0.95,
+        "probe_recall_must_improve": true,
+        "maximum_probe_candidate_growth_points": 0.05
+      }
+    },
+    "candidates": [
+      {
+        "kernel": {
+          "spatial": 1,
+          "temporal_micro_steps": 3
+        },
+        "prediction_threshold": 0.5,
+        "cells": 4787200,
+        "target_cells": 7238,
+        "false_positive_cells": 2098447,
+        "released": {
+          "auroc_on_prediction_target_union": 0.8837613595449124,
+          "target_weight_median": 0.8404471278190613,
+          "false_weight_median": 0.5919280052185059,
+          "saturated_fraction": 0.0,
+          "weight_quantiles": {
+            "min": 0.24378350377082825,
+            "p01": 0.2675754028558731,
+            "p05": 0.3139877900481224,
+            "median": 0.4991724491119385,
+            "p95": 0.6567702889442444,
+            "p99": 0.735203043222427,
+            "max": 0.9136049151420593
+          }
+        },
+        "paper_equation": {
+          "gamma": 2.0,
+          "saturated_fraction_before_gamma": 0.0,
+          "weight_quantiles_before_gamma": {
+            "min": 0.5001120567321777,
+            "p01": 0.5117177367210388,
+            "p05": 0.5294598489999771,
+            "median": 0.7241321802139282,
+            "p95": 0.8175744414329529,
+            "p99": 0.8689413070678711,
+            "max": 0.9512059092521667
+          }
+        },
+        "probe": {
+          "rule": "clip(probability * (0.5 + released_weight), 0, 1)",
+          "baseline_recall": 0.8122409505388228,
+          "reranked_recall": 0.8455374412821222,
+          "baseline_positive_fraction": 0.439573445855615,
+          "reranked_positive_fraction": 0.38937019552139035
+        },
+        "gates": {
+          "auc_at_least_0_60": true,
+          "target_median_above_false": true,
+          "released_weights_not_saturated": true,
+          "probe_recall_improves": true,
+          "probe_candidate_growth_within_5_points": true
+        },
+        "passes": true
+      },
+      {
+        "kernel": {
+          "spatial": 3,
+          "temporal_micro_steps": 3
+        },
+        "prediction_threshold": 0.5,
+        "cells": 4787200,
+        "target_cells": 7238,
+        "false_positive_cells": 2098447,
+        "released": {
+          "auroc_on_prediction_target_union": 0.836692070527353,
+          "target_weight_median": 0.9983383417129517,
+          "false_weight_median": 0.9269962906837463,
+          "saturated_fraction": 0.1468064785003662,
+          "weight_quantiles": {
+            "min": 5.454977508634329e-05,
+            "p01": 0.0005533051711972802,
+            "p05": 0.004451225232332945,
+            "median": 0.502960592508316,
+            "p95": 0.9905036151409149,
+            "p99": 0.9987485420703888,
+            "max": 0.9999986886978149
+          }
+        },
+        "paper_equation": {
+          "gamma": 2.0,
+          "saturated_fraction_before_gamma": 0.822417676448822,
+          "weight_quantiles_before_gamma": {
+            "min": 0.5027137398719788,
+            "p01": 0.7182128894329071,
+            "p05": 0.9169195085763931,
+            "median": 0.9996546506881714,
+            "p95": 0.9999985694885254,
+            "p99": 0.9999985694885254,
+            "max": 1.0
+          }
+        },
+        "probe": {
+          "rule": "clip(probability * (0.5 + released_weight), 0, 1)",
+          "baseline_recall": 0.8122409505388228,
+          "reranked_recall": 0.8833932025421387,
+          "baseline_positive_fraction": 0.439573445855615,
+          "reranked_positive_fraction": 0.3743079461898396
+        },
+        "gates": {
+          "auc_at_least_0_60": true,
+          "target_median_above_false": true,
+          "released_weights_not_saturated": true,
+          "probe_recall_improves": true,
+          "probe_candidate_growth_within_5_points": true
+        },
+        "passes": true
+      },
+      {
+        "kernel": {
+          "spatial": 3,
+          "temporal_micro_steps": 5
+        },
+        "prediction_threshold": 0.5,
+        "cells": 4787200,
+        "target_cells": 7238,
+        "false_positive_cells": 2098447,
+        "released": {
+          "auroc_on_prediction_target_union": 0.8667351387277908,
+          "target_weight_median": 0.9999717473983765,
+          "false_weight_median": 0.9582440257072449,
+          "saturated_fraction": 0.3572426438331604,
+          "weight_quantiles": {
+            "min": 8.496608927544003e-08,
+            "p01": 1.3921340832894202e-05,
+            "p05": 0.00033832227054517714,
+            "median": 0.49567750096321106,
+            "p95": 0.9992061257362366,
+            "p99": 0.9999630451202393,
+            "max": 1.0
+          }
+        },
+        "paper_equation": {
+          "gamma": 2.0,
+          "saturated_fraction_before_gamma": 0.9585630297660828,
+          "weight_quantiles_before_gamma": {
+            "min": 0.5101118087768555,
+            "p01": 0.9232859224081039,
+            "p05": 0.992892736196518,
+            "median": 0.9999980926513672,
+            "p95": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          }
+        },
+        "probe": {
+          "rule": "clip(probability * (0.5 + released_weight), 0, 1)",
+          "baseline_recall": 0.8122409505388228,
+          "reranked_recall": 0.8958275766786405,
+          "baseline_positive_fraction": 0.439573445855615,
+          "reranked_positive_fraction": 0.3497530915775401
+        },
+        "gates": {
+          "auc_at_least_0_60": true,
+          "target_median_above_false": true,
+          "released_weights_not_saturated": true,
+          "probe_recall_improves": true,
+          "probe_candidate_growth_within_5_points": true
+        },
+        "passes": true
+      }
+    ],
+    "selected": {
+      "kernel": {
+        "spatial": 1,
+        "temporal_micro_steps": 3
+      },
+      "prediction_threshold": 0.5,
+      "cells": 4787200,
+      "target_cells": 7238,
+      "false_positive_cells": 2098447,
+      "released": {
+        "auroc_on_prediction_target_union": 0.8837613595449124,
+        "target_weight_median": 0.8404471278190613,
+        "false_weight_median": 0.5919280052185059,
+        "saturated_fraction": 0.0,
+        "weight_quantiles": {
+          "min": 0.24378350377082825,
+          "p01": 0.2675754028558731,
+          "p05": 0.3139877900481224,
+          "median": 0.4991724491119385,
+          "p95": 0.6567702889442444,
+          "p99": 0.735203043222427,
+          "max": 0.9136049151420593
+        }
+      },
+      "paper_equation": {
+        "gamma": 2.0,
+        "saturated_fraction_before_gamma": 0.0,
+        "weight_quantiles_before_gamma": {
+          "min": 0.5001120567321777,
+          "p01": 0.5117177367210388,
+          "p05": 0.5294598489999771,
+          "median": 0.7241321802139282,
+          "p95": 0.8175744414329529,
+          "p99": 0.8689413070678711,
+          "max": 0.9512059092521667
+        }
+      },
+      "probe": {
+        "rule": "clip(probability * (0.5 + released_weight), 0, 1)",
+        "baseline_recall": 0.8122409505388228,
+        "reranked_recall": 0.8455374412821222,
+        "baseline_positive_fraction": 0.439573445855615,
+        "reranked_positive_fraction": 0.38937019552139035
+      },
+      "gates": {
+        "auc_at_least_0_60": true,
+        "target_median_above_false": true,
+        "released_weights_not_saturated": true,
+        "probe_recall_improves": true,
+        "probe_candidate_growth_within_5_points": true
+      },
+      "passes": true
+    },
+    "reproducibility": {
+      "command": [
+        "software\\scripts\\analyze_stc.py",
+        "--device",
+        "cuda",
+        "--chunk-size",
+        "4096",
+        "--output",
+        "results\\stc_calibration.json"
+      ],
+      "device": "cuda",
+      "torch": "2.5.1+cu121",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "script_sha256": "01f271c540b3fb98d802c2ddcb31143125511a65162d6bb2972b8352c6c610be",
+      "stc_source_sha256": "86676d9eeb57f8d598b188706825ed428ba2c3aac58b5c01ffb6b27622b12cd4",
+      "elapsed_s": 10.022171000000526
+    }
+  },
+  "training_selection": {
+    "run_directory": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\results\\runs\\S0P-STC-T4-S42",
+    "selection": {
+      "schema_version": 1,
+      "status": "gate_failed",
+      "experiment_id": "S0P-STC-SELECTION-train-dev-v1",
+      "stage": "S0-P-STC-selection",
+      "data_role": "train_dev",
+      "primary_metrics": {
+        "selected_candidate": null,
+        "selected_event_iou": null,
+        "selected_pd": null
+      },
+      "decision": "reject_stc",
+      "conclusion": "没有正 STC 权重候选通过全部门槛，保留现有 S0-P/S1 并恢复 S3。",
+      "scope": {
+        "test_used": false,
+        "validation_used": false,
+        "threshold_scan": false,
+        "proposal_threshold": 0.51
+      },
+      "training_protocol": {
+        "complete_protocol": true,
+        "config": "config.json",
+        "config_sha256": "06e1322d80b307fdb713691fe194438ef21e59879af16dfc31e2f7c2d51f4aaf",
+        "epochs": 20,
+        "max_sequences": 0,
+        "max_dev_sequences": 0,
+        "time_steps": 4,
+        "stc_weights": [
+          0.0,
+          0.05,
+          0.1,
+          0.2
+        ],
+        "positive_fraction": 0.15,
+        "distillation_weight": 0.5,
+        "seed": 42
+      },
+      "baseline": {
+        "checkpoint": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\software\\weights\\S0P_T4_POS15_KD50_S42.npz",
+        "checkpoint_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+        "metrics": {
+          "event_iou": 0.7342315488255634,
+          "precision": 0.8950256168017151,
+          "recall": 0.8034182458658142,
+          "pd": 0.7605354486861676,
+          "fa": 1.4044395441224206e-05,
+          "proposal_recall": 0.9485958446133272,
+          "candidate_fraction": 0.3752104579516531,
+          "mean_spike_rates": [
+            0.321222474650879,
+            0.3983081549689883,
+            0.009566766655161266
+          ],
+          "event_driven_synaptic_accumulations": 758712232,
+          "hybrid_synaptic_proxy": 2719509928
+        }
+      },
+      "lambda_zero_control": {
+        "deltas_to_baseline": {
+          "event_iou": -0.006506498494818547,
+          "pd": 0.026772434308378723,
+          "proposal_recall": 0.01895038977135588,
+          "candidate_fraction": 0.06950709797984611,
+          "event_driven_synaptic_ratio": 0.8776927060271779,
+          "hybrid_synaptic_ratio": 1.0994437965515675
+        },
+        "gates": {
+          "event_iou_degradation_within_0_5_points": false,
+          "pd_degradation_within_1_point": true,
+          "proposal_recall_degradation_within_0_5_points": true,
+          "finite_metrics": true
+        },
+        "passes": false
+      },
+      "candidates": [
+        {
+          "name": "STC00",
+          "stc_weight": 0.0,
+          "checkpoint": "STC00-best.pt",
+          "checkpoint_sha256": "d04efd4344d687d55790536705aa8ec47bcd761a94819b09903908a58416873c",
+          "metrics": {
+            "event_iou": 0.7277250503307449,
+            "precision": 0.8602366220167267,
+            "recall": 0.8253041521249878,
+            "pd": 0.7873078829945463,
+            "fa": 1.828393804848172e-05,
+            "proposal_recall": 0.9675462343846831,
+            "candidate_fraction": 0.4447175559314992,
+            "mean_spike_rates": [
+              0.25832000861099613,
+              0.3622607502864585,
+              0.011477690200720515
+            ],
+            "event_driven_synaptic_accumulations": 665916192,
+            "hybrid_synaptic_proxy": 2989948320
+          },
+          "deltas_to_baseline": {
+            "event_iou": -0.006506498494818547,
+            "pd": 0.026772434308378723,
+            "proposal_recall": 0.01895038977135588,
+            "candidate_fraction": 0.06950709797984611,
+            "event_driven_synaptic_ratio": 0.8776927060271779,
+            "hybrid_synaptic_ratio": 1.0994437965515675
+          },
+          "gates": {
+            "event_iou_degradation_within_0_5_points": false,
+            "pd_degradation_within_1_point": true,
+            "proposal_recall_degradation_within_0_5_points": true,
+            "finite_metrics": true
+          },
+          "passes": false
+        },
+        {
+          "name": "STC05",
+          "stc_weight": 0.05,
+          "checkpoint": "STC05-best.pt",
+          "checkpoint_sha256": "0e92b261d5cd25c5c4f0680de2837111495ea0cb8163596bad03d1797e64db54",
+          "metrics": {
+            "event_iou": 0.7236279607163489,
+            "precision": 0.8634749939682211,
+            "recall": 0.8171173228089631,
+            "pd": 0.7754090233019336,
+            "fa": 1.833492911076832e-05,
+            "proposal_recall": 0.9604683779640563,
+            "candidate_fraction": 0.41202069540237785,
+            "mean_spike_rates": [
+              0.2633998964137087,
+              0.3641917087545707,
+              0.01024355936972868
+            ],
+            "event_driven_synaptic_accumulations": 673005544,
+            "hybrid_synaptic_proxy": 2826168424
+          },
+          "deltas_to_baseline": {
+            "event_iou": -0.010603588109214468,
+            "pd": 0.014873574615765994,
+            "proposal_recall": 0.01187253335072902,
+            "candidate_fraction": 0.03681023745072476,
+            "event_driven_synaptic_ratio": 0.8870366334096482,
+            "hybrid_synaptic_ratio": 1.0392197487134895
+          },
+          "gates": {
+            "lambda_zero_control_passes": false,
+            "benefit_threshold": false,
+            "proposal_recall_not_lower": true,
+            "candidate_growth_within_5_points": true,
+            "hybrid_synaptic_proxy_growth_within_5_percent": true,
+            "finite_metrics": true,
+            "spike_rates_not_abnormal": true
+          },
+          "passes": false
+        },
+        {
+          "name": "STC10",
+          "stc_weight": 0.1,
+          "checkpoint": "STC10-best.pt",
+          "checkpoint_sha256": "43e59412ed59a89fefc1fc4f2f82957c1af5ff72d6a41f210c824e3cd50312dd",
+          "metrics": {
+            "event_iou": 0.7259392393320965,
+            "precision": 0.8671352886180269,
+            "recall": 0.8167911543103167,
+            "pd": 0.7749132374814081,
+            "fa": 1.7912431737536473e-05,
+            "proposal_recall": 0.9533252878437001,
+            "candidate_fraction": 0.3777961708170901,
+            "mean_spike_rates": [
+              0.2654477913229771,
+              0.36237069247290493,
+              0.009536714103250276
+            ],
+            "event_driven_synaptic_accumulations": 674790272,
+            "hybrid_synaptic_proxy": 2649100544
+          },
+          "deltas_to_baseline": {
+            "event_iou": -0.008292309493466932,
+            "pd": 0.014377788795240432,
+            "proposal_recall": 0.004729443230372832,
+            "candidate_fraction": 0.0025857128654370176,
+            "event_driven_synaptic_ratio": 0.8893889455574244,
+            "hybrid_synaptic_ratio": 0.9741095322818767
+          },
+          "gates": {
+            "lambda_zero_control_passes": false,
+            "benefit_threshold": false,
+            "proposal_recall_not_lower": true,
+            "candidate_growth_within_5_points": true,
+            "hybrid_synaptic_proxy_growth_within_5_percent": true,
+            "finite_metrics": true,
+            "spike_rates_not_abnormal": true
+          },
+          "passes": false
+        },
+        {
+          "name": "STC20",
+          "stc_weight": 0.2,
+          "checkpoint": "STC20-best.pt",
+          "checkpoint_sha256": "42cc94fad167519e67dd124c7d56c12633577aac0f551bc37c3477bb753cae24",
+          "metrics": {
+            "event_iou": 0.7206283564515665,
+            "precision": 0.8577337207314989,
+            "recall": 0.8184546136534133,
+            "pd": 0.7828458106098165,
+            "fa": 1.9092510607597842e-05,
+            "proposal_recall": 0.9631429596529567,
+            "candidate_fraction": 0.3796269428209085,
+            "mean_spike_rates": [
+              0.258465256199152,
+              0.3487460200373261,
+              0.0093327404239348
+            ],
+            "event_driven_synaptic_accumulations": 660516176,
+            "hybrid_synaptic_proxy": 2644393808
+          },
+          "deltas_to_baseline": {
+            "event_iou": -0.013603192373996875,
+            "pd": 0.02231036192364888,
+            "proposal_recall": 0.014547115039629466,
+            "candidate_fraction": 0.004416484869255388,
+            "event_driven_synaptic_ratio": 0.8705753619641129,
+            "hybrid_synaptic_ratio": 0.9723788028031791
+          },
+          "gates": {
+            "lambda_zero_control_passes": false,
+            "benefit_threshold": false,
+            "proposal_recall_not_lower": true,
+            "candidate_growth_within_5_points": true,
+            "hybrid_synaptic_proxy_growth_within_5_percent": true,
+            "finite_metrics": true,
+            "spike_rates_not_abnormal": true
+          },
+          "passes": false
+        }
+      ],
+      "selected": null,
+      "export": null,
+      "selection_rule": {
+        "event_iou_gain_minimum": 0.005,
+        "pd_loss_maximum_when_iou_improves": 0.005,
+        "pd_gain_alternative_minimum": 0.01,
+        "event_iou_loss_maximum_when_pd_improves": 0.002,
+        "proposal_recall_may_decrease": false,
+        "candidate_growth_maximum_points": 0.05,
+        "hybrid_synaptic_proxy_growth_maximum_ratio": 1.05,
+        "ranking": "Train-dev Event IoU, Pd, then lower hybrid synaptic proxy"
+      },
+      "reproducibility": {
+        "command": [
+          "software\\scripts\\select_stc.py",
+          "--run",
+          "results\\runs\\S0P-STC-T4-S42",
+          "--device",
+          "cuda",
+          "--chunk-size",
+          "4096",
+          "--finalize-calibration"
+        ],
+        "selection_source_sha256": "5d09851dbf41100d4d260d9000e527f73f52800acb08bf07b863991eb0de79a9",
+        "evaluation_source_sha256": "a34862b767162006a955c97833eed6cdcdfda58ff7a08c8ae82f54b961bd2a95"
+      }
+    }
+  }
+}

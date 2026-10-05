@@ -1,0 +1,143 @@
+{
+  "package": "H2_step2_server_20261003",
+  "created": "2026-10-03T21:51:27+08:00",
+  "dataset_included": false,
+  "validation_or_test_results_included": false,
+  "files": [
+    {
+      "path": "collect_step2_results.py",
+      "bytes": 2340,
+      "sha256": "055b9f60a3ccc8bcaac45b5f0c5a6323b7ede2692aaab8f728df2272471b3b4c"
+    },
+    {
+      "path": "data/EV-UAV-dataset/PLACE_DATASET_HERE.txt",
+      "bytes": 173,
+      "sha256": "8b6ee4b859ec278cb9fc7d5438cd87fcfd7bb37244fa18197927f0408bfda62d"
+    },
+    {
+      "path": "data/index.json",
+      "bytes": 36663,
+      "sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+    },
+    {
+      "path": "README_SERVER.md",
+      "bytes": 2343,
+      "sha256": "7c461d5ec2a1fb46b4bb4ee0006b8211e7056f90c25e25732db29ed89996a9ac"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2343,
+      "sha256": "7c461d5ec2a1fb46b4bb4ee0006b8211e7056f90c25e25732db29ed89996a9ac"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 27,
+      "sha256": "8a29d714abd1ff5c4b9bb8672371e1d73ec0642e17b272721040a7c8c2a0df68"
+    },
+    {
+      "path": "run_server.sh",
+      "bytes": 582,
+      "sha256": "48396edd6be257f1b7f53e9e5e6abf491e37876564e19a8fdc30526997f47c66"
+    },
+    {
+      "path": "run_step2.py",
+      "bytes": 18314,
+      "sha256": "8dece292d33389f95da53e832e2ab140d9cebda3c8b17ed05d753cf90791c03e"
+    },
+    {
+      "path": "software/wangdao/__init__.py",
+      "bytes": 31,
+      "sha256": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617"
+    },
+    {
+      "path": "software/wangdao/data.py",
+      "bytes": 2529,
+      "sha256": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f"
+    },
+    {
+      "path": "software/wangdao/h2_refiner.py",
+      "bytes": 9487,
+      "sha256": "fa5f05b70c55d1c19d76b845936ad2b25dd46b734963e066566a53a147b1a121"
+    },
+    {
+      "path": "software/wangdao/h2_research.py",
+      "bytes": 11576,
+      "sha256": "d00c3dda9d04c7697d8a480c631e3f730b98e4e25b5276c9d90baf94f270ced1"
+    },
+    {
+      "path": "software/wangdao/h2/__init__.py",
+      "bytes": 169,
+      "sha256": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409"
+    },
+    {
+      "path": "software/wangdao/h2/constants.py",
+      "bytes": 1008,
+      "sha256": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6"
+    },
+    {
+      "path": "software/wangdao/h2/features.py",
+      "bytes": 4556,
+      "sha256": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16"
+    },
+    {
+      "path": "software/wangdao/h2/numpy_model.py",
+      "bytes": 8294,
+      "sha256": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee"
+    },
+    {
+      "path": "software/wangdao/h2/representation.py",
+      "bytes": 11553,
+      "sha256": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003"
+    },
+    {
+      "path": "software/wangdao/h2/torch_model.py",
+      "bytes": 3877,
+      "sha256": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87"
+    },
+    {
+      "path": "software/wangdao/phase1_common.py",
+      "bytes": 11764,
+      "sha256": "cbf41f8b4774d980c88085c7efbda101202994696cb4a4b7195093e85e498352"
+    },
+    {
+      "path": "software/wangdao/phase1_metrics.py",
+      "bytes": 5144,
+      "sha256": "9a3e01d89de08564fb89afceabfe438b2528bc5d1d38d9c4f852691bcde4e4b8"
+    },
+    {
+      "path": "software/wangdao/runtime.py",
+      "bytes": 1288,
+      "sha256": "0a357438c9460c7eb73793478d51c2e95dc3e11393f32287148bb1e688f9c711"
+    },
+    {
+      "path": "software/weights/H2_D1_seed42.npz",
+      "bytes": 16970,
+      "sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2"
+    },
+    {
+      "path": "step2_audit.py",
+      "bytes": 15602,
+      "sha256": "70ea736716632e5f99d344251cda0e8598846db7ccfce49d961c1310fe8e163b"
+    },
+    {
+      "path": "step2_common.py",
+      "bytes": 28819,
+      "sha256": "dc2aad8bed15b11f28f67710cfdd298a25ce39ac45b6378da9e501eb372ada0d"
+    },
+    {
+      "path": "step2_protocol.json",
+      "bytes": 3204,
+      "sha256": "e33a4174994e2d6e31c662f7c8a8ad354beb6d940bda9fc5a40d4527d4ce102d"
+    },
+    {
+      "path": "step2_training.py",
+      "bytes": 33401,
+      "sha256": "4cbd477abe9cd780f3a2a4acdf8ec59576883c105e7153b6cf1cace2536db8f5"
+    },
+    {
+      "path": "tests/test_step2.py",
+      "bytes": 7928,
+      "sha256": "b3d238f734ed35c1150579a366aa35c411ff1869b6a7f8f25043e4dbeb0f26c9"
+    }
+  ]
+}

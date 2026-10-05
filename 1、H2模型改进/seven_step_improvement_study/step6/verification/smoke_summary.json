@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step6-three-seed-stability-v1",
+  "status": "smoke_complete",
+  "tasks_completed": [
+    "A4-2-seed43",
+    "A4-2-null-seed43",
+    "A4-2-seed44",
+    "A4-2-null-seed44"
+  ],
+  "smoke_epoch": 1,
+  "fixed_threshold": 0.4,
+  "formal_decision_performed": false,
+  "resume_path_verified": true,
+  "incomplete_attempt_preserved": true,
+  "per_epoch_terminal_progress_verified": true,
+  "fixed_float_int8_export_verified": true,
+  "history_availability_verified": true,
+  "validation_used": false,
+  "test_used": false
+}

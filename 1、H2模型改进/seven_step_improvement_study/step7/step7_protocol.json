@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step7-supplemental-independent-acceptance-v1",
+  "frozen_before_validation_or_test_access": true,
+  "scope": "Supplemental independent acceptance after the original Step6 gate failed only on seed44 ordinary-density Fa",
+  "candidate": {
+    "model_id": "A4-2",
+    "seed": 42,
+    "epoch": 8,
+    "threshold": 0.4,
+    "numeric_path": "exact_int8_replay",
+    "checkpoint_sha256": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f"
+  },
+  "references": {
+    "H2-F_threshold": 0.2800000011920929,
+    "H2-R_threshold": 0.3
+  },
+  "roles": [
+    "validation",
+    "test"
+  ],
+  "role_policy": "Evaluate both roles exactly once; neither role may change model, epoch, threshold, preprocessing, quantization or postprocessing",
+  "density_boundary_events_per_second": 20000.0,
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20261005,
+    "unit": "sequence",
+    "paired": true,
+    "stratify_by_density_when_both_groups_exist": true
+  },
+  "formal_comparison": "A4-2 exact-int8 versus H2-R; H2-F and A4-2 float are supporting references",
+  "safety_gates": {
+    "overall_iou_strictly_higher": true,
+    "average_precision_not_lower": true,
+    "overall_pd_loss_pp_max": 0.5,
+    "overall_fa_relative_rise_max_vs_H2_F": 0.1,
+    "high_iou_loss_pp_max": 0.3,
+    "high_recall_loss_pp_max": 0.3,
+    "high_fa_relative_rise_max": 0.1,
+    "ordinary_iou_loss_pp_max": 0.3,
+    "ordinary_recall_loss_pp_max": 0.3,
+    "ordinary_pd_loss_pp_max": 0.3,
+    "ordinary_fa_relative_rise_max": 0.05
+  },
+  "research_targets_diagnostic_only": {
+    "overall_iou_gain_pp": 0.5,
+    "high_recall_gain_pp": 2.0,
+    "high_iou_gain_pp": 2.0
+  },
+  "step6_historical_result_is_not_rewritten": true,
+  "training_or_threshold_search_allowed": false
+}

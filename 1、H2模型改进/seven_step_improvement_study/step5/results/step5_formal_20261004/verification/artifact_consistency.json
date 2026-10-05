@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step5-history-freeze-v1",
+  "status": "pass",
+  "checks": {
+    "checkpoint_hash_matches_frozen": true,
+    "checkpoint_copy_matches_step4_source": true,
+    "int8_export_hash_matches_frozen": true,
+    "checkpoint_metadata_matches_decision": true,
+    "decision_threshold_matches_metric": true,
+    "decision_ap_matches_metric": true,
+    "decision_iou_matches_metric": true,
+    "exported_int8_replay_exact": true,
+    "validation_and_test_unused": true
+  },
+  "int8_replay_max_abs": 0.0,
+  "validation_used": false,
+  "test_used": false
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step6-three-seed-stability-v1",
+  "roles_allowed": ["Train-main", "Train-dev"],
+  "roles_forbidden": ["Validation", "Test"],
+  "candidate_model": "A4-2",
+  "matched_control": "A4-2-null",
+  "deployment_seed": 42,
+  "additional_seeds": [43, 44],
+  "fixed_epoch": 8,
+  "fixed_threshold": 0.4,
+  "epochs": 10,
+  "batch_size": 4096,
+  "sampling": "natural_full_pass",
+  "loss": "BCE",
+  "ema": false,
+  "qat": false,
+  "bootstrap_iterations": 10000,
+  "bootstrap_seed": 20261004,
+  "density_boundary_eps": 20000.0,
+  "four_gpu_mapping": {
+    "0": "A4-2 seed43",
+    "1": "A4-2-null seed43",
+    "2": "A4-2 seed44",
+    "3": "A4-2-null seed44"
+  },
+  "selection_numeric_path": "exact_int8_replay",
+  "threshold_search_forbidden": true,
+  "extra_epochs_forbidden": true,
+  "extra_seeds_forbidden": true
+}

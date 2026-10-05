@@ -1,0 +1,187 @@
+{
+  "scope": "Train-dev sensitivity; no threshold search",
+  "groups": {
+    "all": {
+      "sequences": [
+        "train_002.npz",
+        "train_020.npz",
+        "train_034.npz",
+        "train_039.npz",
+        "train_041.npz",
+        "train_050.npz",
+        "train_060.npz",
+        "train_066.npz",
+        "train_089.npz",
+        "train_092.npz"
+      ],
+      "candidate": {
+        "tp": 26152,
+        "fp": 2578,
+        "fn": 4507,
+        "iou": 0.7868339501158348,
+        "pd": 0.8440139095876801,
+        "fa": 1.266763675948594e-05,
+        "average_precision": 0.9317999361948396
+      },
+      "h2": {
+        "tp": 26190,
+        "fp": 2895,
+        "fn": 4469,
+        "iou": 0.7805328723848125,
+        "pd": 0.8405365126676602,
+        "fa": 1.4073533191102263e-05,
+        "average_precision": 0.927410633080494
+      },
+      "delta_iou": 0.0063010777310222865,
+      "delta_average_precision": 0.0043893031143456
+    },
+    "without_089": {
+      "sequences": [
+        "train_002.npz",
+        "train_020.npz",
+        "train_034.npz",
+        "train_039.npz",
+        "train_041.npz",
+        "train_050.npz",
+        "train_060.npz",
+        "train_066.npz",
+        "train_092.npz"
+      ],
+      "candidate": {
+        "tp": 25480,
+        "fp": 2064,
+        "fn": 2498,
+        "iou": 0.8481459290326876,
+        "pd": 0.9278230500582072,
+        "fa": 1.1547032363892202e-05,
+        "average_precision": 0.966103147333474
+      },
+      "h2": {
+        "tp": 25649,
+        "fp": 2339,
+        "fn": 2329,
+        "iou": 0.8460269815615001,
+        "pd": 0.9313154831199069,
+        "fa": 1.2685472174416785e-05,
+        "average_precision": 0.9648507764122257
+      },
+      "delta_iou": 0.00211894747118746,
+      "delta_average_precision": 0.0012523709212483025
+    },
+    "without_092": {
+      "sequences": [
+        "train_002.npz",
+        "train_020.npz",
+        "train_034.npz",
+        "train_039.npz",
+        "train_041.npz",
+        "train_050.npz",
+        "train_060.npz",
+        "train_066.npz",
+        "train_089.npz"
+      ],
+      "candidate": {
+        "tp": 21216,
+        "fp": 1461,
+        "fn": 2251,
+        "iou": 0.8510911424903723,
+        "pd": 0.8692082111436951,
+        "fa": 8.700932837580743e-06,
+        "average_precision": 0.9559007113720288
+      },
+      "h2": {
+        "tp": 21112,
+        "fp": 1503,
+        "fn": 2355,
+        "iou": 0.8454945935122147,
+        "pd": 0.8627565982404692,
+        "fa": 9.0343330678058e-06,
+        "average_precision": 0.9539607457707219
+      },
+      "delta_iou": 0.005596548978157645,
+      "delta_average_precision": 0.0019399656013069366
+    },
+    "without_089_092": {
+      "sequences": [
+        "train_002.npz",
+        "train_020.npz",
+        "train_034.npz",
+        "train_039.npz",
+        "train_041.npz",
+        "train_050.npz",
+        "train_060.npz",
+        "train_066.npz"
+      ],
+      "candidate": {
+        "tp": 20544,
+        "fp": 947,
+        "fn": 242,
+        "iou": 0.9452905719412874,
+        "pd": 0.9765957446808511,
+        "fa": 6.9107241187400436e-06,
+        "average_precision": 0.9918313801189721
+      },
+      "h2": {
+        "tp": 20571,
+        "fp": 947,
+        "fn": 215,
+        "iou": 0.9465329222840841,
+        "pd": 0.9780141843971631,
+        "fa": 6.800299765311441e-06,
+        "average_precision": 0.9926687032116681
+      },
+      "delta_iou": -0.0012423503427967386,
+      "delta_average_precision": -0.0008373230926960185
+    },
+    "only_089": {
+      "sequences": [
+        "train_089.npz"
+      ],
+      "candidate": {
+        "tp": 672,
+        "fp": 514,
+        "fn": 2009,
+        "iou": 0.21032863849765257,
+        "pd": 0.3559322033898305,
+        "fa": 2.2302015431037135e-05,
+        "average_precision": 0.33512833933027353
+      },
+      "h2": {
+        "tp": 541,
+        "fp": 556,
+        "fn": 2140,
+        "iou": 0.16713005869632375,
+        "pd": 0.31186440677966104,
+        "fa": 2.600736595719691e-05,
+        "average_precision": 0.26492516811745637
+      },
+      "delta_iou": 0.043198579801328824,
+      "delta_average_precision": 0.07020317121281716
+    },
+    "only_092": {
+      "sequences": [
+        "train_092.npz"
+      ],
+      "candidate": {
+        "tp": 4936,
+        "fp": 1117,
+        "fn": 2256,
+        "iou": 0.5940546395474786,
+        "pd": 0.7045454545454546,
+        "fa": 4.6771311358507346e-05,
+        "average_precision": 0.814355222715777
+      },
+      "h2": {
+        "tp": 5078,
+        "fp": 1392,
+        "fn": 2114,
+        "iou": 0.5915657036346692,
+        "pd": 0.7175324675324676,
+        "fa": 5.739797701843726e-05,
+        "average_precision": 0.8043636593678689
+      },
+      "delta_iou": 0.002488935912809409,
+      "delta_average_precision": 0.009991563347908072
+    }
+  }
+}

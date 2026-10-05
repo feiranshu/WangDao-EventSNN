@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step6-three-seed-stability-v1",
+  "status": "pass",
+  "checks": {
+    "frozen_protocol": true,
+    "frozen_identity": true,
+    "fixed_epoch": true,
+    "fixed_threshold": true,
+    "checkpoint_hash": true,
+    "h2_hash": true,
+    "index_hash": true,
+    "matched_null_epoch8_threshold040": true,
+    "train_main_count": true,
+    "train_dev_count": true,
+    "cuda_requirement": true,
+    "gpu_requirement": true,
+    "validation_and_test_unreachable": true
+  },
+  "python": "3.11.4 (main, Jul  5 2023, 14:15:25) [GCC 11.2.0]",
+  "torch": "2.0.1",
+  "numpy": "1.24.3",
+  "cuda_available": true,
+  "cuda_device_count": 4,
+  "cuda_devices": [
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4090"
+  ],
+  "source_sha256": {
+    "frozen": "0c720bfbedef34b63f9a9194b5fd8f8624a923c785145eee4e6495550bfa5718",
+    "candidate_summary": "92900176d3de35adfca887f0d3a6a5ed4dcb63d1f7a8264bd5d96707912e3f0c",
+    "candidate_scores": "f1ce9e8aacb2012b7261573e454788a35f612a8edbada1a37b4f8f565ded849e",
+    "h2_summary": "1192f1d199700df17eecbb11523473d14c22ed53f737dc6f862b9be87dc4a453",
+    "h2_scores": "c15c10ede67135c62b497795c9c422546417e5b1a1c21d3203d4888f06f1ec29",
+    "seed42_checkpoint": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+    "null_summary": "6701ff4c306671db6edf51d82c41eb176a0be0f7d2ee154d45e9dc824cb2ab5e",
+    "density": "6ed3e02522b7c1d0750c82d2185d7181e050c2ad56820bfd7e59534476ecddc5"
+  },
+  "validation_used": false,
+  "test_used": false
+}

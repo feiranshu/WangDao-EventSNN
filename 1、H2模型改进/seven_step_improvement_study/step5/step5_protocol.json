@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step5-history-freeze-v1",
+  "source_protocol": "h2-ann-step4-feature-information-v1",
+  "source_model": "A4-2",
+  "source_control": "A4-2-null",
+  "roles_allowed": ["Train-dev"],
+  "roles_forbidden": ["Validation", "Test"],
+  "registered_epochs": [0, 1, 2, 5, 8, 10],
+  "threshold_policy": "reuse the exact Step4 threshold grid found in every registered evaluation",
+  "selection_numeric_path": "exact_int8_replay",
+  "deployment_threshold_policy": "one_global_threshold",
+  "density_boundary_eps": 20000.0,
+  "retraining": false,
+  "feature_pruning": false,
+  "new_model_number": false
+}

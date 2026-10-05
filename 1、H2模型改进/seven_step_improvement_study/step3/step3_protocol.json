@@ -1,0 +1,82 @@
+{
+  "protocol_version": "2026-10-04-step3-v2",
+  "scope": "H2 ANN step-3 preflight, D3-0, A3-1 and A3-2",
+  "data_roles": {
+    "training": "Train-main only",
+    "checkpoint_and_selection": "Train-dev only",
+    "validation": "forbidden",
+    "test": "forbidden"
+  },
+  "density": {
+    "unit": "whole-sequence events per second",
+    "high_if_greater_than_or_equal": 20000.0,
+    "legacy_step1_step2_sequence_threshold": 6889.9906,
+    "legacy_step2_window_threshold": 6820.0,
+    "legacy_results_recomputed": false
+  },
+  "zero_update": {
+    "required_before_training": true,
+    "float_reference_ap": 0.9274303901825619,
+    "int8_reference_ap": 0.927410633080494,
+    "ap_tolerance": 1e-7,
+    "probability_max_abs_tolerance": 1e-7,
+    "optimizer_step_count": 0,
+    "scheduler_step_count": 0,
+    "loaders": ["A3-1 full pass", "A3-2 corrected stratified"]
+  },
+  "d3_0": {
+    "candidate_number": null,
+    "sampling_prior_audit": true,
+    "dual_threshold_deployment_allowed": false,
+    "probe": {
+      "architecture": "input->256->256->4 with bias and ReLU",
+      "variants": ["base32", "plus_density", "plus_history", "drop_sequence_time", "drop_coordinates"],
+      "seeds": [42, 43],
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "batch_size": 4096,
+      "maximum_epochs": 30,
+      "early_stop_stale_evaluations": 5
+    }
+  },
+  "training": {
+    "models": {
+      "A3-1": "all Proposal candidates exactly once per epoch plus BCE",
+      "A3-2": "four mutually exclusive density-label strata plus importance-corrected BCE"
+    },
+    "epochs": 20,
+    "continuation_epochs": 10,
+    "batch_size": 4096,
+    "optimizer": "AdamW",
+    "learning_rate": 0.00001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 5.0,
+    "scheduler": "constant",
+    "ema": false,
+    "qat": false,
+    "evaluation_epochs": [0, 1, 2, 5, 10, 15, 20],
+    "formal_selection": "exact project int8 replay",
+    "float_evaluation": "diagnostic only",
+    "progress_every_epoch": ["loss", "learning_rate", "coverage", "repeat_fraction", "gradient_norm", "activation_saturation", "wall_seconds"]
+  },
+  "A3-2": {
+    "batch_quota": {
+      "high_positive": 512,
+      "high_negative": 1536,
+      "ordinary_positive": 512,
+      "ordinary_negative": 1536
+    },
+    "within_stratum": "uniform candidate sampling with replacement",
+    "importance_weight": "natural_stratum_probability / sampled_stratum_probability"
+  },
+  "artifacts": {
+    "checkpoint_has_optimizer": true,
+    "checkpoint_has_scheduler": true,
+    "checkpoint_has_rng": true,
+    "int8_export_per_selected_model": true,
+    "validation_or_test_results_included": false,
+    "resume_rejects_smoke_formal_mismatch": true,
+    "resume_requires_completed_d3_0": true,
+    "continuations_are_collected_with_formal_results": true
+  }
+}

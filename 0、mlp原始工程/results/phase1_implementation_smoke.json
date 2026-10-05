@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "experiment_id": "phase1-implementation-smoke-20260906",
+  "stage": "phase1_software_integration",
+  "data_role": "train_main+train_dev",
+  "primary_metrics": {
+    "unit_tests_passed": 65,
+    "real_data_smoke_training_runs_passed": 5
+  },
+  "decision": "ready_for_server_smoke_then_controlled_training",
+  "conclusion": "Software integration and bounded CPU smoke runs passed. No full training accuracy gain, efficiency gain, Validation, Test or board result is claimed.",
+  "test_used": false,
+  "validation_used": false,
+  "environment": {
+    "python": "3.14.2",
+    "numpy": "2.4.1",
+    "torch": "2.11.0+cpu",
+    "cuda_available": false
+  },
+  "verification": {
+    "command": "python -B -m unittest discover -s software/tests -q",
+    "official_reference": "evuav-33e2aff-official-compatible-v1",
+    "static_type_check": "not_run_pyright_unavailable",
+    "coverage": [
+      "frozen_S1_optimized_integer_logits_equal",
+      "causal_future_prefix_invariance",
+      "fragmentation_equal_timestamps_empty_blocks",
+      "state_reset_and_expiry",
+      "C0_C1_C2_C3_C4_forward_backward",
+      "TBPTT_and_checkpoint_roundtrip",
+      "full_event_metric_official_reference_parity",
+      "Pd_Fa_constrained_selection",
+      "complete_indexed_Train_dev_and_checkpoint_integrity",
+      "smoke_cannot_freeze",
+      "12_configuration_budget_seed_replicates_exempt"
+    ]
+  },
+  "smoke_evidence": [
+    "runs/phase1_B1_smoke_20260906/summary.json",
+    "runs/phase1_B2_smoke_20260906/summary.json",
+    "runs/phase1_C0_smoke_20260906b/summary.json",
+    "runs/phase1_C2_smoke_20260906/summary.json",
+    "runs/phase1_C4_smoke_20260906/summary.json",
+    "runs/phase1_C2_eval_smoke_20260906b.json",
+    "runs/phase1_s1_diagnosis_smoke_20260906.json"
+  ],
+  "smoke_scope": {
+    "refiner": "one Train-main sequence, at most 8192 candidate training samples, one complete Train-dev sequence, one epoch",
+    "causal": "one Train-main and one Train-dev sequence prefix, eight 25 ms blocks, one epoch",
+    "undefined_metrics": "Train-dev causal smoke prefix has no positives; IoU remains null, not zero/perfect"
+  },
+  "preserved_failure": {
+    "path": "runs/phase1_C0_smoke_20260906/summary.json",
+    "reason": "Before smoke-only checkpoint fallback, undefined prefix IoU prevented checkpoint selection. Fixed and rerun in new directory; original failed record preserved."
+  },
+  "remaining": [
+    "full_Train_main_Train_dev_training",
+    "multi_seed_and_capacity_memory_ablations",
+    "C3_oracle_routing_comparison_and_C4_temperature_calibration",
+    "conditional_teacher_and_distillation_if_justified",
+    "INT8_QAT_integer_export_and_numeric_equivalence",
+    "GPU_energy_and_complete_output_transmission_measurement",
+    "frozen_stage_Validation_and_final_model_selection"
+  ],
+  "frozen_weights_overwritten": false,
+  "hardware_modified": false,
+  "quota_stop_policy": "Stop when the 5-hour Codex quota is exhausted; no reset or paid-credit continuation requested."
+}

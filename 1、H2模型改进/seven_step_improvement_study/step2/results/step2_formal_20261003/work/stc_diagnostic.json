@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "data_role": "train_dev",
+  "validation_used": false,
+  "test_used": false,
+  "variant": "released_centered_detached",
+  "kernel": {
+    "spatial_pixels": 3,
+    "temporal_ms": 5
+  },
+  "paper_gamma": 2,
+  "released_code_uses_gamma": false,
+  "metrics": {
+    "auroc_on_target_prediction_union": 0.5760304195773582,
+    "target_weight_median": 0.6760940551757812,
+    "false_positive_weight_median": 0.6369460821151733,
+    "high_density_fn_weight_median": 0.49961334466934204,
+    "ordinary_fp_weight_median": 0.5001776218414307,
+    "ordinary_fp_negative_penalty_median": 0.49982237815856934,
+    "released_saturated_fraction": 0.0018669935779919698,
+    "paper_mean_saturated_fraction": 0.008256977794425796
+  },
+  "checks": {
+    "auc_at_least_0_60": false,
+    "target_median_above_false_positive": true,
+    "high_density_fn_weight_above_ordinary_fp": false,
+    "ordinary_fp_negative_penalty_above_0_5": false,
+    "released_weights_not_saturated": true
+  },
+  "passes": false,
+  "decision": "skip_A2-4",
+  "per_sequence": [
+    {
+      "file": "train_002.npz",
+      "released_mean": 0.4774300456047058,
+      "released_saturated_fraction": 0.0066178541255984226,
+      "paper_saturated_fraction": 0.025063362433117433
+    },
+    {
+      "file": "train_020.npz",
+      "released_mean": 0.49002861976623535,
+      "released_saturated_fraction": 0.0,
+      "paper_saturated_fraction": 0.0009823182711198428
+    },
+    {
+      "file": "train_034.npz",
+      "released_mean": 0.4747198820114136,
+      "released_saturated_fraction": 0.0032456631225517628,
+      "paper_saturated_fraction": 0.01689983212087297
+    },
+    {
+      "file": "train_039.npz",
+      "released_mean": 0.4860498011112213,
+      "released_saturated_fraction": 0.000904295403165034,
+      "paper_saturated_fraction": 0.031801055011303696
+    },
+    {
+      "file": "train_041.npz",
+      "released_mean": 0.4845550060272217,
+      "released_saturated_fraction": 0.00033003300330033004,
+      "paper_saturated_fraction": 0.0034653465346534654
+    },
+    {
+      "file": "train_050.npz",
+      "released_mean": 0.49425312876701355,
+      "released_saturated_fraction": 0.0,
+      "paper_saturated_fraction": 0.0006095702529716549
+    },
+    {
+      "file": "train_060.npz",
+      "released_mean": 0.49381035566329956,
+      "released_saturated_fraction": 0.0001508523155830442,
+      "paper_saturated_fraction": 0.0001508523155830442
+    },
+    {
+      "file": "train_066.npz",
+      "released_mean": 0.49106985330581665,
+      "released_saturated_fraction": 0.00037418147801683815,
+      "paper_saturated_fraction": 0.00037418147801683815
+    },
+    {
+      "file": "train_089.npz",
+      "released_mean": 0.4997391402721405,
+      "released_saturated_fraction": 0.0,
+      "paper_saturated_fraction": 0.0
+    },
+    {
+      "file": "train_092.npz",
+      "released_mean": 0.4942636489868164,
+      "released_saturated_fraction": 0.003218921357673353,
+      "paper_saturated_fraction": 0.0032232595266190045
+    }
+  ]
+}

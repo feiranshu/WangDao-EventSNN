@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step7-supplemental-independent-acceptance-v1",
+  "status": "pass",
+  "checks": {
+    "step7_protocol_frozen": true,
+    "candidate_identity_exact": true,
+    "checkpoint_hash_matches_step5": true,
+    "int8_export_hash_matches_step5": true,
+    "step6_complete_and_same_candidate": true,
+    "step6_failure_preserved": true,
+    "step6_validation_test_unused": true,
+    "validation_index_exact_24": true,
+    "test_index_exact_24": true,
+    "dataset_root_present": true,
+    "cuda_requirement": true
+  },
+  "source_sha256": {
+    "frozen_candidate": "0c720bfbedef34b63f9a9194b5fd8f8624a923c785145eee4e6495550bfa5718",
+    "candidate_checkpoint": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+    "candidate_int8": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4",
+    "density_transform": "6ed3e02522b7c1d0750c82d2185d7181e050c2ad56820bfd7e59534476ecddc5",
+    "step6_decision": "4c0aebe85a069a9174f6b8634437d62ee0f04ebd47ac112c6b9ee39ba1da6a53",
+    "step6_protocol": "bf0f204657ad369b9c4edf310d848a27ef093cb96e7cee3236bde218e762b393",
+    "h2_weights": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "index": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "step7_protocol": "67efd86fb7a509110df173d95ba293f74a33bebe3ee3a0d04b366c074a09e5f2"
+  },
+  "python": "3.11.4 (main, Jul  5 2023, 14:15:25) [GCC 11.2.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "torch": "2.0.1",
+  "numpy": "1.24.3",
+  "cuda_available": true,
+  "cuda_device_count": 4,
+  "protected_data_loaded": false
+}

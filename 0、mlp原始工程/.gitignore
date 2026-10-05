@@ -1,0 +1,55 @@
+# 临时工作区
+/tmp/*
+!/tmp/.gitkeep
+
+# 大型本地数据
+/data/EV-UAV-dataset/
+
+# 含个人信息的本地立项材料
+/materials/proposal/
+
+# 实验中间产物
+/results/runs/
+**/checkpoints/
+**/cache/
+*.pth
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+*.egg-info/
+build/
+dist/
+
+# 编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志和临时文件
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Vivado 生成内容
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.jou
+*.str
+*.wdb
+*.bit
+*.bin

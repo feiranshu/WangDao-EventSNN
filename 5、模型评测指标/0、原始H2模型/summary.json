@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "model": "H2 original frozen ANN",
+  "data_role": "train_dev",
+  "sequence_count": 10,
+  "events": 1237183,
+  "target_events": 30659,
+  "event_average_precision": 0.927410633080494,
+  "exact_pr_points": 357225,
+  "working_points": {
+    "H2-F": {
+      "event": {
+        "tp": 26238,
+        "fp": 3002,
+        "fn": 4421,
+        "tn": 1203522,
+        "iou": 0.779477733875999,
+        "precision": 0.8973324213406293,
+        "recall": 0.8558009067484262,
+        "official_acc": 0.8558009067484262,
+        "f1": 0.8760747257884105,
+        "overall_accuracy": 0.9940000792122103
+      },
+      "localization": {
+        "targets": 2013,
+        "correct_targets": 1697,
+        "false_components": 1993,
+        "frame_denominator": 1526,
+        "scored_localization_events": 1211277,
+        "wrapped_false_pixels": 0,
+        "pd": 0.8430203676105316,
+        "fa": 1.4517883876742656e-05,
+        "fa_times_1e4": 0.14517883876742654
+      }
+    },
+    "H2-R": {
+      "eligible": true,
+      "threshold": 0.3,
+      "metrics": {
+        "event": {
+          "tp": 26190,
+          "fp": 2895,
+          "fn": 4469,
+          "tn": 1203629,
+          "iou": 0.7805328723848125,
+          "precision": 0.9004641567818463,
+          "recall": 0.8542352979549235,
+          "official_acc": 0.8542352979549235,
+          "f1": 0.8767407605784682,
+          "overall_accuracy": 0.9940477681959743
+        },
+        "localization": {
+          "targets": 2013,
+          "correct_targets": 1692,
+          "false_components": 1932,
+          "frame_denominator": 1526,
+          "scored_localization_events": 1211277,
+          "wrapped_false_pixels": 0,
+          "pd": 0.8405365126676602,
+          "fa": 1.4073533191102263e-05,
+          "fa_times_1e4": 0.14073533191102264
+        }
+      },
+      "reason": "max IoU, then lower Fa, higher Recall, lower threshold"
+    }
+  },
+  "density_reference": {
+    "definition": "high-density sequence iff event_rate_eps >= Train-main sequence q75",
+    "sequence_event_rate_q75_eps": 6889.990632996854,
+    "window_event_rate_q75_eps": 6820.0,
+    "train_main_sequences": 79,
+    "train_main_windows": 6320
+  },
+  "density_groups": {
+    "high_density": {
+      "sequence_count": 2,
+      "sequences": [
+        "train_089.npz",
+        "train_092.npz"
+      ],
+      "H2-F": {
+        "event": {
+          "tp": 5662,
+          "fp": 2040,
+          "fn": 4211,
+          "tn": 989328,
+          "iou": 0.47527910685805425,
+          "precision": 0.7351337314983122,
+          "recall": 0.5734832371113137,
+          "official_acc": 0.5734832371113137,
+          "f1": 0.6443243243243243,
+          "overall_accuracy": 0.993756747875886
+        },
+        "localization": {
+          "targets": 603,
+          "correct_targets": 316,
+          "false_components": 1240,
+          "frame_denominator": 318,
+          "scored_localization_events": 981359,
+          "wrapped_false_pixels": 0,
+          "pd": 0.5240464344941956,
+          "fa": 4.334560992866152e-05,
+          "fa_times_1e4": 0.43345609928661516
+        }
+      },
+      "H2-R": {
+        "event": {
+          "tp": 5619,
+          "fp": 1948,
+          "fn": 4254,
+          "tn": 989420,
+          "iou": 0.4753404957279418,
+          "precision": 0.7425664067662218,
+          "recall": 0.5691279246429657,
+          "official_acc": 0.5691279246429657,
+          "f1": 0.6443807339449541,
+          "overall_accuracy": 0.9938056871422565
+        },
+        "localization": {
+          "targets": 603,
+          "correct_targets": 313,
+          "false_components": 1193,
+          "frame_denominator": 318,
+          "scored_localization_events": 981359,
+          "wrapped_false_pixels": 0,
+          "pd": 0.5190713101160862,
+          "fa": 4.1702671487817086e-05,
+          "fa_times_1e4": 0.4170267148781709
+        }
+      },
+      "errors_at_H2-F": {
+        "events": 1001241,
+        "target_events": 9873,
+        "candidate_events": 391913,
+        "proposal_false_negatives": 455,
+        "refiner_false_negatives": 3756,
+        "tp": 5662,
+        "fp": 2040,
+        "fn": 4211,
+        "tn": 989328,
+        "candidate_fraction": 0.39142723879665337,
+        "proposal_recall": 0.9539147169046895,
+        "refiner_conditional_recall": 0.6011892121469526
+      }
+    },
+    "ordinary_density": {
+      "sequence_count": 8,
+      "sequences": [
+        "train_002.npz",
+        "train_020.npz",
+        "train_034.npz",
+        "train_039.npz",
+        "train_041.npz",
+        "train_050.npz",
+        "train_060.npz",
+        "train_066.npz"
+      ],
+      "H2-F": {
+        "event": {
+          "tp": 20576,
+          "fp": 962,
+          "fn": 210,
+          "tn": 214194,
+          "iou": 0.9461099871252528,
+          "precision": 0.955334757173368,
+          "recall": 0.9898970460887135,
+          "official_acc": 0.9898970460887135,
+          "f1": 0.9723088554956998,
+          "overall_accuracy": 0.995032677522442
+        },
+        "localization": {
+          "targets": 1410,
+          "correct_targets": 1381,
+          "false_components": 753,
+          "frame_denominator": 1208,
+          "scored_localization_events": 229918,
+          "wrapped_false_pixels": 0,
+          "pd": 0.9794326241134752,
+          "fa": 6.92912817764481e-06,
+          "fa_times_1e4": 0.0692912817764481
+        }
+      },
+      "H2-R": {
+        "event": {
+          "tp": 20571,
+          "fp": 947,
+          "fn": 215,
+          "tn": 214209,
+          "iou": 0.9465329222840841,
+          "precision": 0.9559903336741333,
+          "recall": 0.9896564995670163,
+          "official_acc": 0.9896564995670163,
+          "f1": 0.9725321482602118,
+          "overall_accuracy": 0.995075060820032
+        },
+        "localization": {
+          "targets": 1410,
+          "correct_targets": 1379,
+          "false_components": 739,
+          "frame_denominator": 1208,
+          "scored_localization_events": 229918,
+          "wrapped_false_pixels": 0,
+          "pd": 0.9780141843971631,
+          "fa": 6.800299765311441e-06,
+          "fa_times_1e4": 0.0680029976531144
+        }
+      },
+      "errors_at_H2-F": {
+        "events": 235942,
+        "target_events": 20786,
+        "candidate_events": 52652,
+        "proposal_false_negatives": 23,
+        "refiner_false_negatives": 187,
+        "tp": 20576,
+        "fp": 962,
+        "fn": 210,
+        "tn": 214194,
+        "candidate_fraction": 0.22315653847131922,
+        "proposal_recall": 0.9988934860001925,
+        "refiner_conditional_recall": 0.9909935943746087
+      }
+    }
+  },
+  "metric_protocol": "evuav-33e2aff-official-compatible-v1",
+  "data_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "h2_weights_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+  "validation_used": false,
+  "test_used": false
+}

@@ -1,0 +1,30 @@
+{
+  "method": "density-stratified sequence paired percentile bootstrap",
+  "iterations": 10000,
+  "seed": 20261004,
+  "ap_compute_backend": "torch_cuda_float64",
+  "high_density_sequences": [
+    "train_089.npz",
+    "train_092.npz"
+  ],
+  "delta_average_precision": {
+    "mean": 0.0046003539886044454,
+    "lower_95": 0.002389033823786682,
+    "upper_95": 0.008513199855171462
+  },
+  "delta_event_iou": {
+    "mean": 0.005569325355056799,
+    "lower_95": 0.0010052394739491737,
+    "upper_95": 0.012612748810003644
+  },
+  "delta_pd": {
+    "mean": 0.00646855331863613,
+    "lower_95": -0.0015698998300210682,
+    "upper_95": 0.01557093425605538
+  },
+  "delta_fa": {
+    "mean": -8.785629543769724e-07,
+    "lower_95": -1.4999134417761411e-06,
+    "upper_95": -2.4469295927470373e-07
+  }
+}

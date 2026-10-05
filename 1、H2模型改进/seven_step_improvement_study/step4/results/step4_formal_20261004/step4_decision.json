@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "protocol": "h2-ann-step4-feature-information-v1",
+  "status": "complete",
+  "validation_used": false,
+  "test_used": false,
+  "four_gpu_task_parallelism": true,
+  "gpu_ids": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "runs": {
+    "A4-1": "runs/A4-1-seed42/summary.json",
+    "A4-1-null": "runs/A4-1-null-seed42/summary.json",
+    "A4-2": "runs/A4-2-seed42/summary.json",
+    "A4-2-null": "runs/A4-2-null-seed42/summary.json",
+    "A4-3": "runs/A4-3-seed42/summary.json",
+    "A4-3-control": "runs/A4-3-control-seed42/summary.json"
+  },
+  "pair_entry": {
+    "A4-1": {
+      "passes": false,
+      "checks": {
+        "working_points_exist": true,
+        "candidate_noninferior": true,
+        "control_noninferior": true,
+        "ap_not_below_null": true,
+        "iou_not_below_null": true,
+        "one_overall_metric_strict": false,
+        "high_recall_or_iou_strict_other_not_lower": false,
+        "train_089.npz_within_0_3pp": true,
+        "train_092.npz_within_0_3pp": true
+      }
+    },
+    "A4-2": {
+      "passes": false,
+      "checks": {
+        "working_points_exist": true,
+        "candidate_noninferior": true,
+        "control_noninferior": true,
+        "ap_not_below_null": true,
+        "iou_not_below_null": true,
+        "one_overall_metric_strict": false,
+        "high_recall_or_iou_strict_other_not_lower": false,
+        "train_089.npz_within_0_3pp": true,
+        "train_092.npz_within_0_3pp": true
+      }
+    },
+    "A4-3": {
+      "passes": false,
+      "checks": {
+        "candidate_noninferior": false,
+        "control_noninferior": true,
+        "ap_not_lower": false,
+        "iou_not_lower": false,
+        "one_strict": false,
+        "high_recall_or_iou_strict_other_not_lower": false,
+        "train_089.npz_within_0_3pp": true,
+        "train_092.npz_within_0_3pp": false
+      }
+    }
+  },
+  "selected_information_for_A4_5": null,
+  "skipped": {
+    "A4-4": "requires both A4-1 and A4-2 pair-entry checks",
+    "A4-5": "requires an effective information feature and A4-3 pair-entry"
+  },
+  "replacement_candidates": [],
+  "next_step": "review_Step4_before_Step5"
+}
