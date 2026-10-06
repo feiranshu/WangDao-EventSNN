@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "S3-LOA-EXACT-HW-CAL-v1",
+  "stage": "S3-exact-alignment",
+  "data_role": "hw_calibration",
+  "primary_metrics": {
+    "reference_s1_event_iou": 0.7583766829865362,
+    "reference_s1_proposal_recall": 0.9549255728382673,
+    "acceptable_variant_count": 0,
+    "selected_variant": null,
+    "selected_event_iou": null,
+    "selected_approximate_additions": null
+  },
+  "decision": "exact_alignment_passed",
+  "conclusion": "k=0 固定平衡树在 10 条 HW-calibration 序列、4300800 个 logits 上逐位复现 S1，统计完全一致。",
+  "scope": {
+    "role": "hw_calibration",
+    "test_used": false,
+    "validation_used": false,
+    "training_performed": false,
+    "complete_scan": false,
+    "complete_exact_alignment": true,
+    "sequences": 10,
+    "events": 838440,
+    "target_events": 23916,
+    "fixed_models_run_on": "torch_cuda_integer",
+    "elapsed_s": 33.48318730000028
+  },
+  "inputs": {
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "h2_weight": "H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "s1_weight": "S1P_INT8_ACC24_MEM24_Q12.npz",
+    "s1_weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+    "s1_configuration": {
+      "accumulator_bits": 24,
+      "beta_numerator": 7,
+      "beta_shift": 3,
+      "input_fraction_bits": 8,
+      "membrane_bits": 24,
+      "membrane_fraction_bits": 12,
+      "overflow": "saturate_after_dot_and_each_membrane_update",
+      "readout": "mean_membrane",
+      "reset": "soft_reset",
+      "rounding": "nearest_ties_away_from_zero",
+      "threshold": 0.25,
+      "time_steps": 4
+    },
+    "s1_metadata": {
+      "calibration_result": "fixed_calibration.json",
+      "calibration_role": "hw_calibration",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "event_threshold": 0.2800000011920929,
+      "h2_fixed_configuration": {
+        "accumulator_bits": 24,
+        "logit_fraction_bits": 16,
+        "scale_fraction_bits": 20
+      },
+      "model_id": "S1P_INT8_ACC24_MEM24_Q12",
+      "proposal_threshold": 0.51,
+      "selection_rule": {
+        "maximum_iou_loss": 0.01,
+        "requires_zero_saturation": true,
+        "select_smallest_width": true
+      },
+      "source_s0p_weight": "S0P_T4_POS15_KD50_S42.npz",
+      "source_s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952"
+    },
+    "proposal_threshold": 0.51,
+    "event_threshold": 0.2800000011920929,
+    "single_factor_source": null
+  },
+  "arithmetic_contract": {
+    "width": 24,
+    "low_bits": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "low_output": "对应输入低位逐位或",
+    "carry_to_exact": "两个输入第 k-1 位逐位与",
+    "high_output": "从第 k 位开始精确相加并接收近似进位",
+    "tree": "输入通道按索引升序进行固定平衡二叉树归约，奇数尾项直接传递",
+    "overflow": "每个树节点和膜更新输出均执行 24 位有符号饱和",
+    "lif_unchanged": "泄漏舍入、阈值、软复位、读出平均和统计膜保持 S1 exact"
+  },
+  "exact_tree_alignment": {
+    "matches_s1": true,
+    "checked_batches": 530,
+    "checked_logits": 4300800,
+    "checked_sequences": 10,
+    "maximum_patches_per_sequence": null,
+    "statistics_match": true,
+    "placements": "syn_all+mem_all",
+    "low_bits": 0,
+    "backend": "torch_cuda_integer"
+  },
+  "reference_s1": {
+    "event": {
+      "threshold": 0.2800000011920929,
+      "true_positive": 19827.0,
+      "false_positive": 2228.0,
+      "false_negative": 4089.0,
+      "true_negative": 812296.0,
+      "iou": 0.7583766829865362,
+      "precision": 0.8989798231693493,
+      "recall": 0.8290265930757652,
+      "f1": 0.8625872832872898,
+      "accuracy": 0.992465769762893
+    },
+    "pd": 0.8390302066772655,
+    "fa": 1.1564394247777785e-05,
+    "candidate_events": 300724,
+    "candidate_fraction": 0.35867086493964984,
+    "proposal_recall": 0.9549255728382673,
+    "proposal_accumulator_saturations": [
+      0,
+      0,
+      0
+    ],
+    "proposal_membrane_saturations": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "refiner_accumulator_saturations": [
+      0,
+      0,
+      0
+    ],
+    "spike_counts": [
+      11673640,
+      6998827,
+      123859
+    ],
+    "spike_rates": [
+      0.22619125124007936,
+      0.27122190445188493,
+      0.007199765159970238
+    ]
+  },
+  "variants": {},
+  "selection": {
+    "maximum_iou_loss": 0.015,
+    "maximum_proposal_recall_loss": 0.01,
+    "maximum_candidate_growth": 0.1,
+    "requires_no_new_saturation": true,
+    "acceptable_variants": [],
+    "pareto_front": [],
+    "selected_single_factor": null,
+    "ranking": "先最大化真实近似加法次数，再最大化 Event IoU",
+    "frozen_export": null,
+    "frozen_export_sha256": null
+  },
+  "per_sequence": [
+    {
+      "file": "train_022.npz",
+      "events": 21165,
+      "target_events": 715,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 702.0,
+          "false_positive": 65.0,
+          "false_negative": 13.0,
+          "true_negative": 20385.0,
+          "iou": 0.9,
+          "precision": 0.9152542372881356,
+          "recall": 0.9818181818181818,
+          "f1": 0.9473684210526315,
+          "accuracy": 0.9963146704464918
+        },
+        "pd": 0.9264705882352942,
+        "proposal_recall": 0.9944055944055944,
+        "candidate_fraction": 0.19725962674226316
+      },
+      "variants": {},
+      "elapsed_s": 2.7546560000009777
+    },
+    {
+      "file": "train_049.npz",
+      "events": 22833,
+      "target_events": 4674,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 4348.0,
+          "false_positive": 238.0,
+          "false_negative": 326.0,
+          "true_negative": 17921.0,
+          "iou": 0.8851791530944625,
+          "precision": 0.948102921936328,
+          "recall": 0.9302524604193411,
+          "f1": 0.9390928725701944,
+          "accuracy": 0.975298909473131
+        },
+        "pd": 0.9107142857142857,
+        "proposal_recall": 0.9963628583654257,
+        "candidate_fraction": 0.3749397801427758
+      },
+      "variants": {},
+      "elapsed_s": 2.775805400000536
+    },
+    {
+      "file": "train_058.npz",
+      "events": 14707,
+      "target_events": 1468,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 1356.0,
+          "false_positive": 128.0,
+          "false_negative": 112.0,
+          "true_negative": 13111.0,
+          "iou": 0.849624060150376,
+          "precision": 0.9137466307277629,
+          "recall": 0.9237057220708447,
+          "f1": 0.9186991869918699,
+          "accuracy": 0.9836812402257429
+        },
+        "pd": 0.8957055214723927,
+        "proposal_recall": 0.989100817438692,
+        "candidate_fraction": 0.2749711021962331
+      },
+      "variants": {},
+      "elapsed_s": 2.7530900000019756
+    },
+    {
+      "file": "train_059.npz",
+      "events": 44257,
+      "target_events": 888,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 853.0,
+          "false_positive": 74.0,
+          "false_negative": 35.0,
+          "true_negative": 43295.0,
+          "iou": 0.8866943866943867,
+          "precision": 0.9201725997842503,
+          "recall": 0.9605855855855856,
+          "f1": 0.9399449035812673,
+          "accuracy": 0.9975371127731206
+        },
+        "pd": 0.928,
+        "proposal_recall": 0.9876126126126126,
+        "candidate_fraction": 0.3992588743023702
+      },
+      "variants": {},
+      "elapsed_s": 2.8494322000005923
+    },
+    {
+      "file": "train_065.npz",
+      "events": 33115,
+      "target_events": 1555,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 1385.0,
+          "false_positive": 185.0,
+          "false_negative": 170.0,
+          "true_negative": 31375.0,
+          "iou": 0.7959770114942529,
+          "precision": 0.8821656050955414,
+          "recall": 0.8906752411575563,
+          "f1": 0.8864,
+          "accuracy": 0.989279782575872
+        },
+        "pd": 0.8528301886792453,
+        "proposal_recall": 0.9954983922829582,
+        "candidate_fraction": 0.33679601389098596
+      },
+      "variants": {},
+      "elapsed_s": 2.8064144999989367
+    },
+    {
+      "file": "train_067.npz",
+      "events": 32582,
+      "target_events": 2404,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 2250.0,
+          "false_positive": 184.0,
+          "false_negative": 154.0,
+          "true_negative": 29994.0,
+          "iou": 0.8693972179289027,
+          "precision": 0.924404272801972,
+          "recall": 0.9359400998336106,
+          "f1": 0.9301364200082679,
+          "accuracy": 0.9896261739610828
+        },
+        "pd": 0.9403973509933775,
+        "proposal_recall": 0.9987520798668885,
+        "candidate_fraction": 0.3544902093180284
+      },
+      "variants": {},
+      "elapsed_s": 2.83085790000041
+    },
+    {
+      "file": "train_071.npz",
+      "events": 32667,
+      "target_events": 2027,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 1708.0,
+          "false_positive": 243.0,
+          "false_negative": 319.0,
+          "true_negative": 30397.0,
+          "iou": 0.7524229074889868,
+          "precision": 0.8754484879548949,
+          "recall": 0.8426245683275777,
+          "f1": 0.8587229763700351,
+          "accuracy": 0.982796093917409
+        },
+        "pd": 0.8599221789883269,
+        "proposal_recall": 0.9876665022200296,
+        "candidate_fraction": 0.36832277221661003
+      },
+      "variants": {},
+      "elapsed_s": 2.8282287000001816
+    },
+    {
+      "file": "train_079.npz",
+      "events": 7372,
+      "target_events": 1270,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 1138.0,
+          "false_positive": 57.0,
+          "false_negative": 132.0,
+          "true_negative": 6045.0,
+          "iou": 0.8575734740015072,
+          "precision": 0.9523012552301255,
+          "recall": 0.8960629921259843,
+          "f1": 0.9233265720081136,
+          "accuracy": 0.9743624525230602
+        },
+        "pd": 0.8353413654618473,
+        "proposal_recall": 0.9803149606299213,
+        "candidate_fraction": 0.3153825284861639
+      },
+      "variants": {},
+      "elapsed_s": 2.652259200000117
+    },
+    {
+      "file": "train_081.npz",
+      "events": 8964,
+      "target_events": 2778,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 2600.0,
+          "false_positive": 44.0,
+          "false_negative": 178.0,
+          "true_negative": 6142.0,
+          "iou": 0.9213323883770376,
+          "precision": 0.983358547655068,
+          "recall": 0.9359251259899208,
+          "f1": 0.9590556990040575,
+          "accuracy": 0.9752342704149933
+        },
+        "pd": 0.8936170212765957,
+        "proposal_recall": 0.9971202303815695,
+        "candidate_fraction": 0.4358545292280232
+      },
+      "variants": {},
+      "elapsed_s": 2.6612473000022874
+    },
+    {
+      "file": "train_093.npz",
+      "events": 620778,
+      "target_events": 6137,
+      "reference": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 3487.0,
+          "false_positive": 1010.0,
+          "false_negative": 2650.0,
+          "true_negative": 613631.0,
+          "iou": 0.4878970197285574,
+          "precision": 0.775405826106293,
+          "recall": 0.5681929281407854,
+          "f1": 0.6558209516644724,
+          "accuracy": 0.9941041725061133
+        },
+        "pd": 0.4349315068493151,
+        "proposal_recall": 0.8432458856118624,
+        "candidate_fraction": 0.3629429522309102
+      },
+      "variants": {},
+      "elapsed_s": 8.568614699997852
+    }
+  ],
+  "reproducibility": {
+    "command": [
+      "software\\scripts\\evaluate_approx.py",
+      "--exact-only",
+      "--exact-check-patches",
+      "0",
+      "--device",
+      "cuda",
+      "--batch-size",
+      "512",
+      "--experiment-id",
+      "S3-LOA-EXACT-HW-CAL-v1",
+      "--output",
+      "results\\approx_exact_alignment.json"
+    ],
+    "script_sha256": "2f310210fef626072fe66142a57b53c83c0272048ef5d4bda85fef3f9266cd51",
+    "fixed_source_sha256": "571d71ca21b51a7d2361c4a3268a68da5a4134199cc22d91129533839ac158c9"
+  }
+}

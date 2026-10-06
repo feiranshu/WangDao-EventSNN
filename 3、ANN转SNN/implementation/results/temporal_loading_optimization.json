@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "TEMPORAL-LOADING-v1",
+  "stage": "temporal_loading_optimization",
+  "data_role": [
+    "train_main"
+  ],
+  "primary_metrics": {
+    "median_seconds_128_blocks": {
+      "dense_unshuffle_stack": 0.7217822999955388,
+      "packed_scatter_v1": 0.18899914999929024
+    },
+    "median_seconds_per_batch": {
+      "dense_unshuffle_stack": 0.045111393749721174,
+      "packed_scatter_v1": 0.01181244687495564
+    },
+    "loading_speedup": 3.818971143511753,
+    "exact_input_and_mapping_equality": true,
+    "events_checked": 170493
+  },
+  "decision": {
+    "adopt_equivalent_loading": true,
+    "training_protocol_changed": false,
+    "running_training_interrupted": false,
+    "hardware_mainline_changed": false
+  },
+  "conclusion": "Direct packed scatter removes redundant collation copies; whole-epoch speedup remains unmeasured.",
+  "protocol": {
+    "seed": 42,
+    "epoch_order": 1,
+    "selected_blocks": [
+      [
+        "train_006.npz",
+        45
+      ],
+      [
+        "train_000.npz",
+        25
+      ],
+      [
+        "train_044.npz",
+        23
+      ],
+      [
+        "train_096.npz",
+        35
+      ],
+      [
+        "train_075.npz",
+        77
+      ],
+      [
+        "train_096.npz",
+        56
+      ],
+      [
+        "train_004.npz",
+        24
+      ],
+      [
+        "train_026.npz",
+        52
+      ],
+      [
+        "train_012.npz",
+        51
+      ],
+      [
+        "train_042.npz",
+        2
+      ],
+      [
+        "train_057.npz",
+        32
+      ],
+      [
+        "train_070.npz",
+        45
+      ],
+      [
+        "train_086.npz",
+        52
+      ],
+      [
+        "train_086.npz",
+        34
+      ],
+      [
+        "train_001.npz",
+        9
+      ],
+      [
+        "train_038.npz",
+        19
+      ],
+      [
+        "train_063.npz",
+        69
+      ],
+      [
+        "train_091.npz",
+        61
+      ],
+      [
+        "train_064.npz",
+        45
+      ],
+      [
+        "train_096.npz",
+        7
+      ],
+      [
+        "train_051.npz",
+        42
+      ],
+      [
+        "train_083.npz",
+        25
+      ],
+      [
+        "train_021.npz",
+        74
+      ],
+      [
+        "train_036.npz",
+        18
+      ],
+      [
+        "train_009.npz",
+        50
+      ],
+      [
+        "train_097.npz",
+        20
+      ],
+      [
+        "train_023.npz",
+        24
+      ],
+      [
+        "train_024.npz",
+        62
+      ],
+      [
+        "train_080.npz",
+        8
+      ],
+      [
+        "train_012.npz",
+        2
+      ],
+      [
+        "train_075.npz",
+        8
+      ],
+      [
+        "train_023.npz",
+        36
+      ],
+      [
+        "train_096.npz",
+        75
+      ],
+      [
+        "train_024.npz",
+        67
+      ],
+      [
+        "train_024.npz",
+        15
+      ],
+      [
+        "train_091.npz",
+        77
+      ],
+      [
+        "train_012.npz",
+        20
+      ],
+      [
+        "train_063.npz",
+        72
+      ],
+      [
+        "train_069.npz",
+        32
+      ],
+      [
+        "train_055.npz",
+        64
+      ],
+      [
+        "train_004.npz",
+        49
+      ],
+      [
+        "train_026.npz",
+        69
+      ],
+      [
+        "train_003.npz",
+        9
+      ],
+      [
+        "train_098.npz",
+        23
+      ],
+      [
+        "train_021.npz",
+        35
+      ],
+      [
+        "train_054.npz",
+        13
+      ],
+      [
+        "train_042.npz",
+        64
+      ],
+      [
+        "train_005.npz",
+        43
+      ],
+      [
+        "train_044.npz",
+        27
+      ],
+      [
+        "train_053.npz",
+        9
+      ],
+      [
+        "train_044.npz",
+        15
+      ],
+      [
+        "train_036.npz",
+        12
+      ],
+      [
+        "train_063.npz",
+        19
+      ],
+      [
+        "train_044.npz",
+        6
+      ],
+      [
+        "train_005.npz",
+        46
+      ],
+      [
+        "train_053.npz",
+        23
+      ],
+      [
+        "train_056.npz",
+        65
+      ],
+      [
+        "train_016.npz",
+        35
+      ],
+      [
+        "train_075.npz",
+        12
+      ],
+      [
+        "train_069.npz",
+        56
+      ],
+      [
+        "train_047.npz",
+        26
+      ],
+      [
+        "train_033.npz",
+        52
+      ],
+      [
+        "train_014.npz",
+        38
+      ],
+      [
+        "train_090.npz",
+        2
+      ],
+      [
+        "train_021.npz",
+        69
+      ],
+      [
+        "train_082.npz",
+        77
+      ],
+      [
+        "train_044.npz",
+        20
+      ],
+      [
+        "train_016.npz",
+        34
+      ],
+      [
+        "train_046.npz",
+        44
+      ],
+      [
+        "train_097.npz",
+        30
+      ],
+      [
+        "train_072.npz",
+        53
+      ],
+      [
+        "train_038.npz",
+        8
+      ],
+      [
+        "train_074.npz",
+        23
+      ],
+      [
+        "train_016.npz",
+        43
+      ],
+      [
+        "train_057.npz",
+        74
+      ],
+      [
+        "train_009.npz",
+        6
+      ],
+      [
+        "train_028.npz",
+        40
+      ],
+      [
+        "train_077.npz",
+        29
+      ],
+      [
+        "train_053.npz",
+        26
+      ],
+      [
+        "train_044.npz",
+        16
+      ],
+      [
+        "train_028.npz",
+        52
+      ],
+      [
+        "train_015.npz",
+        62
+      ],
+      [
+        "train_029.npz",
+        35
+      ],
+      [
+        "train_085.npz",
+        23
+      ],
+      [
+        "train_064.npz",
+        70
+      ],
+      [
+        "train_031.npz",
+        22
+      ],
+      [
+        "train_011.npz",
+        65
+      ],
+      [
+        "train_028.npz",
+        46
+      ],
+      [
+        "train_004.npz",
+        61
+      ],
+      [
+        "train_075.npz",
+        26
+      ],
+      [
+        "train_075.npz",
+        72
+      ],
+      [
+        "train_091.npz",
+        38
+      ],
+      [
+        "train_076.npz",
+        51
+      ],
+      [
+        "train_056.npz",
+        75
+      ],
+      [
+        "train_043.npz",
+        79
+      ],
+      [
+        "train_000.npz",
+        33
+      ],
+      [
+        "train_046.npz",
+        38
+      ],
+      [
+        "train_032.npz",
+        9
+      ],
+      [
+        "train_056.npz",
+        62
+      ],
+      [
+        "train_076.npz",
+        65
+      ],
+      [
+        "train_042.npz",
+        40
+      ],
+      [
+        "train_047.npz",
+        33
+      ],
+      [
+        "train_088.npz",
+        19
+      ],
+      [
+        "train_029.npz",
+        72
+      ],
+      [
+        "train_043.npz",
+        35
+      ],
+      [
+        "train_029.npz",
+        33
+      ],
+      [
+        "train_088.npz",
+        2
+      ],
+      [
+        "train_086.npz",
+        78
+      ],
+      [
+        "train_077.npz",
+        34
+      ],
+      [
+        "train_037.npz",
+        32
+      ],
+      [
+        "train_026.npz",
+        48
+      ],
+      [
+        "train_023.npz",
+        27
+      ],
+      [
+        "train_064.npz",
+        52
+      ],
+      [
+        "train_062.npz",
+        65
+      ],
+      [
+        "train_043.npz",
+        59
+      ],
+      [
+        "train_042.npz",
+        48
+      ],
+      [
+        "train_078.npz",
+        59
+      ],
+      [
+        "train_009.npz",
+        15
+      ],
+      [
+        "train_040.npz",
+        24
+      ],
+      [
+        "train_042.npz",
+        46
+      ],
+      [
+        "train_061.npz",
+        5
+      ],
+      [
+        "train_095.npz",
+        38
+      ],
+      [
+        "train_043.npz",
+        58
+      ],
+      [
+        "train_017.npz",
+        38
+      ],
+      [
+        "train_000.npz",
+        31
+      ],
+      [
+        "train_078.npz",
+        58
+      ],
+      [
+        "train_027.npz",
+        61
+      ],
+      [
+        "train_086.npz",
+        10
+      ]
+    ],
+    "batches": 16,
+    "warmup": "both paths once over all 128 selected blocks with exact comparison",
+    "repeats": 4,
+    "order": "alternating old/new",
+    "torch_cpu_threads": 1,
+    "reference": "software/tests/test_temporal_loading.py:dense_reference_collate",
+    "scope": "CPU collation with resident verified sparse cache; no GPU model execution",
+    "concurrent_load": "user's existing CUDA training active; not an isolated benchmark"
+  },
+  "environment": {
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "cpu_threads": 1,
+    "git": "3c0525ecafd1cab6386ce912931afaef9a86513e"
+  },
+  "seconds_per_repeat": {
+    "dense_unshuffle_stack": [
+      0.7496556999976747,
+      0.7178150999970967,
+      0.7257494999939809,
+      0.7048475000046892
+    ],
+    "packed_scatter_v1": [
+      0.18179530001361854,
+      0.19729789999837521,
+      0.19074499999987893,
+      0.18725329999870155
+    ]
+  },
+  "sparse_cache_load_verification_s": 4.005404100011219,
+  "cache": {
+    "memory_hits": 1280,
+    "disk_hits": 79,
+    "builds": 0,
+    "load_build_s": 3.7878852000430925,
+    "peak_cache_bytes": 257044412,
+    "evictions": 0
+  },
+  "observed_training": {
+    "source": "results/runs/SNN-READOUT-PAIR-v1/baseline/training.json",
+    "loader": "original dense_unshuffle_stack",
+    "first_five_epochs": [
+      {
+        "epoch": 1,
+        "train_s": 47.35667990001093,
+        "input_wait_s": 19.860385999796563,
+        "selection_s": 8.277107100002468,
+        "updates": 781
+      },
+      {
+        "epoch": 2,
+        "train_s": 34.371907199994894,
+        "input_wait_s": 13.566695700457785,
+        "selection_s": 5.926640300007421,
+        "updates": 781
+      },
+      {
+        "epoch": 3,
+        "train_s": 37.31107039999915,
+        "input_wait_s": 14.942926699994132,
+        "selection_s": 5.702671999999438,
+        "updates": 781
+      },
+      {
+        "epoch": 4,
+        "train_s": 39.221805699999095,
+        "input_wait_s": 16.6186863999028,
+        "selection_s": 6.592643000010867,
+        "updates": 781
+      },
+      {
+        "epoch": 5,
+        "train_s": 38.26826140000776,
+        "input_wait_s": 15.123918799785315,
+        "selection_s": 5.858322900006897,
+        "updates": 781
+      }
+    ]
+  },
+  "verification": {
+    "related_tests_passed": 22,
+    "test_modules": [
+      "test_temporal_segmentation",
+      "test_temporal_diagnosis",
+      "test_snn_readout",
+      "test_temporal_loading"
+    ],
+    "pyright": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "synthetic_cpu_update_equivalence": {
+      "readouts": [
+        "instant",
+        "membrane"
+      ],
+      "consecutive_updates_each": 2,
+      "checked": [
+        "loss",
+        "rates",
+        "gradients",
+        "weights",
+        "AdamW state",
+        "inference probabilities"
+      ]
+    },
+    "formal_training_rerun": false,
+    "gpu_benchmark_started": false,
+    "historical_checkpoints_modified": false
+  },
+  "artifacts": {
+    "measurement": "results/runs/TEMPORAL-LOADING-v1/benchmark.json",
+    "test_log": "tmp/temporal_loading_tests.txt",
+    "benchmark_command": "& C:\\Anaconda\\envs\\gazelle-train\\python.exe tmp/benchmark_temporal_loading.py"
+  }
+}

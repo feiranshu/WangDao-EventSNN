@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "REFINER-STUDY-PREFLIGHT-v1",
+  "stage": "refiner_adaptation_preflight",
+  "data_role": [
+    "train_main",
+    "train_dev"
+  ],
+  "primary_metrics": {
+    "tests_passed": 81,
+    "study_tests_passed": 20,
+    "pilot_train_sequences": 3,
+    "pilot_dev_sequences": 2,
+    "pilot_epochs_per_arm": 1,
+    "pilot_samples_per_epoch": 16384,
+    "pilot_cold_cache_elapsed_s": 8.147544999999809,
+    "pilot_reused_cache_elapsed_s": 3.552976700000272,
+    "cache_hits": 8,
+    "cache_misses": 0,
+    "selected_states_and_metrics_equal_after_cache_reuse": true,
+    "estimated_formal_seed42_seconds": 670.7557955268718,
+    "formal_training_runs_started": 0
+  },
+  "decision": "await_user_formal_run",
+  "conclusion": "Implementation, bounded scheduling, selection audit and limited pilots passed. Full 20-epoch study exceeds the 5-minute autonomous-run limit and has not started. No architecture-quality conclusion is supported yet.",
+  "protocol": {
+    "version": 1,
+    "proposal_threshold": 0.51,
+    "time_steps": 4,
+    "beta": 0.875,
+    "threshold": 0.25,
+    "readout": "mean_membrane",
+    "epochs": 20,
+    "batch_size": 4096,
+    "learning_rate": 0.0001,
+    "positive_fraction": 0.1,
+    "distillation_weight": 0.5,
+    "spike_rate_weight": 0.01,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_training_runs": 10,
+    "iou_adaptation_gain": 0.005,
+    "full_snn_min_iou": 0.75,
+    "iou_tolerance": 0.002,
+    "pd_tolerance": 0.005,
+    "fa_ratio_limit": 1.1,
+    "threshold_grid": [
+      0.01,
+      0.99,
+      0.01
+    ],
+    "selection_ties": "higher IoU, higher F1, earlier epoch, lower threshold"
+  },
+  "frozen_inputs": {
+    "index": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "h2": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "proposal": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+    "refiner": "35223d0dae3dbfdeac758aec41c6904349937072b8f7e5f35fa1628e170dc0b7"
+  },
+  "environment": {
+    "python": "3.10.20",
+    "numpy": "2.2.6",
+    "torch": "2.5.1+cu121",
+    "device": "cuda",
+    "cuda": "12.1",
+    "git_commit": "e02a5409c9fa9dc94774459e017a5e5c8a010958",
+    "git_dirty": true
+  },
+  "verification": {
+    "unittest": {
+      "method": "unittest.defaultTestLoader.discover(software/tests), TextTestRunner with UTF-8 file stream and explicit wasSuccessful exit code",
+      "tests": 81,
+      "failures": 0,
+      "errors": 0
+    },
+    "pyright": {
+      "command": "pyright",
+      "errors": 0,
+      "warnings": 0
+    },
+    "selection_audit": {
+      "source": "results/runs/REFINER-STUDY-PILOT-v2/selection-audit.json",
+      "status": "ok"
+    },
+    "cache_equivalence": "All 4 selected state_dict tensors and full selected metrics are equal"
+  },
+  "pilots": {
+    "cold_cache": "results/runs/REFINER-STUDY-PILOT-v1/summary.json",
+    "reused_cache": "results/runs/REFINER-STUDY-PILOT-v2/summary.json",
+    "pilot_only_event_iou": {
+      "A": 0.9293403797220591,
+      "B": 0.929368029739777,
+      "C": 0.9306813706183537,
+      "D": 0.634159779614325
+    },
+    "candidate_train_sources": {
+      "A": "h2",
+      "B": "snn",
+      "C": "snn",
+      "D": "snn"
+    },
+    "all_evaluation_candidates": "snn",
+    "complete_roles": false
+  },
+  "formal_run": {
+    "command": [
+      "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "software/scripts/train_s0r.py",
+      "--study",
+      "--train",
+      "--mode",
+      "formal",
+      "--device",
+      "cuda",
+      "--memory-mb",
+      "1024",
+      "--run-directory",
+      "results/runs/REFINER-STUDY-v1",
+      "--cache-directory",
+      "results/runs/REFINER-STUDY-PILOT-v1/cache",
+      "--experiment-id",
+      "REFINER-STUDY-v1",
+      "--output",
+      "results/refiner_study.json"
+    ],
+    "estimated_seed42_minutes": 11.179263258781196,
+    "suggested_time_allowance_minutes": [
+      20,
+      40
+    ],
+    "estimate_limitations": "Small, relatively sparse sequences; full dataset density, profiling and conditional replications may increase time. Not a deadline guarantee.",
+    "max_training_runs": 10,
+    "expected_outputs": [
+      "results/refiner_study.json",
+      "results/runs/REFINER-STUDY-v1/summary.json",
+      "results/runs/REFINER-STUDY-v1/<arm>-S<seed>/history.json",
+      "results/runs/REFINER-STUDY-v1/<arm>-S<seed>/selected.pt"
+    ],
+    "return_to_assistant": [
+      "results/refiner_study.json",
+      "results/refiner_study_selection_audit.json",
+      "terminal final output or failure traceback"
+    ]
+  },
+  "validation_used": false,
+  "test_used": false,
+  "hardware_mainline_changed": false,
+  "frozen_weights_changed": false,
+  "fpga_claims": false
+}

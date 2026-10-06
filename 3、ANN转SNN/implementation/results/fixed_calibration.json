@@ -1,0 +1,1420 @@
+{
+  "status": "ok",
+  "experiment_id": "S1-FIXED-HW-CAL-v1",
+  "scope": {
+    "role": "hw_calibration",
+    "test_used": false,
+    "validation_used": false,
+    "training_performed": false,
+    "complete_role": true,
+    "sequences": 10,
+    "events": 838440,
+    "target_events": 23916,
+    "device_for_float_reference": "cuda",
+    "fixed_models_run_on": "cpu_numpy_integer",
+    "elapsed_s": 107.79724290000013
+  },
+  "arithmetic_contract": {
+    "weights": "int8；S1 逐输出通道选择二次幂缩放",
+    "input": "uint8，S1 按 Q0.8 解释，因此 255 表示 255/256",
+    "rounding": "最近舍入，正中间时远离零",
+    "overflow": "点积结束后饱和；每次膜更新后饱和",
+    "leak": "beta=7/8，整数乘 7 后右移 3 位",
+    "reset": "达到阈值后减去阈值的软复位",
+    "readout": "T=4 个读出膜电位的整数均值",
+    "h2_scaling": "原 int8 权重不变，浮点通道缩放量化为定点整数乘数"
+  },
+  "inputs": {
+    "dataset_index": "data/index.json",
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "h2_weight": "H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "s0p_weight": "S0P_T4_POS15_KD50_S42.npz",
+    "s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+    "s0p_configuration": {
+      "beta": 0.875,
+      "candidate": {
+        "distillation_weight": 0.5,
+        "name": "POS15-KD50",
+        "positive_fraction": 0.15
+      },
+      "candidates": [
+        {
+          "distillation_weight": 0.25,
+          "name": "POS10-KD25",
+          "positive_fraction": 0.1,
+          "sampling_seed": 1042
+        },
+        {
+          "distillation_weight": 0.25,
+          "name": "POS15-KD25",
+          "positive_fraction": 0.15,
+          "sampling_seed": 2042
+        },
+        {
+          "distillation_weight": 0.5,
+          "name": "POS15-KD50",
+          "positive_fraction": 0.15,
+          "sampling_seed": 3042
+        }
+      ],
+      "chunk_size": 4096,
+      "command": [
+        "software\\scripts\\train_s0p.py",
+        "--train",
+        "--targeted-sweep",
+        "--role",
+        "train_main",
+        "--time-steps",
+        "4",
+        "--readout",
+        "mean_membrane",
+        "--beta",
+        "0.875",
+        "--threshold",
+        "0.25",
+        "--surrogate-slope",
+        "10",
+        "--epochs",
+        "20",
+        "--chunk-size",
+        "4096",
+        "--learning-rate",
+        "0.001",
+        "--spike-rate-weight",
+        "0.01",
+        "--seed",
+        "42",
+        "--progress-interval",
+        "5",
+        "--device",
+        "cuda",
+        "--output",
+        "results\\runs\\S0P-SWEEP-T4-S42"
+      ],
+      "cuda": "12.1",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "device": "cuda",
+      "epochs": 20,
+      "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "learning_rate": 0.001,
+      "max_dev_sequences": 0,
+      "max_sequences": 0,
+      "mode": "targeted_sweep",
+      "numpy": "2.2.6",
+      "progress_interval": 5,
+      "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+      "readout": "mean_membrane",
+      "role": "train_main",
+      "seed": 42,
+      "source_manifest": {
+        "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+        "pyproject.toml": "c148ec2c692d3ea197ad0e51c5182b9899803ed955366518e645ed6aeafecc29",
+        "software/scripts/audit_data.py": "097f6ae21887fb68e82b1cddec2d7d27dd5269fdfedc63fe12f7cb16fd016db3",
+        "software/scripts/evaluate.py": "b0d0550fd50cda41e43473fc513235cd879aa68bca5ca8735b74c656497e1f06",
+        "software/scripts/train_s0p.py": "d17d2482f93c2be972a66fb3a99d69a3418b78b626c5a47538ff512ce6cfaf6b",
+        "software/tests/test_core.py": "ae8891bc0a73de009e9b9df985cce6a7c3122ae2f6b945d82eaa5e0d62fabfab",
+        "software/tests/test_snn.py": "1f1dc2874093f470d67765dd0545034236f40a4c240203d82efec46d7259c9cb",
+        "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+        "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+        "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+        "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+        "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+        "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+        "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+        "software/wangdao/h2/numpy_model.py": "26615ae803adc4c027ea06167b31f7ff5255a205745693ee573072743ad5dc1a",
+        "software/wangdao/h2/representation.py": "1a32b17723316b6f8b8546e8f294e2bd97c75117f75e4a3cc610d9122d278f4d",
+        "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+        "software/wangdao/metrics.py": "379c0e84761f876e0055936e40b4ea9c8cb916f6103bfc9470c2da8464f0ad6a",
+        "software/wangdao/s0p.py": "20183f660fff97c5775a06544a5cc22ef2a01f09e8d507cb923eae537dae879f",
+        "software/wangdao/snn.py": "dda3c98703fe5fb8f86149ab15d60d92e9e68dd59c69a2aaa1fa23260f459f6f"
+      },
+      "spike_rate_weight": 0.01,
+      "surrogate_slope": 10.0,
+      "threshold": 0.25,
+      "time_steps": 4,
+      "torch": "2.5.1+cu121"
+    },
+    "s0p_metadata": {
+      "checkpoint_epoch": 20,
+      "checkpoint_sha256": "800ee5a78993f61697ccd04d3343e105c5a9583dbc1e72c47b9338d2f9d5b8ae",
+      "model_id": "S0-P-BAL-T4-POS15-KD50-S42",
+      "proposal_threshold": 0.51,
+      "source_checkpoint": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\results\\runs\\S0P-SWEEP-T4-S42\\POS15-KD50-best.pt"
+    }
+  },
+  "references": {
+    "h2_float_scale": {
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 21452.0,
+        "false_positive": 2561.0,
+        "false_negative": 2464.0,
+        "true_negative": 811963.0,
+        "iou": 0.8102126373833893,
+        "precision": 0.8933494357223171,
+        "recall": 0.8969727379160395,
+        "f1": 0.8951574203509357,
+        "accuracy": 0.9940067267783026
+      },
+      "candidate_events": 293045,
+      "candidate_fraction": 0.3495121893039454,
+      "proposal_recall": 0.9846964375313597
+    },
+    "s0p_float_plus_h2": {
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 19734.0,
+        "false_positive": 2226.0,
+        "false_negative": 4182.0,
+        "true_negative": 812298.0,
+        "iou": 0.7548772090888226,
+        "precision": 0.8986338797814207,
+        "recall": 0.8251379829402911,
+        "f1": 0.8603191211090766,
+        "accuracy": 0.9923572348647488
+      },
+      "candidate_events": 288655,
+      "candidate_fraction": 0.3442762749868804,
+      "proposal_recall": 0.9482354908847633
+    }
+  },
+  "width_results": {
+    "32": {
+      "configuration": {
+        "accumulator_bits": 32,
+        "membrane_bits": 32,
+        "membrane_fraction_bits": 12,
+        "h2_scale_fraction_bits": 20,
+        "h2_logit_fraction_bits": 16
+      },
+      "a1_h2": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 21454.0,
+          "false_positive": 2562.0,
+          "false_negative": 2462.0,
+          "true_negative": 811962.0,
+          "iou": 0.8102575723241937,
+          "precision": 0.8933211192538307,
+          "recall": 0.8970563639404583,
+          "f1": 0.895184845197363,
+          "accuracy": 0.994007919469491,
+          "probability_mae_to_reference": 6.4151090732017946e-06,
+          "prediction_disagreement_to_reference": 1.0734220695577501e-05,
+          "iou_delta_to_reference": 4.493494080437532e-05
+        },
+        "candidate_events": 293082,
+        "candidate_fraction": 0.3495563188779161,
+        "proposal_recall": 0.9846964375313597,
+        "proposal_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 0
+      },
+      "s1_mixed": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 19827.0,
+          "false_positive": 2228.0,
+          "false_negative": 4089.0,
+          "true_negative": 812296.0,
+          "iou": 0.7583766829865362,
+          "precision": 0.8989798231693493,
+          "recall": 0.8290265930757652,
+          "f1": 0.8625872832872898,
+          "accuracy": 0.992465769762893,
+          "probability_mae_to_reference": 0.0016085847247444634,
+          "prediction_disagreement_to_reference": 0.0013393922045703925,
+          "iou_delta_to_reference": 0.0034994738977135453
+        },
+        "candidate_events": 300724,
+        "candidate_fraction": 0.35867086493964984,
+        "proposal_recall": 0.9549255728382673,
+        "proposal_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "proposal_membrane_saturations": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 0
+      }
+    },
+    "24": {
+      "configuration": {
+        "accumulator_bits": 24,
+        "membrane_bits": 24,
+        "membrane_fraction_bits": 12,
+        "h2_scale_fraction_bits": 20,
+        "h2_logit_fraction_bits": 16
+      },
+      "a1_h2": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 21454.0,
+          "false_positive": 2562.0,
+          "false_negative": 2462.0,
+          "true_negative": 811962.0,
+          "iou": 0.8102575723241937,
+          "precision": 0.8933211192538307,
+          "recall": 0.8970563639404583,
+          "f1": 0.895184845197363,
+          "accuracy": 0.994007919469491,
+          "probability_mae_to_reference": 6.4151090732017946e-06,
+          "prediction_disagreement_to_reference": 1.0734220695577501e-05,
+          "iou_delta_to_reference": 4.493494080437532e-05
+        },
+        "candidate_events": 293082,
+        "candidate_fraction": 0.3495563188779161,
+        "proposal_recall": 0.9846964375313597,
+        "proposal_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 0
+      },
+      "s1_mixed": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 19827.0,
+          "false_positive": 2228.0,
+          "false_negative": 4089.0,
+          "true_negative": 812296.0,
+          "iou": 0.7583766829865362,
+          "precision": 0.8989798231693493,
+          "recall": 0.8290265930757652,
+          "f1": 0.8625872832872898,
+          "accuracy": 0.992465769762893,
+          "probability_mae_to_reference": 0.0016085847247444634,
+          "prediction_disagreement_to_reference": 0.0013393922045703925,
+          "iou_delta_to_reference": 0.0034994738977135453
+        },
+        "candidate_events": 300724,
+        "candidate_fraction": 0.35867086493964984,
+        "proposal_recall": 0.9549255728382673,
+        "proposal_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "proposal_membrane_saturations": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 0
+      }
+    },
+    "20": {
+      "configuration": {
+        "accumulator_bits": 20,
+        "membrane_bits": 20,
+        "membrane_fraction_bits": 12,
+        "h2_scale_fraction_bits": 20,
+        "h2_logit_fraction_bits": 16
+      },
+      "a1_h2": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 21454.0,
+          "false_positive": 2562.0,
+          "false_negative": 2462.0,
+          "true_negative": 811962.0,
+          "iou": 0.8102575723241937,
+          "precision": 0.8933211192538307,
+          "recall": 0.8970563639404583,
+          "f1": 0.895184845197363,
+          "accuracy": 0.994007919469491,
+          "probability_mae_to_reference": 6.4151090732017946e-06,
+          "prediction_disagreement_to_reference": 1.0734220695577501e-05,
+          "iou_delta_to_reference": 4.493494080437532e-05
+        },
+        "candidate_events": 293082,
+        "candidate_fraction": 0.3495563188779161,
+        "proposal_recall": 0.9846964375313597,
+        "proposal_accumulator_saturations": [
+          0,
+          10851,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 10851
+      },
+      "s1_mixed": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 19827.0,
+          "false_positive": 2228.0,
+          "false_negative": 4089.0,
+          "true_negative": 812296.0,
+          "iou": 0.7583766829865362,
+          "precision": 0.8989798231693493,
+          "recall": 0.8290265930757652,
+          "f1": 0.8625872832872898,
+          "accuracy": 0.992465769762893,
+          "probability_mae_to_reference": 0.0016085847247444634,
+          "prediction_disagreement_to_reference": 0.0013393922045703925,
+          "iou_delta_to_reference": 0.0034994738977135453
+        },
+        "candidate_events": 300724,
+        "candidate_fraction": 0.35867086493964984,
+        "proposal_recall": 0.9549255728382673,
+        "proposal_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "proposal_membrane_saturations": [
+          0,
+          458375,
+          0,
+          0
+        ],
+        "refiner_accumulator_saturations": [
+          0,
+          0,
+          0
+        ],
+        "saturation_total": 458375
+      }
+    },
+    "16": {
+      "configuration": {
+        "accumulator_bits": 16,
+        "membrane_bits": 16,
+        "membrane_fraction_bits": 12,
+        "h2_scale_fraction_bits": 20,
+        "h2_logit_fraction_bits": 16
+      },
+      "a1_h2": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 17171.0,
+          "false_positive": 142981.0,
+          "false_negative": 6745.0,
+          "true_negative": 671543.0,
+          "iou": 0.10288381456826666,
+          "precision": 0.1072168939507468,
+          "recall": 0.7179712326476,
+          "f1": 0.18657235369537345,
+          "accuracy": 0.8214231191259959,
+          "probability_mae_to_reference": 0.09965532693966034,
+          "prediction_disagreement_to_reference": 0.17744978770096848,
+          "iou_delta_to_reference": -0.7073288228151227
+        },
+        "candidate_events": 281695,
+        "candidate_fraction": 0.3359751443156338,
+        "proposal_recall": 0.9842364943970564,
+        "proposal_accumulator_saturations": [
+          419963,
+          901680,
+          3281739
+        ],
+        "refiner_accumulator_saturations": [
+          1274620,
+          3173761,
+          811018
+        ],
+        "saturation_total": 9862781
+      },
+      "s1_mixed": {
+        "event": {
+          "threshold": 0.2800000011920929,
+          "true_positive": 18052.0,
+          "false_positive": 151555.0,
+          "false_negative": 5864.0,
+          "true_negative": 662969.0,
+          "iou": 0.10287739854448884,
+          "precision": 0.10643428632072968,
+          "recall": 0.754808496404081,
+          "f1": 0.1865618040232944,
+          "accuracy": 0.8122477458136539,
+          "probability_mae_to_reference": 0.10307103584220026,
+          "prediction_disagreement_to_reference": 0.18528099804398646,
+          "iou_delta_to_reference": -0.6519998105443338
+        },
+        "candidate_events": 300724,
+        "candidate_fraction": 0.35867086493964984,
+        "proposal_recall": 0.9549255728382673,
+        "proposal_accumulator_saturations": [
+          79233,
+          0,
+          0
+        ],
+        "proposal_membrane_saturations": [
+          174259,
+          2452798,
+          3028196,
+          3027571
+        ],
+        "refiner_accumulator_saturations": [
+          1398957,
+          3431104,
+          878861
+        ],
+        "saturation_total": 14470979
+      }
+    }
+  },
+  "selection": {
+    "maximum_iou_loss": 0.01,
+    "requires_zero_saturation": true,
+    "acceptable_widths": [
+      24,
+      32
+    ],
+    "selected_width": 24,
+    "export": "software/weights/S1P_INT8_ACC24_MEM24_Q12.npz",
+    "export_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69"
+  },
+  "per_sequence": [
+    {
+      "file": "train_022.npz",
+      "events": 21165,
+      "target_events": 715,
+      "h2_reference_candidates": 1573,
+      "s0p_reference_candidates": 2733,
+      "variants": {
+        "32": {
+          "a1_candidates": 1573,
+          "s1_candidates": 4175,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 1573,
+          "s1_candidates": 4175,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 1573,
+          "s1_candidates": 4175,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            16250,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 1573,
+          "s1_candidates": 4175,
+          "a1_proposal_saturations": [
+            9,
+            73003,
+            367737
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            176231,
+            375607,
+            375601
+          ]
+        }
+      },
+      "elapsed_s": 4.904330999999729
+    },
+    {
+      "file": "train_049.npz",
+      "events": 22833,
+      "target_events": 4674,
+      "h2_reference_candidates": 6525,
+      "s0p_reference_candidates": 7419,
+      "variants": {
+        "32": {
+          "a1_candidates": 6525,
+          "s1_candidates": 8561,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 6525,
+          "s1_candidates": 8561,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 6525,
+          "s1_candidates": 8561,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            18800,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 6524,
+          "s1_candidates": 8561,
+          "a1_proposal_saturations": [
+            40,
+            68809,
+            340614
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            168193,
+            326430,
+            326205
+          ]
+        }
+      },
+      "elapsed_s": 5.037595700000566
+    },
+    {
+      "file": "train_058.npz",
+      "events": 14707,
+      "target_events": 1468,
+      "h2_reference_candidates": 2305,
+      "s0p_reference_candidates": 3073,
+      "variants": {
+        "32": {
+          "a1_candidates": 2299,
+          "s1_candidates": 4044,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 2299,
+          "s1_candidates": 4044,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 2299,
+          "s1_candidates": 4044,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            7507,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 2299,
+          "s1_candidates": 4044,
+          "a1_proposal_saturations": [
+            22,
+            52591,
+            288245
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            111504,
+            245974,
+            245914
+          ]
+        }
+      },
+      "elapsed_s": 4.403553099999954
+    },
+    {
+      "file": "train_059.npz",
+      "events": 44257,
+      "target_events": 888,
+      "h2_reference_candidates": 12748,
+      "s0p_reference_candidates": 16044,
+      "variants": {
+        "32": {
+          "a1_candidates": 12742,
+          "s1_candidates": 17670,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 12742,
+          "s1_candidates": 17670,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 12742,
+          "s1_candidates": 17670,
+          "a1_proposal_saturations": [
+            0,
+            919,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            53475,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 12302,
+          "s1_candidates": 17670,
+          "a1_proposal_saturations": [
+            2212,
+            89940,
+            376883
+          ],
+          "s1_accumulator_saturations": [
+            2544,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            4637,
+            272082,
+            458385,
+            458383
+          ]
+        }
+      },
+      "elapsed_s": 6.240325599999778
+    },
+    {
+      "file": "train_065.npz",
+      "events": 33115,
+      "target_events": 1555,
+      "h2_reference_candidates": 8040,
+      "s0p_reference_candidates": 9696,
+      "variants": {
+        "32": {
+          "a1_candidates": 8040,
+          "s1_candidates": 11153,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 8040,
+          "s1_candidates": 11153,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 8040,
+          "s1_candidates": 11153,
+          "a1_proposal_saturations": [
+            0,
+            78,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            41135,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 8040,
+          "s1_candidates": 11153,
+          "a1_proposal_saturations": [
+            164,
+            84339,
+            371414
+          ],
+          "s1_accumulator_saturations": [
+            24,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            33,
+            243293,
+            437661,
+            437612
+          ]
+        }
+      },
+      "elapsed_s": 5.463813100000152
+    },
+    {
+      "file": "train_067.npz",
+      "events": 32582,
+      "target_events": 2404,
+      "h2_reference_candidates": 6327,
+      "s0p_reference_candidates": 10088,
+      "variants": {
+        "32": {
+          "a1_candidates": 6327,
+          "s1_candidates": 11550,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 6327,
+          "s1_candidates": 11550,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 6327,
+          "s1_candidates": 11550,
+          "a1_proposal_saturations": [
+            0,
+            125,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            37152,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 6327,
+          "s1_candidates": 11550,
+          "a1_proposal_saturations": [
+            493,
+            82527,
+            362155
+          ],
+          "s1_accumulator_saturations": [
+            43,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            15,
+            228179,
+            398734,
+            398661
+          ]
+        }
+      },
+      "elapsed_s": 5.466459399999621
+    },
+    {
+      "file": "train_071.npz",
+      "events": 32667,
+      "target_events": 2027,
+      "h2_reference_candidates": 8346,
+      "s0p_reference_candidates": 10895,
+      "variants": {
+        "32": {
+          "a1_candidates": 8346,
+          "s1_candidates": 12032,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 8346,
+          "s1_candidates": 12032,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 8346,
+          "s1_candidates": 12032,
+          "a1_proposal_saturations": [
+            0,
+            195,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            42085,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 8407,
+          "s1_candidates": 12032,
+          "a1_proposal_saturations": [
+            485,
+            77120,
+            349718
+          ],
+          "s1_accumulator_saturations": [
+            60,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            26,
+            224681,
+            393776,
+            393699
+          ]
+        }
+      },
+      "elapsed_s": 5.465732799999387
+    },
+    {
+      "file": "train_079.npz",
+      "events": 7372,
+      "target_events": 1270,
+      "h2_reference_candidates": 1529,
+      "s0p_reference_candidates": 1844,
+      "variants": {
+        "32": {
+          "a1_candidates": 1529,
+          "s1_candidates": 2325,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 1529,
+          "s1_candidates": 2325,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 1529,
+          "s1_candidates": 2325,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            1584,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 1529,
+          "s1_candidates": 2325,
+          "a1_proposal_saturations": [
+            2,
+            24818,
+            223635
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            42367,
+            117329,
+            117266
+          ]
+        }
+      },
+      "elapsed_s": 4.012496499999543
+    },
+    {
+      "file": "train_081.npz",
+      "events": 8964,
+      "target_events": 2778,
+      "h2_reference_candidates": 3046,
+      "s0p_reference_candidates": 3417,
+      "variants": {
+        "32": {
+          "a1_candidates": 3046,
+          "s1_candidates": 3907,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 3046,
+          "s1_candidates": 3907,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 3046,
+          "s1_candidates": 3907,
+          "a1_proposal_saturations": [
+            0,
+            1,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            2521,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 3046,
+          "s1_candidates": 3907,
+          "a1_proposal_saturations": [
+            277,
+            26550,
+            225351
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            6,
+            45932,
+            117131,
+            117035
+          ]
+        }
+      },
+      "elapsed_s": 4.158955300000343
+    },
+    {
+      "file": "train_093.npz",
+      "events": 620778,
+      "target_events": 6137,
+      "h2_reference_candidates": 242606,
+      "s0p_reference_candidates": 223446,
+      "variants": {
+        "32": {
+          "a1_candidates": 242655,
+          "s1_candidates": 225307,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "24": {
+          "a1_candidates": 242655,
+          "s1_candidates": 225307,
+          "a1_proposal_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "20": {
+          "a1_candidates": 242655,
+          "s1_candidates": 225307,
+          "a1_proposal_saturations": [
+            0,
+            9533,
+            0
+          ],
+          "s1_accumulator_saturations": [
+            0,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            0,
+            237866,
+            0,
+            0
+          ]
+        },
+        "16": {
+          "a1_candidates": 231648,
+          "s1_candidates": 225307,
+          "a1_proposal_saturations": [
+            416259,
+            321983,
+            375987
+          ],
+          "s1_accumulator_saturations": [
+            76562,
+            0,
+            0
+          ],
+          "s1_membrane_saturations": [
+            169542,
+            940336,
+            157169,
+            157195
+          ]
+        }
+      },
+      "elapsed_s": 62.56768219999958
+    }
+  ],
+  "reproducibility": {
+    "command": [
+      "software\\scripts\\evaluate_fixed.py",
+      "--widths",
+      "32,24,20,16",
+      "--device",
+      "cuda",
+      "--experiment-id",
+      "S1-FIXED-HW-CAL-v1",
+      "--output",
+      "results\\fixed_calibration.json"
+    ],
+    "script_sha256": "3378c27d256f8d9842e15b79ac914e453696e33211ceeb6bb68b6bf97a478496",
+    "fixed_source_sha256": "387807108f1363058d912d757cc40fd28853baa71c7f07b950dccc5df69dbe06"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "EV-SpSegNet (EV-UAV original paper baseline)",
+  "role": "external_reference_baseline",
+  "paper": {
+    "title": "Event-based Tiny Object Detection: A Benchmark Dataset and Baseline",
+    "venue": "ICCV 2025",
+    "paper_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_Event-based_Tiny_Object_Detection_A_Benchmark_Dataset_and_Baseline_ICCV_2025_paper.html",
+    "reported_weight_parameters": 4000000,
+    "reported_weight_parameters_display": "4.0M",
+    "reported_inference_ms": 35.9,
+    "parameter_precision": "rounded to one decimal million in paper Table 2",
+    "ann_not_applicable_values": {
+      "persistent_snn_neuron_state_bytes": 0,
+      "effective_snn_acs": 0,
+      "snn_neuron_updates": 0
+    },
+    "complexity_metrics_not_reported": [
+      "A02 exact static tensor payload",
+      "A03 work memory",
+      "A04 dense MAC",
+      "A05 effective MAC",
+      "A06 other operations"
+    ]
+  },
+  "official_repository_current_code_check": {
+    "repository_url": "https://github.com/ChenYichen9527/EV-UAV",
+    "commit": "33e2affb51a204676536e119803ab8494e2eb0a9",
+    "config_width": 12,
+    "config_input_channels": 4,
+    "calculated_trainable_parameters": 943749,
+    "calculated_fp32_parameter_payload_bytes": 3774996,
+    "status": "code-derived cross-check, not substituted for the original paper baseline because it does not reproduce the paper-reported 4.0M"
+  },
+  "comparison_policy": "Use the paper-reported 4.0M for A01. Because EV-SpSegNet is an ANN, persistent SNN neuron state, SNN AC and SNN neuron updates are not applicable and are recorded as zero. Leave the other unreported A02-A06 items unavailable; do not infer them from the current repository code or from the paper's hardware-dependent latency."
+}

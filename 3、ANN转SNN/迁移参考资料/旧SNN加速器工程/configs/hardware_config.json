@@ -1,0 +1,21 @@
+{
+  "format_version": "1.0",
+  "board": "ALINX AXU3EG",
+  "part": "xczu3eg-sfvc784-1-i",
+  "input_shape": [2, 256, 320],
+  "timesteps": 4,
+  "accumulator_bits": 20,
+  "guard_bits": 2,
+  "approx_lsb_bits": 4,
+  "exponent_min": -8,
+  "exponent_max": 7,
+  "density_low": 6000,
+  "density_high": 14000,
+  "clock_mhz": 150,
+  "outputs": {
+    "P3": [32, 40],
+    "P4": [16, 20],
+    "P5": [8, 10]
+  }
+}
+

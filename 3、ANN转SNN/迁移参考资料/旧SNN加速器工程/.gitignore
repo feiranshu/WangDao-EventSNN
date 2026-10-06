@@ -1,0 +1,35 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Datasets, checkpoints and generated experiment artifacts
+data/
+checkpoints/
+results/raw/
+results/generated/
+*.pt
+*.pth
+*.onnx
+
+# FPGA/Vivado generated files
+hardware/vivado/*.runs/
+hardware/vivado/*.cache/
+hardware/vivado/*.gen/
+hardware/vivado/*.hw/
+hardware/vivado/*.ip_user_files/
+hardware/vivado/*.sim/
+hardware/vivado/*.xpr
+*.jou
+*.log
+*.str
+*.bit
+
+# Upstream repositories are fetched explicitly and remain untracked.
+third_party/
+

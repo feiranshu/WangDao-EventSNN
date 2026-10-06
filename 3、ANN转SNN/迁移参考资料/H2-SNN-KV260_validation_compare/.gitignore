@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+data/EV-UAV-dataset/
+results/runs/

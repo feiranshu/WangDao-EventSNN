@@ -1,0 +1,18 @@
+{
+  "seeds": [17, 29, 43],
+  "max_epochs": 100,
+  "patience": 15,
+  "kd_weights": [0.1, 0.5, 1.0],
+  "kd_temperatures": [2, 4],
+  "approx_lsb_candidates": [2, 4, 6],
+  "baselines": {
+    "B0": "report_10_epoch",
+    "B1": "float_teacher",
+    "B2": "int8_exact",
+    "B3": "signed_pot_exact",
+    "B4": "signed_pot_static_approx",
+    "B5": "signed_pot_dynamic_precision",
+    "B6": "B5_state_tile_cache"
+  }
+}
+

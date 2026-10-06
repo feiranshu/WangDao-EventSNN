@@ -1,0 +1,134 @@
+{
+  "model": "H2",
+  "protocol": "formal-ann-algorithm-complexity-v1",
+  "weights": {
+    "H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "A4-2_seed42_epoch008_int8.npz": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4"
+  },
+  "splits": {
+    "Validation": {
+      "proposal": {
+        "weight_parameters": 7680,
+        "nonzero_weights": 7630,
+        "weight_bytes": 7680,
+        "scale_bytes": 352,
+        "macs_per_call": 7680,
+        "dimensions": [
+          128,
+          48,
+          24,
+          16
+        ]
+      },
+      "refiner": {
+        "weight_parameters": 4224,
+        "nonzero_weights": 4170,
+        "weight_bytes": 4224,
+        "scale_bytes": 400,
+        "macs_per_call": 4224,
+        "dimensions": [
+          32,
+          64,
+          32,
+          4
+        ]
+      },
+      "total_weight_parameters": 11904,
+      "total_nonzero_weights": 11800,
+      "total_weight_bytes": 11904,
+      "total_scale_bytes": 752,
+      "total_tensor_payload_bytes": 12656,
+      "persistent_neuron_state_bytes": 0,
+      "sequences": 24,
+      "events": 1424330,
+      "candidates": 455015,
+      "candidate_fraction": 0.3194589736928942,
+      "duration_s": 192,
+      "proposal_calls": 645120,
+      "refiner_calls": 455015,
+      "proposal_dense_macs": 4954521600,
+      "proposal_effective_macs": 835138233,
+      "refiner_dense_macs": 1921983360,
+      "refiner_effective_macs": 1156574342,
+      "total_dense_macs": 6876504960,
+      "total_effective_macs": 1991712575,
+      "activation_transform_elements": 90130080,
+      "proposal_sigmoid_elements": 10321920,
+      "refiner_softmax_items": 455015,
+      "history_feature_values": 0,
+      "snn_neuron_updates": 0,
+      "effective_acs": 0,
+      "dense_macs_per_sequence": 286521040.0,
+      "effective_macs_per_sequence": 82988023.95833333,
+      "dense_macs_per_second_input": 35815130.0,
+      "effective_macs_per_second_input": 10373502.994791666,
+      "max_core_tensor_bytes_observed": 21467904,
+      "core_tensor_definition": "sum of retained patch features, heatmap, event base features, refiner features, H2-plus history features (not used by H2), output probability; sizing budget, not simultaneous or RSS peak",
+      "work_memory_peak_bytes": 342551557,
+      "work_memory_peak_status": "measured Python/NumPy traced allocations; raw input and loaded weights excluded; software-specific, not hardware SRAM/RSS peak",
+      "work_memory_peak_sequence": "val_023.npz"
+    },
+    "Test": {
+      "proposal": {
+        "weight_parameters": 7680,
+        "nonzero_weights": 7630,
+        "weight_bytes": 7680,
+        "scale_bytes": 352,
+        "macs_per_call": 7680,
+        "dimensions": [
+          128,
+          48,
+          24,
+          16
+        ]
+      },
+      "refiner": {
+        "weight_parameters": 4224,
+        "nonzero_weights": 4170,
+        "weight_bytes": 4224,
+        "scale_bytes": 400,
+        "macs_per_call": 4224,
+        "dimensions": [
+          32,
+          64,
+          32,
+          4
+        ]
+      },
+      "total_weight_parameters": 11904,
+      "total_nonzero_weights": 11800,
+      "total_weight_bytes": 11904,
+      "total_scale_bytes": 752,
+      "total_tensor_payload_bytes": 12656,
+      "persistent_neuron_state_bytes": 0,
+      "sequences": 24,
+      "events": 2074586,
+      "candidates": 650689,
+      "candidate_fraction": 0.313647638613198,
+      "duration_s": 192,
+      "proposal_calls": 645120,
+      "refiner_calls": 650689,
+      "proposal_dense_macs": 4954521600,
+      "proposal_effective_macs": 882412312,
+      "refiner_dense_macs": 2748510336,
+      "refiner_effective_macs": 1699940599,
+      "total_dense_macs": 7703031936,
+      "total_effective_macs": 2582352911,
+      "activation_transform_elements": 108914784,
+      "proposal_sigmoid_elements": 10321920,
+      "refiner_softmax_items": 650689,
+      "history_feature_values": 0,
+      "snn_neuron_updates": 0,
+      "effective_acs": 0,
+      "dense_macs_per_sequence": 320959664.0,
+      "effective_macs_per_sequence": 107598037.95833333,
+      "dense_macs_per_second_input": 40119958.0,
+      "effective_macs_per_second_input": 13449754.744791666,
+      "max_core_tensor_bytes_observed": 30818752,
+      "core_tensor_definition": "sum of retained patch features, heatmap, event base features, refiner features, H2-plus history features (not used by H2), output probability; sizing budget, not simultaneous or RSS peak",
+      "work_memory_peak_bytes": 481994628,
+      "work_memory_peak_status": "measured Python/NumPy traced allocations; raw input and loaded weights excluded; software-specific, not hardware SRAM/RSS peak",
+      "work_memory_peak_sequence": "test_023.npz"
+    }
+  }
+}

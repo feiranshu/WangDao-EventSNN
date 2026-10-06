@@ -1,0 +1,4437 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "SNN-READOUT-PAIR-v1",
+  "stage": "readout_pair_selection",
+  "data_role": [
+    "train_main",
+    "train_dev"
+  ],
+  "primary_metrics": {
+    "baseline": {
+      "event": {
+        "threshold": 0.89,
+        "true_positive": 20926.0,
+        "false_positive": 4747.0,
+        "false_negative": 9733.0,
+        "true_negative": 1201777.0,
+        "iou": 0.591029768965712,
+        "precision": 0.8150975733260624,
+        "recall": 0.6825402002674582,
+        "f1": 0.7429524959170631,
+        "accuracy": 0.988295991781329
+      },
+      "localization": {
+        "targets": 2017.0,
+        "correct_targets": 1305.0,
+        "false_components": 2576.0,
+        "frame_denominator": 1526.0,
+        "pd": 0.6470004957858205,
+        "fa": 1.8764710921469685e-05
+      }
+    },
+    "membrane": {
+      "event": {
+        "threshold": 0.8200000000000001,
+        "true_positive": 20080.0,
+        "false_positive": 4478.0,
+        "false_negative": 10579.0,
+        "true_negative": 1202046.0,
+        "iou": 0.5714773600478128,
+        "precision": 0.8176561609251568,
+        "recall": 0.6549463452819727,
+        "f1": 0.7273122407954072,
+        "accuracy": 0.9878296096858751
+      },
+      "localization": {
+        "targets": 2017.0,
+        "correct_targets": 1236.0,
+        "false_components": 2149.0,
+        "frame_denominator": 1526.0,
+        "pd": 0.6127912741695587,
+        "fa": 1.5654256121986937e-05
+      }
+    }
+  },
+  "decision": {
+    "checks_vs_frozen_hybrid": {
+      "baseline": {
+        "iou_gain": -0.14581072839169484,
+        "pd_gain": -0.09320773425880025,
+        "fa_ratio": 1.84,
+        "localization_pass": false,
+        "cost_path_iou_necessary_condition": false,
+        "accuracy_path_iou_necessary_condition": false
+      },
+      "membrane": {
+        "iou_gain": -0.16536313730959407,
+        "pd_gain": -0.12741695587506208,
+        "fa_ratio": 1.535,
+        "localization_pass": false,
+        "cost_path_iou_necessary_condition": false,
+        "accuracy_path_iou_necessary_condition": false
+      }
+    },
+    "both_paths_excluded_by_iou": true,
+    "reference_bound": "max(H2, frozen hybrid) IoU >= verified frozen hybrid IoU",
+    "quantization_admitted": false,
+    "additional_training_authorized": false,
+    "hardware_mainline_changed": false,
+    "next": "stop_readout_pair_retain_snn_mainline",
+    "scope": "This fixed seed42 readout pair; not all SNN architectures.",
+    "membrane_iou_gain_vs_baseline": -0.019552408917899222
+  },
+  "conclusion": "stop_readout_pair_retain_snn_mainline",
+  "protocol": {
+    "version": 1,
+    "arm": "Local-SNN",
+    "variants": [
+      "baseline",
+      "membrane"
+    ],
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 8,
+    "max_formal_runs": 2,
+    "initialization": "fresh seed42; never the 8-block pilot checkpoint",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "cosine_min_lr": 1e-05,
+    "weight_decay": 0.0001,
+    "gradient_clip": 5,
+    "precision": "float32; no AMP/TF32",
+    "prefetch_batches": 1,
+    "selection": "full Train-dev every epoch; IoU,F1,earlier epoch,lower threshold",
+    "readout_controls": {
+      "version": 1,
+      "variants": {
+        "baseline": {
+          "head_std": 0.01,
+          "readout": "instant"
+        },
+        "scaled_init": {
+          "head_std": 0.3535533905932738,
+          "readout": "instant"
+        },
+        "membrane": {
+          "head_std": 0.01,
+          "readout": "membrane"
+        }
+      },
+      "seed": 42,
+      "updates": 100,
+      "base_training_protocol": {
+        "version": 1,
+        "micro_ms": 25,
+        "steps": 4,
+        "state_reset_ms": 100,
+        "channels": [
+          "count_p0",
+          "count_p1",
+          "last_time_p0",
+          "last_time_p1"
+        ],
+        "counts": "rint(32*log1p(n)), clip uint8, divide by 255",
+        "last_time": "float32((t-bin_start)/25), empty=0",
+        "origin": "first event",
+        "epochs": 30,
+        "batch_size": 8,
+        "optimizer": "AdamW",
+        "lr": 0.001,
+        "lr_min": 1e-05,
+        "weight_decay": 0.0001,
+        "gradient_clip": 5.0,
+        "precision": "float32; no AMP or TF32",
+        "beta": 0.875,
+        "threshold": 0.25,
+        "surrogate_slope": 10,
+        "focal_alpha": 0.75,
+        "focal_gamma": 2,
+        "soft_iou_weight": 0.5,
+        "spike_regularizer": [
+          0.01,
+          0.01,
+          0.25
+        ],
+        "hidden_initialization": "Kaiming normal fan_in relu",
+        "head_std": 0.01,
+        "bias": "logit Train-main polarity prior clipped [1e-6,1-1e-6]",
+        "thresholds": [
+          0.01,
+          0.99,
+          0.01
+        ],
+        "selection": "IoU,F1,earlier epoch,lower threshold",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "max_runs": 12,
+        "arms": [
+          "Local-ANN",
+          "Local-SNN",
+          "Dilated-ANN",
+          "Dilated-SNN"
+        ],
+        "cost_gate": {
+          "iou_loss": 0.005,
+          "pd_loss": 0.005,
+          "fa_ratio": 1.1,
+          "cpu_ratio": 0.8
+        },
+        "accuracy_gate": {
+          "iou_gain": 0.01,
+          "pd_loss": 0.005,
+          "fa_ratio": 1.1,
+          "cpu_ratio": 2.0
+        },
+        "cpu_timing": "1 thread; min/median/max event-count Train-dev sequences; 1 warmup + 3 repeats",
+        "learning_check": {
+          "blocks": 8,
+          "updates": 100,
+          "loss_reduction": 0.2
+        }
+      },
+      "optimizer": "AdamW lr=1e-3 weight_decay=1e-4 constant for short check",
+      "readout_equation": "v[t]=0.875*v[t-1]+W*s[t]; logits[t]=v[t]+bias; reset every 4 steps",
+      "admission": "finite; all hidden layers fire; fit total loss drops >=20%; final fit task loss and probe task loss no worse than paired baseline",
+      "scope": "short learning feasibility only; no model promotion or claim of full-data superiority",
+      "no_combination_or_scale_search": true
+    },
+    "endpoint": "paired full Train-dev results; no quantization or deployment admission without cost and reference review"
+  },
+  "environment": {
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "cpu_threads": 1,
+    "git": "3c0525ecafd1cab6386ce912931afaef9a86513e"
+  },
+  "identity": {
+    "short_study_sha256": "1f40d947c0e3458e7f957f4be93fba6df52237133cf518564a4641c11ed45e97",
+    "frozen_inputs": {
+      "index": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "h2": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "proposal": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+      "refiner": "35223d0dae3dbfdeac758aec41c6904349937072b8f7e5f35fa1628e170dc0b7"
+    }
+  },
+  "variants": {
+    "baseline": {
+      "epoch": 25,
+      "threshold": 0.89,
+      "evaluation": {
+        "scan": {
+          "best_threshold": 0.89,
+          "best_event": {
+            "threshold": 0.89,
+            "true_positive": 20926.0,
+            "false_positive": 4747.0,
+            "false_negative": 9733.0,
+            "true_negative": 1201777.0,
+            "iou": 0.591029768965712,
+            "precision": 0.8150975733260624,
+            "recall": 0.6825402002674582,
+            "f1": 0.7429524959170631,
+            "accuracy": 0.988295991781329
+          },
+          "grid_min": 0.01,
+          "grid_max": 0.99,
+          "grid_step": 0.01,
+          "evaluated_thresholds": 99
+        },
+        "event": {
+          "threshold": 0.89,
+          "true_positive": 20926.0,
+          "false_positive": 4747.0,
+          "false_negative": 9733.0,
+          "true_negative": 1201777.0,
+          "iou": 0.591029768965712,
+          "precision": 0.8150975733260624,
+          "recall": 0.6825402002674582,
+          "f1": 0.7429524959170631,
+          "accuracy": 0.988295991781329
+        },
+        "threshold": 0.89,
+        "localization": {
+          "targets": 2017.0,
+          "correct_targets": 1305.0,
+          "false_components": 2576.0,
+          "frame_denominator": 1526.0,
+          "pd": 0.6470004957858205,
+          "fa": 1.8764710921469685e-05
+        },
+        "per_sequence": [
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 3829.0,
+              "false_positive": 113.0,
+              "false_negative": 126.0,
+              "true_negative": 40503.0,
+              "iou": 0.9412487708947886,
+              "precision": 0.9713343480466768,
+              "recall": 0.968141592920354,
+              "f1": 0.9697353425351399,
+              "accuracy": 0.9946377689529066
+            },
+            "localization": {
+              "pd": 0.9594594594594594,
+              "fa": 4.823946911415556e-06,
+              "targets": 148.0,
+              "correct_targets": 142.0,
+              "false_components": 69.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 673.0,
+              "false_positive": 53.0,
+              "false_negative": 217.0,
+              "true_negative": 22099.0,
+              "iou": 0.7136797454931071,
+              "precision": 0.9269972451790633,
+              "recall": 0.7561797752808989,
+              "f1": 0.8329207920792079,
+              "accuracy": 0.9882822671643087
+            },
+            "localization": {
+              "pd": 0.7345132743362832,
+              "fa": 2.7964909631394527e-06,
+              "targets": 113.0,
+              "correct_targets": 83.0,
+              "false_components": 40.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 3894.0,
+              "false_positive": 214.0,
+              "false_negative": 126.0,
+              "true_negative": 16615.0,
+              "iou": 0.9196976854038734,
+              "precision": 0.9479065238558909,
+              "recall": 0.9686567164179104,
+              "f1": 0.9581692913385826,
+              "accuracy": 0.9836922634179097
+            },
+            "localization": {
+              "pd": 0.9527027027027027,
+              "fa": 6.921315133770145e-06,
+              "targets": 148.0,
+              "correct_targets": 141.0,
+              "false_components": 99.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 4553.0,
+              "false_positive": 287.0,
+              "false_negative": 194.0,
+              "true_negative": 15306.0,
+              "iou": 0.9044497417560587,
+              "precision": 0.940702479338843,
+              "recall": 0.9591320834211081,
+              "f1": 0.949827891936998,
+              "accuracy": 0.9763520157325467
+            },
+            "localization": {
+              "pd": 0.9178082191780822,
+              "fa": 7.690350148633494e-06,
+              "targets": 146.0,
+              "correct_targets": 134.0,
+              "false_components": 110.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 1870.0,
+              "false_positive": 32.0,
+              "false_negative": 483.0,
+              "true_negative": 42552.0,
+              "iou": 0.7840670859538784,
+              "precision": 0.9831756046267087,
+              "recall": 0.7947301317467064,
+              "f1": 0.8789659224441834,
+              "accuracy": 0.9885395108707746
+            },
+            "localization": {
+              "pd": 0.7258064516129032,
+              "fa": 2.251352218426192e-06,
+              "targets": 248.0,
+              "correct_targets": 180.0,
+              "false_components": 32.0,
+              "frame_denominator": 158.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 1738.0,
+              "false_positive": 50.0,
+              "false_negative": 505.0,
+              "true_negative": 16007.0,
+              "iou": 0.7579590056694286,
+              "precision": 0.9720357941834452,
+              "recall": 0.7748551047703968,
+              "f1": 0.8623170429173902,
+              "accuracy": 0.969672131147541
+            },
+            "localization": {
+              "pd": 0.7567567567567568,
+              "fa": 2.866403237217939e-06,
+              "targets": 296.0,
+              "correct_targets": 224.0,
+              "false_components": 41.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 997.0,
+              "false_positive": 71.0,
+              "false_negative": 232.0,
+              "true_negative": 42306.0,
+              "iou": 0.7669230769230769,
+              "precision": 0.9335205992509363,
+              "recall": 0.8112286411716843,
+              "f1": 0.8680888114932521,
+              "accuracy": 0.9930514149428977
+            },
+            "localization": {
+              "pd": 0.8359375,
+              "fa": 1.8876314001191304e-06,
+              "targets": 128.0,
+              "correct_targets": 107.0,
+              "false_components": 27.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 954.0,
+              "false_positive": 32.0,
+              "false_negative": 395.0,
+              "true_negative": 18916.0,
+              "iou": 0.6908037653874004,
+              "precision": 0.9675456389452333,
+              "recall": 0.7071905114899926,
+              "f1": 0.8171306209850107,
+              "accuracy": 0.9789624082376706
+            },
+            "localization": {
+              "pd": 0.7311827956989247,
+              "fa": 3.242181710389803e-06,
+              "targets": 186.0,
+              "correct_targets": 136.0,
+              "false_components": 28.0,
+              "frame_denominator": 96.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 321.0,
+              "false_positive": 2187.0,
+              "false_negative": 2360.0,
+              "true_negative": 400854.0,
+              "iou": 0.06594083812654067,
+              "precision": 0.12799043062200957,
+              "recall": 0.11973144349123462,
+              "f1": 0.12372326074388129,
+              "accuracy": 0.9887928187280947
+            },
+            "localization": {
+              "pd": 0.1694915254237288,
+              "fa": 8.221683431629991e-05,
+              "targets": 295.0,
+              "correct_targets": 50.0,
+              "false_components": 1176.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 2097.0,
+              "false_positive": 1708.0,
+              "false_negative": 5095.0,
+              "true_negative": 586619.0,
+              "iou": 0.23561797752808988,
+              "precision": 0.5511169513797635,
+              "recall": 0.29157397107897665,
+              "f1": 0.38137673911066655,
+              "accuracy": 0.9885763510484132
+            },
+            "localization": {
+              "pd": 0.34951456310679613,
+              "fa": 6.669630947087594e-05,
+              "targets": 309.0,
+              "correct_targets": 108.0,
+              "false_components": 954.0,
+              "frame_denominator": 159.0
+            }
+          }
+        ],
+        "files": [
+          "train_002.npz",
+          "train_020.npz",
+          "train_034.npz",
+          "train_039.npz",
+          "train_041.npz",
+          "train_050.npz",
+          "train_060.npz",
+          "train_066.npz",
+          "train_089.npz",
+          "train_092.npz"
+        ],
+        "seconds": 2.952170199999955
+      },
+      "checkpoint": "results\\runs\\SNN-READOUT-PAIR-v1\\baseline\\best.pt",
+      "checkpoint_sha256": "c23472915a7fb14a10efd0cf8d743870e29a9a2e5b1b0df5ebe1538c9db3f0ad",
+      "complete_epochs": 30,
+      "optimizer_updates": 23430,
+      "history": [
+        {
+          "epoch": 1,
+          "loss": 0.4908610660226384,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 19.860385999796563,
+          "train_s": 47.35667990001093,
+          "lr": 0.001,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.72,
+              "best_event": {
+                "threshold": 0.72,
+                "true_positive": 19279.0,
+                "false_positive": 21131.0,
+                "false_negative": 11380.0,
+                "true_negative": 1185393.0,
+                "iou": 0.37225333075883377,
+                "precision": 0.47708487998020294,
+                "recall": 0.628820248540396,
+                "f1": 0.5425431622789121,
+                "accuracy": 0.9737217533703583
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.72,
+              "true_positive": 19279.0,
+              "false_positive": 21131.0,
+              "false_negative": 11380.0,
+              "true_negative": 1185393.0,
+              "iou": 0.37225333075883377,
+              "precision": 0.47708487998020294,
+              "recall": 0.628820248540396,
+              "f1": 0.5425431622789121,
+              "accuracy": 0.9737217533703583
+            },
+            "threshold": 0.72,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 8.277107100002468
+          }
+        },
+        {
+          "epoch": 2,
+          "loss": 0.4076896785929456,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.566695700457785,
+          "train_s": 34.371907199994894,
+          "lr": 0.0009972883382072953,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9,
+              "best_event": {
+                "threshold": 0.9,
+                "true_positive": 20533.0,
+                "false_positive": 14695.0,
+                "false_negative": 10126.0,
+                "true_negative": 1191829.0,
+                "iou": 0.4527274330819773,
+                "precision": 0.582860224821165,
+                "recall": 0.6697217782706546,
+                "f1": 0.623279250838557,
+                "accuracy": 0.9799374870168762
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9,
+              "true_positive": 20533.0,
+              "false_positive": 14695.0,
+              "false_negative": 10126.0,
+              "true_negative": 1191829.0,
+              "iou": 0.4527274330819773,
+              "precision": 0.582860224821165,
+              "recall": 0.6697217782706546,
+              "f1": 0.623279250838557,
+              "accuracy": 0.9799374870168762
+            },
+            "threshold": 0.9,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.926640300007421
+          }
+        },
+        {
+          "epoch": 3,
+          "loss": 0.3718372534567035,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.942926699994132,
+          "train_s": 37.31107039999915,
+          "lr": 0.0009891830623632338,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9500000000000001,
+              "best_event": {
+                "threshold": 0.9500000000000001,
+                "true_positive": 20157.0,
+                "false_positive": 11438.0,
+                "false_negative": 10502.0,
+                "true_negative": 1195086.0,
+                "iou": 0.47882271895859563,
+                "precision": 0.6379806931476499,
+                "recall": 0.65745784272155,
+                "f1": 0.6475728467247085,
+                "accuracy": 0.9822661643427043
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9500000000000001,
+              "true_positive": 20157.0,
+              "false_positive": 11438.0,
+              "false_negative": 10502.0,
+              "true_negative": 1195086.0,
+              "iou": 0.47882271895859563,
+              "precision": 0.6379806931476499,
+              "recall": 0.65745784272155,
+              "f1": 0.6475728467247085,
+              "accuracy": 0.9822661643427043
+            },
+            "threshold": 0.9500000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.702671999999438
+          }
+        },
+        {
+          "epoch": 4,
+          "loss": 0.33978297510582145,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 16.6186863999028,
+          "train_s": 39.221805699999095,
+          "lr": 0.0009757729755661011,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 19124.0,
+                "false_positive": 5266.0,
+                "false_negative": 11535.0,
+                "true_negative": 1201258.0,
+                "iou": 0.5323312456506611,
+                "precision": 0.7840918409184092,
+                "recall": 0.6237646368113767,
+                "f1": 0.6947991789133318,
+                "accuracy": 0.986419955657328
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 19124.0,
+              "false_positive": 5266.0,
+              "false_negative": 11535.0,
+              "true_negative": 1201258.0,
+              "iou": 0.5323312456506611,
+              "precision": 0.7840918409184092,
+              "recall": 0.6237646368113767,
+              "f1": 0.6947991789133318,
+              "accuracy": 0.986419955657328
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 6.592643000010867
+          }
+        },
+        {
+          "epoch": 5,
+          "loss": 0.3162200636567611,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.123918799785315,
+          "train_s": 38.26826140000776,
+          "lr": 0.0009572050015330874,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.97,
+              "best_event": {
+                "threshold": 0.97,
+                "true_positive": 19981.0,
+                "false_positive": 6873.0,
+                "false_negative": 10678.0,
+                "true_negative": 1199651.0,
+                "iou": 0.5323723755728446,
+                "precision": 0.744060475161987,
+                "recall": 0.6517172771453733,
+                "f1": 0.6948342113956845,
+                "accuracy": 0.9858137397620239
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.97,
+              "true_positive": 19981.0,
+              "false_positive": 6873.0,
+              "false_negative": 10678.0,
+              "true_negative": 1199651.0,
+              "iou": 0.5323723755728446,
+              "precision": 0.744060475161987,
+              "recall": 0.6517172771453733,
+              "f1": 0.6948342113956845,
+              "accuracy": 0.9858137397620239
+            },
+            "threshold": 0.97,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.858322900006897
+          }
+        },
+        {
+          "epoch": 6,
+          "loss": 0.2963784526530532,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.379747099927044,
+          "train_s": 36.382050100000924,
+          "lr": 0.0009336825748732973,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.97,
+              "best_event": {
+                "threshold": 0.97,
+                "true_positive": 19105.0,
+                "false_positive": 4433.0,
+                "false_negative": 11554.0,
+                "true_negative": 1202091.0,
+                "iou": 0.5444260800182378,
+                "precision": 0.8116662418217351,
+                "recall": 0.6231449166639486,
+                "f1": 0.7050205730944518,
+                "accuracy": 0.987077901975698
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.97,
+              "true_positive": 19105.0,
+              "false_positive": 4433.0,
+              "false_negative": 11554.0,
+              "true_negative": 1202091.0,
+              "iou": 0.5444260800182378,
+              "precision": 0.8116662418217351,
+              "recall": 0.6231449166639486,
+              "f1": 0.7050205730944518,
+              "accuracy": 0.987077901975698
+            },
+            "threshold": 0.97,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.834614400009741
+          }
+        },
+        {
+          "epoch": 7,
+          "loss": 0.2825482423724792,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.427707099952386,
+          "train_s": 38.583114499997464,
+          "lr": 0.0009054634122155991,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 19709.0,
+                "false_positive": 4917.0,
+                "false_negative": 10950.0,
+                "true_negative": 1201607.0,
+                "iou": 0.5539970766809085,
+                "precision": 0.8003329814017704,
+                "recall": 0.6428454939821912,
+                "f1": 0.7129962919417564,
+                "accuracy": 0.9871748965189466
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 19709.0,
+              "false_positive": 4917.0,
+              "false_negative": 10950.0,
+              "true_negative": 1201607.0,
+              "iou": 0.5539970766809085,
+              "precision": 0.8003329814017704,
+              "recall": 0.6428454939821912,
+              "f1": 0.7129962919417564,
+              "accuracy": 0.9871748965189466
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.807780300005106
+          }
+        },
+        {
+          "epoch": 8,
+          "loss": 0.2694975782034234,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.920116000066628,
+          "train_s": 36.38967080001021,
+          "lr": 0.0008728566886113102,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9500000000000001,
+              "best_event": {
+                "threshold": 0.9500000000000001,
+                "true_positive": 19808.0,
+                "false_positive": 5286.0,
+                "false_negative": 10851.0,
+                "true_negative": 1201238.0,
+                "iou": 0.55106412574767,
+                "precision": 0.789352036343349,
+                "recall": 0.6460745621187906,
+                "f1": 0.710562660305275,
+                "accuracy": 0.9869566587966372
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9500000000000001,
+              "true_positive": 19808.0,
+              "false_positive": 5286.0,
+              "false_negative": 10851.0,
+              "true_negative": 1201238.0,
+              "iou": 0.55106412574767,
+              "precision": 0.789352036343349,
+              "recall": 0.6460745621187906,
+              "f1": 0.710562660305275,
+              "accuracy": 0.9869566587966372
+            },
+            "threshold": 0.9500000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.713858300005086
+          }
+        },
+        {
+          "epoch": 9,
+          "loss": 0.2632839335086058,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 16.573555200302508,
+          "train_s": 40.35764770000242,
+          "lr": 0.0008362196501476349,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 19929.0,
+                "false_positive": 4915.0,
+                "false_negative": 10730.0,
+                "true_negative": 1201609.0,
+                "iou": 0.5602125147579693,
+                "precision": 0.8021655127998712,
+                "recall": 0.650021200952412,
+                "f1": 0.7181233446840711,
+                "accuracy": 0.9873543364239566
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 19929.0,
+              "false_positive": 4915.0,
+              "false_negative": 10730.0,
+              "true_negative": 1201609.0,
+              "iou": 0.5602125147579693,
+              "precision": 0.8021655127998712,
+              "recall": 0.650021200952412,
+              "f1": 0.7181233446840711,
+              "accuracy": 0.9873543364239566
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 6.620925999988685
+          }
+        },
+        {
+          "epoch": 10,
+          "loss": 0.2558366312478577,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.29599180027435,
+          "train_s": 36.97864780000236,
+          "lr": 0.0007959536998847742,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.97,
+              "best_event": {
+                "threshold": 0.97,
+                "true_positive": 20155.0,
+                "false_positive": 5115.0,
+                "false_negative": 10504.0,
+                "true_negative": 1201409.0,
+                "iou": 0.5633979985464304,
+                "precision": 0.797586070439256,
+                "recall": 0.6573926090218206,
+                "f1": 0.7207352178655081,
+                "accuracy": 0.9873753519083273
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.97,
+              "true_positive": 20155.0,
+              "false_positive": 5115.0,
+              "false_negative": 10504.0,
+              "true_negative": 1201409.0,
+              "iou": 0.5633979985464304,
+              "precision": 0.797586070439256,
+              "recall": 0.6573926090218206,
+              "f1": 0.7207352178655081,
+              "accuracy": 0.9873753519083273
+            },
+            "threshold": 0.97,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.783924200004549
+          }
+        },
+        {
+          "epoch": 11,
+          "loss": 0.25431755749590945,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 17.283007400124916,
+          "train_s": 41.24249600000621,
+          "lr": 0.0007525,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9400000000000001,
+              "best_event": {
+                "threshold": 0.9400000000000001,
+                "true_positive": 20448.0,
+                "false_positive": 5011.0,
+                "false_negative": 10211.0,
+                "true_negative": 1201513.0,
+                "iou": 0.5732548359966358,
+                "precision": 0.8031737303114812,
+                "recall": 0.6669493460321602,
+                "f1": 0.7287501336469582,
+                "accuracy": 0.9876962421889082
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9400000000000001,
+              "true_positive": 20448.0,
+              "false_positive": 5011.0,
+              "false_negative": 10211.0,
+              "true_negative": 1201513.0,
+              "iou": 0.5732548359966358,
+              "precision": 0.8031737303114812,
+              "recall": 0.6669493460321602,
+              "f1": 0.7287501336469582,
+              "accuracy": 0.9876962421889082
+            },
+            "threshold": 0.9400000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.7348540000093635
+          }
+        },
+        {
+          "epoch": 12,
+          "loss": 0.24868771392053418,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.91631539989612,
+          "train_s": 36.31126750000112,
+          "lr": 0.0007063346383225212,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 20730.0,
+                "false_positive": 5731.0,
+                "false_negative": 9929.0,
+                "true_negative": 1200793.0,
+                "iou": 0.5696619950535862,
+                "precision": 0.7834171044178224,
+                "recall": 0.6761472976939887,
+                "f1": 0.7258403361344538,
+                "accuracy": 0.9873422121060506
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 20730.0,
+              "false_positive": 5731.0,
+              "false_negative": 9929.0,
+              "true_negative": 1200793.0,
+              "iou": 0.5696619950535862,
+              "precision": 0.7834171044178224,
+              "recall": 0.6761472976939887,
+              "f1": 0.7258403361344538,
+              "accuracy": 0.9873422121060506
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.703407199995127
+          }
+        },
+        {
+          "epoch": 13,
+          "loss": 0.24010816342669444,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.399495100151398,
+          "train_s": 38.55960039999627,
+          "lr": 0.000657963412215599,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 20739.0,
+                "false_positive": 5654.0,
+                "false_negative": 9920.0,
+                "true_negative": 1200870.0,
+                "iou": 0.5711177815107538,
+                "precision": 0.7857765316561209,
+                "recall": 0.6764408493427705,
+                "f1": 0.7270209633316974,
+                "accuracy": 0.9874117248620454
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 20739.0,
+              "false_positive": 5654.0,
+              "false_negative": 9920.0,
+              "true_negative": 1200870.0,
+              "iou": 0.5711177815107538,
+              "precision": 0.7857765316561209,
+              "recall": 0.6764408493427705,
+              "f1": 0.7270209633316974,
+              "accuracy": 0.9874117248620454
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 6.665145999999368
+          }
+        },
+        {
+          "epoch": 14,
+          "loss": 0.24134456980985475,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.14200320035161,
+          "train_s": 38.40044129999296,
+          "lr": 0.0006079162869547909,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9400000000000001,
+              "best_event": {
+                "threshold": 0.9400000000000001,
+                "true_positive": 20796.0,
+                "false_positive": 5845.0,
+                "false_negative": 9863.0,
+                "true_negative": 1200679.0,
+                "iou": 0.5696909927679158,
+                "precision": 0.7806013287789497,
+                "recall": 0.678300009785055,
+                "f1": 0.7258638743455498,
+                "accuracy": 0.9873034142887511
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9400000000000001,
+              "true_positive": 20796.0,
+              "false_positive": 5845.0,
+              "false_negative": 9863.0,
+              "true_negative": 1200679.0,
+              "iou": 0.5696909927679158,
+              "precision": 0.7806013287789497,
+              "recall": 0.678300009785055,
+              "f1": 0.7258638743455498,
+              "accuracy": 0.9873034142887511
+            },
+            "threshold": 0.9400000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.717812500006403
+          }
+        },
+        {
+          "epoch": 15,
+          "loss": 0.2410077983761517,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.840487799665425,
+          "train_s": 35.873234099999536,
+          "lr": 0.0005567415893174886,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 20225.0,
+                "false_positive": 4270.0,
+                "false_negative": 10434.0,
+                "true_negative": 1202254.0,
+                "iou": 0.5790317501216754,
+                "precision": 0.8256787099408043,
+                "recall": 0.6596757885123454,
+                "f1": 0.7334010225912898,
+                "accuracy": 0.9881149353005982
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 20225.0,
+              "false_positive": 4270.0,
+              "false_negative": 10434.0,
+              "true_negative": 1202254.0,
+              "iou": 0.5790317501216754,
+              "precision": 0.8256787099408043,
+              "recall": 0.6596757885123454,
+              "f1": 0.7334010225912898,
+              "accuracy": 0.9881149353005982
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.728552100001252
+          }
+        },
+        {
+          "epoch": 16,
+          "loss": 0.23839700480216272,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.680784499869333,
+          "train_s": 36.00104909999936,
+          "lr": 0.0005050000000000002,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 20563.0,
+                "false_positive": 4603.0,
+                "false_negative": 10096.0,
+                "true_negative": 1201921.0,
+                "iou": 0.5831489989223527,
+                "precision": 0.8170944925693396,
+                "recall": 0.6707002837665939,
+                "f1": 0.7366950291088222,
+                "accuracy": 0.9881189767399002
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 20563.0,
+              "false_positive": 4603.0,
+              "false_negative": 10096.0,
+              "true_negative": 1201921.0,
+              "iou": 0.5831489989223527,
+              "precision": 0.8170944925693396,
+              "recall": 0.6707002837665939,
+              "f1": 0.7366950291088222,
+              "accuracy": 0.9881189767399002
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.78321649999998
+          }
+        },
+        {
+          "epoch": 17,
+          "loss": 0.23420439374149488,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.691936699993676,
+          "train_s": 35.98265039999387,
+          "lr": 0.0004532584106825117,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 20500.0,
+                "false_positive": 4575.0,
+                "false_negative": 10159.0,
+                "true_negative": 1201949.0,
+                "iou": 0.5818243741840268,
+                "precision": 0.8175473579262214,
+                "recall": 0.6686454222251215,
+                "f1": 0.7356371335271109,
+                "accuracy": 0.988090686664786
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 20500.0,
+              "false_positive": 4575.0,
+              "false_negative": 10159.0,
+              "true_negative": 1201949.0,
+              "iou": 0.5818243741840268,
+              "precision": 0.8175473579262214,
+              "recall": 0.6686454222251215,
+              "f1": 0.7356371335271109,
+              "accuracy": 0.988090686664786
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.705093399999896
+          }
+        },
+        {
+          "epoch": 18,
+          "loss": 0.23405200488787475,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.956788599927677,
+          "train_s": 39.73712119999982,
+          "lr": 0.00040208371304520916,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.93,
+              "best_event": {
+                "threshold": 0.93,
+                "true_positive": 21095.0,
+                "false_positive": 5866.0,
+                "false_negative": 9564.0,
+                "true_negative": 1200658.0,
+                "iou": 0.5775496235455168,
+                "precision": 0.7824264678609844,
+                "recall": 0.6880524478945823,
+                "f1": 0.7322110378340854,
+                "accuracy": 0.9875281183139438
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.93,
+              "true_positive": 21095.0,
+              "false_positive": 5866.0,
+              "false_negative": 9564.0,
+              "true_negative": 1200658.0,
+              "iou": 0.5775496235455168,
+              "precision": 0.7824264678609844,
+              "recall": 0.6880524478945823,
+              "f1": 0.7322110378340854,
+              "accuracy": 0.9875281183139438
+            },
+            "threshold": 0.93,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.713935499996296
+          }
+        },
+        {
+          "epoch": 19,
+          "loss": 0.22943247487050197,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.887621499714442,
+          "train_s": 37.48136410000734,
+          "lr": 0.00035203658778440114,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 21157.0,
+                "false_positive": 5710.0,
+                "false_negative": 9502.0,
+                "true_negative": 1200814.0,
+                "iou": 0.5817316945750501,
+                "precision": 0.7874716194588156,
+                "recall": 0.69007469258619,
+                "f1": 0.7355630497514167,
+                "accuracy": 0.9877043250675123
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 21157.0,
+              "false_positive": 5710.0,
+              "false_negative": 9502.0,
+              "true_negative": 1200814.0,
+              "iou": 0.5817316945750501,
+              "precision": 0.7874716194588156,
+              "recall": 0.69007469258619,
+              "f1": 0.7355630497514167,
+              "accuracy": 0.9877043250675123
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.887342999994871
+          }
+        },
+        {
+          "epoch": 20,
+          "loss": 0.23217234310763782,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.174567499765544,
+          "train_s": 36.26709419999679,
+          "lr": 0.000303665361677479,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 21065.0,
+                "false_positive": 5640.0,
+                "false_negative": 9594.0,
+                "true_negative": 1200884.0,
+                "iou": 0.5803190170528114,
+                "precision": 0.7888035948324283,
+                "recall": 0.6870739423986432,
+                "f1": 0.7344327452757827,
+                "accuracy": 0.9876865427345833
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 21065.0,
+              "false_positive": 5640.0,
+              "false_negative": 9594.0,
+              "true_negative": 1200884.0,
+              "iou": 0.5803190170528114,
+              "precision": 0.7888035948324283,
+              "recall": 0.6870739423986432,
+              "f1": 0.7344327452757827,
+              "accuracy": 0.9876865427345833
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.631905799993547
+          }
+        },
+        {
+          "epoch": 21,
+          "loss": 0.22731867694351446,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.679055300031905,
+          "train_s": 36.94292780000251,
+          "lr": 0.0002575000000000002,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 20832.0,
+                "false_positive": 4873.0,
+                "false_negative": 9827.0,
+                "true_negative": 1201651.0,
+                "iou": 0.5862884160756501,
+                "precision": 0.8104259871620307,
+                "recall": 0.679474216380182,
+                "f1": 0.7391952309985097,
+                "accuracy": 0.9881181684520398
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 20832.0,
+              "false_positive": 4873.0,
+              "false_negative": 9827.0,
+              "true_negative": 1201651.0,
+              "iou": 0.5862884160756501,
+              "precision": 0.8104259871620307,
+              "recall": 0.679474216380182,
+              "f1": 0.7391952309985097,
+              "accuracy": 0.9881181684520398
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.958392600005027
+          }
+        },
+        {
+          "epoch": 22,
+          "loss": 0.22725988100591282,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.191944199978025,
+          "train_s": 37.50520709999546,
+          "lr": 0.0002140463001152259,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 21097.0,
+                "false_positive": 5326.0,
+                "false_negative": 9562.0,
+                "true_negative": 1201198.0,
+                "iou": 0.5862720578018619,
+                "precision": 0.798433183211596,
+                "recall": 0.6881176815943116,
+                "f1": 0.7391822290739638,
+                "accuracy": 0.9879662103342836
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 21097.0,
+              "false_positive": 5326.0,
+              "false_negative": 9562.0,
+              "true_negative": 1201198.0,
+              "iou": 0.5862720578018619,
+              "precision": 0.798433183211596,
+              "recall": 0.6881176815943116,
+              "f1": 0.7391822290739638,
+              "accuracy": 0.9879662103342836
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.6232378000131575
+          }
+        },
+        {
+          "epoch": 23,
+          "loss": 0.22935299339183474,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.865612599955057,
+          "train_s": 37.448008500010474,
+          "lr": 0.00017378034985236537,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 20929.0,
+                "false_positive": 4770.0,
+                "false_negative": 9730.0,
+                "true_negative": 1201754.0,
+                "iou": 0.5907307572892263,
+                "precision": 0.8143896649675084,
+                "recall": 0.6826380508170521,
+                "f1": 0.7427162071045814,
+                "accuracy": 0.9882798260241209
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 20929.0,
+              "false_positive": 4770.0,
+              "false_negative": 9730.0,
+              "true_negative": 1201754.0,
+              "iou": 0.5907307572892263,
+              "precision": 0.8143896649675084,
+              "recall": 0.6826380508170521,
+              "f1": 0.7427162071045814,
+              "accuracy": 0.9882798260241209
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.6872285999997985
+          }
+        },
+        {
+          "epoch": 24,
+          "loss": 0.22508406220040816,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.628628099962953,
+          "train_s": 35.533608199999435,
+          "lr": 0.00013714331138868995,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 20930.0,
+                "false_positive": 4923.0,
+                "false_negative": 9729.0,
+                "true_negative": 1201601.0,
+                "iou": 0.5882187622955427,
+                "precision": 0.8095772250802615,
+                "recall": 0.6826706676669168,
+                "f1": 0.7407276330690826,
+                "accuracy": 0.9881569662693392
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 20930.0,
+              "false_positive": 4923.0,
+              "false_negative": 9729.0,
+              "true_negative": 1201601.0,
+              "iou": 0.5882187622955427,
+              "precision": 0.8095772250802615,
+              "recall": 0.6826706676669168,
+              "f1": 0.7407276330690826,
+              "accuracy": 0.9881569662693392
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.606851099990308
+          }
+        },
+        {
+          "epoch": 25,
+          "loss": 0.2272337522194115,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.743930499986163,
+          "train_s": 35.521335899989936,
+          "lr": 0.00010453658778440111,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.89,
+              "best_event": {
+                "threshold": 0.89,
+                "true_positive": 20926.0,
+                "false_positive": 4747.0,
+                "false_negative": 9733.0,
+                "true_negative": 1201777.0,
+                "iou": 0.591029768965712,
+                "precision": 0.8150975733260624,
+                "recall": 0.6825402002674582,
+                "f1": 0.7429524959170631,
+                "accuracy": 0.988295991781329
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.89,
+              "true_positive": 20926.0,
+              "false_positive": 4747.0,
+              "false_negative": 9733.0,
+              "true_negative": 1201777.0,
+              "iou": 0.591029768965712,
+              "precision": 0.8150975733260624,
+              "recall": 0.6825402002674582,
+              "f1": 0.7429524959170631,
+              "accuracy": 0.988295991781329
+            },
+            "threshold": 0.89,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.571190299990121
+          }
+        },
+        {
+          "epoch": 26,
+          "loss": 0.22364591680702148,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.703733000162174,
+          "train_s": 37.31914120000147,
+          "lr": 7.631742512670288e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 21046.0,
+                "false_positive": 5141.0,
+                "false_negative": 9613.0,
+                "true_negative": 1201383.0,
+                "iou": 0.5878770949720671,
+                "precision": 0.80368121587047,
+                "recall": 0.686454222251215,
+                "f1": 0.7404566724131865,
+                "accuracy": 0.988074520907578
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 21046.0,
+              "false_positive": 5141.0,
+              "false_negative": 9613.0,
+              "true_negative": 1201383.0,
+              "iou": 0.5878770949720671,
+              "precision": 0.80368121587047,
+              "recall": 0.686454222251215,
+              "f1": 0.7404566724131865,
+              "accuracy": 0.988074520907578
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.700851699992199
+          }
+        },
+        {
+          "epoch": 27,
+          "loss": 0.22402139729700532,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.16112899989821,
+          "train_s": 35.953359599996475,
+          "lr": 5.279499846691254e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 20957.0,
+                "false_positive": 4892.0,
+                "false_negative": 9702.0,
+                "true_negative": 1201632.0,
+                "iou": 0.5894911535540491,
+                "precision": 0.8107470308329142,
+                "recall": 0.683551322613262,
+                "f1": 0.7417356834430523,
+                "accuracy": 0.9882038469652428
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 20957.0,
+              "false_positive": 4892.0,
+              "false_negative": 9702.0,
+              "true_negative": 1201632.0,
+              "iou": 0.5894911535540491,
+              "precision": 0.8107470308329142,
+              "recall": 0.683551322613262,
+              "f1": 0.7417356834430523,
+              "accuracy": 0.9882038469652428
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.849704599997494
+          }
+        },
+        {
+          "epoch": 28,
+          "loss": 0.22428268852186398,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.219688100274652,
+          "train_s": 36.089907999994466,
+          "lr": 3.422702443389901e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 20994.0,
+                "false_positive": 4928.0,
+                "false_negative": 9665.0,
+                "true_negative": 1201596.0,
+                "iou": 0.5899345266529913,
+                "precision": 0.809891212097832,
+                "recall": 0.6847581460582537,
+                "f1": 0.7420865661617858,
+                "accuracy": 0.9882046552531032
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 20994.0,
+              "false_positive": 4928.0,
+              "false_negative": 9665.0,
+              "true_negative": 1201596.0,
+              "iou": 0.5899345266529913,
+              "precision": 0.809891212097832,
+              "recall": 0.6847581460582537,
+              "f1": 0.7420865661617858,
+              "accuracy": 0.9882046552531032
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.568888499998138
+          }
+        },
+        {
+          "epoch": 29,
+          "loss": 0.2250675075362492,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.36491819989169,
+          "train_s": 36.24068129999796,
+          "lr": 2.0816937636766188e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 21033.0,
+                "false_positive": 5107.0,
+                "false_negative": 9626.0,
+                "true_negative": 1201417.0,
+                "iou": 0.5880724710619024,
+                "precision": 0.8046289211935731,
+                "recall": 0.6860302032029747,
+                "f1": 0.7406116304864522,
+                "accuracy": 0.9880914949526465
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 21033.0,
+              "false_positive": 5107.0,
+              "false_negative": 9626.0,
+              "true_negative": 1201417.0,
+              "iou": 0.5880724710619024,
+              "precision": 0.8046289211935731,
+              "recall": 0.6860302032029747,
+              "f1": 0.7406116304864522,
+              "accuracy": 0.9880914949526465
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 6.060026499995729
+          }
+        },
+        {
+          "epoch": 30,
+          "loss": 0.2229524201010055,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.444926400057739,
+          "train_s": 38.02633320000314,
+          "lr": 1.2711661792704668e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.91,
+              "best_event": {
+                "threshold": 0.91,
+                "true_positive": 21169.0,
+                "false_positive": 5432.0,
+                "false_negative": 9490.0,
+                "true_negative": 1201092.0,
+                "iou": 0.5865451220525892,
+                "precision": 0.7957971504830645,
+                "recall": 0.6904660947845657,
+                "f1": 0.7393992315752707,
+                "accuracy": 0.9879387285470298
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.91,
+              "true_positive": 21169.0,
+              "false_positive": 5432.0,
+              "false_negative": 9490.0,
+              "true_negative": 1201092.0,
+              "iou": 0.5865451220525892,
+              "precision": 0.7957971504830645,
+              "recall": 0.6904660947845657,
+              "f1": 0.7393992315752707,
+              "accuracy": 0.9879387285470298
+            },
+            "threshold": 0.91,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.706029299995862
+          }
+        }
+      ],
+      "timing": {
+        "by_loader": {
+          "original": {
+            "epochs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "median_train_s": 37.14485910000076,
+            "median_input_wait_s": 14.69139415009704,
+            "median_selection_s": 5.731703050005308,
+            "median_epoch_train_plus_selection_s": 42.95753140000306
+          }
+        },
+        "sum_completed_epoch_train_and_selection_s": 1305.379840100024,
+        "scope": "Recorded complete epochs only; excludes interrupted work and restart preparation; no controlled architecture timing."
+      },
+      "structure": {
+        "parameters": 1952,
+        "weight_values": 1920,
+        "bias_values": 32,
+        "dense_products_per_100ms": 43430400,
+        "nonbinary_synaptic_products_per_100ms": 11581440,
+        "scheduled_binary_weight_accumulations_per_100ms": 31848960,
+        "hidden_updates_per_100ms": 542880,
+        "hidden_state_values": 135720,
+        "hidden_state_float32_bytes": 542880,
+        "state_24bit_bytes_hypothetical": 407160,
+        "scope": "dense schedule includes padded convolution taps; no FPGA/energy claim",
+        "extra_output_state_values": 0,
+        "persistent_float32_state_bytes": 542880,
+        "extra_readout_leak_updates_per_100ms": 0
+      }
+    },
+    "membrane": {
+      "epoch": 24,
+      "threshold": 0.8200000000000001,
+      "evaluation": {
+        "scan": {
+          "best_threshold": 0.8200000000000001,
+          "best_event": {
+            "threshold": 0.8200000000000001,
+            "true_positive": 20080.0,
+            "false_positive": 4478.0,
+            "false_negative": 10579.0,
+            "true_negative": 1202046.0,
+            "iou": 0.5714773600478128,
+            "precision": 0.8176561609251568,
+            "recall": 0.6549463452819727,
+            "f1": 0.7273122407954072,
+            "accuracy": 0.9878296096858751
+          },
+          "grid_min": 0.01,
+          "grid_max": 0.99,
+          "grid_step": 0.01,
+          "evaluated_thresholds": 99
+        },
+        "event": {
+          "threshold": 0.8200000000000001,
+          "true_positive": 20080.0,
+          "false_positive": 4478.0,
+          "false_negative": 10579.0,
+          "true_negative": 1202046.0,
+          "iou": 0.5714773600478128,
+          "precision": 0.8176561609251568,
+          "recall": 0.6549463452819727,
+          "f1": 0.7273122407954072,
+          "accuracy": 0.9878296096858751
+        },
+        "threshold": 0.8200000000000001,
+        "localization": {
+          "targets": 2017.0,
+          "correct_targets": 1236.0,
+          "false_components": 2149.0,
+          "frame_denominator": 1526.0,
+          "pd": 0.6127912741695587,
+          "fa": 1.5654256121986937e-05
+        },
+        "per_sequence": [
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 3738.0,
+              "false_positive": 121.0,
+              "false_negative": 217.0,
+              "true_negative": 40495.0,
+              "iou": 0.9170755642787046,
+              "precision": 0.9686447266131122,
+              "recall": 0.9451327433628318,
+              "f1": 0.956744305093422,
+              "accuracy": 0.9924165937492989
+            },
+            "localization": {
+              "pd": 0.9459459459459459,
+              "fa": 5.523069652200419e-06,
+              "targets": 148.0,
+              "correct_targets": 140.0,
+              "false_components": 79.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 616.0,
+              "false_positive": 56.0,
+              "false_negative": 274.0,
+              "true_negative": 22096.0,
+              "iou": 0.6511627906976745,
+              "precision": 0.9166666666666666,
+              "recall": 0.6921348314606741,
+              "f1": 0.7887323943661971,
+              "accuracy": 0.985678326534155
+            },
+            "localization": {
+              "pd": 0.7168141592920354,
+              "fa": 2.7964909631394527e-06,
+              "targets": 113.0,
+              "correct_targets": 81.0,
+              "false_components": 40.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 3875.0,
+              "false_positive": 276.0,
+              "false_negative": 145.0,
+              "true_negative": 16553.0,
+              "iou": 0.902001862197393,
+              "precision": 0.9335099975909419,
+              "recall": 0.9639303482587065,
+              "f1": 0.948476318688043,
+              "accuracy": 0.9798071849968824
+            },
+            "localization": {
+              "pd": 0.9527027027027027,
+              "fa": 9.857630645066571e-06,
+              "targets": 148.0,
+              "correct_targets": 141.0,
+              "false_components": 141.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 4525.0,
+              "false_positive": 363.0,
+              "false_negative": 222.0,
+              "true_negative": 15230.0,
+              "iou": 0.8855185909980431,
+              "precision": 0.9257364975450082,
+              "recall": 0.9532336212344639,
+              "f1": 0.9392838609237156,
+              "accuracy": 0.9712389380530974
+            },
+            "localization": {
+              "pd": 0.9383561643835616,
+              "fa": 9.368244726517165e-06,
+              "targets": 146.0,
+              "correct_targets": 137.0,
+              "false_components": 134.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 1725.0,
+              "false_positive": 37.0,
+              "false_negative": 628.0,
+              "true_negative": 42547.0,
+              "iou": 0.7217573221757322,
+              "precision": 0.9790011350737798,
+              "recall": 0.7331066723331917,
+              "f1": 0.8383961117861483,
+              "accuracy": 0.9852015043282818
+            },
+            "localization": {
+              "pd": 0.6854838709677419,
+              "fa": 2.603126002555285e-06,
+              "targets": 248.0,
+              "correct_targets": 170.0,
+              "false_components": 37.0,
+              "frame_denominator": 158.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 1525.0,
+              "false_positive": 34.0,
+              "false_negative": 718.0,
+              "true_negative": 16023.0,
+              "iou": 0.6697408871321915,
+              "precision": 0.9781911481719051,
+              "recall": 0.6798930004458315,
+              "f1": 0.8022093634928985,
+              "accuracy": 0.9589071038251367
+            },
+            "localization": {
+              "pd": 0.7128378378378378,
+              "fa": 2.027455948276103e-06,
+              "targets": 296.0,
+              "correct_targets": 211.0,
+              "false_components": 29.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 895.0,
+              "false_positive": 426.0,
+              "false_negative": 334.0,
+              "true_negative": 41951.0,
+              "iou": 0.540785498489426,
+              "precision": 0.6775170325510976,
+              "recall": 0.7282343368592351,
+              "f1": 0.7019607843137254,
+              "accuracy": 0.9825712057973673
+            },
+            "localization": {
+              "pd": 0.7578125,
+              "fa": 4.54429781510161e-06,
+              "targets": 128.0,
+              "correct_targets": 97.0,
+              "false_components": 65.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 841.0,
+              "false_positive": 245.0,
+              "false_negative": 508.0,
+              "true_negative": 18703.0,
+              "iou": 0.527603513174404,
+              "precision": 0.7744014732965009,
+              "recall": 0.6234247590808006,
+              "f1": 0.6907597535934291,
+              "accuracy": 0.9629009213184214
+            },
+            "localization": {
+              "pd": 0.6827956989247311,
+              "fa": 6.9475322365495774e-06,
+              "targets": 186.0,
+              "correct_targets": 127.0,
+              "false_components": 60.0,
+              "frame_denominator": 96.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 256.0,
+              "false_positive": 1775.0,
+              "false_negative": 2425.0,
+              "true_negative": 401266.0,
+              "iou": 0.05745062836624776,
+              "precision": 0.12604628261939932,
+              "recall": 0.09548675867213727,
+              "f1": 0.10865874363327674,
+              "accuracy": 0.9896480841561464
+            },
+            "localization": {
+              "pd": 0.13220338983050847,
+              "fa": 6.578744990785563e-05,
+              "targets": 295.0,
+              "correct_targets": 39.0,
+              "false_components": 941.0,
+              "frame_denominator": 159.0
+            }
+          },
+          {
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 2084.0,
+              "false_positive": 1145.0,
+              "false_negative": 5108.0,
+              "true_negative": 587182.0,
+              "iou": 0.24997001319419457,
+              "precision": 0.645401052957572,
+              "recall": 0.28976640711902113,
+              "f1": 0.3999616159677574,
+              "accuracy": 0.9894999152000188
+            },
+            "localization": {
+              "pd": 0.30097087378640774,
+              "fa": 4.3555346750896976e-05,
+              "targets": 309.0,
+              "correct_targets": 93.0,
+              "false_components": 623.0,
+              "frame_denominator": 159.0
+            }
+          }
+        ],
+        "files": [
+          "train_002.npz",
+          "train_020.npz",
+          "train_034.npz",
+          "train_039.npz",
+          "train_041.npz",
+          "train_050.npz",
+          "train_060.npz",
+          "train_066.npz",
+          "train_089.npz",
+          "train_092.npz"
+        ],
+        "seconds": 2.545689799999991
+      },
+      "checkpoint": "results\\runs\\SNN-READOUT-PAIR-v1\\membrane\\best.pt",
+      "checkpoint_sha256": "279bae3b78cf1bbb9a7a6c72e9025f81e3d4abed8f56671df90b5c0c4f33828f",
+      "complete_epochs": 30,
+      "optimizer_updates": 23430,
+      "history": [
+        {
+          "epoch": 1,
+          "loss": 0.47556548643881325,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.189662500080885,
+          "train_s": 36.68939060000412,
+          "lr": 0.001,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.81,
+              "best_event": {
+                "threshold": 0.81,
+                "true_positive": 14148.0,
+                "false_positive": 9196.0,
+                "false_negative": 16511.0,
+                "true_negative": 1197328.0,
+                "iou": 0.35498682724877684,
+                "precision": 0.6060657984921178,
+                "recall": 0.46146319188492774,
+                "f1": 0.523970890506083,
+                "accuracy": 0.979221343972557
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.81,
+              "true_positive": 14148.0,
+              "false_positive": 9196.0,
+              "false_negative": 16511.0,
+              "true_negative": 1197328.0,
+              "iou": 0.35498682724877684,
+              "precision": 0.6060657984921178,
+              "recall": 0.46146319188492774,
+              "f1": 0.523970890506083,
+              "accuracy": 0.979221343972557
+            },
+            "threshold": 0.81,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.777680200000759
+          }
+        },
+        {
+          "epoch": 2,
+          "loss": 0.40462646108714584,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.714256299936096,
+          "train_s": 36.1439049999899,
+          "lr": 0.0009972883382072953,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9600000000000001,
+              "best_event": {
+                "threshold": 0.9600000000000001,
+                "true_positive": 14559.0,
+                "false_positive": 5914.0,
+                "false_negative": 16100.0,
+                "true_negative": 1200610.0,
+                "iou": 0.39808055122631447,
+                "precision": 0.7111317344795585,
+                "recall": 0.4748687171792948,
+                "f1": 0.5694672612062897,
+                "accuracy": 0.9822063510410344
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9600000000000001,
+              "true_positive": 14559.0,
+              "false_positive": 5914.0,
+              "false_negative": 16100.0,
+              "true_negative": 1200610.0,
+              "iou": 0.39808055122631447,
+              "precision": 0.7111317344795585,
+              "recall": 0.4748687171792948,
+              "f1": 0.5694672612062897,
+              "accuracy": 0.9822063510410344
+            },
+            "threshold": 0.9600000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.721145300005446
+          }
+        },
+        {
+          "epoch": 3,
+          "loss": 0.37449174510657623,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.642468400066718,
+          "train_s": 37.28177679999499,
+          "lr": 0.0009891830623632338,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.6900000000000001,
+              "best_event": {
+                "threshold": 0.6900000000000001,
+                "true_positive": 20458.0,
+                "false_positive": 16039.0,
+                "false_negative": 10201.0,
+                "true_negative": 1190485.0,
+                "iou": 0.4380915670906677,
+                "precision": 0.5605392224018413,
+                "recall": 0.6672755145308066,
+                "f1": 0.6092679730776104,
+                "accuracy": 0.978790526542961
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.6900000000000001,
+              "true_positive": 20458.0,
+              "false_positive": 16039.0,
+              "false_negative": 10201.0,
+              "true_negative": 1190485.0,
+              "iou": 0.4380915670906677,
+              "precision": 0.5605392224018413,
+              "recall": 0.6672755145308066,
+              "f1": 0.6092679730776104,
+              "accuracy": 0.978790526542961
+            },
+            "threshold": 0.6900000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.9590122000081465
+          }
+        },
+        {
+          "epoch": 4,
+          "loss": 0.3474885949258388,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.120592899926123,
+          "train_s": 36.11060450000514,
+          "lr": 0.0009757729755661011,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.73,
+              "best_event": {
+                "threshold": 0.73,
+                "true_positive": 18823.0,
+                "false_positive": 5691.0,
+                "false_negative": 11836.0,
+                "true_negative": 1200833.0,
+                "iou": 0.5178266850068776,
+                "precision": 0.767846944603084,
+                "recall": 0.6139469650021201,
+                "f1": 0.6823265002809346,
+                "accuracy": 0.9858331386706736
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.73,
+              "true_positive": 18823.0,
+              "false_positive": 5691.0,
+              "false_negative": 11836.0,
+              "true_negative": 1200833.0,
+              "iou": 0.5178266850068776,
+              "precision": 0.767846944603084,
+              "recall": 0.6139469650021201,
+              "f1": 0.6823265002809346,
+              "accuracy": 0.9858331386706736
+            },
+            "threshold": 0.73,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.88141159999941
+          }
+        },
+        {
+          "epoch": 5,
+          "loss": 0.3284522387109388,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.514942100155167,
+          "train_s": 37.061959200000274,
+          "lr": 0.0009572050015330874,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.86,
+              "best_event": {
+                "threshold": 0.86,
+                "true_positive": 20209.0,
+                "false_positive": 9467.0,
+                "false_negative": 10450.0,
+                "true_negative": 1197057.0,
+                "iou": 0.5036385386033992,
+                "precision": 0.6809880037740935,
+                "recall": 0.6591539189145112,
+                "f1": 0.6698930968757769,
+                "accuracy": 0.9839013306843046
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.86,
+              "true_positive": 20209.0,
+              "false_positive": 9467.0,
+              "false_negative": 10450.0,
+              "true_negative": 1197057.0,
+              "iou": 0.5036385386033992,
+              "precision": 0.6809880037740935,
+              "recall": 0.6591539189145112,
+              "f1": 0.6698930968757769,
+              "accuracy": 0.9839013306843046
+            },
+            "threshold": 0.86,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.97923830000218
+          }
+        },
+        {
+          "epoch": 6,
+          "loss": 0.3117915343820554,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 15.60743909982557,
+          "train_s": 38.67858969999361,
+          "lr": 0.0009336825748732973,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.86,
+              "best_event": {
+                "threshold": 0.86,
+                "true_positive": 19837.0,
+                "false_positive": 6474.0,
+                "false_negative": 10822.0,
+                "true_negative": 1200050.0,
+                "iou": 0.5342148493253979,
+                "precision": 0.7539432176656151,
+                "recall": 0.6470204507648651,
+                "f1": 0.6964016148850272,
+                "accuracy": 0.9860198531664273
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.86,
+              "true_positive": 19837.0,
+              "false_positive": 6474.0,
+              "false_negative": 10822.0,
+              "true_negative": 1200050.0,
+              "iou": 0.5342148493253979,
+              "precision": 0.7539432176656151,
+              "recall": 0.6470204507648651,
+              "f1": 0.6964016148850272,
+              "accuracy": 0.9860198531664273
+            },
+            "threshold": 0.86,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.839110300003085
+          }
+        },
+        {
+          "epoch": 7,
+          "loss": 0.29591724576353534,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.666430299868807,
+          "train_s": 37.290078999998514,
+          "lr": 0.0009054634122155991,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.87,
+              "best_event": {
+                "threshold": 0.87,
+                "true_positive": 19540.0,
+                "false_positive": 5500.0,
+                "false_negative": 11119.0,
+                "true_negative": 1201024.0,
+                "iou": 0.5403910506374623,
+                "precision": 0.7803514376996805,
+                "recall": 0.637333246355067,
+                "f1": 0.7016283954828633,
+                "accuracy": 0.9865670640479217
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.87,
+              "true_positive": 19540.0,
+              "false_positive": 5500.0,
+              "false_negative": 11119.0,
+              "true_negative": 1201024.0,
+              "iou": 0.5403910506374623,
+              "precision": 0.7803514376996805,
+              "recall": 0.637333246355067,
+              "f1": 0.7016283954828633,
+              "accuracy": 0.9865670640479217
+            },
+            "threshold": 0.87,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 6.0821020000003045
+          }
+        },
+        {
+          "epoch": 8,
+          "loss": 0.284959566150993,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.576011699740775,
+          "train_s": 37.03174729998864,
+          "lr": 0.0008728566886113102,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.88,
+              "best_event": {
+                "threshold": 0.88,
+                "true_positive": 19187.0,
+                "false_positive": 5266.0,
+                "false_negative": 11472.0,
+                "true_negative": 1201258.0,
+                "iou": 0.5340848990953375,
+                "precision": 0.7846481004375742,
+                "recall": 0.6258194983528491,
+                "f1": 0.6962911888517928,
+                "accuracy": 0.9864708777925335
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.88,
+              "true_positive": 19187.0,
+              "false_positive": 5266.0,
+              "false_negative": 11472.0,
+              "true_negative": 1201258.0,
+              "iou": 0.5340848990953375,
+              "precision": 0.7846481004375742,
+              "recall": 0.6258194983528491,
+              "f1": 0.6962911888517928,
+              "accuracy": 0.9864708777925335
+            },
+            "threshold": 0.88,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.751934700005222
+          }
+        },
+        {
+          "epoch": 9,
+          "loss": 0.2775531994702269,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.010409200098366,
+          "train_s": 36.10621209999954,
+          "lr": 0.0008362196501476349,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.78,
+              "best_event": {
+                "threshold": 0.78,
+                "true_positive": 19072.0,
+                "false_positive": 4294.0,
+                "false_negative": 11587.0,
+                "true_negative": 1202230.0,
+                "iou": 0.5456470117014276,
+                "precision": 0.816228708379697,
+                "recall": 0.6220685606184154,
+                "f1": 0.7060434983803795,
+                "accuracy": 0.987163580488901
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.78,
+              "true_positive": 19072.0,
+              "false_positive": 4294.0,
+              "false_negative": 11587.0,
+              "true_negative": 1202230.0,
+              "iou": 0.5456470117014276,
+              "precision": 0.816228708379697,
+              "recall": 0.6220685606184154,
+              "f1": 0.7060434983803795,
+              "accuracy": 0.987163580488901
+            },
+            "threshold": 0.78,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.900196000002325
+          }
+        },
+        {
+          "epoch": 10,
+          "loss": 0.2705492882568709,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.805584100162378,
+          "train_s": 37.95994889999565,
+          "lr": 0.0007959536998847742,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9400000000000001,
+              "best_event": {
+                "threshold": 0.9400000000000001,
+                "true_positive": 19769.0,
+                "false_positive": 6621.0,
+                "false_negative": 10890.0,
+                "true_negative": 1199903.0,
+                "iou": 0.5302843347639485,
+                "precision": 0.7491095111784767,
+                "recall": 0.6448025049740697,
+                "f1": 0.6930533401111325,
+                "accuracy": 0.9858460712764401
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9400000000000001,
+              "true_positive": 19769.0,
+              "false_positive": 6621.0,
+              "false_negative": 10890.0,
+              "true_negative": 1199903.0,
+              "iou": 0.5302843347639485,
+              "precision": 0.7491095111784767,
+              "recall": 0.6448025049740697,
+              "f1": 0.6930533401111325,
+              "accuracy": 0.9858460712764401
+            },
+            "threshold": 0.9400000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.659646899992367
+          }
+        },
+        {
+          "epoch": 11,
+          "loss": 0.26863198949706246,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.657349400164094,
+          "train_s": 35.510762899997644,
+          "lr": 0.0007525,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 19119.0,
+                "false_positive": 4162.0,
+                "false_negative": 11540.0,
+                "true_negative": 1202362.0,
+                "iou": 0.5490652192642371,
+                "precision": 0.8212276104978309,
+                "recall": 0.6236015525620535,
+                "f1": 0.7088987764182425,
+                "accuracy": 0.9873082640159135
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 19119.0,
+              "false_positive": 4162.0,
+              "false_negative": 11540.0,
+              "true_negative": 1202362.0,
+              "iou": 0.5490652192642371,
+              "precision": 0.8212276104978309,
+              "recall": 0.6236015525620535,
+              "f1": 0.7088987764182425,
+              "accuracy": 0.9873082640159135
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.6435335999995
+          }
+        },
+        {
+          "epoch": 12,
+          "loss": 0.2629696966690474,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.895781899947906,
+          "train_s": 36.32942490000278,
+          "lr": 0.0007063346383225212,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.88,
+              "best_event": {
+                "threshold": 0.88,
+                "true_positive": 19381.0,
+                "false_positive": 4727.0,
+                "false_negative": 11278.0,
+                "true_negative": 1201797.0,
+                "iou": 0.5477024812072571,
+                "precision": 0.8039240086278414,
+                "recall": 0.6321471672265893,
+                "f1": 0.7077619734511659,
+                "accuracy": 0.9870633527942108
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.88,
+              "true_positive": 19381.0,
+              "false_positive": 4727.0,
+              "false_negative": 11278.0,
+              "true_negative": 1201797.0,
+              "iou": 0.5477024812072571,
+              "precision": 0.8039240086278414,
+              "recall": 0.6321471672265893,
+              "f1": 0.7077619734511659,
+              "accuracy": 0.9870633527942108
+            },
+            "threshold": 0.88,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.66048380000575
+          }
+        },
+        {
+          "epoch": 13,
+          "loss": 0.2562956920345827,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.034944399958476,
+          "train_s": 36.34997989999829,
+          "lr": 0.000657963412215599,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.88,
+              "best_event": {
+                "threshold": 0.88,
+                "true_positive": 19640.0,
+                "false_positive": 4558.0,
+                "false_negative": 11019.0,
+                "true_negative": 1201966.0,
+                "iou": 0.5576852088479995,
+                "precision": 0.8116373253987933,
+                "recall": 0.640594931341531,
+                "f1": 0.716043531363363,
+                "accuracy": 0.9874092999984643
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.88,
+              "true_positive": 19640.0,
+              "false_positive": 4558.0,
+              "false_negative": 11019.0,
+              "true_negative": 1201966.0,
+              "iou": 0.5576852088479995,
+              "precision": 0.8116373253987933,
+              "recall": 0.640594931341531,
+              "f1": 0.716043531363363,
+              "accuracy": 0.9874092999984643
+            },
+            "threshold": 0.88,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.880792800002382
+          }
+        },
+        {
+          "epoch": 14,
+          "loss": 0.2551191680463534,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.305374800329446,
+          "train_s": 36.8333372999914,
+          "lr": 0.0006079162869547909,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9,
+              "best_event": {
+                "threshold": 0.9,
+                "true_positive": 19606.0,
+                "false_positive": 4918.0,
+                "false_negative": 11053.0,
+                "true_negative": 1201606.0,
+                "iou": 0.5510863760294572,
+                "precision": 0.7994617517533844,
+                "recall": 0.6394859584461333,
+                "f1": 0.7105811572404545,
+                "accuracy": 0.9870908345814645
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9,
+              "true_positive": 19606.0,
+              "false_positive": 4918.0,
+              "false_negative": 11053.0,
+              "true_negative": 1201606.0,
+              "iou": 0.5510863760294572,
+              "precision": 0.7994617517533844,
+              "recall": 0.6394859584461333,
+              "f1": 0.7105811572404545,
+              "accuracy": 0.9870908345814645
+            },
+            "threshold": 0.9,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.865735599989421
+          }
+        },
+        {
+          "epoch": 15,
+          "loss": 0.25414536736577487,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.763665300197317,
+          "train_s": 35.842504400003236,
+          "lr": 0.0005567415893174886,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.92,
+              "best_event": {
+                "threshold": 0.92,
+                "true_positive": 19512.0,
+                "false_positive": 5291.0,
+                "false_negative": 11147.0,
+                "true_negative": 1201233.0,
+                "iou": 0.5427538247566064,
+                "precision": 0.7866790307624077,
+                "recall": 0.6364199745588571,
+                "f1": 0.7036168908441816,
+                "accuracy": 0.9867133641506551
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.92,
+              "true_positive": 19512.0,
+              "false_positive": 5291.0,
+              "false_negative": 11147.0,
+              "true_negative": 1201233.0,
+              "iou": 0.5427538247566064,
+              "precision": 0.7866790307624077,
+              "recall": 0.6364199745588571,
+              "f1": 0.7036168908441816,
+              "accuracy": 0.9867133641506551
+            },
+            "threshold": 0.92,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.6403416999964975
+          }
+        },
+        {
+          "epoch": 16,
+          "loss": 0.2506539344969068,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.771448800252983,
+          "train_s": 35.82639940000081,
+          "lr": 0.0005050000000000002,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.88,
+              "best_event": {
+                "threshold": 0.88,
+                "true_positive": 19922.0,
+                "false_positive": 5126.0,
+                "false_negative": 10737.0,
+                "true_negative": 1201398.0,
+                "iou": 0.5567137068604163,
+                "precision": 0.7953529223890131,
+                "recall": 0.6497928830033596,
+                "f1": 0.7152422496275154,
+                "accuracy": 0.9871781296703883
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.88,
+              "true_positive": 19922.0,
+              "false_positive": 5126.0,
+              "false_negative": 10737.0,
+              "true_negative": 1201398.0,
+              "iou": 0.5567137068604163,
+              "precision": 0.7953529223890131,
+              "recall": 0.6497928830033596,
+              "f1": 0.7152422496275154,
+              "accuracy": 0.9871781296703883
+            },
+            "threshold": 0.88,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.633355300000403
+          }
+        },
+        {
+          "epoch": 17,
+          "loss": 0.2474316702072355,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 14.163187900019693,
+          "train_s": 36.32639119999658,
+          "lr": 0.0004532584106825117,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.7100000000000001,
+              "best_event": {
+                "threshold": 0.7100000000000001,
+                "true_positive": 19776.0,
+                "false_positive": 4314.0,
+                "false_negative": 10883.0,
+                "true_negative": 1202210.0,
+                "iou": 0.5654647871214937,
+                "precision": 0.8209215442092155,
+                "recall": 0.6450308229231221,
+                "f1": 0.722424153865824,
+                "accuracy": 0.9877164493854184
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.7100000000000001,
+              "true_positive": 19776.0,
+              "false_positive": 4314.0,
+              "false_negative": 10883.0,
+              "true_negative": 1202210.0,
+              "iou": 0.5654647871214937,
+              "precision": 0.8209215442092155,
+              "recall": 0.6450308229231221,
+              "f1": 0.722424153865824,
+              "accuracy": 0.9877164493854184
+            },
+            "threshold": 0.7100000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.654633500002092
+          }
+        },
+        {
+          "epoch": 18,
+          "loss": 0.24645929342098036,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.659960399949341,
+          "train_s": 35.49088019999908,
+          "lr": 0.00040208371304520916,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.87,
+              "best_event": {
+                "threshold": 0.87,
+                "true_positive": 20076.0,
+                "false_positive": 5496.0,
+                "false_negative": 10583.0,
+                "true_negative": 1201028.0,
+                "iou": 0.5552758954501452,
+                "precision": 0.7850774284373534,
+                "recall": 0.654815877882514,
+                "f1": 0.7140545250840283,
+                "accuracy": 0.9870035394925407
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.87,
+              "true_positive": 20076.0,
+              "false_positive": 5496.0,
+              "false_negative": 10583.0,
+              "true_negative": 1201028.0,
+              "iou": 0.5552758954501452,
+              "precision": 0.7850774284373534,
+              "recall": 0.654815877882514,
+              "f1": 0.7140545250840283,
+              "accuracy": 0.9870035394925407
+            },
+            "threshold": 0.87,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.686811599996872
+          }
+        },
+        {
+          "epoch": 19,
+          "loss": 0.2412068622618294,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 13.56143240017991,
+          "train_s": 35.56445089999761,
+          "lr": 0.00035203658778440114,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.85,
+              "best_event": {
+                "threshold": 0.85,
+                "true_positive": 20162.0,
+                "false_positive": 5555.0,
+                "false_negative": 10497.0,
+                "true_negative": 1200969.0,
+                "iou": 0.5567460098304523,
+                "precision": 0.7839950227475989,
+                "recall": 0.6576209269708732,
+                "f1": 0.7152689087554988,
+                "accuracy": 0.9870253632647716
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.85,
+              "true_positive": 20162.0,
+              "false_positive": 5555.0,
+              "false_negative": 10497.0,
+              "true_negative": 1200969.0,
+              "iou": 0.5567460098304523,
+              "precision": 0.7839950227475989,
+              "recall": 0.6576209269708732,
+              "f1": 0.7152689087554988,
+              "accuracy": 0.9870253632647716
+            },
+            "threshold": 0.85,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 5.605349899997236
+          }
+        },
+        {
+          "epoch": 20,
+          "loss": 0.24480934292402418,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.9952412999555236,
+          "train_s": 20.721586100000422,
+          "loader": "packed_scatter_v1",
+          "lr": 0.000303665361677479,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.9,
+              "best_event": {
+                "threshold": 0.9,
+                "true_positive": 20160.0,
+                "false_positive": 5481.0,
+                "false_negative": 10499.0,
+                "true_negative": 1201043.0,
+                "iou": 0.557830658550083,
+                "precision": 0.7862407862407862,
+                "recall": 0.6575556932711438,
+                "f1": 0.7161634103019539,
+                "accuracy": 0.9870835599907208
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.9,
+              "true_positive": 20160.0,
+              "false_positive": 5481.0,
+              "false_negative": 10499.0,
+              "true_negative": 1201043.0,
+              "iou": 0.557830658550083,
+              "precision": 0.7862407862407862,
+              "recall": 0.6575556932711438,
+              "f1": 0.7161634103019539,
+              "accuracy": 0.9870835599907208
+            },
+            "threshold": 0.9,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.9744284999906085
+          }
+        },
+        {
+          "epoch": 21,
+          "loss": 0.24012249656885165,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.3769234002975281,
+          "train_s": 18.94269660000282,
+          "loader": "packed_scatter_v1",
+          "lr": 0.0002575000000000002,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.76,
+              "best_event": {
+                "threshold": 0.76,
+                "true_positive": 20175.0,
+                "false_positive": 4838.0,
+                "false_negative": 10484.0,
+                "true_negative": 1201686.0,
+                "iou": 0.5683578893991041,
+                "precision": 0.8065805780993883,
+                "recall": 0.6580449460191135,
+                "f1": 0.7247808593188676,
+                "accuracy": 0.9876154134028676
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.76,
+              "true_positive": 20175.0,
+              "false_positive": 4838.0,
+              "false_negative": 10484.0,
+              "true_negative": 1201686.0,
+              "iou": 0.5683578893991041,
+              "precision": 0.8065805780993883,
+              "recall": 0.6580449460191135,
+              "f1": 0.7247808593188676,
+              "accuracy": 0.9876154134028676
+            },
+            "threshold": 0.76,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.832856000008178
+          }
+        },
+        {
+          "epoch": 22,
+          "loss": 0.23813812076583907,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.9775508997117868,
+          "train_s": 23.127108699991368,
+          "loader": "packed_scatter_v1",
+          "lr": 0.0002140463001152259,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8200000000000001,
+              "best_event": {
+                "threshold": 0.8200000000000001,
+                "true_positive": 20286.0,
+                "false_positive": 5265.0,
+                "false_negative": 10373.0,
+                "true_negative": 1201259.0,
+                "iou": 0.5646921278254092,
+                "precision": 0.7939415287072913,
+                "recall": 0.6616654163540885,
+                "f1": 0.7217932752179328,
+                "accuracy": 0.9873599944389795
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 20286.0,
+              "false_positive": 5265.0,
+              "false_negative": 10373.0,
+              "true_negative": 1201259.0,
+              "iou": 0.5646921278254092,
+              "precision": 0.7939415287072913,
+              "recall": 0.6616654163540885,
+              "f1": 0.7217932752179328,
+              "accuracy": 0.9873599944389795
+            },
+            "threshold": 0.8200000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.863856299998588
+          }
+        },
+        {
+          "epoch": 23,
+          "loss": 0.2412887260985473,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.4979191997117596,
+          "train_s": 20.059590200005914,
+          "loader": "packed_scatter_v1",
+          "lr": 0.00017378034985236537,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8200000000000001,
+              "best_event": {
+                "threshold": 0.8200000000000001,
+                "true_positive": 20130.0,
+                "false_positive": 4798.0,
+                "false_negative": 10529.0,
+                "true_negative": 1201726.0,
+                "iou": 0.5677299263897115,
+                "precision": 0.80752567394095,
+                "recall": 0.6565771877752047,
+                "f1": 0.7242700631442603,
+                "accuracy": 0.9876113719635656
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 20130.0,
+              "false_positive": 4798.0,
+              "false_negative": 10529.0,
+              "true_negative": 1201726.0,
+              "iou": 0.5677299263897115,
+              "precision": 0.80752567394095,
+              "recall": 0.6565771877752047,
+              "f1": 0.7242700631442603,
+              "accuracy": 0.9876113719635656
+            },
+            "threshold": 0.8200000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.5612077999976464
+          }
+        },
+        {
+          "epoch": 24,
+          "loss": 0.236775380112326,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.7908213997870917,
+          "train_s": 22.78877869999269,
+          "loader": "packed_scatter_v1",
+          "lr": 0.00013714331138868995,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8200000000000001,
+              "best_event": {
+                "threshold": 0.8200000000000001,
+                "true_positive": 20080.0,
+                "false_positive": 4478.0,
+                "false_negative": 10579.0,
+                "true_negative": 1202046.0,
+                "iou": 0.5714773600478128,
+                "precision": 0.8176561609251568,
+                "recall": 0.6549463452819727,
+                "f1": 0.7273122407954072,
+                "accuracy": 0.9878296096858751
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 20080.0,
+              "false_positive": 4478.0,
+              "false_negative": 10579.0,
+              "true_negative": 1202046.0,
+              "iou": 0.5714773600478128,
+              "precision": 0.8176561609251568,
+              "recall": 0.6549463452819727,
+              "f1": 0.7273122407954072,
+              "accuracy": 0.9878296096858751
+            },
+            "threshold": 0.8200000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.823165900001186
+          }
+        },
+        {
+          "epoch": 25,
+          "loss": 0.23845485821800738,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 2.257342999946559,
+          "train_s": 23.43043170000601,
+          "loader": "packed_scatter_v1",
+          "lr": 0.00010453658778440111,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8200000000000001,
+              "best_event": {
+                "threshold": 0.8200000000000001,
+                "true_positive": 20081.0,
+                "false_positive": 4570.0,
+                "false_negative": 10578.0,
+                "true_negative": 1201954.0,
+                "iou": 0.5700133412813307,
+                "precision": 0.814611983286682,
+                "recall": 0.6549789621318373,
+                "f1": 0.7261254745977219,
+                "accuracy": 0.9877560554905782
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8200000000000001,
+              "true_positive": 20081.0,
+              "false_positive": 4570.0,
+              "false_negative": 10578.0,
+              "true_negative": 1201954.0,
+              "iou": 0.5700133412813307,
+              "precision": 0.814611983286682,
+              "recall": 0.6549789621318373,
+              "f1": 0.7261254745977219,
+              "accuracy": 0.9877560554905782
+            },
+            "threshold": 0.8200000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.706292500006384
+          }
+        },
+        {
+          "epoch": 26,
+          "loss": 0.23449201337153502,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.8785758001467912,
+          "train_s": 22.739383100008126,
+          "loader": "packed_scatter_v1",
+          "lr": 7.631742512670288e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.74,
+              "best_event": {
+                "threshold": 0.74,
+                "true_positive": 20422.0,
+                "false_positive": 5218.0,
+                "false_negative": 10237.0,
+                "true_negative": 1201306.0,
+                "iou": 0.5692226217353736,
+                "precision": 0.7964898595943838,
+                "recall": 0.6661013079356796,
+                "f1": 0.7254835787491785,
+                "accuracy": 0.9875079111174337
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.74,
+              "true_positive": 20422.0,
+              "false_positive": 5218.0,
+              "false_negative": 10237.0,
+              "true_negative": 1201306.0,
+              "iou": 0.5692226217353736,
+              "precision": 0.7964898595943838,
+              "recall": 0.6661013079356796,
+              "f1": 0.7254835787491785,
+              "accuracy": 0.9875079111174337
+            },
+            "threshold": 0.74,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.8968343999877106
+          }
+        },
+        {
+          "epoch": 27,
+          "loss": 0.23585052485375554,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 2.232970500306692,
+          "train_s": 23.445187599994824,
+          "loader": "packed_scatter_v1",
+          "lr": 5.279499846691254e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8300000000000001,
+              "best_event": {
+                "threshold": 0.8300000000000001,
+                "true_positive": 20129.0,
+                "false_positive": 4777.0,
+                "false_negative": 10530.0,
+                "true_negative": 1201747.0,
+                "iou": 0.568038153290439,
+                "precision": 0.808198827591745,
+                "recall": 0.65654457092534,
+                "f1": 0.724520831458652,
+                "accuracy": 0.9876275377207737
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8300000000000001,
+              "true_positive": 20129.0,
+              "false_positive": 4777.0,
+              "false_negative": 10530.0,
+              "true_negative": 1201747.0,
+              "iou": 0.568038153290439,
+              "precision": 0.808198827591745,
+              "recall": 0.65654457092534,
+              "f1": 0.724520831458652,
+              "accuracy": 0.9876275377207737
+            },
+            "threshold": 0.8300000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.8799499000015203
+          }
+        },
+        {
+          "epoch": 28,
+          "loss": 0.23515086258408102,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 2.178038700178149,
+          "train_s": 23.253151400000206,
+          "loader": "packed_scatter_v1",
+          "lr": 3.422702443389901e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8300000000000001,
+              "best_event": {
+                "threshold": 0.8300000000000001,
+                "true_positive": 20138.0,
+                "false_positive": 4911.0,
+                "false_negative": 10521.0,
+                "true_negative": 1201613.0,
+                "iou": 0.5661512510542592,
+                "precision": 0.8039442692323047,
+                "recall": 0.6568381225741218,
+                "f1": 0.7229841315430459,
+                "accuracy": 0.9875265017382231
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8300000000000001,
+              "true_positive": 20138.0,
+              "false_positive": 4911.0,
+              "false_negative": 10521.0,
+              "true_negative": 1201613.0,
+              "iou": 0.5661512510542592,
+              "precision": 0.8039442692323047,
+              "recall": 0.6568381225741218,
+              "f1": 0.7229841315430459,
+              "accuracy": 0.9875265017382231
+            },
+            "threshold": 0.8300000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.9878573000023607
+          }
+        },
+        {
+          "epoch": 29,
+          "loss": 0.2361583814195277,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 2.3999149998271605,
+          "train_s": 23.164423899987014,
+          "loader": "packed_scatter_v1",
+          "lr": 2.0816937636766188e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8400000000000001,
+              "best_event": {
+                "threshold": 0.8400000000000001,
+                "true_positive": 20193.0,
+                "false_positive": 5056.0,
+                "false_negative": 10466.0,
+                "true_negative": 1201468.0,
+                "iou": 0.5653926921461571,
+                "precision": 0.7997544457206226,
+                "recall": 0.658632049316677,
+                "f1": 0.72236531444516,
+                "accuracy": 0.9874537558307865
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8400000000000001,
+              "true_positive": 20193.0,
+              "false_positive": 5056.0,
+              "false_negative": 10466.0,
+              "true_negative": 1201468.0,
+              "iou": 0.5653926921461571,
+              "precision": 0.7997544457206226,
+              "recall": 0.658632049316677,
+              "f1": 0.72236531444516,
+              "accuracy": 0.9874537558307865
+            },
+            "threshold": 0.8400000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.6026130999962334
+          }
+        },
+        {
+          "epoch": 30,
+          "loss": 0.23485782498920296,
+          "updates": 781,
+          "blocks": 6245,
+          "events": 7248921,
+          "input_wait_s": 1.6993368999828817,
+          "train_s": 21.753623299999163,
+          "loader": "packed_scatter_v1",
+          "lr": 1.2711661792704668e-05,
+          "selection": {
+            "scan": {
+              "best_threshold": 0.8300000000000001,
+              "best_event": {
+                "threshold": 0.8300000000000001,
+                "true_positive": 20250.0,
+                "false_positive": 5210.0,
+                "false_negative": 10409.0,
+                "true_negative": 1201314.0,
+                "iou": 0.5645543505534026,
+                "precision": 0.7953652788688138,
+                "recall": 0.6604912097589615,
+                "f1": 0.721680714196618,
+                "accuracy": 0.9873753519083273
+              },
+              "grid_min": 0.01,
+              "grid_max": 0.99,
+              "grid_step": 0.01,
+              "evaluated_thresholds": 99
+            },
+            "event": {
+              "threshold": 0.8300000000000001,
+              "true_positive": 20250.0,
+              "false_positive": 5210.0,
+              "false_negative": 10409.0,
+              "true_negative": 1201314.0,
+              "iou": 0.5645543505534026,
+              "precision": 0.7953652788688138,
+              "recall": 0.6604912097589615,
+              "f1": 0.721680714196618,
+              "accuracy": 0.9873753519083273
+            },
+            "threshold": 0.8300000000000001,
+            "files": [
+              "train_002.npz",
+              "train_020.npz",
+              "train_034.npz",
+              "train_039.npz",
+              "train_041.npz",
+              "train_050.npz",
+              "train_060.npz",
+              "train_066.npz",
+              "train_089.npz",
+              "train_092.npz"
+            ],
+            "seconds": 2.734212999988813
+          }
+        }
+      ],
+      "timing": {
+        "by_loader": {
+          "original": {
+            "epochs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ],
+            "median_train_s": 36.32942490000278,
+            "median_input_wait_s": 14.120592899926123,
+            "median_selection_s": 5.751934700005222,
+            "median_epoch_train_plus_selection_s": 42.00640810000186
+          },
+          "packed_scatter_v1": {
+            "epochs": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "median_train_s": 22.78877869999269,
+            "median_input_wait_s": 1.9775508997117868,
+            "median_selection_s": 2.832856000008178,
+            "median_epoch_train_plus_selection_s": 25.636217499995837
+          }
+        },
+        "sum_completed_epoch_train_and_selection_s": 1078.540095499935,
+        "scope": "Recorded complete epochs only; excludes interrupted work and restart preparation; no controlled architecture timing."
+      },
+      "structure": {
+        "parameters": 1952,
+        "weight_values": 1920,
+        "bias_values": 32,
+        "dense_products_per_100ms": 43430400,
+        "nonbinary_synaptic_products_per_100ms": 11581440,
+        "scheduled_binary_weight_accumulations_per_100ms": 31848960,
+        "hidden_updates_per_100ms": 542880,
+        "hidden_state_values": 135720,
+        "hidden_state_float32_bytes": 542880,
+        "state_24bit_bytes_hypothetical": 407160,
+        "scope": "dense schedule includes padded convolution taps; no FPGA/energy claim",
+        "extra_output_state_values": 180960,
+        "persistent_float32_state_bytes": 1266720,
+        "extra_readout_leak_updates_per_100ms": 723840
+      }
+    }
+  },
+  "reference": {
+    "kind": "frozen S0-P + H2 Refiner",
+    "source": "results\\refiner_study.json",
+    "sha256": "98b843c8afdf9b7532c84efa0acf99d3e25fb35c5b962adaf455b65adbc1407d",
+    "selected": {
+      "event": {
+        "threshold": 0.52,
+        "true_positive": 24119.0,
+        "false_positive": 2074.0,
+        "false_negative": 6540.0,
+        "true_negative": 1204450.0,
+        "iou": 0.7368404973574069,
+        "precision": 0.9208185393043943,
+        "recall": 0.7866858018852539,
+        "f1": 0.8484837824526842,
+        "accuracy": 0.9930374083704674
+      },
+      "localization": {
+        "correct_targets": 1493.0,
+        "targets": 2017.0,
+        "false_components": 1400.0,
+        "frame_denominator": 1526.0,
+        "pd": 0.7402082300446208,
+        "fa": 1.019821245732048e-05
+      }
+    },
+    "original_threshold": {
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 24632.0,
+        "false_positive": 2889.0,
+        "false_negative": 6027.0,
+        "true_negative": 1203635.0,
+        "iou": 0.7342315488255634,
+        "precision": 0.8950256168017151,
+        "recall": 0.8034182458658142,
+        "f1": 0.8467514609831557,
+        "accuracy": 0.992793305436625
+      },
+      "localization": {
+        "correct_targets": 1534.0,
+        "targets": 2017.0,
+        "false_components": 1928.0,
+        "frame_denominator": 1526.0,
+        "pd": 0.7605354486861676,
+        "fa": 1.4044395441224206e-05
+      }
+    },
+    "context": "offline application reference, not a causal ANN/SNN control; verified historical metrics reused"
+  },
+  "data": {
+    "train_blocks": 6245,
+    "train_events": 7248921,
+    "dev_files": [
+      "train_002.npz",
+      "train_020.npz",
+      "train_034.npz",
+      "train_039.npz",
+      "train_041.npz",
+      "train_050.npz",
+      "train_060.npz",
+      "train_066.npz",
+      "train_089.npz",
+      "train_092.npz"
+    ],
+    "dev_events": 1237183,
+    "dev_targets": 30659
+  },
+  "source_pair_sha256": "41ca1c3df3d705116f7f9dbdcc83e6f1b902ccf114fe4dae2639a2034182dbb3",
+  "last_invocation_elapsed_s": 283.39181060000556,
+  "cost_evaluation": {
+    "status": "not_run",
+    "reason": "Both candidate IoUs exclude either original promotion path regardless of software speed.",
+    "fpga_efficiency_claim": false
+  },
+  "cache": {
+    "memory_hits": 99,
+    "disk_hits": 89,
+    "builds": 0,
+    "load_build_s": 4.088624799999593,
+    "peak_cache_bytes": 301302330,
+    "evictions": 0
+  }
+}

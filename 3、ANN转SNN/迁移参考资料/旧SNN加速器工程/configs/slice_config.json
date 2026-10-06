@@ -1,0 +1,14 @@
+{
+  "mode": "bounded_count",
+  "source_timestamp_unit": "us",
+  "input_width": 304,
+  "input_height": 240,
+  "padded_width": 320,
+  "padded_height": 256,
+  "target_events": 10000,
+  "min_duration_us": 1000,
+  "max_duration_us": 20000,
+  "fixed_duration_us": 10000,
+  "timesteps": 4,
+  "bbox_margin": 1
+}

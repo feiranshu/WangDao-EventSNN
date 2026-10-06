@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "EVUAV-METRIC-ALIGNMENT-v1",
+  "stage": "metric_alignment",
+  "data_role": "paper_test_and_local_validation_reference",
+  "primary_metrics": {
+    "common_event_iou_definition": "TP/(TP+FP+FN)",
+    "paper_acc_maps_to": "event.recall",
+    "paper_fa_display_scale": 10000.0,
+    "validation_event_count": 1424330,
+    "validation_target_event_count": 65506
+  },
+  "decision": "compare_validation_models_only_after_matching_split_and_protocol",
+  "conclusion": "当前 Validation 结果可与 WSL 官方模型复现作同数据集对照；论文 Test 结果只作外部参考，不能与当前 Validation 直接排列为优劣结论。",
+  "test_used": false,
+  "paper_reference": {
+    "title": "Event-based Tiny Object Detection: A Benchmark Dataset and Baseline",
+    "venue": "ICCV 2025",
+    "paper_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_Event-based_Tiny_Object_Detection_A_Benchmark_Dataset_and_Baseline_ICCV_2025_paper.html",
+    "code_url": "https://github.com/ChenYichen9527/EV-UAV",
+    "split": "test",
+    "threshold": null,
+    "event_iou": 0.5518,
+    "paper_acc_target_recall": 0.6502,
+    "pd": 0.7753,
+    "fa_x_1e4": 1.63,
+    "fa_raw": 0.000163,
+    "reported_parameters": 4000000,
+    "reported_runtime_ms": 35.9,
+    "runtime_device": "NVIDIA RTX 3090",
+    "comparison_scope": "外部 Test 参考，不与本仓库 Validation 数值直接比较"
+  },
+  "wsl_official_reproduction": {
+    "split": "validation",
+    "files": "val_000.npz--val_023.npz",
+    "sequences": 24,
+    "events": 1424330,
+    "target_events": 65506,
+    "repo_commit": "33e2affb51a204676536e119803ab8494e2eb0a9",
+    "weight_sha256": "af394a2bdf34959bd2a46013bf7600c4c9e3d71b3f4fc51f68a0b85f159efd94",
+    "strict_loaded_parameters": 943749,
+    "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "results": [
+      {
+        "threshold": 0.9,
+        "event_iou": 0.3583032786846161,
+        "paper_acc_target_recall": 0.7009739279747009,
+        "pd": 0.749895002099958,
+        "fa_raw": 0.000009619887919862038,
+        "fa_x_1e4": 0.09619887919862038,
+        "source": "/home/markzheng/EV-UAV-official-assets/results/validation_summary.json"
+      },
+      {
+        "threshold": 0.8,
+        "event_iou": 0.3608607053756714,
+        "paper_acc_target_recall": 0.7424510717391968,
+        "pd": 0.8036539269214615,
+        "fa_raw": 0.000026246562082555527,
+        "fa_x_1e4": 0.26246562082555527,
+        "source": "/home/markzheng/EV-UAV-official-assets/results/validation_threshold_0p8_summary.json"
+      }
+    ],
+    "asset_difference": "公开权重严格加载统计为 943,749 参数，与论文表格 4.0M 不一致，可能存在版本或统计口径差异。"
+  },
+  "current_repository_validation": {
+    "split": "validation",
+    "files": "val_000.npz--val_023.npz",
+    "sequences": 24,
+    "events": 1424330,
+    "target_events": 65506,
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "event_threshold": 0.2800000011920929,
+    "models": [
+      {
+        "name": "H2",
+        "event_iou": 0.861630224430259,
+        "paper_acc_target_recall": 0.9107715323787134,
+        "pd": 0.9009443861490032,
+        "fa_raw": 0.000007916335239258196,
+        "fa_x_1e4": 0.07916335239258196,
+        "proposal_recall": 0.9893292217506793,
+        "weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+        "source": "results/baseline_h2.json"
+      },
+      {
+        "name": "S0-P",
+        "event_iou": 0.8368917433315975,
+        "paper_acc_target_recall": 0.8832168045675205,
+        "pd": 0.8438614900314796,
+        "fa_raw": 0.00000787782013517498,
+        "fa_x_1e4": 0.0787782013517498,
+        "proposal_recall": 0.9779562177510457,
+        "weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952",
+        "source": "results/s0p_validation_balanced.json"
+      },
+      {
+        "name": "S1",
+        "event_iou": 0.8362734607709882,
+        "paper_acc_target_recall": 0.8828962232467255,
+        "pd": 0.8598111227701993,
+        "fa_raw": 0.00000793411144114276,
+        "fa_x_1e4": 0.0793411144114276,
+        "proposal_recall": 0.9796049216865631,
+        "weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+        "source": "results/s1_validation.json"
+      }
+    ]
+  },
+  "metric_definitions": {
+    "event_iou": "全体事件上正类 TP/(TP+FP+FN)",
+    "paper_acc": "论文公开实现中的 TP/(TP+FN)，对应本仓库 event.recall，不对应 event.accuracy",
+    "pd_fa": "按公开代码的 50 ms 窗口和 correct_thresh=0.0001 计算",
+    "fa_storage": "本仓库保存原始小数；论文表格展示时乘 10^4",
+    "false_alarm_accumulation": "本仓库使用布尔虚警图，避免公开实现 uint8 累加的潜在溢出"
+  },
+  "comparability": {
+    "comparable": [
+      "本仓库与 WSL 复现使用相同的 24 条 Validation 序列、相同事件数和目标事件数。",
+      "Event IoU 定义一致，在相同数据划分和明确阈值下可以比较。",
+      "Pd/Fa 定义基本一致，Fa 展示时需统一单位。"
+    ],
+    "limitations": [
+      "论文结果使用 Test，本仓库当前结果使用 Validation。",
+      "当前模型阈值为 0.28，WSL 官方模型阈值为 0.8 或 0.9，不属于严格同阈值对照。",
+      "Pd/Fa 语义一致，但本仓库不是逐行复制官方实现。",
+      "不同 GPU、软件栈和推理流水线的延迟不能直接比较。"
+    ]
+  },
+  "reproducibility": {
+    "repository_head_when_archived": "d45f1da42af18d16f27774b40cb426160f332e0b",
+    "working_tree_modified_when_archived": true,
+    "wsl_files_read_only": true,
+    "test_split_evaluated": false
+  }
+}

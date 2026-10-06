@@ -1,0 +1,34 @@
+{
+  "format_version": "1.0",
+  "device": "xczu3eg-sfvc784-1-i",
+  "clock_mhz": 150,
+  "activation_bits": 8,
+  "weight_bits": 8,
+  "accumulator_bits": 20,
+  "pot_fraction_bits": 8,
+  "pot_exponent_min": -8,
+  "pot_exponent_max": 7,
+  "approx_lsb_bits": 4,
+  "leak_shift": 3,
+  "threshold": 512,
+  "reset_potential": 0,
+  "reset_mode": "hard",
+  "precision_comparison": {
+    "fp_equation": "alpha * membrane + current, E_rest = 0",
+    "fp32": {
+      "format": "IEEE-754 binary32",
+      "approximation": "Mitchell mantissa multiply",
+      "subnormal_policy": "flush-to-zero"
+    },
+    "fp16": {
+      "format": "IEEE-754 binary16",
+      "approximation": "Mitchell mantissa multiply",
+      "subnormal_policy": "flush-to-zero"
+    },
+    "int8": {
+      "format": "signed two's-complement INT8",
+      "approx_lsb_bits": 2,
+      "leak_shift": 2
+    }
+  }
+}

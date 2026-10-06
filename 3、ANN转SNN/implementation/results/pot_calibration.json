@@ -1,0 +1,1487 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "S2-POT-HW-CAL-v1",
+  "stage": "S2",
+  "data_role": "hw_calibration",
+  "primary_metrics": {
+    "reference_s1_event_iou": 0.7583766829865362,
+    "maximum_iou_loss": 0.02,
+    "acceptable_variant_count": 4,
+    "selected_variant": "mixed_emin4",
+    "selected_event_iou": 0.7434913468773514,
+    "selected_iou_delta_to_s1": -0.014885336109184744,
+    "selected_proposal_recall": 0.9608212075597926,
+    "selected_candidate_fraction": 0.4518928009159868,
+    "selected_saturation_total": 0
+  },
+  "decision": "freeze_for_validation",
+  "conclusion": "HW-calibration 选中 mixed_emin4：Event IoU 74.3491%，相对 S1 变化 -1.4885 个百分点，饱和 0 次；配置已冻结并进入 Validation。",
+  "scope": {
+    "role": "hw_calibration",
+    "test_used": false,
+    "validation_used": false,
+    "training_performed": false,
+    "complete_role": true,
+    "sequences": 10,
+    "events": 838440,
+    "target_events": 23916,
+    "fixed_models_run_on": "cpu_numpy_integer",
+    "elapsed_s": 133.65491539999857
+  },
+  "inputs": {
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "h2_weight": "H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "s1_weight": "S1P_INT8_ACC24_MEM24_Q12.npz",
+    "s1_weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+    "s1_configuration": {
+      "accumulator_bits": 24,
+      "beta_numerator": 7,
+      "beta_shift": 3,
+      "input_fraction_bits": 8,
+      "membrane_bits": 24,
+      "membrane_fraction_bits": 12,
+      "overflow": "saturate_after_dot_and_each_membrane_update",
+      "readout": "mean_membrane",
+      "reset": "soft_reset",
+      "rounding": "nearest_ties_away_from_zero",
+      "threshold": 0.25,
+      "time_steps": 4
+    },
+    "s1_metadata": {
+      "calibration_result": "fixed_calibration.json",
+      "calibration_role": "hw_calibration",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "event_threshold": 0.2800000011920929,
+      "h2_fixed_configuration": {
+        "accumulator_bits": 24,
+        "logit_fraction_bits": 16,
+        "scale_fraction_bits": 20
+      },
+      "model_id": "S1P_INT8_ACC24_MEM24_Q12",
+      "proposal_threshold": 0.51,
+      "selection_rule": {
+        "maximum_iou_loss": 0.01,
+        "requires_zero_saturation": true,
+        "select_smallest_width": true
+      },
+      "source_s0p_weight": "S0P_T4_POS15_KD50_S42.npz",
+      "source_s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952"
+    }
+  },
+  "arithmetic_contract": {
+    "pot_weights": "零或带符号二次幂，运行时以移位和加减替代一般乘法",
+    "quantization": "对 S1 实际权重取最近二次幂，低于最小指数的权重置零",
+    "ties": "对数距离相等时选择绝对值更大的二次幂",
+    "accumulation": "先按指数对齐到 Q12，再在 24 位累加器中饱和",
+    "lif": "完全继承 S1 的 24 位 Q12 膜电位、7/8 泄漏和软复位"
+  },
+  "reference_s1": {
+    "event": {
+      "threshold": 0.2800000011920929,
+      "true_positive": 19827.0,
+      "false_positive": 2228.0,
+      "false_negative": 4089.0,
+      "true_negative": 812296.0,
+      "iou": 0.7583766829865362,
+      "precision": 0.8989798231693493,
+      "recall": 0.8290265930757652,
+      "f1": 0.8625872832872898,
+      "accuracy": 0.992465769762893
+    },
+    "candidate_events": 300724,
+    "candidate_fraction": 0.35867086493964984,
+    "proposal_recall": 0.9549255728382673
+  },
+  "variants": {
+    "full_emin7": {
+      "definition": {
+        "id": "full_emin7",
+        "architecture": "full",
+        "layer_modes": [
+          "pot",
+          "pot",
+          "pot"
+        ],
+        "minimum_exponent": -7,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 1.0,
+        "estimated_weight_bits": 38400,
+        "weight_statistics": [
+          {
+            "mode": "pot",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094,
+            "zero_fraction": 0.008138020833333334,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 2,
+            "exponent_histogram": {
+              "-6": 5,
+              "-5": 76,
+              "-4": 102,
+              "-3": 275,
+              "-2": 532,
+              "-1": 961,
+              "0": 1767,
+              "1": 2061,
+              "2": 315
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 14,
+            "nonzero_weights": 1138,
+            "zero_fraction": 0.012152777777777778,
+            "minimum_retained_exponent": -7,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-7": 6,
+              "-6": 17,
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383,
+            "zero_fraction": 0.0026041666666666665,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 1,
+            "exponent_histogram": {
+              "-6": 1,
+              "-5": 2,
+              "-4": 10,
+              "-3": 14,
+              "-2": 28,
+              "-1": 78,
+              "0": 210,
+              "1": 40
+            }
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 18768.0,
+        "false_positive": 5418.0,
+        "false_negative": 5148.0,
+        "true_negative": 809106.0,
+        "iou": 0.6398036408263449,
+        "precision": 0.7759861076655916,
+        "recall": 0.784746613146011,
+        "f1": 0.780341773730822,
+        "accuracy": 0.987398024903392,
+        "iou_delta_to_s1": -0.11857304216019127,
+        "probability_mae_to_s1": 0.01257497948782713,
+        "prediction_disagreement_to_s1": 0.010353752206478698
+      },
+      "candidate_events": 747022,
+      "candidate_fraction": 0.8909665569390773,
+      "proposal_recall": 0.9968640240842951,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11960553,
+        8660595,
+        528009
+      ],
+      "spike_rates": [
+        0.23175054640997023,
+        0.33561953590029764,
+        0.030692487444196427
+      ]
+    },
+    "full_emin6": {
+      "definition": {
+        "id": "full_emin6",
+        "architecture": "full",
+        "layer_modes": [
+          "pot",
+          "pot",
+          "pot"
+        ],
+        "minimum_exponent": -6,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 1.0,
+        "estimated_weight_bits": 38400,
+        "weight_statistics": [
+          {
+            "mode": "pot",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094,
+            "zero_fraction": 0.008138020833333334,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 2,
+            "exponent_histogram": {
+              "-6": 5,
+              "-5": 76,
+              "-4": 102,
+              "-3": 275,
+              "-2": 532,
+              "-1": 961,
+              "0": 1767,
+              "1": 2061,
+              "2": 315
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 20,
+            "nonzero_weights": 1132,
+            "zero_fraction": 0.017361111111111112,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-6": 17,
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383,
+            "zero_fraction": 0.0026041666666666665,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 1,
+            "exponent_histogram": {
+              "-6": 1,
+              "-5": 2,
+              "-4": 10,
+              "-3": 14,
+              "-2": 28,
+              "-1": 78,
+              "0": 210,
+              "1": 40
+            }
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 18772.0,
+        "false_positive": 5431.0,
+        "false_negative": 5144.0,
+        "true_negative": 809093.0,
+        "iou": 0.6396565236651106,
+        "precision": 0.7756063297938273,
+        "recall": 0.7849138651948486,
+        "f1": 0.7802323406554583,
+        "accuracy": 0.9873872906826965,
+        "iou_delta_to_s1": -0.11872015932142554,
+        "probability_mae_to_s1": 0.012606292176580082,
+        "prediction_disagreement_to_s1": 0.010371642574304661
+      },
+      "candidate_events": 747428,
+      "candidate_fraction": 0.8914507895615668,
+      "proposal_recall": 0.9968640240842951,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11960553,
+        8662560,
+        530841
+      ],
+      "spike_rates": [
+        0.23175054640997023,
+        0.33569568452380955,
+        0.030857107979910713
+      ]
+    },
+    "full_emin5": {
+      "definition": {
+        "id": "full_emin5",
+        "architecture": "full",
+        "layer_modes": [
+          "pot",
+          "pot",
+          "pot"
+        ],
+        "minimum_exponent": -5,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 1.0,
+        "estimated_weight_bits": 38400,
+        "weight_statistics": [
+          {
+            "mode": "pot",
+            "weights": 6144,
+            "zero_weights": 55,
+            "nonzero_weights": 6089,
+            "zero_fraction": 0.008951822916666666,
+            "minimum_retained_exponent": -5,
+            "maximum_retained_exponent": 2,
+            "exponent_histogram": {
+              "-5": 76,
+              "-4": 102,
+              "-3": 275,
+              "-2": 532,
+              "-1": 961,
+              "0": 1767,
+              "1": 2061,
+              "2": 315
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 37,
+            "nonzero_weights": 1115,
+            "zero_fraction": 0.03211805555555555,
+            "minimum_retained_exponent": -5,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 384,
+            "zero_weights": 2,
+            "nonzero_weights": 382,
+            "zero_fraction": 0.005208333333333333,
+            "minimum_retained_exponent": -5,
+            "maximum_retained_exponent": 1,
+            "exponent_histogram": {
+              "-5": 2,
+              "-4": 10,
+              "-3": 14,
+              "-2": 28,
+              "-1": 78,
+              "0": 210,
+              "1": 40
+            }
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 18757.0,
+        "false_positive": 5314.0,
+        "false_negative": 5159.0,
+        "true_negative": 809210.0,
+        "iou": 0.6417037290455012,
+        "precision": 0.7792364255743426,
+        "recall": 0.7842866700117076,
+        "f1": 0.7817533915435431,
+        "accuracy": 0.987508945183913,
+        "iou_delta_to_s1": -0.11667295394103494,
+        "probability_mae_to_s1": 0.012490018243581934,
+        "prediction_disagreement_to_s1": 0.010216592719812985
+      },
+      "candidate_events": 747115,
+      "candidate_fraction": 0.8910774772195983,
+      "proposal_recall": 0.9968222110720857,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11960477,
+        8661095,
+        531310
+      ],
+      "spike_rates": [
+        0.2317490738157242,
+        0.335638912140377,
+        0.03088437034970238
+      ]
+    },
+    "full_emin4": {
+      "definition": {
+        "id": "full_emin4",
+        "architecture": "full",
+        "layer_modes": [
+          "pot",
+          "pot",
+          "pot"
+        ],
+        "minimum_exponent": -4,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 1.0,
+        "estimated_weight_bits": 38400,
+        "weight_statistics": [
+          {
+            "mode": "pot",
+            "weights": 6144,
+            "zero_weights": 131,
+            "nonzero_weights": 6013,
+            "zero_fraction": 0.021321614583333332,
+            "minimum_retained_exponent": -4,
+            "maximum_retained_exponent": 2,
+            "exponent_histogram": {
+              "-4": 102,
+              "-3": 275,
+              "-2": 532,
+              "-1": 961,
+              "0": 1767,
+              "1": 2061,
+              "2": 315
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 76,
+            "nonzero_weights": 1076,
+            "zero_fraction": 0.06597222222222222,
+            "minimum_retained_exponent": -4,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "pot",
+            "weights": 384,
+            "zero_weights": 4,
+            "nonzero_weights": 380,
+            "zero_fraction": 0.010416666666666666,
+            "minimum_retained_exponent": -4,
+            "maximum_retained_exponent": 1,
+            "exponent_histogram": {
+              "-4": 10,
+              "-3": 14,
+              "-2": 28,
+              "-1": 78,
+              "0": 210,
+              "1": 40
+            }
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 18694.0,
+        "false_positive": 5338.0,
+        "false_negative": 5222.0,
+        "true_negative": 809186.0,
+        "iou": 0.6390237232515211,
+        "precision": 0.7778794940079894,
+        "recall": 0.7816524502425155,
+        "f1": 0.7797614081922082,
+        "accuracy": 0.9874051810505224,
+        "iou_delta_to_s1": -0.11935295973501503,
+        "probability_mae_to_s1": 0.012637500051577035,
+        "prediction_disagreement_to_s1": 0.010348981441725108
+      },
+      "candidate_events": 748999,
+      "candidate_fraction": 0.8933245074185392,
+      "proposal_recall": 0.9966549590232481,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11959998,
+        8661322,
+        540936
+      ],
+      "spike_rates": [
+        0.2317397925967262,
+        0.33564770895337304,
+        0.031443917410714284
+      ]
+    },
+    "mixed_emin7": {
+      "definition": {
+        "id": "mixed_emin7",
+        "architecture": "mixed",
+        "layer_modes": [
+          "int8",
+          "pot",
+          "int8"
+        ],
+        "minimum_exponent": -7,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 0.15,
+        "estimated_weight_bits": 57984,
+        "weight_statistics": [
+          {
+            "mode": "int8",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 14,
+            "nonzero_weights": 1138,
+            "zero_fraction": 0.012152777777777778,
+            "minimum_retained_exponent": -7,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-7": 6,
+              "-6": 17,
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "int8",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 19803.0,
+        "false_positive": 2660.0,
+        "false_negative": 4113.0,
+        "true_negative": 811864.0,
+        "iou": 0.7451459963877183,
+        "precision": 0.8815830476784045,
+        "recall": 0.8280230807827396,
+        "f1": 0.8539640785700425,
+        "accuracy": 0.9919219025809838,
+        "iou_delta_to_s1": -0.013230686598817876,
+        "probability_mae_to_s1": 0.003846784697972028,
+        "prediction_disagreement_to_s1": 0.0030747578836887554
+      },
+      "candidate_events": 377235,
+      "candidate_fraction": 0.44992486045513097,
+      "proposal_recall": 0.9606957685231644,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11673640,
+        7207486,
+        158360
+      ],
+      "spike_rates": [
+        0.22619125124007936,
+        0.2793079582093254,
+        0.009205264136904761
+      ]
+    },
+    "mixed_emin6": {
+      "definition": {
+        "id": "mixed_emin6",
+        "architecture": "mixed",
+        "layer_modes": [
+          "int8",
+          "pot",
+          "int8"
+        ],
+        "minimum_exponent": -6,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 0.15,
+        "estimated_weight_bits": 57984,
+        "weight_statistics": [
+          {
+            "mode": "int8",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 20,
+            "nonzero_weights": 1132,
+            "zero_fraction": 0.017361111111111112,
+            "minimum_retained_exponent": -6,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-6": 17,
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "int8",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 19820.0,
+        "false_positive": 2680.0,
+        "false_negative": 4096.0,
+        "true_negative": 811844.0,
+        "iou": 0.74522484584148,
+        "precision": 0.8808888888888889,
+        "recall": 0.8287339019902994,
+        "f1": 0.854015856601172,
+        "accuracy": 0.9919183245074186,
+        "iou_delta_to_s1": -0.013151837145056189,
+        "probability_mae_to_s1": 0.003873428781926031,
+        "prediction_disagreement_to_s1": 0.003099804398645103
+      },
+      "candidate_events": 379663,
+      "candidate_fraction": 0.45282071466056006,
+      "proposal_recall": 0.9617829068406087,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11673640,
+        7209949,
+        159141
+      ],
+      "spike_rates": [
+        0.22619125124007936,
+        0.27940340556795634,
+        0.009250662667410715
+      ]
+    },
+    "mixed_emin5": {
+      "definition": {
+        "id": "mixed_emin5",
+        "architecture": "mixed",
+        "layer_modes": [
+          "int8",
+          "pot",
+          "int8"
+        ],
+        "minimum_exponent": -5,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 0.15,
+        "estimated_weight_bits": 57984,
+        "weight_statistics": [
+          {
+            "mode": "int8",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 37,
+            "nonzero_weights": 1115,
+            "zero_fraction": 0.03211805555555555,
+            "minimum_retained_exponent": -5,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-5": 39,
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "int8",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 19776.0,
+        "false_positive": 2652.0,
+        "false_negative": 4140.0,
+        "true_negative": 811872.0,
+        "iou": 0.7443541102077688,
+        "precision": 0.8817549491706795,
+        "recall": 0.8268941294530858,
+        "f1": 0.8534438114966338,
+        "accuracy": 0.9918992414484041,
+        "iou_delta_to_s1": -0.014022572778767395,
+        "probability_mae_to_s1": 0.003914990618837573,
+        "prediction_disagreement_to_s1": 0.0031284289871666426
+      },
+      "candidate_events": 374796,
+      "candidate_fraction": 0.44701588664662945,
+      "proposal_recall": 0.9618247198528181,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11673640,
+        7205534,
+        159774
+      ],
+      "spike_rates": [
+        0.22619125124007936,
+        0.27923231336805554,
+        0.009287458147321428
+      ]
+    },
+    "mixed_emin4": {
+      "definition": {
+        "id": "mixed_emin4",
+        "architecture": "mixed",
+        "layer_modes": [
+          "int8",
+          "pot",
+          "int8"
+        ],
+        "minimum_exponent": -4,
+        "maximum_exponent": 3,
+        "pot_code_bits": 5,
+        "pot_weight_fraction": 0.15,
+        "estimated_weight_bits": 57984,
+        "weight_statistics": [
+          {
+            "mode": "int8",
+            "weights": 6144,
+            "zero_weights": 50,
+            "nonzero_weights": 6094
+          },
+          {
+            "mode": "pot",
+            "weights": 1152,
+            "zero_weights": 76,
+            "nonzero_weights": 1076,
+            "zero_fraction": 0.06597222222222222,
+            "minimum_retained_exponent": -4,
+            "maximum_retained_exponent": 3,
+            "exponent_histogram": {
+              "-4": 78,
+              "-3": 133,
+              "-2": 252,
+              "-1": 321,
+              "0": 198,
+              "1": 63,
+              "2": 30,
+              "3": 1
+            }
+          },
+          {
+            "mode": "int8",
+            "weights": 384,
+            "zero_weights": 1,
+            "nonzero_weights": 383
+          }
+        ]
+      },
+      "event": {
+        "threshold": 0.2800000011920929,
+        "true_positive": 19762.0,
+        "false_positive": 2664.0,
+        "false_negative": 4154.0,
+        "true_negative": 811860.0,
+        "iou": 0.7434913468773514,
+        "precision": 0.8812093106215999,
+        "recall": 0.8263087472821542,
+        "f1": 0.8528764403780588,
+        "accuracy": 0.9918682314775058,
+        "iou_delta_to_s1": -0.014885336109184744,
+        "probability_mae_to_s1": 0.004088783376084143,
+        "prediction_disagreement_to_s1": 0.003252468870759983
+      },
+      "candidate_events": 378885,
+      "candidate_fraction": 0.4518928009159868,
+      "proposal_recall": 0.9608212075597926,
+      "proposal_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "proposal_membrane_saturations": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "refiner_accumulator_saturations": [
+        0,
+        0,
+        0
+      ],
+      "saturation_total": 0,
+      "spike_counts": [
+        11673640,
+        7206152,
+        163521
+      ],
+      "spike_rates": [
+        0.22619125124007936,
+        0.27925626240079365,
+        0.00950526646205357
+      ]
+    }
+  },
+  "selection": {
+    "maximum_iou_loss": 0.02,
+    "requires_zero_saturation": true,
+    "acceptable_variants": [
+      "mixed_emin7",
+      "mixed_emin6",
+      "mixed_emin5",
+      "mixed_emin4"
+    ],
+    "full_pot_acceptable_variants": [],
+    "selected": "mixed_emin4",
+    "export": "software/weights/S2P_POT_MIXED_EMIN4_EMAX3_ACC24_MEM24_Q12.npz",
+    "export_sha256": "c48337be455c8985ad9de3b91ef6f385f4cf271c785c2db2e5e5d7bf90970f5f"
+  },
+  "per_sequence": [
+    {
+      "file": "train_022.npz",
+      "events": 21165,
+      "target_events": 715,
+      "reference_candidates": 4175,
+      "variants": {
+        "full_emin7": {
+          "candidates": 11016,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 11041,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 10971,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 11199,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 5117,
+          "proposal_recall": 0.9916083916083916,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 5133,
+          "proposal_recall": 0.9916083916083916,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 5310,
+          "proposal_recall": 0.9916083916083916,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 5439,
+          "proposal_recall": 0.9916083916083916,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 7.208729999998468
+    },
+    {
+      "file": "train_049.npz",
+      "events": 22833,
+      "target_events": 4674,
+      "reference_candidates": 8561,
+      "variants": {
+        "full_emin7": {
+          "candidates": 14304,
+          "proposal_recall": 0.9974326059050064,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 14330,
+          "proposal_recall": 0.9974326059050064,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 14331,
+          "proposal_recall": 0.9980744544287549,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 14456,
+          "proposal_recall": 0.9972186563970903,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 9324,
+          "proposal_recall": 0.9957210098416773,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 9338,
+          "proposal_recall": 0.9957210098416773,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 9481,
+          "proposal_recall": 0.998288403936671,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 9575,
+          "proposal_recall": 0.998288403936671,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 7.5468048000002455
+    },
+    {
+      "file": "train_058.npz",
+      "events": 14707,
+      "target_events": 1468,
+      "reference_candidates": 4044,
+      "variants": {
+        "full_emin7": {
+          "candidates": 8201,
+          "proposal_recall": 0.9986376021798365,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 8220,
+          "proposal_recall": 0.9986376021798365,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 8228,
+          "proposal_recall": 0.9986376021798365,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 8312,
+          "proposal_recall": 0.9986376021798365,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 4403,
+          "proposal_recall": 0.989100817438692,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 4407,
+          "proposal_recall": 0.989100817438692,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 4560,
+          "proposal_recall": 0.9952316076294278,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 4684,
+          "proposal_recall": 0.9952316076294278,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 6.796365899997909
+    },
+    {
+      "file": "train_059.npz",
+      "events": 44257,
+      "target_events": 888,
+      "reference_candidates": 17670,
+      "variants": {
+        "full_emin7": {
+          "candidates": 30671,
+          "proposal_recall": 0.9921171171171171,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 30749,
+          "proposal_recall": 0.9921171171171171,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 30869,
+          "proposal_recall": 0.9921171171171171,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 31190,
+          "proposal_recall": 0.9921171171171171,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 19594,
+          "proposal_recall": 0.9876126126126126,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 19617,
+          "proposal_recall": 0.9876126126126126,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 19872,
+          "proposal_recall": 0.9876126126126126,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 20239,
+          "proposal_recall": 0.9876126126126126,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 8.801615899999888
+    },
+    {
+      "file": "train_065.npz",
+      "events": 33115,
+      "target_events": 1555,
+      "reference_candidates": 11153,
+      "variants": {
+        "full_emin7": {
+          "candidates": 21098,
+          "proposal_recall": 0.9935691318327974,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 21131,
+          "proposal_recall": 0.9935691318327974,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 21141,
+          "proposal_recall": 0.9916398713826367,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 21444,
+          "proposal_recall": 0.9916398713826367,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 12618,
+          "proposal_recall": 0.9884244372990354,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 12641,
+          "proposal_recall": 0.9884244372990354,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 12820,
+          "proposal_recall": 0.9884244372990354,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 13005,
+          "proposal_recall": 0.9884244372990354,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 8.125995099999272
+    },
+    {
+      "file": "train_067.npz",
+      "events": 32582,
+      "target_events": 2404,
+      "reference_candidates": 11550,
+      "variants": {
+        "full_emin7": {
+          "candidates": 21791,
+          "proposal_recall": 0.9987520798668885,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 21816,
+          "proposal_recall": 0.9987520798668885,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 21787,
+          "proposal_recall": 0.9987520798668885,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 22049,
+          "proposal_recall": 0.9987520798668885,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 12890,
+          "proposal_recall": 0.9958402662229617,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 12885,
+          "proposal_recall": 0.9958402662229617,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 13088,
+          "proposal_recall": 0.9958402662229617,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 13321,
+          "proposal_recall": 0.9958402662229617,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 8.089860200001567
+    },
+    {
+      "file": "train_071.npz",
+      "events": 32667,
+      "target_events": 2027,
+      "reference_candidates": 12032,
+      "variants": {
+        "full_emin7": {
+          "candidates": 22107,
+          "proposal_recall": 0.986679822397632,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 22153,
+          "proposal_recall": 0.986679822397632,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 22129,
+          "proposal_recall": 0.9861864824864331,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 22340,
+          "proposal_recall": 0.9861864824864331,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 13757,
+          "proposal_recall": 0.9876665022200296,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 13764,
+          "proposal_recall": 0.9876665022200296,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 13897,
+          "proposal_recall": 0.9876665022200296,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 14075,
+          "proposal_recall": 0.9871731623088308,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 7.8896623000000545
+    },
+    {
+      "file": "train_079.npz",
+      "events": 7372,
+      "target_events": 1270,
+      "reference_candidates": 2325,
+      "variants": {
+        "full_emin7": {
+          "candidates": 4365,
+          "proposal_recall": 0.9944881889763779,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 4370,
+          "proposal_recall": 0.9944881889763779,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 4343,
+          "proposal_recall": 0.9944881889763779,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 4373,
+          "proposal_recall": 0.9944881889763779,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 2400,
+          "proposal_recall": 0.9881889763779528,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 2402,
+          "proposal_recall": 0.9881889763779528,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 2428,
+          "proposal_recall": 0.988976377952756,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 2480,
+          "proposal_recall": 0.988976377952756,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 6.281158599998889
+    },
+    {
+      "file": "train_081.npz",
+      "events": 8964,
+      "target_events": 2778,
+      "reference_candidates": 3907,
+      "variants": {
+        "full_emin7": {
+          "candidates": 5898,
+          "proposal_recall": 0.9974802015838733,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 5906,
+          "proposal_recall": 0.9974802015838733,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 5870,
+          "proposal_recall": 0.9974802015838733,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 5890,
+          "proposal_recall": 0.9974802015838733,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 3942,
+          "proposal_recall": 0.9946004319654428,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 3947,
+          "proposal_recall": 0.9946004319654428,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 4008,
+          "proposal_recall": 0.9946004319654428,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 4055,
+          "proposal_recall": 0.9946004319654428,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 6.257555700001831
+    },
+    {
+      "file": "train_093.npz",
+      "events": 620778,
+      "target_events": 6137,
+      "reference_candidates": 225307,
+      "variants": {
+        "full_emin7": {
+          "candidates": 607571,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin6": {
+          "candidates": 607712,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin5": {
+          "candidates": 607446,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "full_emin4": {
+          "candidates": 607746,
+          "proposal_recall": 1.0,
+          "saturations": 0
+        },
+        "mixed_emin7": {
+          "candidates": 293190,
+          "proposal_recall": 0.8689913638585628,
+          "saturations": 0
+        },
+        "mixed_emin6": {
+          "candidates": 295529,
+          "proposal_recall": 0.8732279615447287,
+          "saturations": 0
+        },
+        "mixed_emin5": {
+          "candidates": 289332,
+          "proposal_recall": 0.8698060941828255,
+          "saturations": 0
+        },
+        "mixed_emin4": {
+          "candidates": 292012,
+          "proposal_recall": 0.8660583346912172,
+          "saturations": 0
+        }
+      },
+      "elapsed_s": 66.58159030000024
+    }
+  ],
+  "reproducibility": {
+    "command": [
+      "software\\scripts\\evaluate_pot.py",
+      "--minimum-exponents=-7,-6,-5,-4",
+      "--maximum-exponent",
+      "3",
+      "--maximum-iou-loss",
+      "0.02",
+      "--experiment-id",
+      "S2-POT-HW-CAL-v1",
+      "--output",
+      "results\\pot_calibration.json"
+    ],
+    "script_sha256": "5eba69fbe73037a8af754dfcc9019c35376a5756203d4bb499af7d5e34fa7545",
+    "fixed_source_sha256": "2a4172f6bd3889399c5ac84b96398b7605d3f4b8e4795ab3be1ffc59a91af28a"
+  }
+}

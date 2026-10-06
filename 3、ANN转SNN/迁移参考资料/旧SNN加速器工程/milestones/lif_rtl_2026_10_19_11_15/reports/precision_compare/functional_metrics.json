@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "seed": 24307140011,
+  "scope": "functional bit-oriented comparison; no synthesis data",
+  "configuration": {
+    "fp_equation": "candidate=round(round(alpha*membrane)+current), hard reset to zero",
+    "fp_approximation": "Mitchell log-domain multiplication, FTZ subnormal policy",
+    "int8_equation": "candidate=sat((membrane-(membrane>>>2))+current), hard reset to zero",
+    "int8_approximation": "LOA with K=2 low bits",
+    "theoretical_mitchell_max_normal_multiply_relative_error_pct": 11.11111111111111,
+    "int8_loa_pre_saturation_error_bound_lsb": 3
+  },
+  "fp32": {
+    "mae": 0.014494070887546987,
+    "rmse": 0.020466050514372426,
+    "p95_abs_error": 0.04606315493583679,
+    "max_abs_error": 0.06240236759185791,
+    "mean_relative_error_pct": 3.08457058381161,
+    "mean_signed_error": -0.014494070887546987,
+    "normalized_mae_pct": 1.8117588609433732,
+    "single_step_samples": 50000,
+    "single_step_spike_mismatch_pct": 1.866,
+    "trajectory_steps": 51200,
+    "trajectory_membrane_mae": 0.15435410676232164,
+    "trajectory_spike_mismatch_pct": 2.375,
+    "exact_spike_count": 1073,
+    "approximate_spike_count": 167
+  },
+  "fp16": {
+    "mae": 0.014549192090034484,
+    "rmse": 0.02051661723414001,
+    "p95_abs_error": 0.04638671875,
+    "max_abs_error": 0.0625,
+    "mean_relative_error_pct": 3.089752105016459,
+    "mean_signed_error": -0.014549192090034484,
+    "normalized_mae_pct": 1.8186490112543103,
+    "single_step_samples": 50000,
+    "single_step_spike_mismatch_pct": 1.802,
+    "trajectory_steps": 51200,
+    "trajectory_membrane_mae": 0.15406058371532708,
+    "trajectory_spike_mismatch_pct": 2.275390625,
+    "exact_spike_count": 1052,
+    "approximate_spike_count": 137
+  },
+  "int8": {
+    "mae": 0.74454,
+    "rmse": 1.2198442523535535,
+    "p95_abs_error": 3.0,
+    "max_abs_error": 3.0,
+    "mean_relative_error_pct": 3.841404100056839,
+    "mean_signed_error": -0.74454,
+    "normalized_mae_pct": 0.5862519685039369,
+    "single_step_samples": 50000,
+    "single_step_spike_mismatch_pct": 0.394,
+    "trajectory_steps": 51200,
+    "trajectory_membrane_mae": 14.2613671875,
+    "trajectory_spike_mismatch_pct": 10.0625,
+    "exact_spike_count": 8602,
+    "approximate_spike_count": 8188
+  }
+}

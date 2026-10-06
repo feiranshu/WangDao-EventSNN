@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wangdao-mlp-to-snn"
+version = "0.1.0"
+description = "望道项目MLP到SNN转换、定点化与近似计算"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.24",
+  "torch>=2.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "software"}
+
+[tool.setuptools.packages.find]
+where = ["software"]
+include = ["wangdao*"]
+
+[tool.pyright]
+include = ["software/wangdao", "software/scripts", "software/tests"]
+extraPaths = ["software"]
+typeCheckingMode = "basic"

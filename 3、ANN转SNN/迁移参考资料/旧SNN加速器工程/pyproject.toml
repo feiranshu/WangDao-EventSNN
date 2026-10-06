@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snn-accelerator"
+version = "0.1.0"
+description = "Bit-true software and RTL foundations for an event-driven SNN accelerator"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+training = ["torch>=2.1"]
+
+[project.scripts]
+snn-accel = "snn_accel.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "software"}
+
+[tool.setuptools.packages.find]
+where = ["software"]
+
