@@ -1,0 +1,19 @@
+{
+  "model": "EV-SpSegNet",
+  "role": "EV-UAV original paper external reference",
+  "paper_reported": {
+    "evaluation_set": "Test",
+    "acc": 0.6502,
+    "pd": 0.7753,
+    "event_ap": null
+  },
+  "validation_status": "not_reported",
+  "target_track_status": "pending_cuda_evaluation",
+  "source": {
+    "title": "Event-based Tiny Object Detection: A Benchmark Dataset and Baseline",
+    "venue": "ICCV 2025",
+    "table": "Table 2",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_Event-based_Tiny_Object_Detection_A_Benchmark_Dataset_and_Baseline_ICCV_2025_paper.html"
+  },
+  "policy": "Do not infer Validation, Event AP/mAP, or target-track values from paper ACC/Pd. Missing values remain N/A."
+}

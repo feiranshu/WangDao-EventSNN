@@ -92,12 +92,17 @@ class A42Pipeline:
     def infer(self, events: np.ndarray) -> Dict[str, Any]:
         validate_events(events)
         prepared = self.proposal.prepare(events)
+        return self.infer_prepared(prepared, len(events))
+
+    def infer_prepared(self, prepared: Any, event_count: int) -> Dict[str, Any]:
+        """Run the final refiner on a prepared frozen-H2 proposal result."""
+
         features = augment_refiner_features(prepared.features, prepared.history)
         started = time.perf_counter()
         logits = quantized_mlp(features, self.refiner.layers)
         candidate_probability = _refiner_probability(logits, A4_2_PROTOTYPES)
         refiner_s = time.perf_counter() - started
-        probability = np.zeros(len(events), dtype=np.float32)
+        probability = np.zeros(event_count, dtype=np.float32)
         probability[prepared.indices] = candidate_probability
         return {
             "probabilities": probability,

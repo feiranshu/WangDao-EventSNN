@@ -1,4 +1,4 @@
 1、H2模型改进/seven_step_improvement_study/**/*.zip filter=lfs diff=lfs merge=lfs -text
 1、H2模型改进/seven_step_improvement_study/step7/**/bootstrap_scores/*.npz filter=lfs diff=lfs merge=lfs -text
+1、H2模型改进/seven_step_improvement_study/评测整理归档/**/pr_curve_exact.npz filter=lfs diff=lfs merge=lfs -text
 3、ANN转SNN/**/*.zip filter=lfs diff=lfs merge=lfs -text
-5、模型评测指标/A、模型准确度/0、原始H2模型/历史Step1结果/pr_curve_exact.npz filter=lfs diff=lfs merge=lfs -text

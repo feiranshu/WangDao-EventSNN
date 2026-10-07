@@ -1,0 +1,42 @@
+﻿data_role,model,metric_code,metric,value,unit,preferred_direction,status,numeric_path,protocol
+通用,H2,A01,参数量,11904,count,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2,A02,静态张量载荷,12656,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A03,核心张量预算上限,21467904,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A03,Python/NumPy 追踪堆峰值,342551557,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A04,平均每序列稠密 MAC,286521040.0,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A05,平均每序列有效 MAC,82988023.95833333,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2,A05,有效 AC,0,AC,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A06,激活量化变换元素,90130080,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A06,Proposal sigmoid 元素,10321920,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A06,Refiner softmax 项,455015,item,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2,A06,历史特征值,0,value,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2,A06,SNN 神经元更新,0,update,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2-plus,A01,参数量,12160,count,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2-plus,A02,静态张量载荷,12912,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A03,核心张量预算上限,22724288,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A03,Python/NumPy 追踪堆峰值,348172596,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A04,平均每序列稠密 MAC,291374533.3333333,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A05,平均每序列有效 MAC,87087678.58333333,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2-plus,A05,有效 AC,0,AC,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A06,激活量化变换元素,90130080,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A06,Proposal sigmoid 元素,10321920,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A06,Refiner softmax 项,455015,item,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Validation,H2-plus,A06,历史特征值,1820060,value,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,H2-plus,A06,SNN 神经元更新,0,update,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A03,核心张量预算上限,30818752,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A03,Python/NumPy 追踪堆峰值,481994628,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A04,平均每序列稠密 MAC,320959664.0,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A05,平均每序列有效 MAC,107598037.95833333,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A06,激活量化变换元素,108914784,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A06,Proposal sigmoid 元素,10321920,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A06,Refiner softmax 项,650689,item,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2,A06,历史特征值,0,value,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A03,核心张量预算上限,32580080,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A03,Python/NumPy 追踪堆峰值,489920644,byte,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A04,平均每序列稠密 MAC,327900346.6666667,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A05,平均每序列有效 MAC,113539031.54166667,MAC/sequence,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A06,激活量化变换元素,108914784,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A06,Proposal sigmoid 元素,10321920,element,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A06,Refiner softmax 项,650689,item,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+Test,H2-plus,A06,历史特征值,2602756,value,higher_cost,complete,exact_int8_replay,formal-ann-algorithm-complexity-v1
+通用,EV-SpSegNet,A01,参数量,4000000,count,higher_cost,paper_reported,paper_reported,ICCV 2025 Table 2

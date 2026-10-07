@@ -12,4 +12,4 @@
 - `统一评测摘要.csv`：旧 11 模型 Train-dev int8 统一评测表。
 - `全模型PR曲线对比_Train-dev.*`：旧全模型完整 PR 曲线对比图。
 
-当前正式 H2 与 H2-plus 的 Validation/Test 图表位于上一级 `Charts and pictures/`。
+当前正式 H2 与 H2-plus 的 Validation/Test 图表位于 `A、模型准确度/01、对比图表/`；正式源数据位于其 `02、评测数据/`。

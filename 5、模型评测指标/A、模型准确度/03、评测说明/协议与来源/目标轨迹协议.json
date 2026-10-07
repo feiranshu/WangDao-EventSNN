@@ -1,0 +1,279 @@
+{
+  "protocol": "evuav-observable-event-track-hota-v1",
+  "calibration_role": "train_dev",
+  "selection_input": "ideal target-event labels used only as prediction mask",
+  "sequence_count": 10,
+  "candidates": {
+    "cluster_radius_px": [
+      1,
+      2,
+      3
+    ],
+    "association_distance_px_per_50ms": [
+      8.0,
+      13.0,
+      20.0
+    ],
+    "max_missed_windows": [
+      2,
+      5,
+      20
+    ]
+  },
+  "tie_break": "smaller cluster radius, then distance, then missed-window retention",
+  "selected": {
+    "cluster_radius_px": 3,
+    "association_distance_px_per_50ms": 20.0,
+    "max_missed_windows": 20,
+    "HOTA": 0.5989801025530335,
+    "DetA": 0.7048930082755517,
+    "AssA": 0.5098254424516424,
+    "LocA": 0.9713744769337989
+  },
+  "all_combinations": [
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.5989801025530335,
+      "DetA": 0.7048930082755517,
+      "AssA": 0.5098254424516424,
+      "LocA": 0.9713744769337989
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.5872692880921805,
+      "DetA": 0.705438269295745,
+      "AssA": 0.48977307951940946,
+      "LocA": 0.9710793381069781
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.581179551452219,
+      "DetA": 0.705234104071382,
+      "AssA": 0.479701450184996,
+      "LocA": 0.9712240947369483
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.5791061520074011,
+      "DetA": 0.7059879671308354,
+      "AssA": 0.4757739498459275,
+      "LocA": 0.9709044859104788
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.5771939440105214,
+      "DetA": 0.7056389930170434,
+      "AssA": 0.4729702327296218,
+      "LocA": 0.9710841358598554
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.5765753517561464,
+      "DetA": 0.7054321713404901,
+      "AssA": 0.47203394905144935,
+      "LocA": 0.97110621815755
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.5765709732822192,
+      "DetA": 0.7049675566576488,
+      "AssA": 0.472186068887406,
+      "LocA": 0.9713531867626376
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.5715743084087219,
+      "DetA": 0.7054931694104695,
+      "AssA": 0.46368891405458185,
+      "LocA": 0.9711371737353063
+    },
+    {
+      "cluster_radius_px": 3,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.5634134300430504,
+      "DetA": 0.7047762336597119,
+      "AssA": 0.4510158337308484,
+      "LocA": 0.971448855257714
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.39329821815269467,
+      "DetA": 0.45392224800024417,
+      "AssA": 0.3420382941227147,
+      "LocA": 0.9291765733205232
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.3914448991176549,
+      "DetA": 0.4545118165901865,
+      "AssA": 0.338521293504154,
+      "LocA": 0.9287179280968738
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.3906033259172766,
+      "DetA": 0.45472942216389206,
+      "AssA": 0.33727473130850955,
+      "LocA": 0.9287050556478299
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.3859099591924227,
+      "DetA": 0.45418247619729807,
+      "AssA": 0.3294246042148224,
+      "LocA": 0.9289189645198412
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.3828021302488655,
+      "DetA": 0.4544241660356952,
+      "AssA": 0.3240404517095466,
+      "LocA": 0.9288488523746907
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.38014528408999315,
+      "DetA": 0.4548060772411146,
+      "AssA": 0.3192558107951026,
+      "LocA": 0.928522572027916
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.3689726531129711,
+      "DetA": 0.45387497231183116,
+      "AssA": 0.3012259695951729,
+      "LocA": 0.929154091014086
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.36514208723780145,
+      "DetA": 0.45317713846703955,
+      "AssA": 0.295437670849542,
+      "LocA": 0.929399311408794
+    },
+    {
+      "cluster_radius_px": 2,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.3622522652019401,
+      "DetA": 0.45374800402299087,
+      "AssA": 0.29055292462552124,
+      "LocA": 0.9291473369027817
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.17035985319768143,
+      "DetA": 0.19290327728388773,
+      "AssA": 0.1516135876308576,
+      "LocA": 0.8430015458415047
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.1686655257900642,
+      "DetA": 0.1936188122436008,
+      "AssA": 0.14890340189006226,
+      "LocA": 0.842450356104764
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.16495051124606872,
+      "DetA": 0.1925664609881992,
+      "AssA": 0.1424803620195169,
+      "LocA": 0.8432304958594914
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.16487099604434524,
+      "DetA": 0.19366259574910594,
+      "AssA": 0.1420434000431098,
+      "LocA": 0.8423252591530417
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 8.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.16433709231963103,
+      "DetA": 0.1920422053298727,
+      "AssA": 0.1425215355816598,
+      "LocA": 0.8435886560604372
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 20,
+      "HOTA": 0.16393538265903324,
+      "DetA": 0.19361157951649577,
+      "AssA": 0.14055902553472654,
+      "LocA": 0.8424075873576239
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 5,
+      "HOTA": 0.16294737017347916,
+      "DetA": 0.19274167781404805,
+      "AssA": 0.1389014461235891,
+      "LocA": 0.843132344635633
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 20.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.1617694045069477,
+      "DetA": 0.19178276157864352,
+      "AssA": 0.13798520247926,
+      "LocA": 0.8438185534844397
+    },
+    {
+      "cluster_radius_px": 1,
+      "association_distance_px_per_50ms": 13.0,
+      "max_missed_windows": 2,
+      "HOTA": 0.16124159820183262,
+      "DetA": 0.1923375448066238,
+      "AssA": 0.13685129650597838,
+      "LocA": 0.8433350558526692
+    }
+  ],
+  "data_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+}
