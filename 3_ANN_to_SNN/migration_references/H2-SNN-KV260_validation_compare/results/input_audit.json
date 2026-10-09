@@ -1,0 +1,739 @@
+﻿{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "validation-input-audit-v1",
+  "stage": "evaluation_alignment",
+  "data_role": "validation",
+  "primary_metrics": {
+    "sequences": 24,
+    "events": 1424330,
+    "target_events": 65506,
+    "all_hashes_match": true,
+    "all_event_rows_match": true
+  },
+  "decision": "use_frozen_validation_only",
+  "conclusion": "24 Validation files match the original index; Test contents were not read or copied.",
+  "source_project": "D:\\WangDao_EventSNN\\3_ANN_to_SNN",
+  "source_dataset": "E:\\experiment\\FPGA上的SNN实现\\anti-EUV\\EV-UAV-dataset",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "test_used": false,
+  "baseline_manifest": [
+    {
+      "path": "data/index.json",
+      "sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+    },
+    {
+      "path": "results/baseline_h2.json",
+      "sha256": "9ac66a78ef5a0cde13861c1102333fc66ba4c61c15797a4a809c360e1e51471b"
+    },
+    {
+      "path": "results/s1_validation.json",
+      "sha256": "2eb77babf0ea360746c7bc39247f106bf3fb1aea666040385b5b59468ecd0d44"
+    },
+    {
+      "path": "software/scripts/evaluate.py",
+      "sha256": "b0d0550fd50cda41e43473fc513235cd879aa68bca5ca8735b74c656497e1f06"
+    },
+    {
+      "path": "software/scripts/evaluate_s1.py",
+      "sha256": "78273b582a01bc04175df4b9a5f95585522c5cf984b20acb23a069598f9cbb93"
+    },
+    {
+      "path": "software/wangdao/__init__.py",
+      "sha256": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617"
+    },
+    {
+      "path": "software/wangdao/data.py",
+      "sha256": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f"
+    },
+    {
+      "path": "software/wangdao/fixed.py",
+      "sha256": "2a4172f6bd3889399c5ac84b96398b7605d3f4b8e4795ab3be1ffc59a91af28a"
+    },
+    {
+      "path": "software/wangdao/h2/__init__.py",
+      "sha256": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409"
+    },
+    {
+      "path": "software/wangdao/h2/constants.py",
+      "sha256": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6"
+    },
+    {
+      "path": "software/wangdao/h2/export.py",
+      "sha256": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2"
+    },
+    {
+      "path": "software/wangdao/h2/features.py",
+      "sha256": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16"
+    },
+    {
+      "path": "software/wangdao/h2/losses.py",
+      "sha256": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207"
+    },
+    {
+      "path": "software/wangdao/h2/numpy_model.py",
+      "sha256": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee"
+    },
+    {
+      "path": "software/wangdao/h2/representation.py",
+      "sha256": "1a32b17723316b6f8b8546e8f294e2bd97c75117f75e4a3cc610d9122d278f4d"
+    },
+    {
+      "path": "software/wangdao/h2/torch_model.py",
+      "sha256": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87"
+    },
+    {
+      "path": "software/wangdao/metrics.py",
+      "sha256": "379c0e84761f876e0055936e40b4ea9c8cb916f6103bfc9470c2da8464f0ad6a"
+    },
+    {
+      "path": "software/wangdao/s0p.py",
+      "sha256": "20183f660fff97c5775a06544a5cc22ef2a01f09e8d507cb923eae537dae879f"
+    },
+    {
+      "path": "software/wangdao/s0r.py",
+      "sha256": "af10e4b7a0a3227898bce72c97016972aa29977e206b4a5e9e085d254e0047e8"
+    },
+    {
+      "path": "software/wangdao/snn.py",
+      "sha256": "ba83fe84e53ada41b83c842b5a80d1653e1361ae68f0090e94a509d98f13eea0"
+    },
+    {
+      "path": "software/weights/H2_D1_seed42.npz",
+      "sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2"
+    },
+    {
+      "path": "software/weights/S1P_INT8_ACC24_MEM24_Q12.npz",
+      "sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69"
+    }
+  ],
+  "official_commit": "33e2affb51a204676536e119803ab8494e2eb0a9",
+  "official_reference_manifest": [
+    {
+      "path": "utils/eval.py",
+      "sha256": "0eca4ea7937c4a27f7c49ef4f2a36c423adb8a0972c101babacf85295c3b7497"
+    },
+    {
+      "path": "dataset/basedataset.py",
+      "sha256": "ecf3d1421a5bf4e5a2c1dd7300fb535b09a9b058b3c6d0f674bfff53e9c2c73d"
+    },
+    {
+      "path": "dataset/ev_uav.py",
+      "sha256": "5b1be38e8ed71a7af5a0e1c757f64706dea76a9be0078e915fbfb6b666094f2a"
+    },
+    {
+      "path": "configs/evisseg_evuav.yaml",
+      "sha256": "f18a25a15b81a0ff39753a9d12667a8746d5c99c5db3715e2b6000550a051c07"
+    },
+    {
+      "path": "test.py",
+      "sha256": "5b28d6fa6e2108b2bb0b076cd08b6a4815cb9ecc240d815f3cbcaea71296b3cb"
+    },
+    {
+      "path": "README.md",
+      "sha256": "facd5b3539d02863e2b97a991d891259f26ca824e09050221118311f9a133909"
+    }
+  ],
+  "per_sequence": [
+    {
+      "file": "val_000.npz",
+      "sha256": "a1e4ba6356e2fd792b639afbb86f2d3689bc31ff7442c7588c84b6c63afa606a",
+      "events": 45361,
+      "target_events": 2778,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.586
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 306
+    },
+    {
+      "file": "val_001.npz",
+      "sha256": "d96a9e72d28b7c345cc8dd8e60f5736cbba71d8801d363f1b8d466cc89dfdd94",
+      "events": 54625,
+      "target_events": 1234,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7995.771
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7995
+      ],
+      "official_boundary_events": 1301
+    },
+    {
+      "file": "val_002.npz",
+      "sha256": "6b5a19c42a36d845433362d4dbb15c4f4b5be7e2f28689497d488d2e227bdeda",
+      "events": 55695,
+      "target_events": 1929,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.975
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 1341
+    },
+    {
+      "file": "val_003.npz",
+      "sha256": "c46c422ebd1dae3ff9ab3ea033693a75685c7f75c04081484ca88bf0d9c5b1bc",
+      "events": 56519,
+      "target_events": 1273,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.969
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 1353
+    },
+    {
+      "file": "val_004.npz",
+      "sha256": "0d5c8422db2446f9cd277189e668c316d63e8d7460deb465a032781f5e5ee8b8",
+      "events": 24933,
+      "target_events": 2324,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.805
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 362
+    },
+    {
+      "file": "val_005.npz",
+      "sha256": "8780f151e6c19384298215d6fff0ab4669543684694f9fa2bc8a0dd886544e3c",
+      "events": 23566,
+      "target_events": 1283,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.789
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 330
+    },
+    {
+      "file": "val_006.npz",
+      "sha256": "24eaf86210425fbe975636c7ae76dbf089f6b380d33feb8d64c312bdd675ae4d",
+      "events": 21773,
+      "target_events": 703,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.746
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 353
+    },
+    {
+      "file": "val_007.npz",
+      "sha256": "a9a47e4c3add40594624a7eccb2961d9f0800fa28fad5613abfff2ab3b764288",
+      "events": 22194,
+      "target_events": 2016,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7998.565
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7998
+      ],
+      "official_boundary_events": 559
+    },
+    {
+      "file": "val_008.npz",
+      "sha256": "d867fbf15ffbec65c8d956d12a8c94ae04a058f9d43a95a57bda0d0ff5b3c340",
+      "events": 70943,
+      "target_events": 3591,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.883
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 1228
+    },
+    {
+      "file": "val_009.npz",
+      "sha256": "c45f34bd163753a2b33a66b888c333992acfc02e479e970b82b05da949ac9644",
+      "events": 57607,
+      "target_events": 2821,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.219
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 996
+    },
+    {
+      "file": "val_010.npz",
+      "sha256": "68fe4b367bd726cf13d565efce71626d16c82a1d5e23a04b2a7e15ec53747136",
+      "events": 43897,
+      "target_events": 1794,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.89
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 789
+    },
+    {
+      "file": "val_011.npz",
+      "sha256": "00a64898fff553eb7fae2da5a5348d0ce092106e6b7ab9ef0c15df04efa79138",
+      "events": 43971,
+      "target_events": 4393,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.907
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 802
+    },
+    {
+      "file": "val_012.npz",
+      "sha256": "783d1a9e7cec10ae7824ced690a48c7e6d610831b76e16de0bde5be36140911e",
+      "events": 39595,
+      "target_events": 5837,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.467
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 784
+    },
+    {
+      "file": "val_013.npz",
+      "sha256": "7dc85445cb3556514c5173a5e44fad2db294f7b2a27700d71ae82b9b614aecb6",
+      "events": 22034,
+      "target_events": 4518,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7997.517
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7997
+      ],
+      "official_boundary_events": 498
+    },
+    {
+      "file": "val_014.npz",
+      "sha256": "56ce726ef985c529196d8de56abe3c4e8c856c0fa32233e1a233a74e1e8a730b",
+      "events": 44399,
+      "target_events": 1268,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7995.167
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7995
+      ],
+      "official_boundary_events": 1717
+    },
+    {
+      "file": "val_015.npz",
+      "sha256": "613d14b34aa6daca847be7a5abec2839f38c3ca15493dd4b82de57aae12f6179",
+      "events": 253955,
+      "target_events": 2139,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.974999999999
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 13329
+    },
+    {
+      "file": "val_016.npz",
+      "sha256": "e1bde9a0a9a646650e396f7d370fd63b6e50645d20a50f37b5134bf5a0f3670e",
+      "events": 20608,
+      "target_events": 3619,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.065
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 511
+    },
+    {
+      "file": "val_017.npz",
+      "sha256": "ea2931dfd62ed4d7f08147cb4e85cca806f55043fd060ea320a2508be6e6c7b6",
+      "events": 20064,
+      "target_events": 2972,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7994.566999999999
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7994
+      ],
+      "official_boundary_events": 281
+    },
+    {
+      "file": "val_018.npz",
+      "sha256": "093486f51d7bd8792ed0bd4ff8da1897e2f17e318bc4aa82d09a87e703e6dba7",
+      "events": 19594,
+      "target_events": 3294,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7994.210000000006
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7994
+      ],
+      "official_boundary_events": 449
+    },
+    {
+      "file": "val_019.npz",
+      "sha256": "0b74daccc45e61ce0f3245f5431d09255e17e6871336249097e9b5639949fb9d",
+      "events": 31971,
+      "target_events": 2854,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7994.922
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7994
+      ],
+      "official_boundary_events": 834
+    },
+    {
+      "file": "val_020.npz",
+      "sha256": "104cbc0e58c4f138e4a5dbadb531d34f48cd7f30ddbd4075e20697f6666d6b06",
+      "events": 33159,
+      "target_events": 3531,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7997.188
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7997
+      ],
+      "official_boundary_events": 1043
+    },
+    {
+      "file": "val_021.npz",
+      "sha256": "72bcea68de3a6a5af5017d7953084463028cf64c448145f5522eac61c05bfac5",
+      "events": 18358,
+      "target_events": 1158,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        4795.582999999999
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        4795
+      ],
+      "official_boundary_events": 365
+    },
+    {
+      "file": "val_022.npz",
+      "sha256": "5009601522900135b4fd228cc82850e2831d3150348297803d3e407bccddea5d",
+      "events": 8165,
+      "target_events": 2187,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7998.832
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7998
+      ],
+      "official_boundary_events": 185
+    },
+    {
+      "file": "val_023.npz",
+      "sha256": "7fb44d523bb3b5df67a5356ee0314458b1d2a34a1221d631c4783c5e25097dbd",
+      "events": 391344,
+      "target_events": 5990,
+      "checks": {
+        "event_count": true,
+        "labels": true,
+        "identities": true,
+        "xy": true,
+        "integer_ms": true,
+        "ordered": true,
+        "label_identity": true,
+        "time_range": true
+      },
+      "raw_timestamp_range_ms": [
+        0.0,
+        7999.95
+      ],
+      "official_timestamp_range_ms": [
+        0,
+        7999
+      ],
+      "official_boundary_events": 7869
+    }
+  ]
+}

@@ -1,0 +1,1345 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-ZERO-SKIP-DIRECTED-X2019-v1",
+  "stage": "P4-rtl-behavioral-simulation",
+  "data_role": "synthetic_and_hw_calibration_golden_vectors",
+  "primary_metrics": {
+    "testbenches": 1,
+    "passed_records": 28416,
+    "failed_records": 0
+  },
+  "decision": "behavioral_alignment_passed",
+  "conclusion": "RTL matches checked Python golden vectors; no target-device verification performed.",
+  "test_used": false,
+  "validation_used": false,
+  "simulation": {
+    "tool": "Vivado Simulator",
+    "version": "2019.1",
+    "scope": "behavioral_simulation_only",
+    "device_target": null,
+    "board_target": null,
+    "first_layer_skip_zero_groups": true,
+    "measure_cycles": true,
+    "work_directory": "tmp\\rtl_sim_e8_66ka7",
+    "compile_defines": [
+      "WD_ZERO_SKIP",
+      "WD_MEASURE_CYCLES"
+    ],
+    "tests": [
+      {
+        "testbench": "tb_first_layer_engine",
+        "records": 28416,
+        "status": "passed",
+        "patches": 148,
+        "skip_zero_groups": 1,
+        "measured_cycle_patches": 148,
+        "minimum_patch_cycles": 4353,
+        "maximum_patch_cycles": 7425,
+        "no_stall_patch_cycles": 5889,
+        "reset_scenarios": 5,
+        "reset_replay_records": 1152,
+        "output_backpressure_cycles": 474,
+        "input_gap_cycles": 605,
+        "exact_tree_saturations": 0,
+        "approximate_tree_saturations": 0,
+        "exact_membrane_saturations": 0,
+        "approximate_membrane_saturations": 0
+      }
+    ],
+    "elapsed_seconds": 14.188
+  },
+  "source": {
+    "vector_manifest": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\results\\runs\\RTL-ZERO-SKIP-DIRECTED-v1\\vectors\\first_layer_manifest.json",
+    "vector_manifest_sha256": "b8877e3ddf4886dc92e3101887c00e5639d4d05f1c566f62dc9d533200f3f205",
+    "command": [
+      "software/scripts/run_rtl_simulation.py",
+      "--suite",
+      "engine",
+      "--vector-directory",
+      "results/runs/RTL-ZERO-SKIP-DIRECTED-v1/vectors",
+      "--skip-zero-groups",
+      "--measure-cycles",
+      "--experiment-id",
+      "RTL-ZERO-SKIP-DIRECTED-X2019-v1",
+      "--output",
+      "results/rtl_zero_skip_directed.json",
+      "--timeout-seconds",
+      "240"
+    ],
+    "manifest_source": {
+      "dataset_sequence": "data/EV-UAV-dataset/train/train_022.npz",
+      "dataset_role": "hw_calibration",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "dataset_sequence_sha256": "8db215f489d963583ea2c02f395fe8bb14760c42a2374c9c32303334992bc2d8",
+      "frozen_weight": "software/weights/S3P_LOA_SYN13_MEMALL_K2_ACC24_MEM24_Q12.npz",
+      "frozen_weight_sha256": "be47d3a0dca69451d285b2907d0b63415fbff5e77658334c33c41bab41d51806"
+    }
+  },
+  "cycle_measurements": {
+    "testbench": "tb_first_layer_engine",
+    "patches": 148,
+    "boundary_cycles_per_patch": 1,
+    "fixed_cycles_per_patch": 7425,
+    "measured_total_cycles": 693588,
+    "mean_measured_cycles": 4686.405405405405,
+    "cycle_reduction": 0.3688342888342888,
+    "mismatches": 0,
+    "rows": [
+      {
+        "patch": 0,
+        "zero_groups": 64,
+        "measured_cycles": 4353,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3072
+      },
+      {
+        "patch": 1,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 2,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 3,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 4,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 5,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 6,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 7,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 8,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 9,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 10,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 11,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 12,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 13,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 14,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 15,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 16,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 17,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 18,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 19,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 20,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 21,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 22,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 23,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 24,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 25,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 26,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 27,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 28,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 29,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 30,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 31,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 32,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 33,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 34,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 35,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 36,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 37,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 38,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 39,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 40,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 41,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 42,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 43,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 44,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 45,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 46,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 47,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 48,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 49,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 50,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 51,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 52,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 53,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 54,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 55,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 56,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 57,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 58,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 59,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 60,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 61,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 62,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 63,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 64,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 65,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 66,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 67,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 68,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 69,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 70,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 71,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 72,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 73,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 74,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 75,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 76,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 77,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 78,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 79,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 80,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 81,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 82,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 83,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 84,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 85,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 86,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 87,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 88,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 89,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 90,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 91,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 92,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 93,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 94,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 95,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 96,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 97,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 98,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 99,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 100,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 101,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 102,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 103,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 104,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 105,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 106,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 107,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 108,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 109,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 110,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 111,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 112,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 113,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 114,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 115,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 116,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 117,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 118,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 119,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 120,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 121,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 122,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 123,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 124,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 125,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 126,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 127,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 128,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 129,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 130,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 131,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 132,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 133,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 134,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 135,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 136,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 137,
+        "zero_groups": 63,
+        "measured_cycles": 4401,
+        "fixed_cycles": 7425,
+        "saved_cycles": 3024
+      },
+      {
+        "patch": 138,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 139,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 140,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 141,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 142,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 143,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 144,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 145,
+        "zero_groups": 0,
+        "measured_cycles": 7425,
+        "fixed_cycles": 7425,
+        "saved_cycles": 0
+      },
+      {
+        "patch": 146,
+        "zero_groups": 32,
+        "measured_cycles": 5889,
+        "fixed_cycles": 7425,
+        "saved_cycles": 1536
+      },
+      {
+        "patch": 147,
+        "zero_groups": 32,
+        "measured_cycles": 5889,
+        "fixed_cycles": 7425,
+        "saved_cycles": 1536
+      }
+    ]
+  },
+  "coverage": {
+    "patches": 148,
+    "synthetic_patches": 148,
+    "real_patches": 0,
+    "complete_window": false,
+    "window": 0,
+    "channels": 48,
+    "time_steps": 4,
+    "seed": 20260904,
+    "synthetic_cases": [
+      "zero",
+      "maximum",
+      "single_step0_index0",
+      "single_step1_index7",
+      "single_step2_index64",
+      "single_step3_index127",
+      "random0",
+      "random1",
+      "random2",
+      "random3",
+      "group0_lane0",
+      "group0_lane7",
+      "group1_lane0",
+      "group1_lane7",
+      "group2_lane0",
+      "group2_lane7",
+      "group3_lane0",
+      "group3_lane7",
+      "group4_lane0",
+      "group4_lane7",
+      "group5_lane0",
+      "group5_lane7",
+      "group6_lane0",
+      "group6_lane7",
+      "group7_lane0",
+      "group7_lane7",
+      "group8_lane0",
+      "group8_lane7",
+      "group9_lane0",
+      "group9_lane7",
+      "group10_lane0",
+      "group10_lane7",
+      "group11_lane0",
+      "group11_lane7",
+      "group12_lane0",
+      "group12_lane7",
+      "group13_lane0",
+      "group13_lane7",
+      "group14_lane0",
+      "group14_lane7",
+      "group15_lane0",
+      "group15_lane7",
+      "group16_lane0",
+      "group16_lane7",
+      "group17_lane0",
+      "group17_lane7",
+      "group18_lane0",
+      "group18_lane7",
+      "group19_lane0",
+      "group19_lane7",
+      "group20_lane0",
+      "group20_lane7",
+      "group21_lane0",
+      "group21_lane7",
+      "group22_lane0",
+      "group22_lane7",
+      "group23_lane0",
+      "group23_lane7",
+      "group24_lane0",
+      "group24_lane7",
+      "group25_lane0",
+      "group25_lane7",
+      "group26_lane0",
+      "group26_lane7",
+      "group27_lane0",
+      "group27_lane7",
+      "group28_lane0",
+      "group28_lane7",
+      "group29_lane0",
+      "group29_lane7",
+      "group30_lane0",
+      "group30_lane7",
+      "group31_lane0",
+      "group31_lane7",
+      "group32_lane0",
+      "group32_lane7",
+      "group33_lane0",
+      "group33_lane7",
+      "group34_lane0",
+      "group34_lane7",
+      "group35_lane0",
+      "group35_lane7",
+      "group36_lane0",
+      "group36_lane7",
+      "group37_lane0",
+      "group37_lane7",
+      "group38_lane0",
+      "group38_lane7",
+      "group39_lane0",
+      "group39_lane7",
+      "group40_lane0",
+      "group40_lane7",
+      "group41_lane0",
+      "group41_lane7",
+      "group42_lane0",
+      "group42_lane7",
+      "group43_lane0",
+      "group43_lane7",
+      "group44_lane0",
+      "group44_lane7",
+      "group45_lane0",
+      "group45_lane7",
+      "group46_lane0",
+      "group46_lane7",
+      "group47_lane0",
+      "group47_lane7",
+      "group48_lane0",
+      "group48_lane7",
+      "group49_lane0",
+      "group49_lane7",
+      "group50_lane0",
+      "group50_lane7",
+      "group51_lane0",
+      "group51_lane7",
+      "group52_lane0",
+      "group52_lane7",
+      "group53_lane0",
+      "group53_lane7",
+      "group54_lane0",
+      "group54_lane7",
+      "group55_lane0",
+      "group55_lane7",
+      "group56_lane0",
+      "group56_lane7",
+      "group57_lane0",
+      "group57_lane7",
+      "group58_lane0",
+      "group58_lane7",
+      "group59_lane0",
+      "group59_lane7",
+      "group60_lane0",
+      "group60_lane7",
+      "group61_lane0",
+      "group61_lane7",
+      "group62_lane0",
+      "group62_lane7",
+      "group63_lane0",
+      "group63_lane7",
+      "all_groups_lane0",
+      "all_groups_lane1",
+      "all_groups_lane2",
+      "all_groups_lane3",
+      "all_groups_lane4",
+      "all_groups_lane5",
+      "all_groups_lane6",
+      "all_groups_lane7",
+      "alternating_groups_0",
+      "alternating_groups_1"
+    ],
+    "input_order": "patch,time,feature",
+    "output_order": "patch,time,channel",
+    "modes": [
+      "exact",
+      "loa_k2"
+    ],
+    "lanes": 8,
+    "right_shifts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reset_between_patches": true
+  }
+}

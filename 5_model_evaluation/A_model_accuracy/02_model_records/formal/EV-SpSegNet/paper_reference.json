@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "EV-SpSegNet",
+  "model": "EV-SpSegNet",
+  "role": "formal_software_comparison_model_pending_same_protocol_measurement",
+  "paper_reported": {
+    "evaluation_set": "Test",
+    "event_ap": null,
+    "event_iou": 0.5518,
+    "acc": 0.6502,
+    "pd": 0.7753,
+    "fa": 0.000163
+  },
+  "validation_status": "pending_cuda_evaluation",
+  "target_track_status": "pending_cuda_evaluation",
+  "source": {
+    "title": "Event-based Tiny Object Detection: A Benchmark Dataset and Baseline",
+    "venue": "ICCV 2025",
+    "table": "Table 2",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_Event-based_Tiny_Object_Detection_A_Benchmark_Dataset_and_Baseline_ICCV_2025_paper.html"
+  },
+  "policy": "Paper values are displayed as paper_reported, not complete. Do not infer Validation, Event AP, other event metrics, or target-track metrics. Same-protocol CUDA measurements replace paper values after verified import."
+}

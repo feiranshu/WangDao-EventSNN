@@ -1,20 +1,19 @@
-# 根目录仅发布 0—5 六个项目目录及仓库说明文件。
+﻿# 根目录仅发布 0—5 六个项目目录及仓库说明文件。
 /*
 !/.gitignore
 !/.gitattributes
 !/README.md
-!/0、mlp原始工程/
-!/1、H2模型改进/
-!/2、Kv260启动测试/
-!/3、ANN转SNN/
-!/4、模型上板/
-!/5、模型评测指标/
+!/0_mlp_original_project/
+!/1_H2_model_improvement/
+!/2_KV260_bring_up_tests/
+!/3_ANN_to_SNN/
+!/4_model_deployment/
+!/5_model_evaluation/
 
-# 2、4 当前只在 GitHub 保留目录占位，本地内容不上传。
-/2、Kv260启动测试/**
-!/2、Kv260启动测试/.gitkeep
-/4、模型上板/**
-!/4、模型上板/.gitkeep
+# 永久本地目录：任何后续提交、同步或 GitHub 上传均不得包含。
+/archive/
+/tmp/
+/project_proposal/
 
 # 通用本地临时文件。
 Thumbs.db

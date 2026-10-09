@@ -1,0 +1,1 @@
+"""Board-result evaluation tools."""

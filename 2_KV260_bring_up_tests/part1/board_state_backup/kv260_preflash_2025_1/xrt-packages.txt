@@ -1,0 +1,26 @@
+xrt:
+  Installed: 2.18.0-0ubuntu1
+  Candidate: 2.18.0-0ubuntu1
+  Version table:
+ *** 2.18.0-0ubuntu1 100
+        100 /var/lib/dpkg/status
+     2.8.743-0ubuntu9 500
+        500 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages
+xrt-dkms:
+  Installed: (none)
+  Candidate: 2.8.743-0ubuntu9
+  Version table:
+     2.8.743-0ubuntu9 500
+        500 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages
+libxrt-dev:
+  Installed: (none)
+  Candidate: 202210.2.13.466+dfsg-8ubuntu5
+  Version table:
+     202210.2.13.466+dfsg-8ubuntu5 500
+        500 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 Packages
+xlnx-firmware-kv260-bist:
+  Installed: (none)
+  Candidate: 1.0-0xlnx1
+  Version table:
+     1.0-0xlnx1 500
+        500 https://ppa.launchpadcontent.net/xilinx-apps/ppa/ubuntu noble/main arm64 Packages

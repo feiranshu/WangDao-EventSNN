@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-PROPOSAL-VECTORS-v1",
+  "stage": "P4-rtl-proposal-vectors",
+  "data_role": "synthetic_and_hw_calibration_golden_vectors",
+  "primary_metrics": {
+    "standalone_patches": 134,
+    "cascade_patches": 346,
+    "logit_records": 7680,
+    "readout_step_records": 30720,
+    "full_forward_checked_logits_per_mode": 5536
+  },
+  "decision": "ready_for_rtl_simulation",
+  "conclusion": "Readout traces and final logits match frozen S1/S3, including public forward.",
+  "configuration": {
+    "standalone_patches": 134,
+    "patches": 346,
+    "real_patches": 336,
+    "complete_window": true,
+    "window": 0,
+    "synthetic_cascade_patches": 10,
+    "binary_cases": {
+      "zero": 1,
+      "ones": 1,
+      "single_step_input": 96,
+      "channel_sign_extremes": 32,
+      "random": 4
+    },
+    "seed": 20260905,
+    "time_steps": 4,
+    "channels": [
+      48,
+      24,
+      16
+    ],
+    "lanes": 8,
+    "layer3_left_shifts": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "readout": "mean_membrane",
+    "sum_bits": 26,
+    "sum_addition": "exact_without_saturation",
+    "rounding": "nearest_ties_away_from_zero",
+    "output": "16 sign-extended int32 Q12 logits per patch in channel order",
+    "diagnostic_output_spikes_in_rtl": false,
+    "reset_between_patches": true
+  },
+  "files": {
+    "readout_inputs": {
+      "path": "readout_inputs.txt",
+      "records": 134,
+      "sha256": "fd768a5a4bf0420ff4698d4e762c5b173da1e2e6540c935da8154ed5b2aacaaa"
+    },
+    "proposal_inputs": {
+      "path": "proposal_inputs.txt",
+      "records": 346,
+      "sha256": "ab395ec192528b09cb11edaeb727e18eaddd1e275b84fbd6234c1f710e54313b"
+    },
+    "readout_expected": {
+      "path": "readout_expected.txt",
+      "records": 2144,
+      "sha256": "2022e68f4050fd64116ab1e1fb2bea222b0f75f1aa6c1ee531437350a0776bf7"
+    },
+    "proposal_expected": {
+      "path": "proposal_expected.txt",
+      "records": 5536,
+      "sha256": "91768caced74b2ec2d65deffc96618f704dfa37c8756bb4a3a08a90f577593c8"
+    },
+    "readout_trace": {
+      "path": "readout_trace.txt",
+      "records": 8576,
+      "sha256": "d435c8a861d1028c604b360e373bb1804759dc72c31186618accc324e3b79371"
+    },
+    "proposal_trace": {
+      "path": "proposal_trace.txt",
+      "records": 22144,
+      "sha256": "cf78be180c5e66a5971b62d7a0ca63e2c4902d30529cf85dd54950e08bb5dcb3"
+    },
+    "proposal_layer1": {
+      "path": "proposal_layer1.txt",
+      "records": 66432,
+      "sha256": "6fedc6a712a8347dc5a16e262a78175eb6c3c9e27e3c6b567b3c4ca81449e76d"
+    },
+    "proposal_layer2": {
+      "path": "proposal_layer2.txt",
+      "records": 33216,
+      "sha256": "fbf57c2f5a0c40e2d8a960bc68e576a77bf3eaeaec26301c9bed8018ad5854eb"
+    },
+    "readout_rounding": {
+      "path": "readout_rounding.txt",
+      "records": 23,
+      "sha256": "af3ce5f2780c0e8f511ea860d3385feadc7b3769c4c54bcb823d5102a147149f"
+    }
+  },
+  "weight_files": {
+    "layer1_bank0": {
+      "path": "layer1_bank0.txt",
+      "values": 768,
+      "sha256": "1e0ecd54f74d07b6a6f21249b4086e44b5372b0f008d10ae648b5280a9a4b7cb"
+    },
+    "layer1_bank1": {
+      "path": "layer1_bank1.txt",
+      "values": 768,
+      "sha256": "7d04df842e91769ee6ac81b99eca4f219e30ca72e4dbd5f02dc42c8977dafd96"
+    },
+    "layer1_bank2": {
+      "path": "layer1_bank2.txt",
+      "values": 768,
+      "sha256": "46e7bb3a57805b4bb10c4b286fbcdbc48ca9ec5de475dce1a0f7d6398bf2d4b7"
+    },
+    "layer1_bank3": {
+      "path": "layer1_bank3.txt",
+      "values": 768,
+      "sha256": "97145095439e1e40bf8c339a40bab3730959f9a39d40385630d05e6853b35b48"
+    },
+    "layer1_bank4": {
+      "path": "layer1_bank4.txt",
+      "values": 768,
+      "sha256": "361db367da447169f868adc95082ed23799718c1933f3e92e59284821f263bbb"
+    },
+    "layer1_bank5": {
+      "path": "layer1_bank5.txt",
+      "values": 768,
+      "sha256": "1579bb450404b06de231e3483e2ce7e7a085a9de8377e722697d79af82211416"
+    },
+    "layer1_bank6": {
+      "path": "layer1_bank6.txt",
+      "values": 768,
+      "sha256": "655861319dac4df1b1eac8fa343ef885a3fe5c32bdec05472d3a53e30aad9e0b"
+    },
+    "layer1_bank7": {
+      "path": "layer1_bank7.txt",
+      "values": 768,
+      "sha256": "d3e2e9dfb09d7d182e6dd4df7f7f8a99705bf666c5d27080d4a7c4bb234791f2"
+    },
+    "layer1_shifts": {
+      "path": "layer1_shifts.txt",
+      "values": 48,
+      "sha256": "2f34955412011019f61e1d0e3d2893891cd41bfade4cf9cc7aee1724f4179f63"
+    },
+    "layer2_bank0": {
+      "path": "layer2_bank0.txt",
+      "values": 144,
+      "sha256": "37ae0ee7fc4a21eeff728edcf0ccf82dff35c4e6e87eee730625e217db435e58"
+    },
+    "layer2_bank1": {
+      "path": "layer2_bank1.txt",
+      "values": 144,
+      "sha256": "fff41e28316ead921aa9ccb77b2424d66d9d1b01d69c4ef9ecccc61cf14c854f"
+    },
+    "layer2_bank2": {
+      "path": "layer2_bank2.txt",
+      "values": 144,
+      "sha256": "3441b62c571cbcf0a6898b991834d9136425d68b3b9b0ce94ac9b3017d3c7e82"
+    },
+    "layer2_bank3": {
+      "path": "layer2_bank3.txt",
+      "values": 144,
+      "sha256": "088c743abdc2ebf11d29198a828abba4693e6fddba782095ba96379ea13f08c0"
+    },
+    "layer2_bank4": {
+      "path": "layer2_bank4.txt",
+      "values": 144,
+      "sha256": "9f91263f8d2a13cc501dcfb61b658107b6507f97d64500a73de114148c0293c8"
+    },
+    "layer2_bank5": {
+      "path": "layer2_bank5.txt",
+      "values": 144,
+      "sha256": "6ff7342bfac8faf59e62f08e6c01196e4cb1ba53136cbdaa49de40f911bd9a5c"
+    },
+    "layer2_bank6": {
+      "path": "layer2_bank6.txt",
+      "values": 144,
+      "sha256": "fcf73c2a76ca1900fe729de0d59e625690897ef39f12b28339ff563d28452bab"
+    },
+    "layer2_bank7": {
+      "path": "layer2_bank7.txt",
+      "values": 144,
+      "sha256": "bb50b7e26be0a418fc89b83158d58c70e72bd48980e3a3f68fa00f588d943eeb"
+    },
+    "layer2_shifts": {
+      "path": "layer2_shifts.txt",
+      "values": 24,
+      "sha256": "120ec21e1fd2a7a4083c22502edb7660d9433219c4a4a0a3d1d5f0387b56163a"
+    },
+    "layer3_bank0": {
+      "path": "layer3_bank0.txt",
+      "values": 48,
+      "sha256": "1f292423b865b5da9a6073f452971183129dfeffb62a80e5fd62692d6cc25f6e"
+    },
+    "layer3_bank1": {
+      "path": "layer3_bank1.txt",
+      "values": 48,
+      "sha256": "b92914686caaea448d19494b64356c498239ad61ad9f7b4b4775624f09fa7505"
+    },
+    "layer3_bank2": {
+      "path": "layer3_bank2.txt",
+      "values": 48,
+      "sha256": "01a0d6dbe3b4073311e5aee39ba0a36ecc91ade3172958565efb7c45f6c65f37"
+    },
+    "layer3_bank3": {
+      "path": "layer3_bank3.txt",
+      "values": 48,
+      "sha256": "b8d37ce619ea03f1303dbcc140c8538ac3adf4e8ecf95aa51f1b5a0e12d85ecc"
+    },
+    "layer3_bank4": {
+      "path": "layer3_bank4.txt",
+      "values": 48,
+      "sha256": "211a0b831a3ef33c653be52644b8f3788120c7479177bf82788ebd9e5f167067"
+    },
+    "layer3_bank5": {
+      "path": "layer3_bank5.txt",
+      "values": 48,
+      "sha256": "07e486c9be50b9ab602ed370e70ac7ea7da48051a350233cfef9e1f195c26a20"
+    },
+    "layer3_bank6": {
+      "path": "layer3_bank6.txt",
+      "values": 48,
+      "sha256": "c91174ae8445d443a2dbcd64a39a97a21dae05b64c58ca355225fcf79767c1f3"
+    },
+    "layer3_bank7": {
+      "path": "layer3_bank7.txt",
+      "values": 48,
+      "sha256": "2a93f6f4798f67e45b0c20d6c31f8b0a4fd6023ce59a8fe16af02ee009503bf9"
+    },
+    "layer3_shifts": {
+      "path": "layer3_shifts.txt",
+      "values": 16,
+      "sha256": "3b4a619710c9df2dbdd4d0e853138fcf33d54562d2e3e21e5f334387596b7144"
+    }
+  },
+  "source": {
+    "dataset_sequence": "data/EV-UAV-dataset/train/train_022.npz",
+    "dataset_role": "hw_calibration",
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "dataset_sequence_sha256": "8db215f489d963583ea2c02f395fe8bb14760c42a2374c9c32303334992bc2d8",
+    "frozen_weight": "software/weights/S3P_LOA_SYN13_MEMALL_K2_ACC24_MEM24_Q12.npz",
+    "frozen_weight_sha256": "be47d3a0dca69451d285b2907d0b63415fbff5e77658334c33c41bab41d51806",
+    "first_layer_manifest_sha256": "d409f249183082cc9d097c1f43863a2959dc848baaedb11af2a08d115c01a338",
+    "exact_weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+    "two_layer_manifest_sha256": "661854cba66e8c2fbb0705be3080d56bb0446b1411fa41d6eeff0f19189b41cd"
+  },
+  "test_used": false,
+  "validation_used": false
+}

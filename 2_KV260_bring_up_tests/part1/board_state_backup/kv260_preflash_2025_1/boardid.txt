@@ -1,0 +1,22 @@
+FRU Inventory From File: /sys/devices/platform/axi/ff030000.i2c/i2c-1/1-0051/eeprom
+
+  FRU Board Manufacturing Date/Time: 11/02/22 - 14:39:00
+  FRU Board Manufacturer: XILINX
+  FRU Board Product Name: SCK-KV-G        
+  FRU Board Serial Number: XFL14MWV4KW1
+  FRU Board Part Number: 5066-01ED
+  FRU FRU File ID: 00h
+  FRU Board Custom Info: 1
+  FRU Board Custom Info: 10h EEh 00h 00h 00h 00h 00h 00h
+  FRU Board Custom Info: EFh 15h B8h F4h 4Eh FFh 43h 3Ch 92h 91h 7Ah 26h A7h 6Ah ABh B6h
+
+  FRU DC Load Output Number: 1
+  FRU DC Load Nominal Voltage: 12000 mV
+  FRU DC Load Spec'd Minimum Voltage: 11500 mV
+  FRU DC Load Spec'd Maximum Voltage: 12500 mV
+  FRU DC Load Spec'd Ripple and Noise pk-pk: 100 mV
+  FRU DC Load Minimum Current Load: 0 mA
+  FRU DC Load Maximum Current Load: 3000 mA
+
+  FRU Error: multirecord area checksum invalid
+ipmi_fru_next: multirecord area checksum invalid

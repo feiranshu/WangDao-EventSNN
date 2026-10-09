@@ -1,0 +1,45 @@
+#!/bin/sh
+
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
+    echo "Usage: devmem ADDRESS WIDTH [VALUE]" >&2
+    exit 1
+fi
+
+ADDR="$1"
+WIDTH="$2"
+
+case "$WIDTH" in
+    8)  TYPE=b ;;
+    16) TYPE=h ;;
+    32) TYPE=w ;;
+    64) TYPE=l ;;
+    *)
+        echo "Unsupported width: $WIDTH" >&2
+        exit 1
+        ;;
+esac
+
+# Write
+if [ $# -eq 3 ]; then
+    exec devmem2 "$ADDR" "$TYPE" "$3"
+fi
+
+# Read
+OUT="$(devmem2 "$ADDR" "$TYPE" 2>&1)" || {
+    printf '%s\n' "$OUT" >&2
+    exit 1
+}
+
+VALUE="$(
+    printf '%s\n' "$OUT" |
+    sed -n 's/^.*: \(0x[0-9A-Fa-f][0-9A-Fa-f]*\)$/\1/p' |
+    tail -n 1
+)"
+
+if [ -z "$VALUE" ]; then
+    echo "ERROR: unable to parse devmem2 output" >&2
+    printf '%s\n' "$OUT" >&2
+    exit 1
+fi
+
+printf '%s\n' "$VALUE"

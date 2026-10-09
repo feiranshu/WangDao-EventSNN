@@ -1,0 +1,3 @@
+NAME  UUID                                  TYPE      DEVICE 
+eth0  78fbbb6d-84b9-4411-98cf-b8e2d48c4e86  ethernet  eth0   
+lo    4547d8fd-82cb-4fc8-a466-950d11578e3a  loopback  lo     

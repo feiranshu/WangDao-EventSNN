@@ -1,0 +1,15 @@
+# 两代工程中的数据集均为指向外部数据实体的 Junction，不进入 Git。
+**/dataset/EV-UAV-dataset/
+
+# 本地缓存和 Vivado 可再生成工作目录；冻结固件与正式证据仍保留。
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+**/.Xil/
+**/*.cache/
+**/*.gen/
+**/*.hw/
+**/*.ip_user_files/
+**/*.runs/
+**/*.sim/
+**/*.srcs/

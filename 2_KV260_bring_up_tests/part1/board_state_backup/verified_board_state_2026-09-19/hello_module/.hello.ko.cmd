@@ -1,0 +1,1 @@
+savedcmd_/home/amd-edf/hello_module/hello.ko := ld -r -EL  -maarch64linux -z norelro -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/amd-edf/hello_module/hello.ko /home/amd-edf/hello_module/hello.o /home/amd-edf/hello_module/hello.mod.o /home/amd-edf/hello_module/.module-common.o

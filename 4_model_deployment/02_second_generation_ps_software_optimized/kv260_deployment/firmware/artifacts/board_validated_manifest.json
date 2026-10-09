@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "board_validated",
+  "board": "KV260",
+  "application": "wangdao_pl_flat",
+  "validated_chain": "reused first-generation 2026-09-19 bitstream and overlay",
+  "files": {
+    "wangdao_pl_flat.bit.bin": {"bytes": 7797692, "sha256": "3bf7473f26f5ddcd1157c2513706d179982eb131e8cb38880601d30e105dee23"},
+    "wangdao.bit.bin": {"bytes": 7797692, "sha256": "3bf7473f26f5ddcd1157c2513706d179982eb131e8cb38880601d30e105dee23"},
+    "wangdao_pl_flat.dtbo": {"bytes": 1986, "sha256": "0a1c9eb846b6929129b315b5e3ff510a06e332a74744dc048a9bc46c47ca2706"},
+    "shell.json": {"bytes": 50, "sha256": "0377daaf2050b88df14de9a79d120144cf49381d00fa552402395a322cb7b1a3"}
+  },
+  "rejected_dtbo": {"bytes": 2024, "sha256": "4d058b969fd960013b697e90f132b7635bb0af32eae8aef6e0c6ffe83845d32f", "reason": "known fdt_overlay_target_offset failure"}
+}

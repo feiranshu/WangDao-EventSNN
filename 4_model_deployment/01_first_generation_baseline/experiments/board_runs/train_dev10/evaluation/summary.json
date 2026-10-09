@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "status": "complete_with_unmeasured_runtime_fields",
+  "experiment_id": "KV260-TRAIN-DEV10-BOARD-EVAL-v1",
+  "data_role": "train_dev",
+  "formal_evaluation_destination": false,
+  "sequence_count": 10,
+  "events": 1237183,
+  "target_events": 30659,
+  "board_correctness": {
+    "pl_capture_exact_sequences": 10,
+    "ps_prediction_exact_sequences": 10,
+    "pl_mismatch_words": 0,
+    "ps_mismatch_bytes": 0
+  },
+  "working_point": {
+    "source": "direct PS board prediction bytes",
+    "frozen_event_threshold": 0.2800000011920929,
+    "event": {
+      "tp": 24765,
+      "fp": 2859,
+      "fn": 5894,
+      "tn": 1203665,
+      "iou": 0.7388567336953279,
+      "precision": 0.8965030408340573,
+      "recall": 0.8077562868978114,
+      "official_acc": 0.8077562868978114,
+      "f1": 0.8498189866684969,
+      "overall_accuracy": 0.9929250563578711
+    },
+    "localization": {
+      "targets": 2013,
+      "correct_targets": 1553,
+      "false_components": 1911,
+      "frame_denominator": 1526,
+      "scored_localization_events": 1211277,
+      "wrapped_false_pixels": 0,
+      "pd": 0.771485345255837,
+      "fa": 1.3920560004242457e-05,
+      "fa_times_1e4": 0.13920560004242458
+    },
+    "candidate_events": 479130,
+    "candidate_fraction": 0.38727496255606486,
+    "proposal_recall": 0.9502919208062885
+  },
+  "event_pr": {
+    "source": "bit-exact PL capture plus frozen fixed H2 replay on PC",
+    "average_precision": 0.8855861024168442,
+    "target_events": 30659,
+    "direct_board_probability_recorded": false
+  },
+  "density_groups": {
+    "threshold_events_per_second": 20000.0,
+    "high_density": {
+      "event": {
+        "tp": 4693,
+        "fp": 1906,
+        "fn": 5180,
+        "tn": 989462,
+        "iou": 0.39842091858392054,
+        "precision": 0.7111683588422488,
+        "recall": 0.4753367770687734,
+        "official_acc": 0.4753367770687734,
+        "f1": 0.5698154443904808,
+        "overall_accuracy": 0.9929227828265123
+      },
+      "localization": {
+        "targets": 603,
+        "correct_targets": 229,
+        "false_components": 1172,
+        "frame_denominator": 318,
+        "scored_localization_events": 981359,
+        "wrapped_false_pixels": 0,
+        "pd": 0.37976782752902155,
+        "fa": 4.0968592609992983e-05,
+        "fa_times_1e4": 0.4096859260999298
+      }
+    },
+    "ordinary_density": {
+      "event": {
+        "tp": 20072,
+        "fp": 953,
+        "fn": 714,
+        "tn": 214203,
+        "iou": 0.9233175399052395,
+        "precision": 0.9546730083234245,
+        "recall": 0.9656499567016261,
+        "official_acc": 0.9656499567016261,
+        "f1": 0.96013010930138,
+        "overall_accuracy": 0.9929347042917327
+      },
+      "localization": {
+        "targets": 1410,
+        "correct_targets": 1324,
+        "false_components": 739,
+        "frame_denominator": 1208,
+        "scored_localization_events": 229918,
+        "wrapped_false_pixels": 0,
+        "pd": 0.9390070921985816,
+        "fa": 6.800299765311441e-06,
+        "fa_times_1e4": 0.0680029976531144
+      }
+    },
+    "high_density_sequences": [
+      "train_089.npz",
+      "train_092.npz"
+    ],
+    "ordinary_density_sequences": [
+      "train_002.npz",
+      "train_020.npz",
+      "train_034.npz",
+      "train_039.npz",
+      "train_041.npz",
+      "train_050.npz",
+      "train_060.npz",
+      "train_066.npz"
+    ]
+  },
+  "target_track": {
+    "source": "direct PS board prediction bytes with frozen shared adapter",
+    "adapter": {
+      "cluster_radius": 3,
+      "association_distance": 20.0,
+      "max_missed_windows": 20
+    },
+    "protocol": "evuav-observable-event-track-hota-v1",
+    "metrics": {
+      "averaged": {
+        "HOTA": 0.3216772529937472,
+        "DetA": 0.3558283800028996,
+        "DetRe": 0.6229940244761631,
+        "DetPr": 0.4481379983482244,
+        "AssA": 0.2914474947693585,
+        "AssRe": 0.43327993862385766,
+        "AssPr": 0.5532800129636859,
+        "LocA": 0.9239557068339478
+      },
+      "by_alpha": {
+        "0.05": {
+          "HOTA": 0.38422934678592485,
+          "DetA": 0.4560555723346421,
+          "DetRe": 0.7486365889935548,
+          "DetPr": 0.5385164051355207,
+          "AssA": 0.3237153537578304,
+          "AssRe": 0.4588712737852001,
+          "AssPr": 0.6141234406250264,
+          "LocA": 0.8291579201923233
+        },
+        "0.10": {
+          "HOTA": 0.3809620005122158,
+          "DetA": 0.4473131191834284,
+          "DetRe": 0.7387208725830441,
+          "DetPr": 0.5313837375178316,
+          "AssA": 0.3244529158885582,
+          "AssRe": 0.4605168920567105,
+          "AssPr": 0.6119988245707041,
+          "LocA": 0.8393901919224959
+        },
+        "0.15": {
+          "HOTA": 0.37315012143897924,
+          "DetA": 0.4322638146167558,
+          "DetRe": 0.7213683688646505,
+          "DetPr": 0.5189015691868759,
+          "AssA": 0.3221204468696408,
+          "AssRe": 0.45741313264791406,
+          "AssPr": 0.6059459931527165,
+          "LocA": 0.8567042182313079
+        },
+        "0.20": {
+          "HOTA": 0.3704577303030445,
+          "DetA": 0.42759846017175007,
+          "DetRe": 0.7159147248388696,
+          "DetPr": 0.514978601997147,
+          "AssA": 0.3209528160745939,
+          "AssRe": 0.4560544456694783,
+          "AssPr": 0.6051173176029639,
+          "LocA": 0.8618921706886988
+        },
+        "0.25": {
+          "HOTA": 0.3659853559087846,
+          "DetA": 0.4187757504414361,
+          "DetRe": 0.7055032226078334,
+          "DetPr": 0.5074893009985735,
+          "AssA": 0.3198496584353,
+          "AssRe": 0.45579857348992925,
+          "AssPr": 0.6023177686468247,
+          "LocA": 0.8713754189036786
+        },
+        "0.30": {
+          "HOTA": 0.36123235582577856,
+          "DetA": 0.4100614214682656,
+          "DetRe": 0.6950917203767972,
+          "DetPr": 0.5,
+          "AssA": 0.31821773047611684,
+          "AssRe": 0.45537305228946856,
+          "AssPr": 0.5993769458029274,
+          "LocA": 0.880441555762133
+        },
+        "0.35": {
+          "HOTA": 0.353563505534648,
+          "DetA": 0.3982018561484919,
+          "DetRe": 0.6807139315815568,
+          "DetPr": 0.4896576319543509,
+          "AssA": 0.31392910534132,
+          "AssRe": 0.45214440733471445,
+          "AssPr": 0.5912086977068673,
+          "LocA": 0.8922522889546601
+        },
+        "0.40": {
+          "HOTA": 0.34952178780052146,
+          "DetA": 0.3909405654933641,
+          "DetRe": 0.6717897868120972,
+          "DetPr": 0.48323823109843084,
+          "AssA": 0.3124911839043892,
+          "AssRe": 0.4521633679350774,
+          "AssPr": 0.587275307860761,
+          "LocA": 0.8992103956844589
+        },
+        "0.45": {
+          "HOTA": 0.33452044332512537,
+          "DetA": 0.3750713063320023,
+          "DetRe": 0.6519583539910758,
+          "DetPr": 0.4689728958630528,
+          "AssA": 0.29835373997760384,
+          "AssRe": 0.44008608074532674,
+          "AssPr": 0.5703118458009935,
+          "LocA": 0.9136042281884066
+        },
+        "0.50": {
+          "HOTA": 0.3300719373973358,
+          "DetA": 0.3668840374255741,
+          "DetRe": 0.6415468517600397,
+          "DetPr": 0.4614835948644793,
+          "AssA": 0.29695345870514134,
+          "AssRe": 0.43918190179614064,
+          "AssPr": 0.5642332337603652,
+          "LocA": 0.9207752969534296
+        },
+        "0.55": {
+          "HOTA": 0.3160183533453193,
+          "DetA": 0.3455205135361429,
+          "DetRe": 0.6137828458106098,
+          "DetPr": 0.44151212553495006,
+          "AssA": 0.2890352258076293,
+          "AssRe": 0.4296336812019521,
+          "AssPr": 0.5525743391217206,
+          "LocA": 0.939261195169509
+        },
+        "0.60": {
+          "HOTA": 0.3072647347590436,
+          "DetA": 0.33103257868580893,
+          "DetRe": 0.594447198810114,
+          "DetPr": 0.4276034236804565,
+          "AssA": 0.2852034008294808,
+          "AssRe": 0.42758531463905214,
+          "AssPr": 0.5425087379916005,
+          "LocA": 0.9513015528771452
+        },
+        "0.65": {
+          "HOTA": 0.2962009838509883,
+          "DetA": 0.3175731074063952,
+          "DetRe": 0.5761031234506693,
+          "DetPr": 0.4144079885877318,
+          "AssA": 0.2762671674274352,
+          "AssRe": 0.4192999893357682,
+          "AssPr": 0.5301301874734327,
+          "LocA": 0.9618966990851108
+        },
+        "0.70": {
+          "HOTA": 0.2846150428424697,
+          "DetA": 0.2998112698840658,
+          "DetRe": 0.5513138324243927,
+          "DetPr": 0.39657631954350925,
+          "AssA": 0.27018905141072586,
+          "AssRe": 0.41472515915246655,
+          "AssPr": 0.5150232765568458,
+          "LocA": 0.9750073925381384
+        },
+        "0.75": {
+          "HOTA": 0.2787468042737238,
+          "DetA": 0.29145459416019287,
+          "DetRe": 0.5394149727317799,
+          "DetPr": 0.3880171184022825,
+          "AssA": 0.26659309014050864,
+          "AssRe": 0.4125276169266129,
+          "AssPr": 0.5097151193829283,
+          "LocA": 0.980729501715209
+        },
+        "0.80": {
+          "HOTA": 0.2708599266937275,
+          "DetA": 0.27979824794265995,
+          "DetRe": 0.5225582548339117,
+          "DetPr": 0.37589158345221113,
+          "AssA": 0.2622071454270379,
+          "AssRe": 0.40870792615652907,
+          "AssPr": 0.5002732753235803,
+          "LocA": 0.9878491264164888
+        },
+        "0.85": {
+          "HOTA": 0.258983824343763,
+          "DetA": 0.265686531898136,
+          "DetRe": 0.5017352503718394,
+          "DetPr": 0.3609129814550642,
+          "AssA": 0.25245021188140865,
+          "AssRe": 0.40185336784695364,
+          "AssPr": 0.4813073932216739,
+          "LocA": 0.9950157275750162
+        },
+        "0.90": {
+          "HOTA": 0.24836236001365905,
+          "DetA": 0.2544886807181889,
+          "DetRe": 0.4848785324739712,
+          "DetPr": 0.3487874465049929,
+          "AssA": 0.24238351858116922,
+          "AssRe": 0.3949416946409679,
+          "AssPr": 0.4651136406558425,
+          "LocA": 0.9992935489868005
+        },
+        "0.95": {
+          "HOTA": 0.24712119192614493,
+          "DetA": 0.2522077922077922,
+          "DetRe": 0.4814080317302925,
+          "DetPr": 0.3462910128388017,
+          "AssA": 0.24213717968192014,
+          "AssRe": 0.3954409562030323,
+          "AssPr": 0.46376490105225915,
+          "LocA": 1.0
+        }
+      },
+      "counts": {
+        "gt_detections": 2017,
+        "pred_detections": 2804,
+        "gt_tracks": 36,
+        "pred_tracks": 164
+      }
+    },
+    "longest_continuous_miss_p95_ms": 1962.5
+  },
+  "model_complexity": {
+    "protocol_relation": "B_model_complexity-compatible diagnostic for the first-generation hybrid SNN; Train-dev only",
+    "scope": "S1 fixed Proposal-SNN (T=4) in PL + conditional fixed H2 Refiner in PS",
+    "proposal": {
+      "weight_parameters": 7680,
+      "nonzero_weights": 7615,
+      "weight_bytes": 7680,
+      "time_steps": 4,
+      "persistent_membrane_state_bytes_per_patch": 312
+    },
+    "refiner": {
+      "weight_parameters": 4224,
+      "nonzero_weights": 4170,
+      "weight_bytes": 4224,
+      "scale_bytes": 400,
+      "macs_per_call": 4224,
+      "dimensions": [
+        32,
+        64,
+        32,
+        4
+      ]
+    },
+    "total_weight_parameters": 11904,
+    "total_nonzero_weights": 11785,
+    "total_logical_int8_weight_bytes": 11904,
+    "sequences": 10,
+    "events": 1237183,
+    "patches": 268800,
+    "candidate_events": 479130,
+    "candidate_fraction": 0.38727496255606486,
+    "proposal_scheduled_dense_synaptic_products": 8257536000,
+    "proposal_membrane_updates": 111820800,
+    "refiner_dense_macs": 2023845120,
+    "event_driven_synaptic_accumulations": null,
+    "event_driven_status": "not measurable from final logits; internal spike counters were not captured",
+    "interpretation": "algorithmic operation counts, not measured FPGA latency or energy"
+  },
+  "deployment": {
+    "protocol_relation": "C_deployment_efficiency_and_hardware_cost",
+    "B01_model_kernel_latency": {
+      "status": "not_measured",
+      "reason": "no cycle counter or runtime log in the returned archive"
+    },
+    "B02_end_to_end_latency": {
+      "status": "not_measured",
+      "reason": "no monotonic-clock timing samples in the returned archive"
+    },
+    "B03_throughput_realtime": {
+      "status": "not_measured",
+      "reason": "file timestamps are not a valid per-run timing boundary"
+    },
+    "B04_runtime_power": {
+      "status": "not_measured",
+      "reason": "no board rail or external meter samples were returned"
+    },
+    "B05_energy_per_task": {
+      "status": "not_measured",
+      "reason": "requires both runtime and active/idle power measurements"
+    },
+    "B07_hardware_resources": {
+      "status": "available_from_matching_exact_bitstream_implementation_report",
+      "source": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\results\\kv260_synthesis_implementation.json",
+      "source_sha256": "a71889f246d6ede57af33a17e41b6a802578b2da3824de6d25391c50bd125d39",
+      "clock_mhz": 100.0,
+      "wns_ns": 0.956,
+      "tns_ns": 0.0,
+      "whs_ns": 0.003,
+      "ths_ns": 0.0,
+      "clb_luts": 21531,
+      "clb_lut_utilization_percent": 18.38,
+      "clb_registers": 10707,
+      "clb_register_utilization_percent": 4.57,
+      "block_ram_tiles": 0,
+      "dsps": 0,
+      "routable_nets": 26924,
+      "fully_routed_nets": 26924,
+      "routing_errors": 0,
+      "vectorless_total_on_chip_power_w": 2.854,
+      "vectorless_power_confidence": "Medium",
+      "power_note": "vectorless_total_on_chip_power_w is a Vivado estimate, not board runtime or PL-only measured power"
+    }
+  },
+  "ann_snn_difference": {
+    "protocol_relation": "D_ANN_and_SNN_differences; diagnostic Train-dev comparison",
+    "comparison": "first-generation S1 fixed Proposal-SNN T=4 + fixed H2 versus frozen H2 exact-INT8 ANN pipeline",
+    "threshold": 0.2800000011920929,
+    "board_snn": {
+      "working_point": {
+        "event": {
+          "tp": 24765,
+          "fp": 2859,
+          "fn": 5894,
+          "tn": 1203665,
+          "iou": 0.7388567336953279,
+          "precision": 0.8965030408340573,
+          "recall": 0.8077562868978114,
+          "official_acc": 0.8077562868978114,
+          "f1": 0.8498189866684969,
+          "overall_accuracy": 0.9929250563578711
+        },
+        "localization": {
+          "targets": 2013,
+          "correct_targets": 1553,
+          "false_components": 1911,
+          "frame_denominator": 1526,
+          "scored_localization_events": 1211277,
+          "wrapped_false_pixels": 0,
+          "pd": 0.771485345255837,
+          "fa": 1.3920560004242457e-05,
+          "fa_times_1e4": 0.13920560004242458
+        }
+      },
+      "average_precision": 0.8855861024168442,
+      "HOTA": {
+        "HOTA": 0.3216772529937472,
+        "DetA": 0.3558283800028996,
+        "DetRe": 0.6229940244761631,
+        "DetPr": 0.4481379983482244,
+        "AssA": 0.2914474947693585,
+        "AssRe": 0.43327993862385766,
+        "AssPr": 0.5532800129636859,
+        "LocA": 0.9239557068339478
+      }
+    },
+    "ann_baseline": {
+      "working_point": {
+        "event": {
+          "tp": 26238,
+          "fp": 3002,
+          "fn": 4421,
+          "tn": 1203522,
+          "iou": 0.779477733875999,
+          "precision": 0.8973324213406293,
+          "recall": 0.8558009067484262,
+          "official_acc": 0.8558009067484262,
+          "f1": 0.8760747257884105,
+          "overall_accuracy": 0.9940000792122103
+        },
+        "localization": {
+          "targets": 2013,
+          "correct_targets": 1697,
+          "false_components": 1993,
+          "frame_denominator": 1526,
+          "scored_localization_events": 1211277,
+          "wrapped_false_pixels": 0,
+          "pd": 0.8430203676105316,
+          "fa": 1.4517883876742656e-05,
+          "fa_times_1e4": 0.14517883876742654
+        }
+      },
+      "average_precision": 0.927410633080494,
+      "HOTA": {
+        "HOTA": 0.35475848593848364,
+        "DetA": 0.3948093224790032,
+        "DetRe": 0.6792004801294262,
+        "DetPr": 0.4791701183704276,
+        "AssA": 0.3198637703177744,
+        "AssRe": 0.4989470741333854,
+        "AssPr": 0.5479377008946431,
+        "LocA": 0.9248651704061611
+      }
+    },
+    "snn_minus_ann": {
+      "event": {
+        "tp": -1473.0,
+        "fp": -143.0,
+        "fn": 1473.0,
+        "tn": 143.0,
+        "iou": -0.04062100018067105,
+        "precision": -0.0008293805065719972,
+        "recall": -0.04804461985061481,
+        "official_acc": -0.04804461985061481,
+        "f1": -0.026255739119913635,
+        "overall_accuracy": -0.001075022854339247
+      },
+      "localization": {
+        "targets": 0.0,
+        "correct_targets": -144.0,
+        "false_components": -82.0,
+        "frame_denominator": 0.0,
+        "scored_localization_events": 0.0,
+        "wrapped_false_pixels": 0.0,
+        "pd": -0.07153502235469456,
+        "fa": -5.973238725001988e-07,
+        "fa_times_1e4": -0.005973238725001967
+      },
+      "average_precision": -0.04182453066364977,
+      "HOTA": -0.033081232944736416
+    },
+    "limitations": [
+      "The delta combines Proposal ANN-to-SNN conversion and fixed-point deployment effects; it cannot isolate each intervention.",
+      "The board result contains one T=4 point, so a multi-time-step C01 curve cannot be measured."
+    ]
+  },
+  "provenance": {
+    "batch_manifest": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\tmp\\kv260_batch\\train_dev10\\manifest.json",
+    "batch_manifest_sha256": "309886b036d8302230a65f23eb6efe3e883048808f12de56c082a616a73410c2",
+    "ps_manifest": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\tmp\\kv260_board_results\\train_dev10\\ps_manifest.json",
+    "ps_manifest_sha256": "916e6741947d6c35982b643ae61f99731fbe14960c13034d5a2770d74fe036e3",
+    "s1_weight": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\software\\weights\\S1P_INT8_ACC24_MEM24_Q12.npz",
+    "s1_weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+    "h2_weight": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\software\\weights\\H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "evaluation_script_sha256": "71ad1257703de583b88f86f6280504b8f0ba68e52af38306109d426f32c586c4"
+  }
+}

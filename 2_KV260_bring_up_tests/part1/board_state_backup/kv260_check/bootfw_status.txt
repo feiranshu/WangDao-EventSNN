@@ -1,0 +1,8 @@
+Image A: Bootable
+Image B: Bootable
+Requested Boot Image: Image A
+Last Booted Image: Image A
+XilinxSom_QspiImage_v1.1_20210422
+
+ImageA Revision Info: Not defined
+ImageB Revision Info: Not defined

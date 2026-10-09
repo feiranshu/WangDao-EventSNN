@@ -1,0 +1,112 @@
+{
+  "protocol_relation": "D_ANN_and_SNN_differences; diagnostic Train-dev comparison",
+  "comparison": "first-generation S1 fixed Proposal-SNN T=4 + fixed H2 versus frozen H2 exact-INT8 ANN pipeline",
+  "threshold": 0.2800000011920929,
+  "board_snn": {
+    "working_point": {
+      "event": {
+        "tp": 24765,
+        "fp": 2859,
+        "fn": 5894,
+        "tn": 1203665,
+        "iou": 0.7388567336953279,
+        "precision": 0.8965030408340573,
+        "recall": 0.8077562868978114,
+        "official_acc": 0.8077562868978114,
+        "f1": 0.8498189866684969,
+        "overall_accuracy": 0.9929250563578711
+      },
+      "localization": {
+        "targets": 2013,
+        "correct_targets": 1553,
+        "false_components": 1911,
+        "frame_denominator": 1526,
+        "scored_localization_events": 1211277,
+        "wrapped_false_pixels": 0,
+        "pd": 0.771485345255837,
+        "fa": 1.3920560004242457e-05,
+        "fa_times_1e4": 0.13920560004242458
+      }
+    },
+    "average_precision": 0.8855861024168442,
+    "HOTA": {
+      "HOTA": 0.3216772529937472,
+      "DetA": 0.3558283800028996,
+      "DetRe": 0.6229940244761631,
+      "DetPr": 0.4481379983482244,
+      "AssA": 0.2914474947693585,
+      "AssRe": 0.43327993862385766,
+      "AssPr": 0.5532800129636859,
+      "LocA": 0.9239557068339478
+    }
+  },
+  "ann_baseline": {
+    "working_point": {
+      "event": {
+        "tp": 26238,
+        "fp": 3002,
+        "fn": 4421,
+        "tn": 1203522,
+        "iou": 0.779477733875999,
+        "precision": 0.8973324213406293,
+        "recall": 0.8558009067484262,
+        "official_acc": 0.8558009067484262,
+        "f1": 0.8760747257884105,
+        "overall_accuracy": 0.9940000792122103
+      },
+      "localization": {
+        "targets": 2013,
+        "correct_targets": 1697,
+        "false_components": 1993,
+        "frame_denominator": 1526,
+        "scored_localization_events": 1211277,
+        "wrapped_false_pixels": 0,
+        "pd": 0.8430203676105316,
+        "fa": 1.4517883876742656e-05,
+        "fa_times_1e4": 0.14517883876742654
+      }
+    },
+    "average_precision": 0.927410633080494,
+    "HOTA": {
+      "HOTA": 0.35475848593848364,
+      "DetA": 0.3948093224790032,
+      "DetRe": 0.6792004801294262,
+      "DetPr": 0.4791701183704276,
+      "AssA": 0.3198637703177744,
+      "AssRe": 0.4989470741333854,
+      "AssPr": 0.5479377008946431,
+      "LocA": 0.9248651704061611
+    }
+  },
+  "snn_minus_ann": {
+    "event": {
+      "tp": -1473.0,
+      "fp": -143.0,
+      "fn": 1473.0,
+      "tn": 143.0,
+      "iou": -0.04062100018067105,
+      "precision": -0.0008293805065719972,
+      "recall": -0.04804461985061481,
+      "official_acc": -0.04804461985061481,
+      "f1": -0.026255739119913635,
+      "overall_accuracy": -0.001075022854339247
+    },
+    "localization": {
+      "targets": 0.0,
+      "correct_targets": -144.0,
+      "false_components": -82.0,
+      "frame_denominator": 0.0,
+      "scored_localization_events": 0.0,
+      "wrapped_false_pixels": 0.0,
+      "pd": -0.07153502235469456,
+      "fa": -5.973238725001988e-07,
+      "fa_times_1e4": -0.005973238725001967
+    },
+    "average_precision": -0.04182453066364977,
+    "HOTA": -0.033081232944736416
+  },
+  "limitations": [
+    "The delta combines Proposal ANN-to-SNN conversion and fixed-point deployment effects; it cannot isolate each intervention.",
+    "The board result contains one T=4 point, so a multi-time-step C01 curve cannot be measured."
+  ]
+}

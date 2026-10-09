@@ -1,0 +1,159 @@
+﻿{
+  "source": "D:\\WangDao_EventSNN\\1_H2_model_improvement\\seven_step_improvement_study\\step5\\results\\step5_formal_20261004",
+  "protocol": "h2-ann-step5-history-freeze-v1",
+  "validation_used": false,
+  "test_used": false,
+  "excluded_regenerable_caches": true,
+  "files": [
+    {
+      "path": "artifacts/A4-2_frozen_refiner_int8.npz",
+      "sha256": "fe6a1fe3a4fa6de8dd02763dfc75176dcc5f3e48a6b8e71c156874c7463f1ff7",
+      "bytes": 7013
+    },
+    {
+      "path": "artifacts/epoch_008.pt",
+      "sha256": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+      "bytes": 64736
+    },
+    {
+      "path": "combination_audit.json",
+      "sha256": "9b652bdb1265f5e00e82041674d033a278b92c04cd4756229be57d4f33941a67",
+      "bytes": 692561
+    },
+    {
+      "path": "corrected_original_decision.json",
+      "sha256": "835bffede2674269d58e5ae9515022a1d76ca6463c22b800520e76ab46fa0f22",
+      "bytes": 1254
+    },
+    {
+      "path": "frozen_candidate.json",
+      "sha256": "0d386b99529208a12c89dac61e0f662c7528b1f126509c23c92d6a9ba3ff99d1",
+      "bytes": 22682
+    },
+    {
+      "path": "history_availability.json",
+      "sha256": "8f42a04d263cc933a7ea2e35e1a69152c24c2a1cd77b17abc0447dc7244ef1e7",
+      "bytes": 2040
+    },
+    {
+      "path": "metrics/A4-2/float/per_sequence.csv",
+      "sha256": "dda0a8b7ad5c461d116abaef0868ca1dad306a8263b4ee0123d4d8e05892dd6c",
+      "bytes": 1330
+    },
+    {
+      "path": "metrics/A4-2/float/pr_curve.csv",
+      "sha256": "d90e8724912c75050734d3cb0f3422ecc16ca88e5608b8856abb2c23d5996c55",
+      "bytes": 304667
+    },
+    {
+      "path": "metrics/A4-2/float/pr_curve.svg",
+      "sha256": "4d8f9dcd99e87f9d4b2f11c7fe562661e38474c179a7906b7c73371099867f08",
+      "bytes": 37014
+    },
+    {
+      "path": "metrics/A4-2/float/summary.json",
+      "sha256": "6b307db8090e9b7a3b2c226b89e01c4eed3b77ca1834300e7880283a0418db71",
+      "bytes": 232505
+    },
+    {
+      "path": "metrics/A4-2/float/threshold_curve.csv",
+      "sha256": "8c67e40efe531fbda7fcad7ed145d4a055eabb26cbac4fcce48b2d682b84c61d",
+      "bytes": 2118
+    },
+    {
+      "path": "metrics/A4-2/float/threshold_iou_recall.svg",
+      "sha256": "0be911789ec91c2959c0b92d0ce8808c8e7d572b1c0125c0c048fbd76068ab47",
+      "bytes": 2861
+    },
+    {
+      "path": "metrics/A4-2/int8/bootstrap_event_scores.npz",
+      "sha256": "c04fac230870004556f485b518ecac6dab03b35ab4d5aa10365aee49696f2adc",
+      "bytes": 1995115
+    },
+    {
+      "path": "metrics/A4-2/int8/per_sequence.csv",
+      "sha256": "45502df8d1cfbf2e5da98508771d32186ea1f9a8d9b0a6680c69d9e5d87b0770",
+      "bytes": 1338
+    },
+    {
+      "path": "metrics/A4-2/int8/pr_curve.csv",
+      "sha256": "f6f51e2dcbef217f407b2f55c39673647bf6239c75004fead92a8a405f04926d",
+      "bytes": 304443
+    },
+    {
+      "path": "metrics/A4-2/int8/pr_curve.svg",
+      "sha256": "a9ea19346702ca4ab8b4524ef8530f1d47445bde7b02ed9b3dde536f2c42efce",
+      "bytes": 36988
+    },
+    {
+      "path": "metrics/A4-2/int8/summary.json",
+      "sha256": "22d66f572e884d066202785ebdbfb5cc1b62ef3ac783e507baa6595e690d6eb5",
+      "bytes": 232493
+    },
+    {
+      "path": "metrics/A4-2/int8/threshold_curve.csv",
+      "sha256": "fe90d24a93cbc836c550d1b58d0d636f6987f0fb45243e7fbe746e047c6ed017",
+      "bytes": 2123
+    },
+    {
+      "path": "metrics/A4-2/int8/threshold_iou_recall.svg",
+      "sha256": "015a1d8f105ad2b1a863288f6a6dbfc19d58530697203245303a577070c7d31f",
+      "bytes": 2861
+    },
+    {
+      "path": "metrics/H2-R/int8/bootstrap_event_scores.npz",
+      "sha256": "5120e9d3a66c8626b6da955369e5ff895c6a436f0d20816c6d0dfd69349fb226",
+      "bytes": 1963029
+    },
+    {
+      "path": "metrics/H2-R/int8/per_sequence.csv",
+      "sha256": "45c8ee741c4b17d04aca451b6d0240d6dc3f364402ce56bf53c2d2d6a118c443",
+      "bytes": 1340
+    },
+    {
+      "path": "metrics/H2-R/int8/pr_curve.csv",
+      "sha256": "8eb48a15c50d07e511996e97f8b3e51cd38756293fa670b6f5529cec0e2638f0",
+      "bytes": 304589
+    },
+    {
+      "path": "metrics/H2-R/int8/pr_curve.svg",
+      "sha256": "08612ae1f4b457f5be1358d2eb7f76c0e08a20754e5b38194332c4bdfedae628",
+      "bytes": 37013
+    },
+    {
+      "path": "metrics/H2-R/int8/summary.json",
+      "sha256": "1192f1d199700df17eecbb11523473d14c22ed53f737dc6f862b9be87dc4a453",
+      "bytes": 232412
+    },
+    {
+      "path": "metrics/H2-R/int8/threshold_curve.csv",
+      "sha256": "bc7eaa49830f23c6af325104da0a22ac2ae499b4fb5de99a9d8797d3c15f5f1b",
+      "bytes": 2123
+    },
+    {
+      "path": "metrics/H2-R/int8/threshold_iou_recall.svg",
+      "sha256": "2f72d88223757df7ba5e5577a9a08c9af801017db8d1ff1eeffc61e05de20aa1",
+      "bytes": 2862
+    },
+    {
+      "path": "preflight.json",
+      "sha256": "648493a39d23215988b1f1098f0c68a0ad67ef7c8c2f0c3f4aaff10b92e2df66",
+      "bytes": 1180
+    },
+    {
+      "path": "revised_candidate_decision.json",
+      "sha256": "eb23893b5944db48c7450675731dc5d249a4203059075910830cac23b88ffcb7",
+      "bytes": 1382
+    },
+    {
+      "path": "step5_decision.json",
+      "sha256": "e05ff955af4ceb2e7e055978f43d7015ef4b6abfa2a27cee6d2f2d3ba7c735e9",
+      "bytes": 404
+    },
+    {
+      "path": "verification/artifact_consistency.json",
+      "sha256": "b7a9ff9188f9fc5ede29613f47ea160cd4bc88e25aef08064262b3e66eaa5dac",
+      "bytes": 589
+    }
+  ]
+}

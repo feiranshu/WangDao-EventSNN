@@ -1,4 +1,13 @@
-1、H2模型改进/seven_step_improvement_study/**/*.zip filter=lfs diff=lfs merge=lfs -text
-1、H2模型改进/seven_step_improvement_study/step7/**/bootstrap_scores/*.npz filter=lfs diff=lfs merge=lfs -text
-1、H2模型改进/seven_step_improvement_study/评测整理归档/**/pr_curve_exact.npz filter=lfs diff=lfs merge=lfs -text
-3、ANN转SNN/**/*.zip filter=lfs diff=lfs merge=lfs -text
+﻿1_H2_model_improvement/seven_step_improvement_study/**/*.zip filter=lfs diff=lfs merge=lfs -text
+1_H2_model_improvement/seven_step_improvement_study/step7/**/bootstrap_scores/*.npz filter=lfs diff=lfs merge=lfs -text
+1_H2_model_improvement/seven_step_improvement_study/evaluation_cleanup_archive/**/pr_curve_exact.npz filter=lfs diff=lfs merge=lfs -text
+3_ANN_to_SNN/**/*.zip filter=lfs diff=lfs merge=lfs -text
+2_KV260_bring_up_tests/**/*.xz filter=lfs diff=lfs merge=lfs -text
+2_KV260_bring_up_tests/**/*.bin filter=lfs diff=lfs merge=lfs -text
+2_KV260_bring_up_tests/**/*.zip filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.bin filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.bit filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.xsa filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.dtbo filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.gz filter=lfs diff=lfs merge=lfs -text
+4_model_deployment/**/*.npz filter=lfs diff=lfs merge=lfs -text

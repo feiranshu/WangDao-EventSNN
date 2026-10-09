@@ -1,0 +1,15 @@
+{
+  "evaluation_id": "EMS-YOLO",
+  "source": "E:/experiment/FPGA上的SNN实现/EMS-YOLO/实验报告.pdf",
+  "reported_only": {
+    "bbox_map_at_0_5": 0.446,
+    "f1_peak": 0.55,
+    "confidence_at_f1_peak": 0.407,
+    "recall_approx": 0.59
+  },
+  "formal_metric_mapping": {
+    "bbox_map_at_0_5": "not_A01_event_ap",
+    "status": "reference_only_not_imported_to_A01_A22"
+  },
+  "notes": "报告支持模型适配与阈值来源说明，不提供本项目同口径 A/B 完整结果。"
+}

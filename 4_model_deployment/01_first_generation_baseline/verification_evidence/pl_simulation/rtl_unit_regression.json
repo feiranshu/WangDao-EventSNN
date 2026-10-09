@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-UNIT-REGRESSION-X2019-v3",
+  "stage": "P4-rtl-behavioral-simulation",
+  "data_role": "synthetic_and_hw_calibration_golden_vectors",
+  "primary_metrics": {
+    "testbenches": 4,
+    "passed_records": 470,
+    "failed_records": 0
+  },
+  "decision": "behavioral_alignment_passed",
+  "conclusion": "RTL matches checked Python golden vectors; no target-device verification performed.",
+  "test_used": false,
+  "validation_used": false,
+  "simulation": {
+    "tool": "Vivado Simulator",
+    "version": "2019.1",
+    "scope": "behavioral_simulation_only",
+    "device_target": null,
+    "board_target": null,
+    "work_directory": "tmp\\rtl_sim_91sm3nkb",
+    "tests": [
+      {
+        "testbench": "tb_fixed_add",
+        "records": 144,
+        "status": "passed"
+      },
+      {
+        "testbench": "tb_fixed_add_tree",
+        "records": 136,
+        "status": "passed"
+      },
+      {
+        "testbench": "tb_lif_neuron",
+        "records": 142,
+        "status": "passed"
+      },
+      {
+        "testbench": "tb_linear_lif_neuron",
+        "records": 48,
+        "status": "passed"
+      }
+    ],
+    "elapsed_seconds": 98.406
+  },
+  "source": {
+    "vector_manifest": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\hardware\\vectors\\manifest.json",
+    "vector_manifest_sha256": "93813a9d99b1ecea2cd367a8722aec876487321acfca330e475ec38efacae394",
+    "command": [
+      "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\software\\scripts\\run_rtl_simulation.py",
+      "--vivado-root",
+      "C:\\Xilinx\\Vivado\\2019.1",
+      "--suite",
+      "units",
+      "--timeout-seconds",
+      "240",
+      "--experiment-id",
+      "RTL-UNIT-REGRESSION-X2019-v3",
+      "--fault-checks"
+    ],
+    "manifest_source": {
+      "dataset_sequence": "data/EV-UAV-dataset/train/train_022.npz",
+      "dataset_role": "hw_calibration",
+      "selected_patch_indices": [
+        0,
+        336,
+        672,
+        1343,
+        513,
+        177,
+        198,
+        534,
+        344,
+        828,
+        849,
+        345
+      ],
+      "frozen_weight": "software/weights/S3P_LOA_SYN13_MEMALL_K2_ACC24_MEM24_Q12.npz",
+      "frozen_weight_sha256": "be47d3a0dca69451d285b2907d0b63415fbff5e77658334c33c41bab41d51806"
+    }
+  },
+  "fault_checks": [
+    {
+      "testbench": "tb_fixed_add",
+      "fault": "empty",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add",
+      "fault": "truncated",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add",
+      "fault": "malformed",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add",
+      "fault": "extra_record",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add_tree",
+      "fault": "empty",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add_tree",
+      "fault": "truncated",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add_tree",
+      "fault": "malformed",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add_tree",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_fixed_add_tree",
+      "fault": "extra_record",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_lif_neuron",
+      "fault": "empty",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_lif_neuron",
+      "fault": "truncated",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_lif_neuron",
+      "fault": "malformed",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_lif_neuron",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_lif_neuron",
+      "fault": "extra_record",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_linear_lif_neuron",
+      "fault": "empty",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_linear_lif_neuron",
+      "fault": "truncated",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_linear_lif_neuron",
+      "fault": "malformed",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_linear_lif_neuron",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_linear_lif_neuron",
+      "fault": "extra_record",
+      "status": "rejected"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+/ {
+	amba_pl: amba_pl {
+		ranges;
+		compatible = "simple-bus";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		firmware-name = "wangdao_pl_flat.bit.bin";
+		clocking1: clocking1 {
+			compatible = "xlnx,fclk";
+			status = "okay";
+			assigned-clocks = <&zynqmp_clk 72>;
+			assigned-clock-rates = <99999001>;
+			#clock-cells = <0>;
+			clock-output-names = "fabric_clk";
+			clocks = <&zynqmp_clk 72>;
+		};
+		clocking0: clocking0 {
+			compatible = "xlnx,fclk";
+			status = "okay";
+			assigned-clocks = <&zynqmp_clk 71>;
+			assigned-clock-rates = <99999001>;
+			#clock-cells = <0>;
+			clock-output-names = "fabric_clk";
+			clocks = <&zynqmp_clk 71>;
+		};
+		afi0: afi0 {
+			status = "okay";
+			compatible = "xlnx,afi-fpga";
+			resets = <&zynqmp_reset 116>, <&zynqmp_reset 117>, <&zynqmp_reset 118>, <&zynqmp_reset 119>;
+			config-afi = < 0 0>, <1 0>, <2 0>, <3 0>, <4 0>, <5 0>, <6 0>, <7 0>, <8 0>, <9 0>, <10 0>, <11 0>, <12 0>, <13 0>, <14 0xa00>, <15 0x000>;
+		};
+		proposal_axi_lite_ref_0: proposal_axi_lite_ref@a0000000 {
+			compatible = "xlnx,proposal-axi-lite-ref-1.0";
+			status = "okay";
+			clock-names = "s_axi_aclk";
+			xlnx,ip-name = "proposal_axi_lite_ref";
+			xlnx,edk-iptype = "PERIPHERAL";
+			xlnx,approx-low-bits = <0>;
+			xlnx,addr-width = <12>;
+			reg = <0x0 0xa0000000 0x0 0x1000>;
+			clocks = <&zynqmp_clk 71>;
+			xlnx,skip-zero-groups = <0>;
+			xlnx,name = "proposal_axi_lite_ref_0";
+		};
+	};
+};

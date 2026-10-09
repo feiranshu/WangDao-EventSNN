@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "pre_manifest": "C:\\Users\\sfr08\\.codex\\visualizations\\2026\\10\\04\\01a10599-9500-7531-89cc-14319a3b6902\\deployment_restructure_pre_sha256.csv",
+  "records": 72,
+  "match": 71,
+  "changed": 1,
+  "missing": 0,
+  "changed_records": [
+    {
+      "generation": "1_first_generation_SNN_model",
+      "old": "tmp\\kv260_board_results\\train_dev10\\evaluation\\evaluate_board_results.py",
+      "new": "experiments/board_runs/train_dev10/evaluation/evaluate_board_results.py"
+    }
+  ]
+}

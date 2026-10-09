@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "KV260-PS-PL-FULL-v1",
+  "stage": "P5-kv260-ps-pl-h2-preparation",
+  "data_role": "train_dev",
+  "primary_metrics": {
+    "sequences": 10,
+    "events": 1237183,
+    "candidates": 479130,
+    "positives": 27624
+  },
+  "decision": "ready_for_ps_pl_full_run",
+  "conclusion": "Board captures can be routed and refined on the PS with the frozen H2 model.",
+  "configuration": {
+    "event_format": "header plus 36-byte little-endian records",
+    "prediction_format": "two raw bytes per event: candidate, prediction",
+    "h2_weights": "h2_weights.bin",
+    "proposal_threshold": 0.51,
+    "event_threshold": 0.2800000011920929,
+    "h2_fixed_configuration": {
+      "accumulator_bits": 24,
+      "logit_fraction_bits": 16,
+      "scale_fraction_bits": 20
+    }
+  },
+  "source": {
+    "s1_manifest": "tmp/kv260_batch/train_dev10/manifest.json",
+    "s1_manifest_sha256": "309886b036d8302230a65f23eb6efe3e883048808f12de56c082a616a73410c2",
+    "h2_weight": "software/weights/H2_D1_seed42.npz",
+    "h2_weight_sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "h2_weights_bin_sha256": "0ae896f637bc7e2bbf457d12242e2703e6ad0d0d2086197b52c0dc3d473fb2d8",
+    "test_used": false
+  },
+  "sequences": [
+    {
+      "name": "train_002.npz",
+      "role": "train_dev",
+      "events": 44571,
+      "event_file": "events/train_002.events.bin",
+      "event_bytes": 1604588,
+      "event_sha256": "412efc1f189db34ad6eb599d66fe3ea2af55fe9cfc1e2577b576e0af30dd458c",
+      "golden_file": "h2_golden/train_002.pred.bin",
+      "golden_bytes": 89142,
+      "golden_sha256": "bd6245700aa0c7feb92e16bcb63ebf096cbedfcb9b03126ec3361d837aec9625",
+      "metrics": {
+        "events": 44571,
+        "candidates": 11104,
+        "positives": 4054,
+        "target_events": 3955,
+        "candidate_targets": 3955
+      }
+    },
+    {
+      "name": "train_020.npz",
+      "role": "train_dev",
+      "events": 23042,
+      "event_file": "events/train_020.events.bin",
+      "event_bytes": 829544,
+      "event_sha256": "666b1b118646a105d566aad77a1b19d163976cb7e17b5fa33c185e4b9e21747d",
+      "golden_file": "h2_golden/train_020.pred.bin",
+      "golden_bytes": 46084,
+      "golden_sha256": "7a9f7027acfa35d06d89869fa81974ddbe76e0b90590b6ccac0314c0fa2e3141",
+      "metrics": {
+        "events": 23042,
+        "candidates": 4941,
+        "positives": 988,
+        "target_events": 890,
+        "candidate_targets": 885
+      }
+    },
+    {
+      "name": "train_034.npz",
+      "role": "train_dev",
+      "events": 20849,
+      "event_file": "events/train_034.events.bin",
+      "event_bytes": 750596,
+      "event_sha256": "b92031be8a085305ceaf1e84a8dd01cc24f5f04198d46a0bec57f8cc435d51e5",
+      "golden_file": "h2_golden/train_034.pred.bin",
+      "golden_bytes": 41698,
+      "golden_sha256": "022634cea166438eecf0da87060a3f63f6d8439a557c73d3cc8008c117683f8c",
+      "metrics": {
+        "events": 20849,
+        "candidates": 10815,
+        "positives": 4072,
+        "target_events": 4020,
+        "candidate_targets": 4020
+      }
+    },
+    {
+      "name": "train_039.npz",
+      "role": "train_dev",
+      "events": 20340,
+      "event_file": "events/train_039.events.bin",
+      "event_bytes": 732272,
+      "event_sha256": "5de43ba48a552d9cad18bf6b069ac95ba47a427c4f8b42edc5dc1c6495603f6c",
+      "golden_file": "h2_golden/train_039.pred.bin",
+      "golden_bytes": 40680,
+      "golden_sha256": "9599d089d3560a8ebba68a1b09f501dafb687de290fc598ed9c9f9267adedf4f",
+      "metrics": {
+        "events": 20340,
+        "candidates": 8682,
+        "positives": 4869,
+        "target_events": 4747,
+        "candidate_targets": 4747
+      }
+    },
+    {
+      "name": "train_041.npz",
+      "role": "train_dev",
+      "events": 44937,
+      "event_file": "events/train_041.events.bin",
+      "event_bytes": 1617764,
+      "event_sha256": "40a61a3536917f5123976dd7c690cbd4b08f6dcbb062b368d0190988545a6267",
+      "golden_file": "h2_golden/train_041.pred.bin",
+      "golden_bytes": 89874,
+      "golden_sha256": "9283b2e1532cbca28d3faf40cf54fcb3fde6ca1512caad6a54c5d6f5a7b7c625",
+      "metrics": {
+        "events": 44937,
+        "candidates": 10696,
+        "positives": 2320,
+        "target_events": 2353,
+        "candidate_targets": 2331
+      }
+    },
+    {
+      "name": "train_050.npz",
+      "role": "train_dev",
+      "events": 18300,
+      "event_file": "events/train_050.events.bin",
+      "event_bytes": 658832,
+      "event_sha256": "28881bfe9a48b637aa7050318c160101b1141d6e04b5baecf72d3c98d6fdc149",
+      "golden_file": "h2_golden/train_050.pred.bin",
+      "golden_bytes": 36600,
+      "golden_sha256": "b281da95c6d19146cf18d997d6005dc8f19896a35850389ac79a0de5449be88f",
+      "metrics": {
+        "events": 18300,
+        "candidates": 5191,
+        "positives": 2215,
+        "target_events": 2243,
+        "candidate_targets": 2237
+      }
+    },
+    {
+      "name": "train_060.npz",
+      "role": "train_dev",
+      "events": 43606,
+      "event_file": "events/train_060.events.bin",
+      "event_bytes": 1569848,
+      "event_sha256": "af28545b6dbe1b1a6919de9f71cb2e35b97bd0d09dbb054c0d6983bb617a4c2b",
+      "golden_file": "h2_golden/train_060.pred.bin",
+      "golden_bytes": 87212,
+      "golden_sha256": "c0dc496f467815e6014976cf68f094903ec16e90b955cc688a73420abc526173",
+      "metrics": {
+        "events": 43606,
+        "candidates": 17234,
+        "positives": 1278,
+        "target_events": 1229,
+        "candidate_targets": 1213
+      }
+    },
+    {
+      "name": "train_066.npz",
+      "role": "train_dev",
+      "events": 20297,
+      "event_file": "events/train_066.events.bin",
+      "event_bytes": 730724,
+      "event_sha256": "d509b2cddf0501cb8606970383536191e146c2aa8d353cc7006a48486b18ced7",
+      "golden_file": "h2_golden/train_066.pred.bin",
+      "golden_bytes": 40594,
+      "golden_sha256": "89886175a9f1d34d7e4aa6188209afc9f3e70d62ecc94db7a56e7876e21851ad",
+      "metrics": {
+        "events": 20297,
+        "candidates": 7445,
+        "positives": 1229,
+        "target_events": 1349,
+        "candidate_targets": 1338
+      }
+    },
+    {
+      "name": "train_089.npz",
+      "role": "train_dev",
+      "events": 405722,
+      "event_file": "events/train_089.events.bin",
+      "event_bytes": 14606024,
+      "event_sha256": "11846604844df163c7557356533175187ad604642466bb3a8a56009d5c3c024e",
+      "golden_file": "h2_golden/train_089.pred.bin",
+      "golden_bytes": 811444,
+      "golden_sha256": "2a6fc44574c89fa1cb1190c2b51fd06f55b783655bfe1ea80f80cbb6f356eaec",
+      "metrics": {
+        "events": 405722,
+        "candidates": 184993,
+        "positives": 1232,
+        "target_events": 2681,
+        "candidate_targets": 1970
+      }
+    },
+    {
+      "name": "train_092.npz",
+      "role": "train_dev",
+      "events": 595519,
+      "event_file": "events/train_092.events.bin",
+      "event_bytes": 21438716,
+      "event_sha256": "ac307613eeaf0a0c7ae106964421a9f76bb98ce6dfdc5c7b24fd6b6f1ad9b1ab",
+      "golden_file": "h2_golden/train_092.pred.bin",
+      "golden_bytes": 1191038,
+      "golden_sha256": "57ce4a0c51aba1ea20301f568f04970c87a310b1a3e3ae77b0b4f98931e075f3",
+      "metrics": {
+        "events": 595519,
+        "candidates": 218029,
+        "positives": 5367,
+        "target_events": 7192,
+        "candidate_targets": 6439
+      }
+    }
+  ]
+}

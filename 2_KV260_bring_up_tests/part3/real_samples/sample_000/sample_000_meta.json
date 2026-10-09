@@ -1,0 +1,278 @@
+﻿{
+  "board_ready": false,
+  "expected_logits": "sample_000_expected_logits.txt",
+  "expected_logits_sha256": "b4962a21f5cdcaa2f688f97fcd86bcfd10190f61bf02fcd3046be46acdbdb8dd",
+  "feature_dtype": "uint8",
+  "feature_encoding": {
+    "compression": "clip(round(32 * ln(1 + raw_count)), 0, 255)",
+    "feature_cell_size_xy": [
+      4,
+      4
+    ],
+    "feature_grid_per_patch": [
+      8,
+      8
+    ],
+    "flatten_order": "polarity-major, then cell_y, then cell_x",
+    "padded_size_xy": [
+      352,
+      272
+    ],
+    "patch_grid_rows_columns": [
+      16,
+      21
+    ],
+    "patch_origin_xy": [
+      96,
+      144
+    ],
+    "patch_row_column": [
+      9,
+      6
+    ],
+    "patch_size_xy": [
+      32,
+      32
+    ],
+    "patch_stride_xy": [
+      16,
+      16
+    ],
+    "polarity_count": 2,
+    "raw_value": "event count in one polarity/cell/25ms time step",
+    "sensor_size_xy": [
+      346,
+      260
+    ]
+  },
+  "feature_format": "unsigned uint8 compressed event counts used as Q0.8 input",
+  "feature_nonzero": 25,
+  "feature_shape": [
+    4,
+    128
+  ],
+  "feature_sum": 707,
+  "format_version": 1,
+  "golden_model": "D:\\WangDao_EventSNN\\0_mlp_original_project\\software\\weights\\S1P_INT8_ACC24_MEM24_Q12.npz",
+  "golden_model_configuration": {
+    "accumulator_bits": 24,
+    "beta_numerator": 7,
+    "beta_shift": 3,
+    "input_fraction_bits": 8,
+    "membrane_bits": 24,
+    "membrane_fraction_bits": 12,
+    "overflow": "saturate_after_dot_and_each_membrane_update",
+    "readout": "mean_membrane",
+    "reset": "soft_reset",
+    "rounding": "nearest_ties_away_from_zero",
+    "threshold": 0.25,
+    "time_steps": 4
+  },
+  "golden_model_metadata": {
+    "calibration_result": "fixed_calibration.json",
+    "calibration_role": "hw_calibration",
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "event_threshold": 0.2800000011920929,
+    "h2_fixed_configuration": {
+      "accumulator_bits": 24,
+      "logit_fraction_bits": 16,
+      "scale_fraction_bits": 20
+    },
+    "model_id": "S1P_INT8_ACC24_MEM24_Q12",
+    "proposal_threshold": 0.51,
+    "selection_rule": {
+      "maximum_iou_loss": 0.01,
+      "requires_zero_saturation": true,
+      "select_smallest_width": true
+    },
+    "source_s0p_weight": "S0P_T4_POS15_KD50_S42.npz",
+    "source_s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952"
+  },
+  "golden_model_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69",
+  "input_candidates": {
+    "0123": {
+      "file": "input_candidates/sample_000_input_words_order_0123.txt",
+      "sha256": "5da40fab5313b870e9b0f1391f0dc97bbe8af6518e399cffadfe790af406f68b"
+    },
+    "0132": {
+      "file": "input_candidates/sample_000_input_words_order_0132.txt",
+      "sha256": "e2b2630d13d134246ee3a560fd943269545c52fe490d374f5dd38223113cb7cd"
+    },
+    "0213": {
+      "file": "input_candidates/sample_000_input_words_order_0213.txt",
+      "sha256": "7d4b84da52e8cdd75a55b9d839031578dc1fe541077cf1b72dd3005f45afa67d"
+    },
+    "0231": {
+      "file": "input_candidates/sample_000_input_words_order_0231.txt",
+      "sha256": "b4cbd8c161a303d66f0162bbeb03446f1ef425aba1e2343aba9e9a3a6d30c440"
+    },
+    "0312": {
+      "file": "input_candidates/sample_000_input_words_order_0312.txt",
+      "sha256": "09250e83a68b62cdb9ed5b7a83f5490647f7f92c718955016e32e482f47a6762"
+    },
+    "0321": {
+      "file": "input_candidates/sample_000_input_words_order_0321.txt",
+      "sha256": "5371ef8e595f1499e0c8fd1053b7f762a6cd8cd536ee5e4c8bff91f6d70b9400"
+    },
+    "1023": {
+      "file": "input_candidates/sample_000_input_words_order_1023.txt",
+      "sha256": "c609d616980f0b0cb8445126e9edc3a4bbb11c3084142c328f187637d6f06a8e"
+    },
+    "1032": {
+      "file": "input_candidates/sample_000_input_words_order_1032.txt",
+      "sha256": "e7bbb52169e89e882607e5c5e396fdc146151ddc2ddee78b33adbb62976cc2c7"
+    },
+    "1203": {
+      "file": "input_candidates/sample_000_input_words_order_1203.txt",
+      "sha256": "fdca20b3e73da7dab44ff844a423fa1dc8885a7e91f824224906d3ed354b67dd"
+    },
+    "1230": {
+      "file": "input_candidates/sample_000_input_words_order_1230.txt",
+      "sha256": "d9c65db0d09418831649d4b45b7831737a999f26a55217c4d1ce36bb57507061"
+    },
+    "1302": {
+      "file": "input_candidates/sample_000_input_words_order_1302.txt",
+      "sha256": "a89066ae08d0766c6b0ae3b0c62a942ec3c6fb63e0a097c475d187d0e62d3d3f"
+    },
+    "1320": {
+      "file": "input_candidates/sample_000_input_words_order_1320.txt",
+      "sha256": "c7e43ea8b6cccd722a5d6d4cc6033e5a27dad00b624a4d8edf808f938788b27d"
+    },
+    "2013": {
+      "file": "input_candidates/sample_000_input_words_order_2013.txt",
+      "sha256": "b8b58ffccd61a38d45b9a48aeb420c74c0ed5230192e5a370760ffe41505aded"
+    },
+    "2031": {
+      "file": "input_candidates/sample_000_input_words_order_2031.txt",
+      "sha256": "7d20525b1aa1f32f3dd9f8ca199aac2499add95ec5fd4b81ea8d325953f54769"
+    },
+    "2103": {
+      "file": "input_candidates/sample_000_input_words_order_2103.txt",
+      "sha256": "4e76cf4a703f655ec4703f591d7139a1722a66b6d08d9e6b5d7ace7c9b917bdb"
+    },
+    "2130": {
+      "file": "input_candidates/sample_000_input_words_order_2130.txt",
+      "sha256": "84b5cf5c3a4f427dbb91d808c747a4c20eded78199dc1df6e53686d8d7f7c20b"
+    },
+    "2301": {
+      "file": "input_candidates/sample_000_input_words_order_2301.txt",
+      "sha256": "22a9a7a6fdf95fc99f17c8af15df06612511d001664529e406e606823c82b306"
+    },
+    "2310": {
+      "file": "input_candidates/sample_000_input_words_order_2310.txt",
+      "sha256": "31fa1b1b7c1ceca55559cb4ad79e92a317a4abc45aca1f69faa1c31c561e5362"
+    },
+    "3012": {
+      "file": "input_candidates/sample_000_input_words_order_3012.txt",
+      "sha256": "9457f21e64c6b6ff0c81e94b29fc50c8b2e4c623c0a907d96b9694565cec4eb0"
+    },
+    "3021": {
+      "file": "input_candidates/sample_000_input_words_order_3021.txt",
+      "sha256": "e8621ee689202b7a9924e27abcbbb9d424b6c5056c357cb1eadc8f8ebe586922"
+    },
+    "3102": {
+      "file": "input_candidates/sample_000_input_words_order_3102.txt",
+      "sha256": "f71d4221bc40666f9219eabd5a4fd0a8fee09626262d26c3b26f5ec8a69a0fef"
+    },
+    "3120": {
+      "file": "input_candidates/sample_000_input_words_order_3120.txt",
+      "sha256": "444131eda0306ef4f77b400c00f9b7f5eaca80d94ca7fbaf0c3b58995b41b744"
+    },
+    "3201": {
+      "file": "input_candidates/sample_000_input_words_order_3201.txt",
+      "sha256": "675e62c1c5ef86d032df6328adc13efa4a81e5cf8d29c34d16d5232f187035bd"
+    },
+    "3210": {
+      "file": "input_candidates/sample_000_input_words_order_3210.txt",
+      "sha256": "091adf6a1f8318f9cdc295fa644a7e24c91d763c357e8f8ab9968948335cff47"
+    }
+  },
+  "input_words": null,
+  "input_words_sha256": null,
+  "logit_flatten_order": "output_cell_y-major, then output_cell_x",
+  "logit_format": "signed int32 Q12 represented as uint32 hexadecimal",
+  "logit_shape": [
+    4,
+    4
+  ],
+  "logits_float": [
+    6.9228515625,
+    6.1259765625,
+    -4.359375,
+    -12.7900390625,
+    0.705322265625,
+    -0.02734375,
+    -5.295654296875,
+    -7.351806640625,
+    -8.915771484375,
+    -10.974853515625,
+    -11.045166015625,
+    -9.218017578125,
+    -11.472412109375,
+    -12.456298828125,
+    -13.1513671875,
+    -9.78759765625
+  ],
+  "logits_q_signed": [
+    28356,
+    25092,
+    -17856,
+    -52388,
+    2889,
+    -112,
+    -21691,
+    -30113,
+    -36519,
+    -44953,
+    -45241,
+    -37757,
+    -46991,
+    -51021,
+    -53868,
+    -40090
+  ],
+  "output_cell_size_xy": [
+    8,
+    8
+  ],
+  "patch_index": 195,
+  "patch_selection_rule": "maximum_activity_among_positive_targets",
+  "positive_target_indices": [
+    0,
+    1,
+    4,
+    5
+  ],
+  "sample_id": "sample_000",
+  "source_sequence": "E:\\experiment\\FPGA上的SNN实现\\anti-EUV\\EV-UAV-dataset\\val\\val_000.npz",
+  "source_sequence_sha256": "a1e4ba6356e2fd792b639afbb86f2d3689bc31ff7442c7588c84b6c63afa606a",
+  "target_cells_4x4_flat": [
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "target_cells_npy": "sample_000_target_cells.npy",
+  "target_cells_npy_sha256": "10c4a74ddae7a6b9e1b7b1f5fb8b4d124876b233750604f9053be7e3baa95a4e",
+  "temporal_npy": "sample_000_temporal_uint8.npy",
+  "temporal_npy_sha256": "406238aebfb9c51e582c4e02353ad3a73c5bd12cb3b58ec3665918e3f3696b15",
+  "time_step_duration_ms": 25,
+  "time_steps": 4,
+  "time_to_lane": null,
+  "time_to_lane_definition": "digit at index t is the physical byte lane containing software time t; lane0=bits[7:0], lane3=bits[31:24]",
+  "window_duration_ms": 100,
+  "window_index": 0,
+  "word_count": 128
+}

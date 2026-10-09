@@ -1,0 +1,19 @@
+{
+  "evaluation_id": "h2_plus__software_exact_int8",
+  "model": "H2-plus",
+  "protocol": "formal-ann-algorithm-complexity-v1",
+  "numeric_path": "exact_int8_replay",
+  "source_index": "D:\\WangDao_EventSNN\\1_H2_model_improvement\\implementation\\data\\index.json",
+  "source_weights_sha256": {
+    "H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "A4-2_seed42_epoch008_int8.npz": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4"
+  },
+  "summary": {
+    "total_weight_parameters": 12160,
+    "total_nonzero_weights": 12034,
+    "total_weight_bytes": 12160,
+    "total_scale_bytes": 752,
+    "total_tensor_payload_bytes": 12912,
+    "persistent_neuron_state_bytes": 0
+  }
+}

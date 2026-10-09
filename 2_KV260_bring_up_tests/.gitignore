@@ -1,0 +1,8 @@
+# 本地克隆的第三方官方仓库保留在工作区供离线参考，不嵌入本仓库历史。
+/references_and_installation/KV260_references/03_official_reference_implementation/
+
+# Python 缓存与本地工具状态。
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.Xil/

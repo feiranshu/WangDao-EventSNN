@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "template_not_measured",
+  "measurement_scope": "VCC_SOM_total",
+  "tool": "Linux hwmon INA260 power1_input",
+  "sample_rate_hz": 10.0,
+  "idle_power_w": {"mean": 0.0, "median": 0.0, "p95": 0.0, "min": 0.0, "max": 0.0},
+  "active_power_w": {"mean": 0.0, "median": 0.0, "p95": 0.0, "min": 0.0, "max": 0.0},
+  "dynamic_power_w": 0.0,
+  "pl_power_w": null,
+  "pl_power_is_directly_measured": false,
+  "active_energy_j": null,
+  "dynamic_energy_j": null,
+  "active_energy_per_task_j": null,
+  "dynamic_energy_per_task_j": null,
+  "active_energy_per_patch_j": null,
+  "dynamic_energy_per_patch_j": null,
+  "notes": "Template only. collect_kv260_runtime.py intentionally rejects the zero placeholders. VCC_SOM is whole-SOM power, not direct PL-only power."
+}

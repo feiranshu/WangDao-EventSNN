@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-TWO-LAYER-X2019-v1",
+  "stage": "P4-rtl-behavioral-simulation",
+  "data_role": "synthetic_and_hw_calibration_golden_vectors",
+  "primary_metrics": {
+    "testbenches": 2,
+    "passed_records": 43008,
+    "failed_records": 0
+  },
+  "decision": "behavioral_alignment_passed",
+  "conclusion": "RTL matches checked Python golden vectors; no target-device verification performed.",
+  "test_used": false,
+  "validation_used": false,
+  "simulation": {
+    "tool": "Vivado Simulator",
+    "version": "2019.1",
+    "scope": "behavioral_simulation_only",
+    "device_target": null,
+    "board_target": null,
+    "work_directory": "tmp\\rtl_sim_17d3yhod",
+    "tests": [
+      {
+        "testbench": "tb_second_layer_engine",
+        "records": 9792,
+        "status": "passed",
+        "patches": 102,
+        "minimum_patch_cycles": 1729,
+        "maximum_patch_cycles": 1909,
+        "no_stall_patch_cycles": 1729,
+        "reset_scenarios": 3,
+        "intermediate_records": 0,
+        "reset_replay_records": 288,
+        "output_backpressure_cycles": 7628,
+        "input_gap_cycles": 2013,
+        "exact_tree_saturations": 0,
+        "approximate_tree_saturations": 0,
+        "exact_membrane_saturations": 0,
+        "approximate_membrane_saturations": 0
+      },
+      {
+        "testbench": "tb_two_layer_engine",
+        "records": 33216,
+        "status": "passed",
+        "patches": 346,
+        "minimum_patch_cycles": 8961,
+        "maximum_patch_cycles": 9195,
+        "no_stall_patch_cycles": 8961,
+        "reset_scenarios": 4,
+        "intermediate_records": 66432,
+        "reset_replay_records": 384,
+        "output_backpressure_cycles": 24506,
+        "input_gap_cycles": 16800,
+        "exact_tree_saturations": 0,
+        "approximate_tree_saturations": 0,
+        "exact_membrane_saturations": 0,
+        "approximate_membrane_saturations": 0
+      }
+    ],
+    "elapsed_seconds": 75.86
+  },
+  "source": {
+    "vector_manifest": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\hardware\\vectors\\two_layer_manifest.json",
+    "vector_manifest_sha256": "661854cba66e8c2fbb0705be3080d56bb0446b1411fa41d6eeff0f19189b41cd",
+    "command": [
+      "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project\\software\\scripts\\run_rtl_simulation.py",
+      "--vivado-root",
+      "C:\\Xilinx\\Vivado\\2019.1",
+      "--suite",
+      "two_layers",
+      "--timeout-seconds",
+      "240",
+      "--fault-checks"
+    ],
+    "manifest_source": {
+      "dataset_sequence": "data/EV-UAV-dataset/train/train_022.npz",
+      "dataset_role": "hw_calibration",
+      "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "dataset_sequence_sha256": "8db215f489d963583ea2c02f395fe8bb14760c42a2374c9c32303334992bc2d8",
+      "frozen_weight": "software/weights/S3P_LOA_SYN13_MEMALL_K2_ACC24_MEM24_Q12.npz",
+      "frozen_weight_sha256": "be47d3a0dca69451d285b2907d0b63415fbff5e77658334c33c41bab41d51806",
+      "first_layer_manifest_sha256": "d409f249183082cc9d097c1f43863a2959dc848baaedb11af2a08d115c01a338",
+      "exact_weight_sha256": "f05f40359e70face33a0d513abcfacc5a1519ba2d99df73076b41193abe4ef69"
+    }
+  },
+  "fault_checks": [
+    {
+      "testbench": "tb_second_layer_engine",
+      "fault": "empty_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_second_layer_engine",
+      "fault": "truncated_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_second_layer_engine",
+      "fault": "malformed_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_second_layer_engine",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_second_layer_engine",
+      "fault": "extra_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "empty_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "truncated_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "malformed_input",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "wrong_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "extra_expected",
+      "status": "rejected"
+    },
+    {
+      "testbench": "tb_two_layer_engine",
+      "fault": "truncated_intermediate",
+      "status": "rejected"
+    }
+  ],
+  "coverage": {
+    "standalone_patches": 102,
+    "patches": 346,
+    "synthetic_cascade_patches": 10,
+    "real_patches": 336,
+    "complete_window": true,
+    "window": 0,
+    "time_steps": 4,
+    "channels": [
+      48,
+      24
+    ],
+    "lanes": 8,
+    "seed": 20260904,
+    "binary_cases": {
+      "zero": 1,
+      "ones": 1,
+      "single_input": 48,
+      "channel_sign_extremes": 48,
+      "random": 4
+    },
+    "layer2_left_shifts": [
+      6,
+      6,
+      6,
+      5,
+      6,
+      6,
+      6,
+      8,
+      6,
+      6,
+      6,
+      6,
+      8,
+      8,
+      8,
+      6,
+      6,
+      6,
+      5,
+      7,
+      6,
+      6,
+      6,
+      5
+    ],
+    "layer2_synaptic_low_bits": [
+      0,
+      0
+    ],
+    "membrane_low_bits": [
+      0,
+      2
+    ],
+    "input_order": "patch,time,feature",
+    "output_order": "patch,time,channel",
+    "reset_between_patches": true
+  }
+}

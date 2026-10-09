@@ -1,0 +1,22 @@
+[
+  {
+    "name": "sample_000_expected_logits.txt",
+    "lines": 16,
+    "sha256": "b4962a21f5cdcaa2f688f97fcd86bcfd10190f61bf02fcd3046be46acdbdb8dd"
+  },
+  {
+    "name": "sample_000_input_words_order_1032.txt",
+    "lines": 128,
+    "sha256": "e7bbb52169e89e882607e5c5e396fdc146151ddc2ddee78b33adbb62976cc2c7"
+  },
+  {
+    "name": "sample_000_input_words_order_1302.txt",
+    "lines": 128,
+    "sha256": "a89066ae08d0766c6b0ae3b0c62a942ec3c6fb63e0a097c475d187d0e62d3d3f"
+  },
+  {
+    "name": "sample_000_input_words_order_1320.txt",
+    "lines": 128,
+    "sha256": "c7e43ea8b6cccd722a5d6d4cc6033e5a27dad00b624a4d8edf808f938788b27d"
+  }
+]

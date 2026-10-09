@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wangdao-first-generation-kv260"
+version = "0.1.0"
+description = "望道项目第一代 SNN 模型 KV260 部署与验证"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.24", "torch>=2.0"]
+
+[tool.setuptools]
+package-dir = {"" = "model_runtime"}
+
+[tool.setuptools.packages.find]
+where = ["model_runtime"]
+include = ["wangdao*"]
+
+[tool.pyright]
+include = ["model_runtime/wangdao", "host_tools", "tests"]
+extraPaths = [".", "model_runtime"]
+typeCheckingMode = "basic"
+

@@ -1,0 +1,12 @@
+# Golden-vector hashes must survive checkout on Windows and other platforms.
+/hardware/vectors/*.txt text eol=lf
+/hardware/vectors/first_layer_manifest.json text eol=crlf
+/hardware/vectors/two_layer_manifest.json text eol=lf
+/hardware/vectors/proposal_manifest.json text eol=lf
+# The integration receipt binds the formal simulation JSON by SHA-256.
+/results/rtl_host_simulation.json text eol=lf
+/results/rtl_host_integration.json text eol=lf
+# Board-facing shell scripts run with sh on the target and must stay LF.
+*.sh text eol=lf
+# Device tree overlay blobs must never be treated as text.
+*.dtbo binary

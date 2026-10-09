@@ -1,0 +1,27 @@
+{
+  "evaluation_id": "EV-SpSegNet",
+  "model": "EV-SpSegNet",
+  "role": "formal_software_comparison_model_pending_exact_complexity_measurement",
+  "paper": {
+    "architecture": "ANN",
+    "title": "Event-based Tiny Object Detection: A Benchmark Dataset and Baseline",
+    "venue": "ICCV 2025",
+    "paper_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_Event-based_Tiny_Object_Detection_A_Benchmark_Dataset_and_Baseline_ICCV_2025_paper.html",
+    "reported_weight_parameters": 4000000,
+    "reported_weight_parameters_display": "4.0M",
+    "reported_inference_ms": 35.9,
+    "parameter_precision": "rounded to one decimal million in paper Table 2",
+    "not_reported": [
+      "B02 exact state_dict tensor payload bytes",
+      "B03 dense MAC on Validation/Test",
+      "B04a effective MAC on Validation/Test",
+      "B04b effective AC on Validation/Test",
+      "B04c MAC plus AC on Validation/Test"
+    ]
+  },
+  "official_repository_code_cross_check": {
+    "repository_url": "https://github.com/ChenYichen9527/EV-UAV",
+    "note": "Current source code alone is not substituted for the formal checkpoint. The server package strictly loads the selected official checkpoint and records its SHA-256 before measuring B01-B04."
+  },
+  "comparison_policy": "Display 4.0M only as paper_reported. Do not infer B02 from parameter count or infer operations from latency. Exact imported checkpoint measurements become authoritative."
+}

@@ -1,0 +1,45 @@
+{
+  "protocol_relation": "C_deployment_efficiency_and_hardware_cost",
+  "B01_model_kernel_latency": {
+    "status": "not_measured",
+    "reason": "no cycle counter or runtime log in the returned archive"
+  },
+  "B02_end_to_end_latency": {
+    "status": "not_measured",
+    "reason": "no monotonic-clock timing samples in the returned archive"
+  },
+  "B03_throughput_realtime": {
+    "status": "not_measured",
+    "reason": "file timestamps are not a valid per-run timing boundary"
+  },
+  "B04_runtime_power": {
+    "status": "not_measured",
+    "reason": "no board rail or external meter samples were returned"
+  },
+  "B05_energy_per_task": {
+    "status": "not_measured",
+    "reason": "requires both runtime and active/idle power measurements"
+  },
+  "B07_hardware_resources": {
+    "status": "available_from_matching_exact_bitstream_implementation_report",
+    "source": "D:\\WangDao_EventSNN\\4_model_deployment\\1_first_generation_SNN_model\\results\\kv260_synthesis_implementation.json",
+    "source_sha256": "a71889f246d6ede57af33a17e41b6a802578b2da3824de6d25391c50bd125d39",
+    "clock_mhz": 100.0,
+    "wns_ns": 0.956,
+    "tns_ns": 0.0,
+    "whs_ns": 0.003,
+    "ths_ns": 0.0,
+    "clb_luts": 21531,
+    "clb_lut_utilization_percent": 18.38,
+    "clb_registers": 10707,
+    "clb_register_utilization_percent": 4.57,
+    "block_ram_tiles": 0,
+    "dsps": 0,
+    "routable_nets": 26924,
+    "fully_routed_nets": 26924,
+    "routing_errors": 0,
+    "vectorless_total_on_chip_power_w": 2.854,
+    "vectorless_power_confidence": "Medium",
+    "power_note": "vectorless_total_on_chip_power_w is a Vivado estimate, not board runtime or PL-only measured power"
+  }
+}

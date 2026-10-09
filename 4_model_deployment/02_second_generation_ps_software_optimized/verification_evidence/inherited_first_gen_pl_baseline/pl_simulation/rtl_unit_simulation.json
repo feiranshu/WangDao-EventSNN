@@ -1,0 +1,57 @@
+{
+    "schema_version":  1,
+    "status":  "ok",
+    "experiment_id":  "RTL-UNIT-SIM-X2019-v2",
+    "stage":  "P4-rtl-unit-simulation",
+    "data_role":  "synthetic_and_hw_calibration_golden_vectors",
+    "primary_metrics":  {
+                            "testbenches":  4,
+                            "records":  470,
+                            "passed_records":  470,
+                            "failed_records":  0
+                        },
+    "decision":  "ready_for_first_layer_stacking",
+    "conclusion":  "Board-independent arithmetic, LIF, and frozen first-layer neuron RTL match the Python golden vectors.",
+    "simulation":  {
+                       "tool":  "Vivado Simulator",
+                       "version":  "2019.1",
+                       "scope":  "behavioral_simulation_only",
+                       "board_target":  null,
+                       "device_target":  null,
+                       "started_at_utc":  "2026-09-04T04:07:09.8104930Z",
+                       "elapsed_seconds":  35.055048,
+                       "tests":  [
+                                     {
+                                         "testbench":  "tb_fixed_add",
+                                         "vector_file":  "hardware/vectors/fixed_add.txt",
+                                         "records":  144,
+                                         "status":  "passed"
+                                     },
+                                     {
+                                         "testbench":  "tb_fixed_add_tree",
+                                         "vector_file":  "hardware/vectors/fixed_add_tree.txt",
+                                         "records":  136,
+                                         "status":  "passed"
+                                     },
+                                     {
+                                         "testbench":  "tb_lif_neuron",
+                                         "vector_file":  "hardware/vectors/lif_neuron.txt",
+                                         "records":  142,
+                                         "status":  "passed"
+                                     },
+                                     {
+                                         "testbench":  "tb_linear_lif_neuron",
+                                         "vector_file":  "hardware/vectors/linear_lif_neuron.txt",
+                                         "records":  48,
+                                         "status":  "passed"
+                                     }
+                                 ]
+                   },
+    "source":  {
+                   "vector_manifest":  "hardware/vectors/manifest.json",
+                   "vector_manifest_sha256":  "93813a9d99b1ecea2cd367a8722aec876487321acfca330e475ec38efacae394",
+                   "command":  "hardware/run_simulation.ps1 -VivadoRoot C:\\Xilinx\\Vivado\\2019.1"
+               },
+    "test_used":  false,
+    "validation_used":  false
+}

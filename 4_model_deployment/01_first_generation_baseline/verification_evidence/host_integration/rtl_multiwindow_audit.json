@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-MULTIWINDOW-AUDIT-v1",
+  "stage": "P4-saved-rtl-evidence-audit",
+  "data_role": "hw_calibration_and_synthetic",
+  "primary_metrics": {
+    "unique_windows": 4,
+    "window_transfers": 5,
+    "schedules": 3,
+    "capture_mismatches": 0,
+    "cycle_mismatches": 0,
+    "repeated_window_identical": true
+  },
+  "decision": "accept_multiwindow_behavioral_alignment",
+  "conclusion": "Saved captures, golden words, cycle logs and source identities agree; original Refiner checks retained without rerunning inference. No target-device verification.",
+  "source": {
+    "result": "results\\rtl_multiwindow_integration.json",
+    "sha256": "fd8925431c0c85ad28d6652afeeb8e69763e108ada24126345d1e956a8951c7f",
+    "simulations": {
+      "fixed": {
+        "path": "results\\runs\\RTL-MULTIWINDOW-v1\\fixed.json",
+        "sha256": "588ddd0eb9c20361317ea0274616dcfb351b464f5d586b95e929ae2bbf76066a",
+        "elapsed_seconds": 164.906
+      },
+      "skip": {
+        "path": "results\\runs\\RTL-MULTIWINDOW-v1\\skip.json",
+        "sha256": "962626da4c1320d1955342f9a2790be9544d2be7f8e67d03c636a630132aebf1",
+        "elapsed_seconds": 151.828
+      },
+      "stressed": {
+        "path": "results\\runs\\RTL-MULTIWINDOW-v1\\stressed.json",
+        "sha256": "0709d40a9f47e11a36e406d17e56fcd90db4890a1dc5df6171059a34cceff97d",
+        "elapsed_seconds": 145.031
+      }
+    }
+  },
+  "checks": {
+    "fixed": {
+      "records_per_mode": 27040,
+      "layer1_records": 324480,
+      "layer2_records": 162240,
+      "readout_step_records": 108160,
+      "input_gap_cycles": 3687,
+      "output_backpressure_cycles": 26,
+      "status": "passed"
+    },
+    "skip": {
+      "records_per_mode": 27040,
+      "layer1_records": 324480,
+      "layer2_records": 162240,
+      "readout_step_records": 108160,
+      "input_gap_cycles": 3687,
+      "output_backpressure_cycles": 26,
+      "status": "passed"
+    },
+    "stressed": {
+      "records_per_mode": 27040,
+      "layer1_records": 324480,
+      "layer2_records": 162240,
+      "readout_step_records": 108160,
+      "input_gap_cycles": 83117,
+      "output_backpressure_cycles": 7542,
+      "status": "passed"
+    }
+  },
+  "refiner_inference_reexecuted": false,
+  "rtl_reexecuted": false,
+  "validation_used": false,
+  "test_used": false,
+  "elapsed_seconds": 17.82799999999952
+}

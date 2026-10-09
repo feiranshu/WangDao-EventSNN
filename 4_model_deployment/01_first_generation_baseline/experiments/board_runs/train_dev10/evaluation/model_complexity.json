@@ -1,0 +1,38 @@
+{
+  "protocol_relation": "B_model_complexity-compatible diagnostic for the first-generation hybrid SNN; Train-dev only",
+  "scope": "S1 fixed Proposal-SNN (T=4) in PL + conditional fixed H2 Refiner in PS",
+  "proposal": {
+    "weight_parameters": 7680,
+    "nonzero_weights": 7615,
+    "weight_bytes": 7680,
+    "time_steps": 4,
+    "persistent_membrane_state_bytes_per_patch": 312
+  },
+  "refiner": {
+    "weight_parameters": 4224,
+    "nonzero_weights": 4170,
+    "weight_bytes": 4224,
+    "scale_bytes": 400,
+    "macs_per_call": 4224,
+    "dimensions": [
+      32,
+      64,
+      32,
+      4
+    ]
+  },
+  "total_weight_parameters": 11904,
+  "total_nonzero_weights": 11785,
+  "total_logical_int8_weight_bytes": 11904,
+  "sequences": 10,
+  "events": 1237183,
+  "patches": 268800,
+  "candidate_events": 479130,
+  "candidate_fraction": 0.38727496255606486,
+  "proposal_scheduled_dense_synaptic_products": 8257536000,
+  "proposal_membrane_updates": 111820800,
+  "refiner_dense_macs": 2023845120,
+  "event_driven_synaptic_accumulations": null,
+  "event_driven_status": "not measurable from final logits; internal spike counters were not captured",
+  "interpretation": "algorithmic operation counts, not measured FPGA latency or energy"
+}

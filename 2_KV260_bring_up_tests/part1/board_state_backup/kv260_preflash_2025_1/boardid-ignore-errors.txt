@@ -1,0 +1,57 @@
+
+FRU Inventory From File: /sys/devices/platform/axi/ff030000.i2c/i2c-1/1-0051/eeprom
+
+  FRU Board Manufacturing Date/Time: 11/02/22 - 14:39:00
+  FRU Board Manufacturer: XILINX
+  FRU Board Product Name: SCK-KV-G        
+  FRU Board Serial Number: XFL14MWV4KW1
+  FRU Board Part Number: 5066-01ED
+  FRU FRU File ID: 00h
+  FRU Board Revision Number: 1
+  FRU Board PCIe Info:
+    Vendor ID: 10EE
+    Device ID: 0000
+    SubVendor ID: 0000
+    SubDevice ID: 0000
+  FRU Board UUID: EF15B8F44EFF433C92917A26A76AABB6
+  FRU DC Load Output Number: 1
+  FRU DC Load Nominal Voltage: 12000 mV
+  FRU DC Load Spec'd Minimum Voltage: 11500 mV
+  FRU DC Load Spec'd Maximum Voltage: 12500 mV
+  FRU DC Load Spec'd Ripple and Noise pk-pk: 100 mV
+  FRU DC Load Minimum Current Load: 0 mA
+  FRU DC Load Maximum Current Load: 3000 mA
+
+  FRU Error: multirecord area checksum invalid
+ipmi_fru_next: multirecord area checksum invalid
+
+FRU Inventory From File: /sys/devices/platform/axi/ff030000.i2c/i2c-1/1-0050/eeprom
+
+  FRU Board Manufacturing Date/Time: 11/02/22 - 14:41:00
+  FRU Board Manufacturer: XILINX
+  FRU Board Product Name: SMK-K26-XCL2G-ED
+  FRU Board Serial Number: XFL1S4TSDGEC
+  FRU Board Part Number: 5057-01ED
+  FRU FRU File ID: 00h
+  FRU Board Revision Number: 1
+  FRU Board PCIe Info:
+    Vendor ID: 10EE
+    Device ID: 0000
+    SubVendor ID: 0000
+    SubDevice ID: 0000
+  FRU Board UUID: EAA5FCE0EEE449F2BEA9DA78639E0E22
+  FRU DC Load Output Number: 1
+  FRU DC Load Nominal Voltage: 5000 mV
+  FRU DC Load Spec'd Minimum Voltage: 4500 mV
+  FRU DC Load Spec'd Maximum Voltage: 5500 mV
+  FRU DC Load Spec'd Ripple and Noise pk-pk: 100 mV
+  FRU DC Load Minimum Current Load: 0 mA
+  FRU DC Load Maximum Current Load: 4000 mA
+
+  FRU OEM Manufacturer ID: Xilinx, Inc. (10DAh)
+  FRU OEM MAC Version: DUT - MAC (31h)
+  FRU OEM PS MAC ID 0: 00:0a:35:10:32:01
+
+  FRU Error: multirecord area checksum invalid
+ipmi_fru_next: multirecord area checksum invalid
+

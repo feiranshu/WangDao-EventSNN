@@ -1,0 +1,1 @@
+Linux kria 6.8.0-1035-xilinx #36-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 14:16:50 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux

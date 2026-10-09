@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "status": "complete",
+  "experiment_id": "KV260-AXILITE-IMPL-VIVADO-2025.2.1-v1",
+  "stage": "kv260_synthesis_implementation_bitstream",
+  "data_role": "not_applicable_static_hardware_build",
+  "primary_metrics": {
+    "clock_mhz": 100.0,
+    "wns_ns": 0.956,
+    "tns_ns": 0.0,
+    "whs_ns": 0.003,
+    "ths_ns": 0.0,
+    "clb_luts": 21531,
+    "clb_lut_utilization_percent": 18.38,
+    "clb_registers": 10707,
+    "clb_register_utilization_percent": 4.57,
+    "block_ram_tiles": 0,
+    "dsps": 0,
+    "routable_nets": 26924,
+    "fully_routed_nets": 26924,
+    "routing_errors": 0,
+    "vectorless_total_on_chip_power_w": 2.854,
+    "vectorless_power_confidence": "Medium"
+  },
+  "decision": "accept_as_first_exact_axi_lite_kv260_build",
+  "conclusion": "The exact, fixed-schedule AXI-Lite Proposal-SNN design completed synthesis, implementation, timing signoff, bitstream generation, and XSA export for the KV260 target. This is a Vivado build result, not an FPGA board measurement.",
+  "configuration": {
+    "tool": "Vivado ML Standard 2025.2.1 build 6403652",
+    "device": "xck26-sfvc784-2LV-c",
+    "board_part": "xilinx.com:kv260_som:part0:1.4",
+    "top": "kv260_system_wrapper",
+    "block_design": "kv260_system",
+    "axi_base_address": "0xA0000000",
+    "axi_range_bytes": 4096,
+    "approx_low_bits": 0,
+    "skip_zero_groups": 0,
+    "jobs": 2
+  },
+  "checks": {
+    "synthesis_errors": 0,
+    "synthesis_critical_warnings": 0,
+    "implementation_errors": 0,
+    "implementation_critical_warnings": 0,
+    "write_bitstream_errors": 0,
+    "write_bitstream_critical_warnings": 0,
+    "write_bitstream_warnings": 0,
+    "timing_constraints_met": true,
+    "drc_errors": 0,
+    "drc_warnings": [
+      {
+        "rule": "RTSTAT-10",
+        "count": 1,
+        "summary": "15 AXI SmartConnect internal reset-pipe nets have no routable loads; no related violations were reported."
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "hardware/vivado/wangdao_kv260/export/wangdao.bit",
+      "size_bytes": 7797834,
+      "sha256": "ce8f0ff1f1a6041e303ff216e079dd335d575339bab27b567c4b0be91cac5b4f"
+    },
+    {
+      "path": "hardware/vivado/wangdao_kv260/export/wangdao.bit.bin",
+      "size_bytes": 7797692,
+      "sha256": "3bf7473f26f5ddcd1157c2513706d179982eb131e8cb38880601d30e105dee23"
+    },
+    {
+      "path": "hardware/vivado/wangdao_kv260/export/wangdao.xsa",
+      "size_bytes": 2048854,
+      "sha256": "3c4a59cdf46f620adc4e91a83e229c54b3aca2ffd97ada6e29ae8547a04741e3",
+      "contains": [
+        "wangdao.bit",
+        "kv260_system.hwh",
+        "sysdef.xml"
+      ]
+    },
+    {
+      "path": "hardware/vivado/wangdao_kv260/export/wangdao.dtbo",
+      "size_bytes": 2024,
+      "sha256": "4d058b969fd960013b697e90f132b7635bb0af32eae8ae8f6e0c6ffe83845d32f",
+      "source": "SDTGen 2025.2.1 pl.dtsi wrapped as a Linux device-tree overlay and compiled with Vivado-bundled DTC v1.7.0 -@; firmware-name matches wangdao_pl_flat.bit.bin"
+    },
+    {
+      "path": "hardware/vivado/wangdao_kv260/export/wangdao_pl_flat/shell.json",
+      "size_bytes": 50,
+      "sha256": "0377daaf2050b88df14de9a79d120144cf49381d00fa552402395a322cb7b1a3",
+      "shell_type": "PL_FLAT"
+    }
+  ],
+  "deployment_package": {
+    "directory": "hardware/vivado/wangdao_kv260/export/wangdao_pl_flat",
+    "files": [
+      "wangdao_pl_flat.bit.bin",
+      "wangdao.bit.bin",
+      "wangdao_pl_flat.dtbo",
+      "shell.json"
+    ],
+    "board_load_status": "initial_load_failed_recovered_by_power_cycle",
+    "initial_board_attempt": {
+      "observed_active_application": "k26-starter-kits",
+      "observed_active_slot_handle": "0->0",
+      "load_message": "wangdao_pl_flat: Load Error: -1",
+      "smoke_test": "not_run",
+      "recovery": "serial_boot_and_xmutil_restored_after_power_cycle",
+      "diagnosis": [
+        "The existing k26-starter-kits application was still active because the first attempt did not request -UnloadCurrent.",
+        "The overlay and package now use wangdao_pl_flat.bit.bin; wangdao.bit.bin remains as a compatibility copy for older cached overlays or metadata."
+      ]
+    }
+  },
+  "limitations": [
+    "The custom bitstream has not yet been loaded successfully on the KV260; the first runtime attempt failed before the smoke test.",
+    "No PS-to-PL-to-PS register transaction has been measured on hardware.",
+    "The power value is a vectorless Vivado estimate with Medium confidence, not board power.",
+    "This build uses APPROX_LOW_BITS=0 and SKIP_ZERO_GROUPS=0; the S3 approximate comparison remains to be built separately."
+  ]
+}

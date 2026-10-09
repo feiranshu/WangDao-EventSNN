@@ -1,0 +1,113 @@
+{
+  "block_for_time_definition": "digit t gives physical 32-word block used by software time t",
+  "candidate_count": 17,
+  "candidate_layouts": [
+    "b0123_l0123",
+    "b0123_l0213",
+    "b0123_l1023",
+    "b0132_l0123",
+    "b0132_l2103",
+    "b0213_l0123",
+    "b0213_l0213",
+    "b0213_l0231",
+    "b0213_l0321",
+    "b0213_l1023",
+    "b0231_l0123",
+    "b0231_l0213",
+    "b0231_l0231",
+    "b0231_l0321",
+    "b0231_l1023",
+    "b0321_l0123",
+    "b0321_l0213"
+  ],
+  "format_version": 1,
+  "joint_unique_fingerprint_count": 17,
+  "lane_for_feature_offset_definition": "digit r gives byte lane used by feature offset r in each group of four",
+  "layout": "four 32-word time blocks; four adjacent features per word",
+  "model_configuration": {
+    "accumulator_bits": 24,
+    "beta_numerator": 7,
+    "beta_shift": 3,
+    "input_fraction_bits": 8,
+    "membrane_bits": 24,
+    "membrane_fraction_bits": 12,
+    "overflow": "saturate_after_dot_and_each_membrane_update",
+    "readout": "mean_membrane",
+    "reset": "soft_reset",
+    "rounding": "nearest_ties_away_from_zero",
+    "threshold": 0.25,
+    "time_steps": 4
+  },
+  "model_metadata": {
+    "calibration_result": "fixed_calibration.json",
+    "calibration_role": "hw_calibration",
+    "dataset_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "event_threshold": 0.2800000011920929,
+    "h2_fixed_configuration": {
+      "accumulator_bits": 24,
+      "logit_fraction_bits": 16,
+      "scale_fraction_bits": 20
+    },
+    "model_id": "S1P_INT8_ACC24_MEM24_Q12",
+    "proposal_threshold": 0.51,
+    "selection_rule": {
+      "maximum_iou_loss": 0.01,
+      "requires_zero_saturation": true,
+      "select_smallest_width": true
+    },
+    "source_s0p_weight": "S0P_T4_POS15_KD50_S42.npz",
+    "source_s0p_weight_sha256": "fb5fd635ee8f4b9660f98d6c71299de9e40b9d14fa83e51b2306853b2db86952"
+  },
+  "probes": [
+    {
+      "expected_files": {
+        "b0123_l0123": "time_major_probe_00_expected_b0123_l0123.txt",
+        "b0123_l0213": "time_major_probe_00_expected_b0123_l0213.txt",
+        "b0123_l1023": "time_major_probe_00_expected_b0123_l1023.txt",
+        "b0132_l0123": "time_major_probe_00_expected_b0132_l0123.txt",
+        "b0132_l2103": "time_major_probe_00_expected_b0132_l2103.txt",
+        "b0213_l0123": "time_major_probe_00_expected_b0213_l0123.txt",
+        "b0213_l0213": "time_major_probe_00_expected_b0213_l0213.txt",
+        "b0213_l0231": "time_major_probe_00_expected_b0213_l0231.txt",
+        "b0213_l0321": "time_major_probe_00_expected_b0213_l0321.txt",
+        "b0213_l1023": "time_major_probe_00_expected_b0213_l1023.txt",
+        "b0231_l0123": "time_major_probe_00_expected_b0231_l0123.txt",
+        "b0231_l0213": "time_major_probe_00_expected_b0231_l0213.txt",
+        "b0231_l0231": "time_major_probe_00_expected_b0231_l0231.txt",
+        "b0231_l0321": "time_major_probe_00_expected_b0231_l0321.txt",
+        "b0231_l1023": "time_major_probe_00_expected_b0231_l1023.txt",
+        "b0321_l0123": "time_major_probe_00_expected_b0321_l0123.txt",
+        "b0321_l0213": "time_major_probe_00_expected_b0321_l0213.txt"
+      },
+      "input_sha256": "e86cc1a747ba63422f6f49de074f8124c991e9d6799b8766276faba9c6ff977e",
+      "input_words": "time_major_probe_00_words.txt",
+      "role": "real_sample_identity"
+    },
+    {
+      "expected_files": {
+        "b0123_l0123": "time_major_probe_01_expected_b0123_l0123.txt",
+        "b0123_l0213": "time_major_probe_01_expected_b0123_l0213.txt",
+        "b0123_l1023": "time_major_probe_01_expected_b0123_l1023.txt",
+        "b0132_l0123": "time_major_probe_01_expected_b0132_l0123.txt",
+        "b0132_l2103": "time_major_probe_01_expected_b0132_l2103.txt",
+        "b0213_l0123": "time_major_probe_01_expected_b0213_l0123.txt",
+        "b0213_l0213": "time_major_probe_01_expected_b0213_l0213.txt",
+        "b0213_l0231": "time_major_probe_01_expected_b0213_l0231.txt",
+        "b0213_l0321": "time_major_probe_01_expected_b0213_l0321.txt",
+        "b0213_l1023": "time_major_probe_01_expected_b0213_l1023.txt",
+        "b0231_l0123": "time_major_probe_01_expected_b0231_l0123.txt",
+        "b0231_l0213": "time_major_probe_01_expected_b0231_l0213.txt",
+        "b0231_l0231": "time_major_probe_01_expected_b0231_l0231.txt",
+        "b0231_l0321": "time_major_probe_01_expected_b0231_l0321.txt",
+        "b0231_l1023": "time_major_probe_01_expected_b0231_l1023.txt",
+        "b0321_l0123": "time_major_probe_01_expected_b0321_l0123.txt",
+        "b0321_l0213": "time_major_probe_01_expected_b0321_l0213.txt"
+      },
+      "input_sha256": "897b3f1477b02517a6a8c53dea9a71fbd9cda2b68b8aa57f9ea068a60d6313c8",
+      "input_words": "time_major_probe_01_words.txt",
+      "role": "sparse_disambiguator"
+    }
+  ],
+  "sparse_probe_attempt": 3,
+  "sparse_probe_seed": 20260920
+}

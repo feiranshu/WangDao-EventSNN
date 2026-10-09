@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "experiment_id": "RTL-UNIT-VECTORS-v1",
+  "stage": "P4-rtl-unit-vectors",
+  "data_role": "synthetic_and_hw_calibration_golden_vectors",
+  "primary_metrics": {
+    "vector_files": 4,
+    "weight_files": 3,
+    "records": 470,
+    "verified_records": 470
+  },
+  "decision": "ready_for_rtl_simulation",
+  "conclusion": "第一批板卡无关算术与神经元黄金向量已生成并通过回读校验。",
+  "configuration": {
+    "width": 24,
+    "approximate_low_bits": 2,
+    "rounding": "nearest_ties_away_from_zero",
+    "overflow": "saturate",
+    "tree": "balanced_input_index_order",
+    "membrane_fraction_bits": 12,
+    "threshold_q": 1024,
+    "beta_numerator": 7,
+    "beta_shift": 3,
+    "reset": "soft_reset",
+    "seed": 20260904,
+    "random_cases_per_vector_type": 128,
+    "first_layer": {
+      "inputs": 128,
+      "representative_channels": [
+        {
+          "channel": 20,
+          "weight_fraction_bits": 4,
+          "right_shift": 0
+        },
+        {
+          "channel": 0,
+          "weight_fraction_bits": 5,
+          "right_shift": 1
+        },
+        {
+          "channel": 13,
+          "weight_fraction_bits": 6,
+          "right_shift": 2
+        }
+      ],
+      "patches": 12,
+      "time_steps_per_patch": 4,
+      "windows": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "files": {
+    "fixed_add": {
+      "path": "hardware/vectors/fixed_add.txt",
+      "records": 144,
+      "sha256": "d538dbe5ab99fc57e40640e42648a669034c26d2ec95389286ce58dd2bb7dcec"
+    },
+    "fixed_add_tree": {
+      "path": "hardware/vectors/fixed_add_tree.txt",
+      "records": 136,
+      "sha256": "d2033b8aad3de9bbb84b06cfb24301b3516ac8c307141955010c682f18f71de9"
+    },
+    "lif_neuron": {
+      "path": "hardware/vectors/lif_neuron.txt",
+      "records": 142,
+      "sha256": "240e8f857427a457b06b92965a7d4493ff56a8d1922b0cd781dadd732f4ce509"
+    },
+    "linear_lif_neuron": {
+      "path": "hardware/vectors/linear_lif_neuron.txt",
+      "records": 48,
+      "sha256": "e1dfa62b16d2047195526085502949225af62dbc20a106a32cdfba9bf709f336"
+    }
+  },
+  "weight_files": {
+    "layer1_weight_f4": {
+      "path": "hardware/vectors/layer1_weight_f4.txt",
+      "values": 128,
+      "sha256": "df3b41bdcce27bc145f36a836c5bceca5f3929122318a3ffeb4f75dcce33d6d5"
+    },
+    "layer1_weight_f5": {
+      "path": "hardware/vectors/layer1_weight_f5.txt",
+      "values": 128,
+      "sha256": "37cc53252b198932cb52eec1af0d720c0a3ea23ff7b35a853ce3ee0451c033b3"
+    },
+    "layer1_weight_f6": {
+      "path": "hardware/vectors/layer1_weight_f6.txt",
+      "values": 128,
+      "sha256": "2f4d1a9e31a1acd652e67c69a4c50ee0c4d8c9b0340c258051d9f78f22a4dc60"
+    }
+  },
+  "source": {
+    "dataset_sequence": "data/EV-UAV-dataset/train/train_022.npz",
+    "dataset_role": "hw_calibration",
+    "selected_patch_indices": [
+      0,
+      336,
+      672,
+      1343,
+      513,
+      177,
+      198,
+      534,
+      344,
+      828,
+      849,
+      345
+    ],
+    "frozen_weight": "software/weights/S3P_LOA_SYN13_MEMALL_K2_ACC24_MEM24_Q12.npz",
+    "frozen_weight_sha256": "be47d3a0dca69451d285b2907d0b63415fbff5e77658334c33c41bab41d51806"
+  },
+  "test_used": false,
+  "validation_used": false
+}
