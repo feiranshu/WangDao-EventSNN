@@ -1,0 +1,899 @@
+{
+  "role": "validation",
+  "scope": "same first-event-anchored complete 100 ms prefix for all three models",
+  "status": "post-freeze read-only comparison; no model or threshold selection",
+  "historical_prediction_policy": "H2 and H2-plus predictions came from the formal full-sequence Step7 score archive, then were cropped; their noncausal sequence-time input remains the original full-sequence value",
+  "earlier_truncated_input_A4_2_reference": {
+    "iou": 0.866927018337175,
+    "ap": 0.9614380820419454
+  },
+  "acceptance_lock_sha256": "e0cc8154e20b4475a80adf63d0ecf7d891721518d3db2865edf6d5f688fc06d9",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "historical_score_hashes": {
+    "H2": "3993d5720bff1a0b961b646441e0dc7909be73cf4fa18eecc168c9ee959715f7",
+    "H2-plus": "dfb37f1e7ec712e7ef36d434975089ea81854b3a0bccee49cd85b4c2231d13ef"
+  },
+  "A": {
+    "H2": {
+      "threshold": 0.3,
+      "events": 1405803,
+      "ap": 0.9611585834728715,
+      "event": {
+        "true_positive": 58852.0,
+        "false_positive": 3596.0,
+        "false_negative": 5837.0,
+        "true_negative": 1337518.0,
+        "iou": 0.8618583876400381,
+        "precision": 0.9424160901870356,
+        "recall": 0.9097682759047133,
+        "f1": 0.9258044471711618
+      },
+      "localization": {
+        "pd": 0.9000850340136054,
+        "fa": 7.769831948348535e-06,
+        "targets": 4704.0,
+        "false_components": 2589.0,
+        "frame_denominator": 3704.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 2,
+          "iou": 0.3951083935519733,
+          "recall": 0.44352926494446526,
+          "pd": 0.5,
+          "fa": 2.407297794065586e-05
+        },
+        "ordinary": {
+          "sequences": 22,
+          "iou": 0.9326699274751222,
+          "recall": 0.9756863575411109,
+          "pd": 0.9585769980506823,
+          "fa": 6.259747039326557e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2363,
+        "detected_object_windows": 2186,
+        "coverage": 0.9250952179432924,
+        "breaks": 63
+      },
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.39774133793390476,
+          "DetA": 0.5197958233314229,
+          "DetRe": 0.7614907805227354,
+          "DetPr": 0.6132601663377755,
+          "AssA": 0.3045268490225222,
+          "AssRe": 0.41658050402975005,
+          "AssPr": 0.6205634672700524,
+          "LocA": 0.9365842569108969
+        },
+        "longest_continuous_miss_p95_ms": 1607.4999999999995
+      }
+    },
+    "H2-plus": {
+      "threshold": 0.4,
+      "events": 1405803,
+      "ap": 0.9614948971836127,
+      "event": {
+        "true_positive": 59069.0,
+        "false_positive": 3441.0,
+        "false_negative": 5620.0,
+        "true_negative": 1337673.0,
+        "iou": 0.8670042565683252,
+        "precision": 0.9449528075507919,
+        "recall": 0.9131227874909181,
+        "f1": 0.9287651632481387
+      },
+      "localization": {
+        "pd": 0.9024234693877551,
+        "fa": 7.442712719932161e-06,
+        "targets": 4704.0,
+        "false_components": 2480.0,
+        "frame_denominator": 3704.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 2,
+          "iou": 0.4216881193757831,
+          "recall": 0.46199925121677277,
+          "pd": 0.52,
+          "fa": 1.883356509474841e-05
+        },
+        "ordinary": {
+          "sequences": 22,
+          "iou": 0.9328739195632761,
+          "recall": 0.9769038040793281,
+          "pd": 0.9583333333333334,
+          "fa": 6.387630818548001e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2363,
+        "detected_object_windows": 2185,
+        "coverage": 0.924672027084215,
+        "breaks": 51
+      },
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.43761687201076743,
+          "DetA": 0.5261620698993899,
+          "DetRe": 0.7645452918009309,
+          "DetPr": 0.6202864871734355,
+          "AssA": 0.36429187107449396,
+          "AssRe": 0.48720204020195546,
+          "AssPr": 0.6457933264400348,
+          "LocA": 0.9373873603945452
+        },
+        "longest_continuous_miss_p95_ms": 1329.9999999999982
+      }
+    },
+    "H2-pro": {
+      "threshold": 0.35,
+      "events": 1405803,
+      "ap": 0.9635886297530301,
+      "event": {
+        "true_positive": 59622.0,
+        "false_positive": 3193.0,
+        "false_negative": 5067.0,
+        "true_negative": 1337921.0,
+        "iou": 0.8783182581538552,
+        "precision": 0.9491681923107538,
+        "recall": 0.9216713815331818,
+        "f1": 0.9352177186598067
+      },
+      "localization": {
+        "pd": 0.9024234693877551,
+        "fa": 7.055571614742141e-06,
+        "targets": 4704.0,
+        "false_components": 2351.0,
+        "frame_denominator": 3704.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 2,
+          "iou": 0.48018944207000114,
+          "recall": 0.5187819792836641,
+          "pd": 0.5166666666666667,
+          "fa": 1.617845723364666e-05
+        },
+        "ordinary": {
+          "sequences": 22,
+          "iou": 0.9365132967496834,
+          "recall": 0.9786329310466512,
+          "pd": 0.9588206627680312,
+          "fa": 6.210560970395233e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2363,
+        "detected_object_windows": 2181,
+        "coverage": 0.9229792636479052,
+        "breaks": 48
+      },
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.43725533880709516,
+          "DetA": 0.5385557589471868,
+          "DetRe": 0.7712137486573576,
+          "DetPr": 0.6336750172374167,
+          "AssA": 0.35530732606347637,
+          "AssRe": 0.4640160686911071,
+          "AssPr": 0.638608829877006,
+          "LocA": 0.9399941322729777
+        },
+        "longest_continuous_miss_p95_ms": 1257.4999999999995
+      }
+    }
+  },
+  "B": {
+    "H2": {
+      "B01_parameters": 11904,
+      "B02_tensor_payload_bytes": 12656,
+      "persistent_proposal_history_bytes": 11968,
+      "sequences": 24,
+      "closed_windows": 1864,
+      "candidates": 448120,
+      "B03_dense_MAC_per_sequence": 279286400.0,
+      "B04a_effective_MAC_per_sequence": 81799272.29166667,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 81799272.29166667,
+      "totals": {
+        "proposal_dense_macs": 4810014720,
+        "proposal_effective_macs": 824349527,
+        "refiner_dense_macs": 1892858880,
+        "refiner_effective_macs": 1138833008
+      },
+      "per_sequence": [
+        {
+          "name": "val_000.npz",
+          "closed_windows": 79,
+          "candidates": 6027,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39354066,
+          "refiner_dense_macs": 25458048,
+          "refiner_effective_macs": 14867726
+        },
+        {
+          "name": "val_001.npz",
+          "closed_windows": 79,
+          "candidates": 5819,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42316599,
+          "refiner_dense_macs": 24579456,
+          "refiner_effective_macs": 13597342
+        },
+        {
+          "name": "val_002.npz",
+          "closed_windows": 79,
+          "candidates": 5932,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42180968,
+          "refiner_dense_macs": 25056768,
+          "refiner_effective_macs": 14299540
+        },
+        {
+          "name": "val_003.npz",
+          "closed_windows": 79,
+          "candidates": 5453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42503237,
+          "refiner_dense_macs": 23033472,
+          "refiner_effective_macs": 12789585
+        },
+        {
+          "name": "val_004.npz",
+          "closed_windows": 79,
+          "candidates": 3503,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31590452,
+          "refiner_dense_macs": 14796672,
+          "refiner_effective_macs": 8861815
+        },
+        {
+          "name": "val_005.npz",
+          "closed_windows": 79,
+          "candidates": 2453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32170236,
+          "refiner_dense_macs": 10361472,
+          "refiner_effective_macs": 5888901
+        },
+        {
+          "name": "val_006.npz",
+          "closed_windows": 79,
+          "candidates": 1660,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31612432,
+          "refiner_dense_macs": 7011840,
+          "refiner_effective_macs": 3917486
+        },
+        {
+          "name": "val_007.npz",
+          "closed_windows": 79,
+          "candidates": 3445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31014006,
+          "refiner_dense_macs": 14551680,
+          "refiner_effective_macs": 8669792
+        },
+        {
+          "name": "val_008.npz",
+          "closed_windows": 79,
+          "candidates": 53958,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28217423,
+          "refiner_dense_macs": 227918592,
+          "refiner_effective_macs": 140328401
+        },
+        {
+          "name": "val_009.npz",
+          "closed_windows": 79,
+          "candidates": 40737,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28163139,
+          "refiner_dense_macs": 172073088,
+          "refiner_effective_macs": 103686713
+        },
+        {
+          "name": "val_010.npz",
+          "closed_windows": 79,
+          "candidates": 30012,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27949790,
+          "refiner_dense_macs": 126770688,
+          "refiner_effective_macs": 74546198
+        },
+        {
+          "name": "val_011.npz",
+          "closed_windows": 79,
+          "candidates": 29803,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28239125,
+          "refiner_dense_macs": 125887872,
+          "refiner_effective_macs": 74457128
+        },
+        {
+          "name": "val_012.npz",
+          "closed_windows": 79,
+          "candidates": 26365,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27610802,
+          "refiner_dense_macs": 111365760,
+          "refiner_effective_macs": 65958314
+        },
+        {
+          "name": "val_013.npz",
+          "closed_windows": 79,
+          "candidates": 10786,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 25251068,
+          "refiner_dense_macs": 45560064,
+          "refiner_effective_macs": 26930034
+        },
+        {
+          "name": "val_014.npz",
+          "closed_windows": 79,
+          "candidates": 5149,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39873894,
+          "refiner_dense_macs": 21749376,
+          "refiner_effective_macs": 11835024
+        },
+        {
+          "name": "val_015.npz",
+          "closed_windows": 79,
+          "candidates": 27984,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 62733804,
+          "refiner_dense_macs": 118204416,
+          "refiner_effective_macs": 71073124
+        },
+        {
+          "name": "val_016.npz",
+          "closed_windows": 79,
+          "candidates": 4863,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28463462,
+          "refiner_dense_macs": 20541312,
+          "refiner_effective_macs": 12010504
+        },
+        {
+          "name": "val_017.npz",
+          "closed_windows": 79,
+          "candidates": 4445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29350336,
+          "refiner_dense_macs": 18775680,
+          "refiner_effective_macs": 10770099
+        },
+        {
+          "name": "val_018.npz",
+          "closed_windows": 79,
+          "candidates": 4058,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29380035,
+          "refiner_dense_macs": 17140992,
+          "refiner_effective_macs": 10298293
+        },
+        {
+          "name": "val_019.npz",
+          "closed_windows": 79,
+          "candidates": 6554,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31566853,
+          "refiner_dense_macs": 27684096,
+          "refiner_effective_macs": 15973675
+        },
+        {
+          "name": "val_020.npz",
+          "closed_windows": 79,
+          "candidates": 8523,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31493625,
+          "refiner_dense_macs": 36001152,
+          "refiner_effective_macs": 21226829
+        },
+        {
+          "name": "val_021.npz",
+          "closed_windows": 47,
+          "candidates": 3665,
+          "proposal_dense_macs": 121282560,
+          "proposal_effective_macs": 18775257,
+          "refiner_dense_macs": 15480960,
+          "refiner_effective_macs": 8779695
+        },
+        {
+          "name": "val_022.npz",
+          "closed_windows": 79,
+          "candidates": 2366,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17129642,
+          "refiner_dense_macs": 9993984,
+          "refiner_effective_macs": 5927174
+        },
+        {
+          "name": "val_023.npz",
+          "closed_windows": 79,
+          "candidates": 154560,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 77409276,
+          "refiner_dense_macs": 652861440,
+          "refiner_effective_macs": 402139616
+        }
+      ]
+    },
+    "H2-plus": {
+      "B01_parameters": 12160,
+      "B02_tensor_payload_bytes": 12912,
+      "persistent_proposal_history_bytes": 11968,
+      "sequences": 24,
+      "closed_windows": 1864,
+      "candidates": 448120,
+      "B03_dense_MAC_per_sequence": 284066346.6666667,
+      "B04a_effective_MAC_per_sequence": 85835444.5,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 85835444.5,
+      "totals": {
+        "proposal_dense_macs": 4810014720,
+        "proposal_effective_macs": 824349527,
+        "refiner_dense_macs": 2007577600,
+        "refiner_effective_macs": 1235701141
+      },
+      "per_sequence": [
+        {
+          "name": "val_000.npz",
+          "closed_windows": 79,
+          "candidates": 6027,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39354066,
+          "refiner_dense_macs": 27000960,
+          "refiner_effective_macs": 16228418
+        },
+        {
+          "name": "val_001.npz",
+          "closed_windows": 79,
+          "candidates": 5819,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42316599,
+          "refiner_dense_macs": 26069120,
+          "refiner_effective_macs": 14901995
+        },
+        {
+          "name": "val_002.npz",
+          "closed_windows": 79,
+          "candidates": 5932,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42180968,
+          "refiner_dense_macs": 26575360,
+          "refiner_effective_macs": 15600403
+        },
+        {
+          "name": "val_003.npz",
+          "closed_windows": 79,
+          "candidates": 5453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42503237,
+          "refiner_dense_macs": 24429440,
+          "refiner_effective_macs": 13983602
+        },
+        {
+          "name": "val_004.npz",
+          "closed_windows": 79,
+          "candidates": 3503,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31590452,
+          "refiner_dense_macs": 15693440,
+          "refiner_effective_macs": 9655786
+        },
+        {
+          "name": "val_005.npz",
+          "closed_windows": 79,
+          "candidates": 2453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32170236,
+          "refiner_dense_macs": 10989440,
+          "refiner_effective_macs": 6416778
+        },
+        {
+          "name": "val_006.npz",
+          "closed_windows": 79,
+          "candidates": 1660,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31612432,
+          "refiner_dense_macs": 7436800,
+          "refiner_effective_macs": 4255603
+        },
+        {
+          "name": "val_007.npz",
+          "closed_windows": 79,
+          "candidates": 3445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31014006,
+          "refiner_dense_macs": 15433600,
+          "refiner_effective_macs": 9433903
+        },
+        {
+          "name": "val_008.npz",
+          "closed_windows": 79,
+          "candidates": 53958,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28217423,
+          "refiner_dense_macs": 241731840,
+          "refiner_effective_macs": 151756358
+        },
+        {
+          "name": "val_009.npz",
+          "closed_windows": 79,
+          "candidates": 40737,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28163139,
+          "refiner_dense_macs": 182501760,
+          "refiner_effective_macs": 112313166
+        },
+        {
+          "name": "val_010.npz",
+          "closed_windows": 79,
+          "candidates": 30012,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27949790,
+          "refiner_dense_macs": 134453760,
+          "refiner_effective_macs": 80775877
+        },
+        {
+          "name": "val_011.npz",
+          "closed_windows": 79,
+          "candidates": 29803,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28239125,
+          "refiner_dense_macs": 133517440,
+          "refiner_effective_macs": 80716358
+        },
+        {
+          "name": "val_012.npz",
+          "closed_windows": 79,
+          "candidates": 26365,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27610802,
+          "refiner_dense_macs": 118115200,
+          "refiner_effective_macs": 71721742
+        },
+        {
+          "name": "val_013.npz",
+          "closed_windows": 79,
+          "candidates": 10786,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 25251068,
+          "refiner_dense_macs": 48321280,
+          "refiner_effective_macs": 29362849
+        },
+        {
+          "name": "val_014.npz",
+          "closed_windows": 79,
+          "candidates": 5149,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39873894,
+          "refiner_dense_macs": 23067520,
+          "refiner_effective_macs": 12954108
+        },
+        {
+          "name": "val_015.npz",
+          "closed_windows": 79,
+          "candidates": 27984,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 62733804,
+          "refiner_dense_macs": 125368320,
+          "refiner_effective_macs": 77018733
+        },
+        {
+          "name": "val_016.npz",
+          "closed_windows": 79,
+          "candidates": 4863,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28463462,
+          "refiner_dense_macs": 21786240,
+          "refiner_effective_macs": 13015237
+        },
+        {
+          "name": "val_017.npz",
+          "closed_windows": 79,
+          "candidates": 4445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29350336,
+          "refiner_dense_macs": 19913600,
+          "refiner_effective_macs": 11731628
+        },
+        {
+          "name": "val_018.npz",
+          "closed_windows": 79,
+          "candidates": 4058,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29380035,
+          "refiner_dense_macs": 18179840,
+          "refiner_effective_macs": 11209306
+        },
+        {
+          "name": "val_019.npz",
+          "closed_windows": 79,
+          "candidates": 6554,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31566853,
+          "refiner_dense_macs": 29361920,
+          "refiner_effective_macs": 17423621
+        },
+        {
+          "name": "val_020.npz",
+          "closed_windows": 79,
+          "candidates": 8523,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31493625,
+          "refiner_dense_macs": 38183040,
+          "refiner_effective_macs": 23267502
+        },
+        {
+          "name": "val_021.npz",
+          "closed_windows": 47,
+          "candidates": 3665,
+          "proposal_dense_macs": 121282560,
+          "proposal_effective_macs": 18775257,
+          "refiner_dense_macs": 16419200,
+          "refiner_effective_macs": 9584703
+        },
+        {
+          "name": "val_022.npz",
+          "closed_windows": 79,
+          "candidates": 2366,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17129642,
+          "refiner_dense_macs": 10599680,
+          "refiner_effective_macs": 6469856
+        },
+        {
+          "name": "val_023.npz",
+          "closed_windows": 79,
+          "candidates": 154560,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 77409276,
+          "refiner_dense_macs": 692428800,
+          "refiner_effective_macs": 435903609
+        }
+      ]
+    },
+    "H2-pro": {
+      "B01_parameters": 12160,
+      "B02_tensor_payload_bytes": 12912,
+      "persistent_proposal_history_bytes": 11968,
+      "sequences": 24,
+      "closed_windows": 1864,
+      "candidates": 448120,
+      "B03_dense_MAC_per_sequence": 284066346.6666667,
+      "B04a_effective_MAC_per_sequence": 85532971.54166667,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 85532971.54166667,
+      "totals": {
+        "proposal_dense_macs": 4810014720,
+        "proposal_effective_macs": 824349527,
+        "refiner_dense_macs": 2007577600,
+        "refiner_effective_macs": 1228441790
+      },
+      "per_sequence": [
+        {
+          "name": "val_000.npz",
+          "closed_windows": 79,
+          "candidates": 6027,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39354066,
+          "refiner_dense_macs": 27000960,
+          "refiner_effective_macs": 16136438
+        },
+        {
+          "name": "val_001.npz",
+          "closed_windows": 79,
+          "candidates": 5819,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42316599,
+          "refiner_dense_macs": 26069120,
+          "refiner_effective_macs": 14775880
+        },
+        {
+          "name": "val_002.npz",
+          "closed_windows": 79,
+          "candidates": 5932,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42180968,
+          "refiner_dense_macs": 26575360,
+          "refiner_effective_macs": 15520225
+        },
+        {
+          "name": "val_003.npz",
+          "closed_windows": 79,
+          "candidates": 5453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 42503237,
+          "refiner_dense_macs": 24429440,
+          "refiner_effective_macs": 13881485
+        },
+        {
+          "name": "val_004.npz",
+          "closed_windows": 79,
+          "candidates": 3503,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31590452,
+          "refiner_dense_macs": 15693440,
+          "refiner_effective_macs": 9593959
+        },
+        {
+          "name": "val_005.npz",
+          "closed_windows": 79,
+          "candidates": 2453,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32170236,
+          "refiner_dense_macs": 10989440,
+          "refiner_effective_macs": 6373545
+        },
+        {
+          "name": "val_006.npz",
+          "closed_windows": 79,
+          "candidates": 1660,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31612432,
+          "refiner_dense_macs": 7436800,
+          "refiner_effective_macs": 4221515
+        },
+        {
+          "name": "val_007.npz",
+          "closed_windows": 79,
+          "candidates": 3445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31014006,
+          "refiner_dense_macs": 15433600,
+          "refiner_effective_macs": 9403751
+        },
+        {
+          "name": "val_008.npz",
+          "closed_windows": 79,
+          "candidates": 53958,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28217423,
+          "refiner_dense_macs": 241731840,
+          "refiner_effective_macs": 150996807
+        },
+        {
+          "name": "val_009.npz",
+          "closed_windows": 79,
+          "candidates": 40737,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28163139,
+          "refiner_dense_macs": 182501760,
+          "refiner_effective_macs": 111613004
+        },
+        {
+          "name": "val_010.npz",
+          "closed_windows": 79,
+          "candidates": 30012,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27949790,
+          "refiner_dense_macs": 134453760,
+          "refiner_effective_macs": 80283826
+        },
+        {
+          "name": "val_011.npz",
+          "closed_windows": 79,
+          "candidates": 29803,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28239125,
+          "refiner_dense_macs": 133517440,
+          "refiner_effective_macs": 80217503
+        },
+        {
+          "name": "val_012.npz",
+          "closed_windows": 79,
+          "candidates": 26365,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 27610802,
+          "refiner_dense_macs": 118115200,
+          "refiner_effective_macs": 71391248
+        },
+        {
+          "name": "val_013.npz",
+          "closed_windows": 79,
+          "candidates": 10786,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 25251068,
+          "refiner_dense_macs": 48321280,
+          "refiner_effective_macs": 29185656
+        },
+        {
+          "name": "val_014.npz",
+          "closed_windows": 79,
+          "candidates": 5149,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39873894,
+          "refiner_dense_macs": 23067520,
+          "refiner_effective_macs": 12860706
+        },
+        {
+          "name": "val_015.npz",
+          "closed_windows": 79,
+          "candidates": 27984,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 62733804,
+          "refiner_dense_macs": 125368320,
+          "refiner_effective_macs": 76859552
+        },
+        {
+          "name": "val_016.npz",
+          "closed_windows": 79,
+          "candidates": 4863,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28463462,
+          "refiner_dense_macs": 21786240,
+          "refiner_effective_macs": 12941001
+        },
+        {
+          "name": "val_017.npz",
+          "closed_windows": 79,
+          "candidates": 4445,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29350336,
+          "refiner_dense_macs": 19913600,
+          "refiner_effective_macs": 11666769
+        },
+        {
+          "name": "val_018.npz",
+          "closed_windows": 79,
+          "candidates": 4058,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29380035,
+          "refiner_dense_macs": 18179840,
+          "refiner_effective_macs": 11176294
+        },
+        {
+          "name": "val_019.npz",
+          "closed_windows": 79,
+          "candidates": 6554,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31566853,
+          "refiner_dense_macs": 29361920,
+          "refiner_effective_macs": 17288682
+        },
+        {
+          "name": "val_020.npz",
+          "closed_windows": 79,
+          "candidates": 8523,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31493625,
+          "refiner_dense_macs": 38183040,
+          "refiner_effective_macs": 23041919
+        },
+        {
+          "name": "val_021.npz",
+          "closed_windows": 47,
+          "candidates": 3665,
+          "proposal_dense_macs": 121282560,
+          "proposal_effective_macs": 18775257,
+          "refiner_dense_macs": 16419200,
+          "refiner_effective_macs": 9497602
+        },
+        {
+          "name": "val_022.npz",
+          "closed_windows": 79,
+          "candidates": 2366,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17129642,
+          "refiner_dense_macs": 10599680,
+          "refiner_effective_macs": 6436502
+        },
+        {
+          "name": "val_023.npz",
+          "closed_windows": 79,
+          "candidates": 154560,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 77409276,
+          "refiner_dense_macs": 692428800,
+          "refiner_effective_macs": 433077921
+        }
+      ]
+    }
+  }
+}

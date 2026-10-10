@@ -1,0 +1,29 @@
+{
+  "model_id": "H2-pro-Causal-ANN-v1",
+  "status": "formal_final_by_user_direction",
+  "configuration": {
+    "variant": "C1-proposal-motion",
+    "seed": 42,
+    "epoch": 10,
+    "threshold": 0.35,
+    "numeric_path": "exact_int8_replay",
+    "window_ms": 100,
+    "weight_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d"
+  },
+  "reason": "replace noncausal full-sequence relative-time Refiner feature with closed-window Proposal motion for real-time causal inference",
+  "test_same_prefix": {
+    "h2_pro_iou": 0.8713828048381824,
+    "h2_plus_iou": 0.8686454511027828,
+    "delta_pro_minus_plus_iou": 0.0027373537353996,
+    "delta_iou_95_interval": [-0.00007264, 0.00611747],
+    "h2_pro_hota": 0.4213319593315561,
+    "h2_plus_hota": 0.4314413206523048
+  },
+  "limitations": [
+    "Test IoU delta confidence interval crosses zero",
+    "H2-pro HOTA is lower than H2-plus and H2 on Test",
+    "H2 and H2-plus historical predictions were scored on full sequences then cropped and retain the noncausal time feature",
+    "No KV260 board latency or power measurement"
+  ],
+  "historical_h2_plus": "../../../seven_step_improvement_study/step7/intermediate_H2-plus"
+}

@@ -1,9 +1,5 @@
 # A 模型准确度
 
-`01_metric_comparisons/01_event_level/` 保存 A01–A13，`02_target_track_level/` 保存 A14–A22。每项分别有 `validation.csv` 与 `test.csv`，二者不得交叉引用源数据。
+A01–A13 为事件级，A14–A22 为可观测事件轨迹指标。正式软件模型 H2 与 H2-pro 的 Validation/Test 使用相同首事件锚定的完整 100 ms 窗口前缀。H2 预测由旧全序列评分裁剪，仍含非因果时间输入；H2-pro 是流式因果推理。H2-plus 的历史比较仍在 `../../1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/AB_COMPARISON.md`，但不在正式注册表。
 
-`02_model_records/formal/<evaluation_id>/<split>/` 保存正式模型事件级与目标轨迹级源结果。A 对软件正式模型和板端正式模型都是必测项。完整定义、事件窗口和可观测事件轨迹 HOTA 协议见 `03_rules_and_protocols/`。
-
-EV-SpSegNet 已作为软件正式模型注册。ICCV 2025 论文表 2直接给出的 Test Event IoU、ACC、Pd、Fa 以 `paper_reported` 保存，仅用于说明论文公开结果，不替代本项目 Validation/Test 同口径测量，也不计为完整性通过。官方 CUDA 服务器包会输出 A01–A22 所需全部源文件，回传导入后由生成器改为 `complete`。
-
-EMS-YOLO 也作为软件正式模型注册。模型按原 250 ms 窗、100 ms 步长和 5 时间步扫描完整序列；不复用原先仅保存含目标窗口的 GT 筛选。固定适配器把每个事件赋为所有覆盖滑窗预测框的最大置信度，未覆盖事件为 0，再计算相同的 A01–A22。窗口选择和适配器都不读取 `label/name`。固定阈值 0.407 来自入选前 Validation F1 峰值，Validation 结果必须标注选择相关性，Test 用作主要无偏比较。实验报告的目标框 `mAP@0.5` 不等于 A01 Event AP，不写入正式指标 CSV。
+`01_metric_comparisons/` 保存逐指标 CSV；`02_model_records/formal/<evaluation_id>/<split>/` 保存事件级和轨迹级源结果。EV-SpSegNet 已正式注册，其论文值仅作 `paper_reported` 参照，同口径完整测量仍待补齐。

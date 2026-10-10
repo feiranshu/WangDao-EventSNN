@@ -1,0 +1,903 @@
+{
+  "role": "test",
+  "scope": "same first-event-anchored complete 100 ms prefix for all three models",
+  "status": "post-freeze read-only comparison; no model or threshold selection",
+  "B_scope": "Proposal and conditional Refiner exact-int8 MAC counts; excludes feature construction, routing, connected components, CPU latency, and memory workspace",
+  "historical_prediction_policy": "H2 and H2-plus predictions came from the formal full-sequence Step7 score archive, then were cropped; their noncausal sequence-time input remains the original full-sequence value",
+  "earlier_truncated_input_A4_2_reference": {
+    "iou": 0.8687957157784744,
+    "ap": 0.9695635167537145
+  },
+  "acceptance_lock_sha256": "e0cc8154e20b4475a80adf63d0ecf7d891721518d3db2865edf6d5f688fc06d9",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "historical_score_hashes": {
+    "H2": "dfed51e286852e733234208db34058a3297cabcf5d4d09532c851dd360341223",
+    "H2-plus": "a2f097301beea0b59c278f782e1fad5b4950735553f80ff3d111b6c4cffdeeec"
+  },
+  "A": {
+    "H2": {
+      "threshold": 0.3,
+      "events": 2049292,
+      "ap": 0.9678069791412467,
+      "event": {
+        "true_positive": 66703.0,
+        "false_positive": 6963.0,
+        "false_negative": 3968.0,
+        "true_negative": 1971658.0,
+        "iou": 0.8591982894092794,
+        "precision": 0.9054787826134173,
+        "recall": 0.9438524996108729,
+        "f1": 0.9242675128345469
+      },
+      "localization": {
+        "pd": 0.9373549883990719,
+        "fa": 1.1853896133742914e-05,
+        "targets": 5172.0,
+        "false_components": 3920.0,
+        "frame_denominator": 3676.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 3,
+          "iou": 0.572660023231644,
+          "recall": 0.7761206396553153,
+          "pd": 0.7413194444444444,
+          "fa": 4.53374417882352e-05
+        },
+        "ordinary": {
+          "sequences": 21,
+          "iou": 0.9356854937415343,
+          "recall": 0.9783966417528412,
+          "pd": 0.9619234116623151,
+          "fa": 6.933225305890848e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2588,
+        "detected_object_windows": 2485,
+        "coverage": 0.9602009273570324,
+        "breaks": 49
+      },
+      "macro_sequence_recall": 0.9547033931939927,
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.44027145025281156,
+          "DetA": 0.5222673258465645,
+          "DetRe": 0.8062136198966093,
+          "DetPr": 0.5906979518494494,
+          "AssA": 0.37165083156829676,
+          "AssRe": 0.5608927685141675,
+          "AssPr": 0.5585152622835082,
+          "LocA": 0.9387924837308227
+        },
+        "longest_continuous_miss_p95_ms": 300.0
+      }
+    },
+    "H2-plus": {
+      "threshold": 0.4,
+      "events": 2049292,
+      "ap": 0.969565383612633,
+      "event": {
+        "true_positive": 66520.0,
+        "false_positive": 5908.0,
+        "false_negative": 4151.0,
+        "true_negative": 1972713.0,
+        "iou": 0.8686454511027828,
+        "precision": 0.9184293367206053,
+        "recall": 0.9412630357572414,
+        "f1": 0.929706007728915
+      },
+      "localization": {
+        "pd": 0.9365815931941222,
+        "fa": 1.1140243203242064e-05,
+        "targets": 5172.0,
+        "false_components": 3684.0,
+        "frame_denominator": 3676.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 3,
+          "iou": 0.6033241722287659,
+          "recall": 0.7639406744552159,
+          "pd": 0.734375,
+          "fa": 3.924839442677519e-05
+        },
+        "ordinary": {
+          "sequences": 21,
+          "iou": 0.9347928936163271,
+          "recall": 0.9777823282481827,
+          "pd": 0.9619234116623151,
+          "fa": 7.009528936070738e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2588,
+        "detected_object_windows": 2483,
+        "coverage": 0.9594281298299846,
+        "breaks": 44
+      },
+      "macro_sequence_recall": 0.9526483507184773,
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.4314413206523048,
+          "DetA": 0.5248633828151089,
+          "DetRe": 0.8043615419058087,
+          "DetPr": 0.5949882572564134,
+          "AssA": 0.35503627413874916,
+          "AssRe": 0.5593116270319108,
+          "AssPr": 0.5283379413463766,
+          "LocA": 0.9387541858916614
+        },
+        "longest_continuous_miss_p95_ms": 302.4999999999999
+      }
+    },
+    "H2-pro": {
+      "threshold": 0.35,
+      "events": 2049292,
+      "ap": 0.9708224996772417,
+      "event": {
+        "true_positive": 66639.0,
+        "false_positive": 5804.0,
+        "false_negative": 4032.0,
+        "true_negative": 1972817.0,
+        "iou": 0.8713828048381824,
+        "precision": 0.9198818381348094,
+        "recall": 0.942946894765887,
+        "f1": 0.9312715737104685
+      },
+      "localization": {
+        "pd": 0.9361948955916474,
+        "fa": 1.0992069501570278e-05,
+        "targets": 5172.0,
+        "false_components": 3635.0,
+        "frame_denominator": 3676.0
+      },
+      "density_strata": {
+        "high": {
+          "sequences": 3,
+          "iou": 0.612490097702667,
+          "recall": 0.7687463750103571,
+          "pd": 0.7274305555555556,
+          "fa": 3.714790909665914e-05
+        },
+        "ordinary": {
+          "sequences": 21,
+          "iou": 0.9353302786700801,
+          "recall": 0.9788232483532985,
+          "pd": 0.9623585726718886,
+          "fa": 7.148262809125082e-06
+        }
+      },
+      "continuity": {
+        "eligible_object_windows": 2588,
+        "detected_object_windows": 2480,
+        "coverage": 0.9582689335394127,
+        "breaks": 44
+      },
+      "macro_sequence_recall": 0.9538134166812057,
+      "target_track": {
+        "averaged": {
+          "HOTA": 0.4213319593315561,
+          "DetA": 0.5294322593440296,
+          "DetRe": 0.8062339724020028,
+          "DetPr": 0.6001499863648759,
+          "AssA": 0.33562973731714374,
+          "AssRe": 0.5322818208379045,
+          "AssPr": 0.5324965230440806,
+          "LocA": 0.9403622304382498
+        },
+        "longest_continuous_miss_p95_ms": 302.4999999999999
+      }
+    }
+  },
+  "B": {
+    "H2": {
+      "B01_parameters": 11904,
+      "B02_tensor_payload_bytes": 12656,
+      "persistent_proposal_history_bytes": 0,
+      "sequences": 24,
+      "closed_windows": 1850,
+      "candidates": 643002,
+      "B03_dense_MAC_per_sequence": 312080352.0,
+      "B04a_effective_MAC_per_sequence": 106317982.20833333,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 106317982.20833333,
+      "totals": {
+        "proposal_dense_macs": 4773888000,
+        "proposal_effective_macs": 871785885,
+        "refiner_dense_macs": 2716040448,
+        "refiner_effective_macs": 1679845688
+      },
+      "per_sequence": [
+        {
+          "name": "test_000.npz",
+          "closed_windows": 79,
+          "candidates": 5669,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39492981,
+          "refiner_dense_macs": 23945856,
+          "refiner_effective_macs": 13809949
+        },
+        {
+          "name": "test_001.npz",
+          "closed_windows": 79,
+          "candidates": 2247,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32648359,
+          "refiner_dense_macs": 9491328,
+          "refiner_effective_macs": 5316919
+        },
+        {
+          "name": "test_002.npz",
+          "closed_windows": 79,
+          "candidates": 3113,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32659336,
+          "refiner_dense_macs": 13149312,
+          "refiner_effective_macs": 7523295
+        },
+        {
+          "name": "test_003.npz",
+          "closed_windows": 79,
+          "candidates": 1662,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32555648,
+          "refiner_dense_macs": 7020288,
+          "refiner_effective_macs": 3750698
+        },
+        {
+          "name": "test_004.npz",
+          "closed_windows": 79,
+          "candidates": 43601,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28192890,
+          "refiner_dense_macs": 184170624,
+          "refiner_effective_macs": 111543273
+        },
+        {
+          "name": "test_005.npz",
+          "closed_windows": 79,
+          "candidates": 4657,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 26961450,
+          "refiner_dense_macs": 19671168,
+          "refiner_effective_macs": 11922034
+        },
+        {
+          "name": "test_006.npz",
+          "closed_windows": 79,
+          "candidates": 5718,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39562415,
+          "refiner_dense_macs": 24152832,
+          "refiner_effective_macs": 13672979
+        },
+        {
+          "name": "test_007.npz",
+          "closed_windows": 79,
+          "candidates": 5311,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39421123,
+          "refiner_dense_macs": 22433664,
+          "refiner_effective_macs": 12675434
+        },
+        {
+          "name": "test_008.npz",
+          "closed_windows": 79,
+          "candidates": 47956,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 54545901,
+          "refiner_dense_macs": 202566144,
+          "refiner_effective_macs": 124983071
+        },
+        {
+          "name": "test_009.npz",
+          "closed_windows": 79,
+          "candidates": 5413,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28306672,
+          "refiner_dense_macs": 22864512,
+          "refiner_effective_macs": 13348893
+        },
+        {
+          "name": "test_010.npz",
+          "closed_windows": 79,
+          "candidates": 3738,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28934543,
+          "refiner_dense_macs": 15789312,
+          "refiner_effective_macs": 9069913
+        },
+        {
+          "name": "test_011.npz",
+          "closed_windows": 79,
+          "candidates": 3471,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29416881,
+          "refiner_dense_macs": 14661504,
+          "refiner_effective_macs": 8417697
+        },
+        {
+          "name": "test_012.npz",
+          "closed_windows": 79,
+          "candidates": 2922,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29224828,
+          "refiner_dense_macs": 12342528,
+          "refiner_effective_macs": 7004756
+        },
+        {
+          "name": "test_013.npz",
+          "closed_windows": 79,
+          "candidates": 6196,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29231544,
+          "refiner_dense_macs": 26171904,
+          "refiner_effective_macs": 16017193
+        },
+        {
+          "name": "test_014.npz",
+          "closed_windows": 79,
+          "candidates": 4044,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28524361,
+          "refiner_dense_macs": 17081856,
+          "refiner_effective_macs": 9941971
+        },
+        {
+          "name": "test_015.npz",
+          "closed_windows": 74,
+          "candidates": 10186,
+          "proposal_dense_macs": 190955520,
+          "proposal_effective_macs": 32969110,
+          "refiner_dense_macs": 43025664,
+          "refiner_effective_macs": 25119820
+        },
+        {
+          "name": "test_016.npz",
+          "closed_windows": 79,
+          "candidates": 8631,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 33848983,
+          "refiner_dense_macs": 36457344,
+          "refiner_effective_macs": 20951199
+        },
+        {
+          "name": "test_017.npz",
+          "closed_windows": 79,
+          "candidates": 12468,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31680909,
+          "refiner_dense_macs": 52664832,
+          "refiner_effective_macs": 31647708
+        },
+        {
+          "name": "test_018.npz",
+          "closed_windows": 79,
+          "candidates": 11625,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31283688,
+          "refiner_dense_macs": 49104000,
+          "refiner_effective_macs": 29647071
+        },
+        {
+          "name": "test_019.npz",
+          "closed_windows": 79,
+          "candidates": 2911,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17302813,
+          "refiner_dense_macs": 12296064,
+          "refiner_effective_macs": 7077636
+        },
+        {
+          "name": "test_020.npz",
+          "closed_windows": 65,
+          "candidates": 1662,
+          "proposal_dense_macs": 167731200,
+          "proposal_effective_macs": 14047882,
+          "refiner_dense_macs": 7020288,
+          "refiner_effective_macs": 4122646
+        },
+        {
+          "name": "test_021.npz",
+          "closed_windows": 52,
+          "candidates": 1863,
+          "proposal_dense_macs": 134184960,
+          "proposal_effective_macs": 11289029,
+          "refiner_dense_macs": 7869312,
+          "refiner_effective_macs": 4700222
+        },
+        {
+          "name": "test_022.npz",
+          "closed_windows": 79,
+          "candidates": 230508,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 98747977,
+          "refiner_dense_macs": 973665792,
+          "refiner_effective_macs": 611151670
+        },
+        {
+          "name": "test_023.npz",
+          "closed_windows": 79,
+          "candidates": 217430,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 100936562,
+          "refiner_dense_macs": 918424320,
+          "refiner_effective_macs": 576429641
+        }
+      ]
+    },
+    "H2-plus": {
+      "B01_parameters": 12160,
+      "B02_tensor_payload_bytes": 12912,
+      "persistent_proposal_history_bytes": 11968,
+      "sequences": 24,
+      "closed_windows": 1850,
+      "candidates": 643002,
+      "B03_dense_MAC_per_sequence": 318939040.0,
+      "B04a_effective_MAC_per_sequence": 112186527.375,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 112186527.375,
+      "totals": {
+        "proposal_dense_macs": 4773888000,
+        "proposal_effective_macs": 871785885,
+        "refiner_dense_macs": 2880648960,
+        "refiner_effective_macs": 1820690772
+      },
+      "per_sequence": [
+        {
+          "name": "test_000.npz",
+          "closed_windows": 79,
+          "candidates": 5669,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39492981,
+          "refiner_dense_macs": 25397120,
+          "refiner_effective_macs": 15123498
+        },
+        {
+          "name": "test_001.npz",
+          "closed_windows": 79,
+          "candidates": 2247,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32648359,
+          "refiner_dense_macs": 10066560,
+          "refiner_effective_macs": 5810333
+        },
+        {
+          "name": "test_002.npz",
+          "closed_windows": 79,
+          "candidates": 3113,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32659336,
+          "refiner_dense_macs": 13946240,
+          "refiner_effective_macs": 8219625
+        },
+        {
+          "name": "test_003.npz",
+          "closed_windows": 79,
+          "candidates": 1662,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32555648,
+          "refiner_dense_macs": 7445760,
+          "refiner_effective_macs": 4089037
+        },
+        {
+          "name": "test_004.npz",
+          "closed_windows": 79,
+          "candidates": 43601,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28192890,
+          "refiner_dense_macs": 195332480,
+          "refiner_effective_macs": 120685557
+        },
+        {
+          "name": "test_005.npz",
+          "closed_windows": 79,
+          "candidates": 4657,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 26961450,
+          "refiner_dense_macs": 20863360,
+          "refiner_effective_macs": 13118135
+        },
+        {
+          "name": "test_006.npz",
+          "closed_windows": 79,
+          "candidates": 5718,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39562415,
+          "refiner_dense_macs": 25616640,
+          "refiner_effective_macs": 14920213
+        },
+        {
+          "name": "test_007.npz",
+          "closed_windows": 79,
+          "candidates": 5311,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39421123,
+          "refiner_dense_macs": 23793280,
+          "refiner_effective_macs": 13874039
+        },
+        {
+          "name": "test_008.npz",
+          "closed_windows": 79,
+          "candidates": 47956,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 54545901,
+          "refiner_dense_macs": 214842880,
+          "refiner_effective_macs": 134595522
+        },
+        {
+          "name": "test_009.npz",
+          "closed_windows": 79,
+          "candidates": 5413,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28306672,
+          "refiner_dense_macs": 24250240,
+          "refiner_effective_macs": 14563434
+        },
+        {
+          "name": "test_010.npz",
+          "closed_windows": 79,
+          "candidates": 3738,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28934543,
+          "refiner_dense_macs": 16746240,
+          "refiner_effective_macs": 9907713
+        },
+        {
+          "name": "test_011.npz",
+          "closed_windows": 79,
+          "candidates": 3471,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29416881,
+          "refiner_dense_macs": 15550080,
+          "refiner_effective_macs": 9170822
+        },
+        {
+          "name": "test_012.npz",
+          "closed_windows": 79,
+          "candidates": 2922,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29224828,
+          "refiner_dense_macs": 13090560,
+          "refiner_effective_macs": 7643181
+        },
+        {
+          "name": "test_013.npz",
+          "closed_windows": 79,
+          "candidates": 6196,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29231544,
+          "refiner_dense_macs": 27758080,
+          "refiner_effective_macs": 17427126
+        },
+        {
+          "name": "test_014.npz",
+          "closed_windows": 79,
+          "candidates": 4044,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28524361,
+          "refiner_dense_macs": 18117120,
+          "refiner_effective_macs": 10857384
+        },
+        {
+          "name": "test_015.npz",
+          "closed_windows": 74,
+          "candidates": 10186,
+          "proposal_dense_macs": 190955520,
+          "proposal_effective_macs": 32969110,
+          "refiner_dense_macs": 45633280,
+          "refiner_effective_macs": 27398925
+        },
+        {
+          "name": "test_016.npz",
+          "closed_windows": 79,
+          "candidates": 8631,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 33848983,
+          "refiner_dense_macs": 38666880,
+          "refiner_effective_macs": 22882652
+        },
+        {
+          "name": "test_017.npz",
+          "closed_windows": 79,
+          "candidates": 12468,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31680909,
+          "refiner_dense_macs": 55856640,
+          "refiner_effective_macs": 34669338
+        },
+        {
+          "name": "test_018.npz",
+          "closed_windows": 79,
+          "candidates": 11625,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31283688,
+          "refiner_dense_macs": 52080000,
+          "refiner_effective_macs": 32478201
+        },
+        {
+          "name": "test_019.npz",
+          "closed_windows": 79,
+          "candidates": 2911,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17302813,
+          "refiner_dense_macs": 13041280,
+          "refiner_effective_macs": 7740005
+        },
+        {
+          "name": "test_020.npz",
+          "closed_windows": 65,
+          "candidates": 1662,
+          "proposal_dense_macs": 167731200,
+          "proposal_effective_macs": 14047882,
+          "refiner_dense_macs": 7445760,
+          "refiner_effective_macs": 4492776
+        },
+        {
+          "name": "test_021.npz",
+          "closed_windows": 52,
+          "candidates": 1863,
+          "proposal_dense_macs": 134184960,
+          "proposal_effective_macs": 11289029,
+          "refiner_dense_macs": 8346240,
+          "refiner_effective_macs": 5113895
+        },
+        {
+          "name": "test_022.npz",
+          "closed_windows": 79,
+          "candidates": 230508,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 98747977,
+          "refiner_dense_macs": 1032675840,
+          "refiner_effective_macs": 661715093
+        },
+        {
+          "name": "test_023.npz",
+          "closed_windows": 79,
+          "candidates": 217430,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 100936562,
+          "refiner_dense_macs": 974086400,
+          "refiner_effective_macs": 624194268
+        }
+      ]
+    },
+    "H2-pro": {
+      "B01_parameters": 12160,
+      "B02_tensor_payload_bytes": 12912,
+      "persistent_proposal_history_bytes": 11968,
+      "sequences": 24,
+      "closed_windows": 1850,
+      "candidates": 643002,
+      "B03_dense_MAC_per_sequence": 318939040.0,
+      "B04a_effective_MAC_per_sequence": 111750456.95833333,
+      "B04b_effective_AC_per_sequence": 0,
+      "B04c_effective_operations_per_sequence": 111750456.95833333,
+      "totals": {
+        "proposal_dense_macs": 4773888000,
+        "proposal_effective_macs": 871785885,
+        "refiner_dense_macs": 2880648960,
+        "refiner_effective_macs": 1810225082
+      },
+      "per_sequence": [
+        {
+          "name": "test_000.npz",
+          "closed_windows": 79,
+          "candidates": 5669,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39492981,
+          "refiner_dense_macs": 25397120,
+          "refiner_effective_macs": 15001364
+        },
+        {
+          "name": "test_001.npz",
+          "closed_windows": 79,
+          "candidates": 2247,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32648359,
+          "refiner_dense_macs": 10066560,
+          "refiner_effective_macs": 5758748
+        },
+        {
+          "name": "test_002.npz",
+          "closed_windows": 79,
+          "candidates": 3113,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32659336,
+          "refiner_dense_macs": 13946240,
+          "refiner_effective_macs": 8131202
+        },
+        {
+          "name": "test_003.npz",
+          "closed_windows": 79,
+          "candidates": 1662,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 32555648,
+          "refiner_dense_macs": 7445760,
+          "refiner_effective_macs": 4052272
+        },
+        {
+          "name": "test_004.npz",
+          "closed_windows": 79,
+          "candidates": 43601,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28192890,
+          "refiner_dense_macs": 195332480,
+          "refiner_effective_macs": 119994338
+        },
+        {
+          "name": "test_005.npz",
+          "closed_windows": 79,
+          "candidates": 4657,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 26961450,
+          "refiner_dense_macs": 20863360,
+          "refiner_effective_macs": 13008595
+        },
+        {
+          "name": "test_006.npz",
+          "closed_windows": 79,
+          "candidates": 5718,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39562415,
+          "refiner_dense_macs": 25616640,
+          "refiner_effective_macs": 14819384
+        },
+        {
+          "name": "test_007.npz",
+          "closed_windows": 79,
+          "candidates": 5311,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 39421123,
+          "refiner_dense_macs": 23793280,
+          "refiner_effective_macs": 13756023
+        },
+        {
+          "name": "test_008.npz",
+          "closed_windows": 79,
+          "candidates": 47956,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 54545901,
+          "refiner_dense_macs": 214842880,
+          "refiner_effective_macs": 134563548
+        },
+        {
+          "name": "test_009.npz",
+          "closed_windows": 79,
+          "candidates": 5413,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28306672,
+          "refiner_dense_macs": 24250240,
+          "refiner_effective_macs": 14470537
+        },
+        {
+          "name": "test_010.npz",
+          "closed_windows": 79,
+          "candidates": 3738,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28934543,
+          "refiner_dense_macs": 16746240,
+          "refiner_effective_macs": 9869712
+        },
+        {
+          "name": "test_011.npz",
+          "closed_windows": 79,
+          "candidates": 3471,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29416881,
+          "refiner_dense_macs": 15550080,
+          "refiner_effective_macs": 9143716
+        },
+        {
+          "name": "test_012.npz",
+          "closed_windows": 79,
+          "candidates": 2922,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29224828,
+          "refiner_dense_macs": 13090560,
+          "refiner_effective_macs": 7612626
+        },
+        {
+          "name": "test_013.npz",
+          "closed_windows": 79,
+          "candidates": 6196,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 29231544,
+          "refiner_dense_macs": 27758080,
+          "refiner_effective_macs": 17426730
+        },
+        {
+          "name": "test_014.npz",
+          "closed_windows": 79,
+          "candidates": 4044,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 28524361,
+          "refiner_dense_macs": 18117120,
+          "refiner_effective_macs": 10812997
+        },
+        {
+          "name": "test_015.npz",
+          "closed_windows": 74,
+          "candidates": 10186,
+          "proposal_dense_macs": 190955520,
+          "proposal_effective_macs": 32969110,
+          "refiner_dense_macs": 45633280,
+          "refiner_effective_macs": 27203422
+        },
+        {
+          "name": "test_016.npz",
+          "closed_windows": 79,
+          "candidates": 8631,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 33848983,
+          "refiner_dense_macs": 38666880,
+          "refiner_effective_macs": 22732093
+        },
+        {
+          "name": "test_017.npz",
+          "closed_windows": 79,
+          "candidates": 12468,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31680909,
+          "refiner_dense_macs": 55856640,
+          "refiner_effective_macs": 34332398
+        },
+        {
+          "name": "test_018.npz",
+          "closed_windows": 79,
+          "candidates": 11625,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 31283688,
+          "refiner_dense_macs": 52080000,
+          "refiner_effective_macs": 32303721
+        },
+        {
+          "name": "test_019.npz",
+          "closed_windows": 79,
+          "candidates": 2911,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 17302813,
+          "refiner_dense_macs": 13041280,
+          "refiner_effective_macs": 7692208
+        },
+        {
+          "name": "test_020.npz",
+          "closed_windows": 65,
+          "candidates": 1662,
+          "proposal_dense_macs": 167731200,
+          "proposal_effective_macs": 14047882,
+          "refiner_dense_macs": 7445760,
+          "refiner_effective_macs": 4477738
+        },
+        {
+          "name": "test_021.npz",
+          "closed_windows": 52,
+          "candidates": 1863,
+          "proposal_dense_macs": 134184960,
+          "proposal_effective_macs": 11289029,
+          "refiner_dense_macs": 8346240,
+          "refiner_effective_macs": 5077319
+        },
+        {
+          "name": "test_022.npz",
+          "closed_windows": 79,
+          "candidates": 230508,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 98747977,
+          "refiner_dense_macs": 1032675840,
+          "refiner_effective_macs": 657580097
+        },
+        {
+          "name": "test_023.npz",
+          "closed_windows": 79,
+          "candidates": 217430,
+          "proposal_dense_macs": 203857920,
+          "proposal_effective_macs": 100936562,
+          "refiner_dense_macs": 974086400,
+          "refiner_effective_macs": 620404294
+        }
+      ]
+    }
+  }
+}

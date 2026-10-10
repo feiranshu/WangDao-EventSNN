@@ -1,0 +1,43 @@
+{
+  "protocol_id": "H2-pro-stage1-frozen-acceptance-v1",
+  "candidate": {
+    "model_id": "H2-pro-Causal-ANN-v1",
+    "variant": "C1-proposal-motion",
+    "epoch": 10,
+    "threshold": 0.35,
+    "feature_protocol": "H2-pro-stage1-v1",
+    "window_ms": 100,
+    "input_dtype": "uint8",
+    "dimensions": [
+      36,
+      64,
+      32,
+      4
+    ],
+    "numeric_path": "uint8-int8-int32 per-output-channel exact replay",
+    "source_model": "A4-2 seed42 epoch8",
+    "selection_role": "Train-dev",
+    "selection_amendment": "v2 post-v1 exploratory",
+    "acceptance_status": "not_yet_evaluated"
+  },
+  "digests": {
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\acceptance_protocol.json": "5a3d98f30adb173792a2f8fc555ceeae5375099ba51f3200a2b4dffbe33d65e7",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\protocol.json": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\selection_protocol_v2.json": "ea6a94e59fd88dfdf174f338c05f28479e7b144c2a83fefdc1a0615854b39dd6",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\acceptance_once.py": "258fc566b8008c41b501ab3adc88228606d1abf6c460f7b5e5205691c15cc8d8",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\src\\stream_state.py": "28984547b1b46e9be3fa3c523649bbdebb40463ad6aa7e45f4d211ffb0aea16c",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\src\\causal_feature_builder.py": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\src\\motion_coherence.py": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\implementation\\data\\index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\implementation\\software\\weights\\H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\implementation\\software\\weights\\A4-2_seed42_epoch008_int8.npz": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\frozen\\H2-pro-Causal-ANN-v1\\teacher_float.pt": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\frozen\\H2-pro-Causal-ANN-v1\\teacher_exact_int8.npz": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+    "D:\\WangDao_EventSNN\\1_H2_model_improvement\\H2-pro\\frozen\\H2-pro-Causal-ANN-v1\\model_manifest.json": "5d42551e0010c49ccd830a37374417d7e923e6bef2f3d499b07086bfb93d3bc9"
+  },
+  "index_roles": [
+    "validation",
+    "test"
+  ],
+  "result_state": "locked before reserved-role evaluation"
+}

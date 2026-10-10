@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wangdao-h2-ann"
-version = "1.0.0"
-description = "望道项目最终A4-2两级ANN检测器：H2 Proposal与历史增强Refiner"
+version = "2.0.0"
+description = "望道项目H2-pro因果两级ANN检测器：H2 Proposal与C1历史运动Refiner"
 requires-python = ">=3.9"
 dependencies = [
   "numpy>=1.24",
@@ -18,6 +18,9 @@ package-dir = {"" = "software"}
 [tool.setuptools.packages.find]
 where = ["software"]
 include = ["wangdao*"]
+
+[tool.setuptools.package-data]
+"wangdao.h2_pro" = ["protocol.json"]
 
 [tool.pyright]
 include = ["software/wangdao", "software/scripts", "software/tests"]

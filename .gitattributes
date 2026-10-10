@@ -11,3 +11,7 @@
 4_model_deployment/**/*.dtbo filter=lfs diff=lfs merge=lfs -text
 4_model_deployment/**/*.gz filter=lfs diff=lfs merge=lfs -text
 4_model_deployment/**/*.npz filter=lfs diff=lfs merge=lfs -text
+
+# Keep the implementation manifest and frozen feature protocol byte-stable on Windows.
+1_H2_model_improvement/implementation/** text=auto eol=lf
+1_H2_model_improvement/seven_step_improvement_study/H2-pro/protocol.json text eol=lf

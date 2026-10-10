@@ -6,7 +6,7 @@ from rebuild_evaluation_tables import build_accuracy, build_coverage
 
 
 def main() -> None:
-    root = Path(__file__).resolve().parents[4] / "5_model_evaluation"
+    root = Path(__file__).absolute().parents[4] / "5_model_evaluation"
     for path in build_accuracy(root): print(path)
     build_coverage(root)
 

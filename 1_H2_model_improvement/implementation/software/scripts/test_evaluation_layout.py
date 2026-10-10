@@ -11,7 +11,7 @@ from pathlib import Path
 from rebuild_evaluation_tables import build_accuracy, build_complexity, build_coverage, build_deployment
 
 
-ROOT = Path(__file__).resolve().parents[4] / "5_model_evaluation"
+ROOT = Path(__file__).absolute().parents[4] / "5_model_evaluation"
 
 
 def csv_rows(path: Path) -> list[dict[str, str]]:
@@ -34,11 +34,11 @@ def test_active_layout() -> None:
     for path in files:
         rows = csv_rows(path)
         assert [row["evaluation_id"] for row in rows] == [
-            "h2__software_exact_int8", "h2_plus__software_exact_int8", "EV-SpSegNet", "EMS-YOLO"
+            "h2__software_exact_int8", "h2_pro__software_exact_int8", "EV-SpSegNet"
         ]
         for row in rows:
             if row["value"] == "": assert row["status"] != "complete"
-        split = path.name.removesuffix(".csv")
+        split = path.stem
         if split == "validation":
             assert not any("/test/" in row["source_file"].lower() for row in rows)
         if split == "test":
@@ -59,12 +59,10 @@ def test_b04c_identity() -> None:
         tables = {}
         for code, folder in (("a", "B04a_effective_mac"), ("b", "B04b_effective_ac"), ("c", "B04c_mac_plus_ac")):
             tables[code] = {row["evaluation_id"]: row for row in csv_rows(base / folder / f"{split}.csv")}
-        for evaluation_id in ("h2__software_exact_int8", "h2_plus__software_exact_int8"):
+        for evaluation_id in ("h2__software_exact_int8", "h2_pro__software_exact_int8"):
             assert float(tables["c"][evaluation_id]["value"]) == float(tables["a"][evaluation_id]["value"]) + float(tables["b"][evaluation_id]["value"])
         ev_ac = tables["b"]["EV-SpSegNet"]
         assert ev_ac["status"] == "complete" and float(ev_ac["value"]) == 0.0
-        ems_ac = tables["b"]["EMS-YOLO"]
-        assert ems_ac["status"] == "pending" and ems_ac["value"] == ""
 
 
 def test_deterministic_rebuild() -> None:

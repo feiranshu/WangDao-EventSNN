@@ -1,0 +1,48 @@
+{
+  "validation": {
+    "role": "validation",
+    "repeats": 10000,
+    "method": "sequence-level paired bootstrap stratified by >=20000 events/s",
+    "delta_pro_minus_reference": {
+      "H2": {
+        "point": 0.016459870513817143,
+        "95_interval": [
+          0.004387397161894763,
+          0.016500284429124046,
+          0.028527518779996458
+        ]
+      },
+      "H2-plus": {
+        "point": 0.011314001585529976,
+        "95_interval": [
+          0.0023147728411998555,
+          0.011353879658009769,
+          0.02001860164109008
+        ]
+      }
+    }
+  },
+  "test": {
+    "role": "test",
+    "repeats": 10000,
+    "method": "sequence-level paired bootstrap stratified by >=20000 events/s",
+    "delta_pro_minus_reference": {
+      "H2": {
+        "point": 0.012184515428902976,
+        "95_interval": [
+          0.0017737596891845009,
+          0.01208756623060292,
+          0.02816227670458092
+        ]
+      },
+      "H2-plus": {
+        "point": 0.002737353735399628,
+        "95_interval": [
+          -7.264298909591681e-05,
+          0.00272069365484906,
+          0.006117468180343296
+        ]
+      }
+    }
+  }
+}

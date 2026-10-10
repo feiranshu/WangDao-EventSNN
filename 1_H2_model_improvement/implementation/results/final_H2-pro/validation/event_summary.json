@@ -1,0 +1,45 @@
+{
+  "evaluation_id": "h2_pro__software_exact_int8",
+  "source_report": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_validation_v2.json",
+  "historical_prediction_policy": "causal streaming closed windows",
+  "evaluation": {
+    "metric_protocol": "evuav-33e2aff-official-compatible-v1+step3-density-20000+closed-prefix-h2pro-v1",
+    "role": "validation",
+    "scope": "same first-event-anchored complete 100 ms prefix for all three models"
+  },
+  "working_point": {
+    "threshold": 0.35,
+    "average_precision": 0.9635886297530301,
+    "macro_sequence_recall": 0.9475571339156489,
+    "overall": {
+      "event": {
+        "tp": 59622,
+        "fp": 3193,
+        "fn": 5067,
+        "tn": 1337921,
+        "iou": 0.8783182581538552,
+        "precision": 0.9491681923107538,
+        "recall": 0.9216713815331818,
+        "f1": 0.9352177186598067
+      },
+      "localization": {
+        "pd": 0.9024234693877551,
+        "fa": 7.055571614742141e-06,
+        "targets": 4704.0,
+        "false_components": 2351.0,
+        "frame_denominator": 3704.0
+      }
+    },
+    "high_density": {
+      "event": {
+        "recall": 0.5187819792836641
+      }
+    },
+    "ordinary_density": {
+      "event": {
+        "recall": 0.9786329310466512
+      }
+    },
+    "per_sequence": {}
+  }
+}

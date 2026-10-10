@@ -7,7 +7,7 @@
 | 编号 | 目录 | 状态 | 作用 |
 | --- | --- | --- | --- |
 | 0 | `0_mlp_original_project/` | 已完成 | 保存最初的两级 MLP/H2 参考工程。 |
-| 1 | `1_H2_model_improvement/` | 已完成 | 保存 H2 ANN 七步改进、最终 H2-plus 和完整研究证据。 |
+| 1 | `1_H2_model_improvement/` | 已完成 | 保存 H2 ANN 七步研究、H2-pro 因果最终版和完整证据。 |
 | 2 | `2_KV260_bring_up_tests/` | 进行中 | KV260 环境、启动流程和基础上板测试。 |
 | 3 | `3_ANN_to_SNN/` | 第一代已完成，后续进行中 | SNN 转换、定点、PoT/LOA、模型优化/消融/选型指标和软件黄金模型。 |
 | 4 | `4_model_deployment/` | 进行中 | FPGA 部署、仿真、综合和板级验证。 |
@@ -16,20 +16,20 @@
 ## 当前模型结论
 
 - H2 是冻结 ANN 基线，也是后续 SNN 研究的教师模型。
-- H2-plus 是最终入选改进模型，历史实验 ID 为 `A4-2`，正式版本为 seed42 epoch8。
-- 当前正式比较采用 `exact_int8_replay`；H2 阈值 0.30，H2-plus 阈值 0.40。Validation/Test 只在配置冻结后报告，不用于重新选择模型或阈值。
-- EV-SpSegNet 与 EMS-YOLO 已注册为软件正式对比模型，目前等待冻结权重的同口径 CUDA 服务器补测；论文值与历史框级 mAP 不冒充本项目完整实测。
+- H2-pro 是最终入选改进模型：C1 历史 Proposal 运动特征替换非因果全序列时间维度，seed42 epoch10，exact-int8，阈值 0.35。H2-plus/A4-2 已归入七步研究 Step7 中间模型。
+- 正式 H2/H2-pro A/B 比较使用同一闭合 100 ms 窗口前缀。H2 阈值 0.30；H2 旧评分由全序列结果裁剪，仍含非因果时间输入。Validation/Test 不用于重新选择模型或阈值。
+- EV-SpSegNet 已注册为软件正式对比模型，等待同口径 CUDA 服务器补测；论文值不冒充本项目完整实测。
 - 已完成的准确度与复杂度属于软件评测，不等同于 KV260 板级实测。
 
 ## 统一模型评测体系
 
-目录 5 最终只保留 A/B/C 三类。H2 与 H2-plus 已完成正式软件评测；EV-SpSegNet 与 EMS-YOLO 已进入正式软件对比注册表，但覆盖率仍为 `incomplete`。跨模型比较统一使用 CSV，不再维护图表或工作簿。
+目录 5 只保留 A/B/C 三类。H2 与 H2-pro 已完成正式软件评测；EV-SpSegNet 已注册但覆盖率仍为 `incomplete`。跨模型比较统一使用 CSV。
 
 | 类别 | 评测内容 | 当前状态 |
 | --- | --- | --- |
-| [A_model_accuracy](5_model_evaluation/A_model_accuracy/README.md) | 原有事件级、EV-UAV 兼容和可观测事件轨迹指标。 | H2/H2-plus 的 Validation、Test 已完成；EV-SpSegNet 与 EMS-YOLO 待同口径补测。 |
-| [B_model_complexity](5_model_evaluation/B_model_complexity/README.md) | B01 参数量、B02 静态存储、B03 稠密 MAC、B04 有效 MAC/AC。 | H2/H2-plus 已完成；EV-SpSegNet 与 EMS-YOLO 待冻结模型补测。 |
-| [C_deployment_efficiency_and_hardware_cost](5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md) | C01—C06：延迟、吞吐、功耗、能耗和硬件资源/面积。 | 等待同平台、同输入条件的正式上板实测。 |
+| [A_model_accuracy](5_model_evaluation/A_model_accuracy/README.md) | 事件级与可观测事件轨迹指标。 | H2/H2-pro 的 Validation、Test 已完成；EV-SpSegNet 待同口径补测。 |
+| [B_model_complexity](5_model_evaluation/B_model_complexity/README.md) | B01 参数量、B02 静态存储、B03 稠密 MAC、B04 有效 MAC/AC。 | H2/H2-pro 已完成；EV-SpSegNet 待冻结模型补测。 |
+| [C_deployment_efficiency_and_hardware_cost](5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md) | C01—C07：延迟、吞吐、功耗、能耗、硬件资源/面积和完整序列 Runtime。 | C01—C06 等待正式上板；C07 已建立软件与板端共用定义，当前软件模型均待实测。 |
 
 原 D 类正式取消，其 C01/C02 已迁入 [3_ANN_to_SNN/model_selection_metrics](3_ANN_to_SNN/model_selection_metrics/README.md)，重编号为 S01/S02，用于模型优化、消融和选型。中间模型、旧图表、旧 XLSX 和历史入口统一保存在本地根归档区 `archive/5_model_evaluation/`，不再在各子目录内设置 `archive/`。
 

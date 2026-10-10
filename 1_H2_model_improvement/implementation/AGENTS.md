@@ -2,7 +2,7 @@
 
 ## 范围
 
-本目录是七步H2 ANN研究完成后的最终部署工程。研究过程统一放在`../seven_step_improvement_study/`；Step5冻结A4-2 seed42 epoch8、阈值0.40，Step6方向验证成功但原晋级因seed44普通密度Fa保护线失败；Step7独立评测确认整体IoU、Precision、AP和误报控制收益，同时发现Test高密度Recall下降1.2138个百分点。根据用户明确的部署优先级，最终接受A4-2。后续不得用smoke或开发候选替换本目录的冻结模型。
+本目录是 H2-pro-Causal-ANN-v1 的最终部署工程。H2-pro 的完整开发证据位于`../seven_step_improvement_study/H2-pro/`；H2-plus/A4-2 的七步原始研究与当时的部署决定是历史记录，现归入`../seven_step_improvement_study/step7/intermediate_H2-plus/`。正式模型固定为 C1 Proposal 历史运动特征、seed42 epoch10、exact-int8、阈值0.35。用户已明确要求以因果实时性为版本决策。后续不得用 smoke 或开发候选替换本目录的冻结模型。
 
 SNN、LIF、膜电位、PoT、LOA、近似计算和RTL工作统一放在`../../3_ANN_to_SNN/`。
 
@@ -33,7 +33,7 @@ SNN、LIF、膜电位、PoT、LOA、近似计算和RTL工作统一放在`../../3
 ## 结果与文档
 
 - 每一步的代码、协议、日志和结果放在`../seven_step_improvement_study/`对应目录。
-- 正式A4-2运行代码、冻结权重、模型卡和精简Validation/Test结果放在本目录；部署只能从本目录取文件。
+- 正式H2-pro运行代码、冻结权重、模型卡和精简Validation/Test结果放在本目录；部署只能从本目录取文件。H2-plus旧正式材料留在Step7中间模型，不回填正式注册表。
 - 根目录`../../5_model_evaluation/`只保留 A/B/C 三类，按`01_metric_comparisons/`、`02_model_records/`、`03_rules_and_protocols/`保存正式评测；跨模型比较只输出 CSV，不生成图表。模型源数据放在`02`的对应 `evaluation_id` 目录，不保存生成代码、缓存或 checkpoint；历史材料统一进入根级本地`../../archive/5_model_evaluation/`，不得上传 GitHub。
 - 正式训练每轮保存进度，预定评估轮保存完整Train-dev浮点/int8指标；续训写入新目录并保留来源及完整状态。
 - 步骤6使用10,000次密度分层、序列级配对bootstrap；区间跨0时不能宣称稳定提升。

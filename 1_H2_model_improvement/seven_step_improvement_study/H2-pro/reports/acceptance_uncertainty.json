@@ -1,0 +1,154 @@
+{
+  "validation": {
+    "role": "validation",
+    "repeats": 10000,
+    "method": "paired, density-stratified sequence bootstrap; descriptive only",
+    "iou_delta_95_interval": [
+      0.0021002424713946035,
+      0.011360989809699462,
+      0.020152690993862847
+    ],
+    "sequences_improved_iou": 19,
+    "sequences_worsened_iou": 5,
+    "worst_sequence_iou": [
+      {
+        "name": "val_012.npz",
+        "high_density": false,
+        "delta_iou": -0.0036079076528805487,
+        "delta_recall": 0.00017289073305670755
+      },
+      {
+        "name": "val_005.npz",
+        "high_density": false,
+        "delta_iou": -0.0027984493225134965,
+        "delta_recall": 0.0007936507936507908
+      },
+      {
+        "name": "val_003.npz",
+        "high_density": false,
+        "delta_iou": -0.0020378020848941247,
+        "delta_recall": -0.006430868167202508
+      },
+      {
+        "name": "val_001.npz",
+        "high_density": false,
+        "delta_iou": -0.0009108312821792808,
+        "delta_recall": 0.005681818181818121
+      },
+      {
+        "name": "val_010.npz",
+        "high_density": false,
+        "delta_iou": -0.0008651680526680083,
+        "delta_recall": 0.0011280315848843925
+      }
+    ],
+    "best_sequence_iou": [
+      {
+        "name": "val_015.npz",
+        "high_density": true,
+        "delta_iou": 0.007818513484388778,
+        "delta_recall": -0.005225653206650804
+      },
+      {
+        "name": "val_009.npz",
+        "high_density": false,
+        "delta_iou": 0.012352553498625518,
+        "delta_recall": -0.0007196833393307012
+      },
+      {
+        "name": "val_018.npz",
+        "high_density": false,
+        "delta_iou": 0.014086990288069146,
+        "delta_recall": 0.014582686937635758
+      },
+      {
+        "name": "val_008.npz",
+        "high_density": false,
+        "delta_iou": 0.021461007411422872,
+        "delta_recall": 0.0028019052956009816
+      },
+      {
+        "name": "val_023.npz",
+        "high_density": true,
+        "delta_iou": 0.07982170933524213,
+        "delta_recall": 0.08090724441435343
+      }
+    ]
+  },
+  "test": {
+    "role": "test",
+    "repeats": 10000,
+    "method": "paired, density-stratified sequence bootstrap; descriptive only",
+    "iou_delta_95_interval": [
+      -0.0007214608049493032,
+      0.0026032782330548954,
+      0.006286333532940346
+    ],
+    "sequences_improved_iou": 12,
+    "sequences_worsened_iou": 12,
+    "worst_sequence_iou": [
+      {
+        "name": "test_001.npz",
+        "high_density": false,
+        "delta_iou": -0.003771025056859667,
+        "delta_recall": -0.002109704641350185
+      },
+      {
+        "name": "test_007.npz",
+        "high_density": false,
+        "delta_iou": -0.003745650227526598,
+        "delta_recall": -0.0015037593984962294
+      },
+      {
+        "name": "test_012.npz",
+        "high_density": false,
+        "delta_iou": -0.003002934797236567,
+        "delta_recall": 0.0
+      },
+      {
+        "name": "test_000.npz",
+        "high_density": false,
+        "delta_iou": -0.0028155275160635096,
+        "delta_recall": -0.002126754572522316
+      },
+      {
+        "name": "test_022.npz",
+        "high_density": true,
+        "delta_iou": -0.0025399787021854747,
+        "delta_recall": 0.002564102564102555
+      }
+    ],
+    "best_sequence_iou": [
+      {
+        "name": "test_021.npz",
+        "high_density": false,
+        "delta_iou": 0.003514468263164594,
+        "delta_recall": 0.004675628287551081
+      },
+      {
+        "name": "test_015.npz",
+        "high_density": false,
+        "delta_iou": 0.004890553640538031,
+        "delta_recall": -0.002336448598130869
+      },
+      {
+        "name": "test_014.npz",
+        "high_density": false,
+        "delta_iou": 0.011499719069643533,
+        "delta_recall": 0.013107416879795442
+      },
+      {
+        "name": "test_008.npz",
+        "high_density": true,
+        "delta_iou": 0.016096047924858414,
+        "delta_recall": -0.0027161611588953916
+      },
+      {
+        "name": "test_023.npz",
+        "high_density": true,
+        "delta_iou": 0.021314239805230617,
+        "delta_recall": 0.012272727272727213
+      }
+    ]
+  }
+}

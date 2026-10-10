@@ -1,0 +1,12 @@
+{
+  "evaluation_id": "h2_pro__software_exact_int8",
+  "model": "H2-pro",
+  "protocol": "formal-ann-algorithm-complexity-closed-prefix-h2pro-v1",
+  "numeric_path": "exact_int8_replay",
+  "source_weights_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+  "summary": {
+    "total_weight_parameters": 12160,
+    "total_tensor_payload_bytes": 12912,
+    "persistent_proposal_history_bytes": 11968
+  }
+}

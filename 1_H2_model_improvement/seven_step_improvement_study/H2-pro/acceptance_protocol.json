@@ -1,0 +1,15 @@
+{
+  "id": "H2-pro-stage1-frozen-acceptance-v1",
+  "roles": ["validation", "test"],
+  "candidate": "H2-pro-Causal-ANN-v1",
+  "candidate_variant": "C1-proposal-motion",
+  "candidate_epoch": 10,
+  "candidate_threshold": 0.35,
+  "historical_baseline": "A4-2 seed42 epoch8 exact-int8",
+  "historical_threshold": 0.4,
+  "numeric_path": "exact-int8",
+  "data_prefix": "Only complete 100 ms windows since the first event timestamp; discard the trailing incomplete window for both models",
+  "event_density_split": "full-sequence event rate >= 20000 events/s",
+  "outputs": ["Event IoU", "AP", "Precision", "Recall", "F1", "Pd", "Fa", "high/ordinary density", "object-window continuity", "per-sequence metrics"],
+  "decision": "Report both roles once without retraining, threshold revision, feature revision, or selecting a different candidate. Historical reserved-role data have already been viewed in prior research, so this is a locked retrospective acceptance rather than an untouched independent test."
+}

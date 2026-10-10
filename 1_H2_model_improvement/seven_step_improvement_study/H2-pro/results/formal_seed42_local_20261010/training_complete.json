@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "variants": [
+    "C0-zero",
+    "C1-proposal-motion",
+    "C2-LMEC"
+  ],
+  "status": "Train-dev results available; selection and reserved-data acceptance pending"
+}

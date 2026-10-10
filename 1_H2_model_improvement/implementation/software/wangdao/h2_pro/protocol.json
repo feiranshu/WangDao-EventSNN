@@ -1,0 +1,19 @@
+{
+  "protocol_id": "H2-pro-stage1-v1",
+  "status": "preregistered_for_development_only",
+  "source_model": "A4-2 seed42 epoch8",
+  "window_ms": 100,
+  "time_origin": "first event timestamp of independent sequence, explicitly passed to reset",
+  "output_policy": "publish only after watermark reaches right boundary; discard final partial window",
+  "roles": {"fit": "train_main", "select": "train_dev", "reserved": ["hardware_calibration", "val", "test"]},
+  "candidates": {
+    "C0-zero": {"index_2": "uint8 zero"},
+    "C1-proposal-motion": {"index_2": "round(255 max_v min(H[w-1,c-v],H[w-2,c-2v]))", "velocity_cells_per_100ms": [-1, 0, 1]},
+    "C2-LMEC": {"index_2": "round(255 max_v min(Q[b-1,c-v],Q[b-2,c-2v]))", "bin_ms": 25, "cell_pixels": 4, "velocity_cells_per_25ms": [-1, 0, 1], "Q": "min(1,log1p(count)/log1p(8))*count/(count+2)*max(0,1-count_background/(count+count_background+1))", "background": "mean count of 8 adjacent cells in same bin", "polarities": "merged", "rounding": "numpy.rint ties to even"}
+  },
+  "training": {"seed": 42, "epochs": 10, "batch_size": 4096, "loss": "prototype max then two-class softmax BCE", "optimizer": "AdamW", "weight_decay": 0.0001, "gradient_clip": 5, "warmup_epochs": 2, "warmup_lr": 0.001, "finetune_lr": 0.00001, "checkpoint_epochs": [0,1,2,5,8,10]},
+  "threshold_grid": [0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60],
+  "selection": "On Train-dev exact-int8: retain points with Pd >= C0 Pd - 0.005 and Fa <= 1.10*C0 Fa at the same threshold; rank by IoU, then AP, high-density Recall, lower Fa, earlier epoch. Report fixed 0.40 separately.",
+  "density_boundary_events_per_second": 20000,
+  "reserved_data_rule": "No Validation/Test reads before candidate, threshold, quantization and hashes are frozen. No retuning after reserved-data evaluation."
+}

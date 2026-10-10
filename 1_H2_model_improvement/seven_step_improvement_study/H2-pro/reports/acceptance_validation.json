@@ -1,0 +1,1942 @@
+{
+  "role": "validation",
+  "lock_sha256": "e0cc8154e20b4475a80adf63d0ecf7d891721518d3db2865edf6d5f688fc06d9",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "reference": "same complete-window prefix per sequence",
+  "baseline": {
+    "threshold": 0.4,
+    "events": 1405803,
+    "ap": 0.9614380820419454,
+    "event": {
+      "true_positive": 59049.0,
+      "false_positive": 3424.0,
+      "false_negative": 5640.0,
+      "true_negative": 1337690.0,
+      "iou": 0.866927018337175,
+      "precision": 0.9451923230835722,
+      "recall": 0.9128136159161526,
+      "f1": 0.9287208442773784
+    },
+    "localization": {
+      "pd": 0.9017857142857143,
+      "fa": 7.41570287538402e-06,
+      "targets": 4704.0,
+      "false_components": 2471.0,
+      "frame_denominator": 3704.0
+    },
+    "density_strata": {
+      "high": {
+        "sequences": 2,
+        "iou": 0.420464904284412,
+        "recall": 0.46050168476226133,
+        "pd": 0.52,
+        "fa": 1.883356509474841e-05
+      },
+      "ordinary": {
+        "sequences": 22,
+        "iou": 0.9329591991506143,
+        "recall": 0.9767626508575058,
+        "pd": 0.9576023391812866,
+        "fa": 6.3581191771892066e-06
+      }
+    },
+    "continuity": {
+      "eligible_object_windows": 2363,
+      "detected_object_windows": 2184,
+      "coverage": 0.9242488362251375,
+      "breaks": 52
+    }
+  },
+  "causal": {
+    "threshold": 0.35,
+    "events": 1405803,
+    "ap": 0.9635886297530301,
+    "event": {
+      "true_positive": 59622.0,
+      "false_positive": 3193.0,
+      "false_negative": 5067.0,
+      "true_negative": 1337921.0,
+      "iou": 0.8783182581538552,
+      "precision": 0.9491681923107538,
+      "recall": 0.9216713815331818,
+      "f1": 0.9352177186598067
+    },
+    "localization": {
+      "pd": 0.9024234693877551,
+      "fa": 7.055571614742141e-06,
+      "targets": 4704.0,
+      "false_components": 2351.0,
+      "frame_denominator": 3704.0
+    },
+    "density_strata": {
+      "high": {
+        "sequences": 2,
+        "iou": 0.48018944207000114,
+        "recall": 0.5187819792836641,
+        "pd": 0.5166666666666667,
+        "fa": 1.617845723364666e-05
+      },
+      "ordinary": {
+        "sequences": 22,
+        "iou": 0.9365132967496834,
+        "recall": 0.9786329310466512,
+        "pd": 0.9588206627680312,
+        "fa": 6.210560970395233e-06
+      }
+    },
+    "continuity": {
+      "eligible_object_windows": 2363,
+      "detected_object_windows": 2181,
+      "coverage": 0.9229792636479052,
+      "breaks": 48
+    }
+  },
+  "delta": {
+    "iou": 0.011391239816680221,
+    "ap": 0.0021505477110846938,
+    "high_density_recall": 0.058280294521402765
+  },
+  "sequences": {
+    "baseline": [
+      {
+        "name": "val_000.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2691.0,
+          "false_positive": 91.0,
+          "false_negative": 39.0,
+          "true_negative": 41888.0,
+          "iou": 0.9539170506912442,
+          "precision": 0.9672897196261683,
+          "recall": 0.9857142857142858,
+          "f1": 0.9764150943396226,
+          "accuracy": 0.9970923080364132
+        },
+        "localization": {
+          "pd": 0.9787234042553191,
+          "fa": 5.522624351091639e-06,
+          "targets": 141.0,
+          "correct_targets": 138.0,
+          "false_components": 78.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 73,
+          "detected_object_windows": 72,
+          "coverage": 0.9863013698630136,
+          "breaks": 1,
+          "longest_detected_run": 29,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 44709,
+        "trailing_events": 652
+      },
+      {
+        "name": "val_001.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1203.0,
+          "false_positive": 213.0,
+          "false_negative": 29.0,
+          "true_negative": 52466.0,
+          "iou": 0.8325259515570934,
+          "precision": 0.8495762711864406,
+          "recall": 0.976461038961039,
+          "f1": 0.9086102719033232,
+          "accuracy": 0.9955111201795552
+        },
+        "localization": {
+          "pd": 0.992,
+          "fa": 1.054962856811095e-05,
+          "targets": 125.0,
+          "correct_targets": 124.0,
+          "false_components": 149.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 65,
+          "detected_object_windows": 64,
+          "coverage": 0.9846153846153847,
+          "breaks": 0,
+          "longest_detected_run": 36,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 53911,
+        "trailing_events": 714
+      },
+      {
+        "name": "val_002.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1838.0,
+          "false_positive": 162.0,
+          "false_negative": 33.0,
+          "true_negative": 53018.0,
+          "iou": 0.9040826364977865,
+          "precision": 0.919,
+          "recall": 0.9823623730625334,
+          "f1": 0.9496254197881684,
+          "accuracy": 0.9964578300121706
+        },
+        "localization": {
+          "pd": 0.9752066115702479,
+          "fa": 9.558388299966298e-06,
+          "targets": 121.0,
+          "correct_targets": 118.0,
+          "false_components": 135.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 65,
+          "detected_object_windows": 64,
+          "coverage": 0.9846153846153847,
+          "breaks": 0,
+          "longest_detected_run": 18,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 55051,
+        "trailing_events": 644
+      },
+      {
+        "name": "val_003.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1192.0,
+          "false_positive": 126.0,
+          "false_negative": 52.0,
+          "true_negative": 54563.0,
+          "iou": 0.8700729927007299,
+          "precision": 0.9044006069802731,
+          "recall": 0.9581993569131833,
+          "f1": 0.9305230288836847,
+          "accuracy": 0.9968176210823664
+        },
+        "localization": {
+          "pd": 0.9166666666666666,
+          "fa": 7.221893382196758e-06,
+          "targets": 132.0,
+          "correct_targets": 121.0,
+          "false_components": 102.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 68,
+          "detected_object_windows": 63,
+          "coverage": 0.9264705882352942,
+          "breaks": 3,
+          "longest_detected_run": 26,
+          "reacquisition_gaps_windows": [
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 55933,
+        "trailing_events": 586
+      },
+      {
+        "name": "val_004.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2272.0,
+          "false_positive": 50.0,
+          "false_negative": 25.0,
+          "true_negative": 22213.0,
+          "iou": 0.9680443118875159,
+          "precision": 0.9784668389319552,
+          "recall": 0.9891162385720506,
+          "f1": 0.9837627192032907,
+          "accuracy": 0.9969462540716613
+        },
+        "localization": {
+          "pd": 0.9931506849315068,
+          "fa": 2.6905092992497725e-06,
+          "targets": 146.0,
+          "correct_targets": 145.0,
+          "false_components": 38.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 73,
+          "coverage": 0.9864864864864865,
+          "breaks": 0,
+          "longest_detected_run": 36,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 24560,
+        "trailing_events": 373
+      },
+      {
+        "name": "val_005.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1253.0,
+          "false_positive": 66.0,
+          "false_negative": 7.0,
+          "true_negative": 21878.0,
+          "iou": 0.944947209653092,
+          "precision": 0.9499620924943138,
+          "recall": 0.9944444444444445,
+          "f1": 0.9716944552151997,
+          "accuracy": 0.9968539906912601
+        },
+        "localization": {
+          "pd": 0.9859154929577465,
+          "fa": 4.035763948874659e-06,
+          "targets": 142.0,
+          "correct_targets": 140.0,
+          "false_components": 57.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 72,
+          "detected_object_windows": 71,
+          "coverage": 0.9861111111111112,
+          "breaks": 0,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 23204,
+        "trailing_events": 362
+      },
+      {
+        "name": "val_006.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 673.0,
+          "false_positive": 51.0,
+          "false_negative": 16.0,
+          "true_negative": 20698.0,
+          "iou": 0.9094594594594595,
+          "precision": 0.9295580110497238,
+          "recall": 0.97677793904209,
+          "f1": 0.9525831564048125,
+          "accuracy": 0.9968747084616102
+        },
+        "localization": {
+          "pd": 0.9550561797752809,
+          "fa": 2.5489035466576794e-06,
+          "targets": 89.0,
+          "correct_targets": 85.0,
+          "false_components": 36.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 47,
+          "detected_object_windows": 45,
+          "coverage": 0.9574468085106383,
+          "breaks": 1,
+          "longest_detected_run": 21,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21438,
+        "trailing_events": 335
+      },
+      {
+        "name": "val_007.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1982.0,
+          "false_positive": 209.0,
+          "false_negative": 34.0,
+          "true_negative": 19667.0,
+          "iou": 0.8907865168539326,
+          "precision": 0.9046097672295755,
+          "recall": 0.9831349206349206,
+          "f1": 0.9422391252674115,
+          "accuracy": 0.9889000548145441
+        },
+        "localization": {
+          "pd": 0.9925373134328358,
+          "fa": 4.531384082946985e-06,
+          "targets": 134.0,
+          "correct_targets": 133.0,
+          "false_components": 64.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 69,
+          "detected_object_windows": 68,
+          "coverage": 0.9855072463768116,
+          "breaks": 1,
+          "longest_detected_run": 35,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21892,
+        "trailing_events": 302
+      },
+      {
+        "name": "val_008.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 3514.0,
+          "false_positive": 240.0,
+          "false_negative": 55.0,
+          "true_negative": 66216.0,
+          "iou": 0.922551850879496,
+          "precision": 0.9360681939264784,
+          "recall": 0.9845895208741945,
+          "f1": 0.9597159634029769,
+          "accuracy": 0.9957872188504105
+        },
+        "localization": {
+          "pd": 0.9795918367346939,
+          "fa": 1.0832840073295138e-05,
+          "targets": 147.0,
+          "correct_targets": 144.0,
+          "false_components": 153.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 74,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 70025,
+        "trailing_events": 918
+      },
+      {
+        "name": "val_009.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2753.0,
+          "false_positive": 184.0,
+          "false_negative": 26.0,
+          "true_negative": 53686.0,
+          "iou": 0.9291258859264259,
+          "precision": 0.937351038474634,
+          "recall": 0.990644116588701,
+          "f1": 0.9632610216934919,
+          "accuracy": 0.9962929619234232
+        },
+        "localization": {
+          "pd": 0.9716312056737588,
+          "fa": 7.929922145157226e-06,
+          "targets": 141.0,
+          "correct_targets": 137.0,
+          "false_components": 112.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 71,
+          "detected_object_windows": 69,
+          "coverage": 0.971830985915493,
+          "breaks": 0,
+          "longest_detected_run": 17,
+          "reacquisition_gaps_windows": [
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 56649,
+        "trailing_events": 958
+      },
+      {
+        "name": "val_010.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1759.0,
+          "false_positive": 147.0,
+          "false_negative": 14.0,
+          "true_negative": 41584.0,
+          "iou": 0.9161458333333333,
+          "precision": 0.922875131164743,
+          "recall": 0.9921037789058094,
+          "f1": 0.9562381081815711,
+          "accuracy": 0.9962991908789997
+        },
+        "localization": {
+          "pd": 1.0,
+          "fa": 8.213133650341412e-06,
+          "targets": 130.0,
+          "correct_targets": 130.0,
+          "false_components": 116.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 66,
+          "detected_object_windows": 66,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 20,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 43504,
+        "trailing_events": 393
+      },
+      {
+        "name": "val_011.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 4322.0,
+          "false_positive": 115.0,
+          "false_negative": 20.0,
+          "true_negative": 39001.0,
+          "iou": 0.969710567646399,
+          "precision": 0.9740815866576515,
+          "recall": 0.9953938277291571,
+          "f1": 0.9846223943501538,
+          "accuracy": 0.9968935523954162
+        },
+        "localization": {
+          "pd": 0.9868421052631579,
+          "fa": 6.8678790007165255e-06,
+          "targets": 152.0,
+          "correct_targets": 150.0,
+          "false_components": 97.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 76,
+          "detected_object_windows": 76,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 40,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 43458,
+        "trailing_events": 513
+      },
+      {
+        "name": "val_012.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 5763.0,
+          "false_positive": 129.0,
+          "false_negative": 21.0,
+          "true_negative": 33251.0,
+          "iou": 0.9746321664129883,
+          "precision": 0.9781059063136456,
+          "recall": 0.9963692946058091,
+          "f1": 0.987153134635149,
+          "accuracy": 0.9961699519967316
+        },
+        "localization": {
+          "pd": 0.9867549668874173,
+          "fa": 5.3102157222034985e-06,
+          "targets": 151.0,
+          "correct_targets": 149.0,
+          "false_components": 75.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 77,
+          "detected_object_windows": 76,
+          "coverage": 0.987012987012987,
+          "breaks": 1,
+          "longest_detected_run": 26,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 39164,
+        "trailing_events": 431
+      },
+      {
+        "name": "val_013.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 4461.0,
+          "false_positive": 152.0,
+          "false_negative": 24.0,
+          "true_negative": 17169.0,
+          "iou": 0.9620444252749623,
+          "precision": 0.9670496423151962,
+          "recall": 0.9946488294314382,
+          "f1": 0.9806550890305562,
+          "accuracy": 0.9919288269283684
+        },
+        "localization": {
+          "pd": 1.0,
+          "fa": 5.4518214747955924e-06,
+          "targets": 149.0,
+          "correct_targets": 149.0,
+          "false_components": 77.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 74,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 39,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21806,
+        "trailing_events": 228
+      },
+      {
+        "name": "val_014.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1146.0,
+          "false_positive": 141.0,
+          "false_negative": 119.0,
+          "true_negative": 42444.0,
+          "iou": 0.8150782361308677,
+          "precision": 0.8904428904428905,
+          "recall": 0.9059288537549407,
+          "f1": 0.8981191222570533,
+          "accuracy": 0.9940706955530216
+        },
+        "localization": {
+          "pd": 0.8942307692307693,
+          "fa": 8.708753784413738e-06,
+          "targets": 208.0,
+          "correct_targets": 186.0,
+          "false_components": 123.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 102,
+          "detected_object_windows": 97,
+          "coverage": 0.9509803921568627,
+          "breaks": 2,
+          "longest_detected_run": 26,
+          "reacquisition_gaps_windows": [
+            2,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 43850,
+        "trailing_events": 549
+      },
+      {
+        "name": "val_015.npz",
+        "high_density": true,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1942.0,
+          "false_positive": 318.0,
+          "false_negative": 163.0,
+          "true_negative": 248162.0,
+          "iou": 0.8014857614527445,
+          "precision": 0.8592920353982301,
+          "recall": 0.9225653206650831,
+          "f1": 0.8898052691867124,
+          "accuracy": 0.99808049164954
+        },
+        "localization": {
+          "pd": 0.8704663212435233,
+          "fa": 1.7275901816235383e-05,
+          "targets": 193.0,
+          "correct_targets": 168.0,
+          "false_components": 244.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 98,
+          "detected_object_windows": 89,
+          "coverage": 0.9081632653061225,
+          "breaks": 5,
+          "longest_detected_run": 20,
+          "reacquisition_gaps_windows": [
+            1,
+            2,
+            1,
+            2,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 250585,
+        "trailing_events": 3370
+      },
+      {
+        "name": "val_016.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 3418.0,
+          "false_positive": 117.0,
+          "false_negative": 159.0,
+          "true_negative": 16683.0,
+          "iou": 0.9252842447211694,
+          "precision": 0.9669024045261669,
+          "recall": 0.9555493430248811,
+          "f1": 0.9611923509561305,
+          "accuracy": 0.9864553172694704
+        },
+        "localization": {
+          "pd": 0.9329268292682927,
+          "fa": 7.151090505900712e-06,
+          "targets": 492.0,
+          "correct_targets": 459.0,
+          "false_components": 101.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 245,
+          "detected_object_windows": 237,
+          "coverage": 0.9673469387755103,
+          "breaks": 4,
+          "longest_detected_run": 18,
+          "reacquisition_gaps_windows": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 20377,
+        "trailing_events": 231
+      },
+      {
+        "name": "val_017.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2742.0,
+          "false_positive": 61.0,
+          "false_negative": 169.0,
+          "true_negative": 16783.0,
+          "iou": 0.9226110363391655,
+          "precision": 0.9782376025686764,
+          "recall": 0.941944349020955,
+          "f1": 0.95974798739937,
+          "accuracy": 0.988357377879018
+        },
+        "localization": {
+          "pd": 0.9463276836158192,
+          "fa": 4.1773697014667525e-06,
+          "targets": 354.0,
+          "correct_targets": 335.0,
+          "false_components": 59.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 176,
+          "detected_object_windows": 171,
+          "coverage": 0.9715909090909091,
+          "breaks": 2,
+          "longest_detected_run": 78,
+          "reacquisition_gaps_windows": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 19755,
+        "trailing_events": 309
+      },
+      {
+        "name": "val_018.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2968.0,
+          "false_positive": 48.0,
+          "false_negative": 255.0,
+          "true_negative": 16104.0,
+          "iou": 0.9073677774380923,
+          "precision": 0.9840848806366048,
+          "recall": 0.920881166614955,
+          "f1": 0.9514345247635839,
+          "accuracy": 0.9843612903225807
+        },
+        "localization": {
+          "pd": 0.9061371841155235,
+          "fa": 2.7613121755458195e-06,
+          "targets": 277.0,
+          "correct_targets": 251.0,
+          "false_components": 39.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 138,
+          "detected_object_windows": 130,
+          "coverage": 0.9420289855072463,
+          "breaks": 4,
+          "longest_detected_run": 24,
+          "reacquisition_gaps_windows": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 19375,
+        "trailing_events": 219
+      },
+      {
+        "name": "val_019.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2796.0,
+          "false_positive": 116.0,
+          "false_negative": 54.0,
+          "true_negative": 28697.0,
+          "iou": 0.942683749157114,
+          "precision": 0.9601648351648352,
+          "recall": 0.9810526315789474,
+          "f1": 0.9704963554321416,
+          "accuracy": 0.9946309572687364
+        },
+        "localization": {
+          "pd": 0.9709677419354839,
+          "fa": 8.000725021453272e-06,
+          "targets": 310.0,
+          "correct_targets": 301.0,
+          "false_components": 113.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 153,
+          "detected_object_windows": 151,
+          "coverage": 0.9869281045751634,
+          "breaks": 1,
+          "longest_detected_run": 66,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 31663,
+        "trailing_events": 308
+      },
+      {
+        "name": "val_020.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 3440.0,
+          "false_positive": 82.0,
+          "false_negative": 53.0,
+          "true_negative": 29067.0,
+          "iou": 0.9622377622377623,
+          "precision": 0.97671777399205,
+          "recall": 0.9848267964500429,
+          "f1": 0.9807555238774056,
+          "accuracy": 0.995864224005882
+        },
+        "localization": {
+          "pd": 0.9814814814814815,
+          "fa": 5.3102157222034985e-06,
+          "targets": 162.0,
+          "correct_targets": 159.0,
+          "false_components": 75.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 81,
+          "detected_object_windows": 80,
+          "coverage": 0.9876543209876543,
+          "breaks": 1,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 32642,
+        "trailing_events": 517
+      },
+      {
+        "name": "val_021.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1060.0,
+          "false_positive": 114.0,
+          "false_negative": 70.0,
+          "true_negative": 16650.0,
+          "iou": 0.8520900321543409,
+          "precision": 0.9028960817717206,
+          "recall": 0.9380530973451328,
+          "f1": 0.9201388888888888,
+          "accuracy": 0.9897172236503856
+        },
+        "localization": {
+          "pd": 0.9240506329113924,
+          "fa": 1.1713688760117997e-05,
+          "targets": 158.0,
+          "correct_targets": 146.0,
+          "false_components": 98.0,
+          "frame_denominator": 93.0
+        },
+        "continuity": {
+          "eligible_object_windows": 77,
+          "detected_object_windows": 73,
+          "coverage": 0.948051948051948,
+          "breaks": 2,
+          "longest_detected_run": 24,
+          "reacquisition_gaps_windows": [
+            2,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 47,
+        "closed_events": 17894,
+        "trailing_events": 464
+      },
+      {
+        "name": "val_022.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 2113.0,
+          "false_positive": 47.0,
+          "false_negative": 43.0,
+          "true_negative": 5863.0,
+          "iou": 0.9591466182478439,
+          "precision": 0.9782407407407407,
+          "recall": 0.9800556586270872,
+          "f1": 0.9791473586654309,
+          "accuracy": 0.9888420530622366
+        },
+        "localization": {
+          "pd": 0.9465020576131687,
+          "fa": 2.973720804433959e-06,
+          "targets": 243.0,
+          "correct_targets": 230.0,
+          "false_components": 42.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 119,
+          "detected_object_windows": 116,
+          "coverage": 0.9747899159663865,
+          "breaks": 1,
+          "longest_detected_run": 79,
+          "reacquisition_gaps_windows": [
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 8066,
+        "trailing_events": 99
+      },
+      {
+        "name": "val_023.npz",
+        "high_density": true,
+        "event": {
+          "threshold": 0.4,
+          "true_positive": 1748.0,
+          "false_positive": 445.0,
+          "false_negative": 4160.0,
+          "true_negative": 379939.0,
+          "iou": 0.275145600503699,
+          "precision": 0.7970816233470133,
+          "recall": 0.2958700067704807,
+          "f1": 0.4315516602888532,
+          "accuracy": 0.9880789661706688
+        },
+        "localization": {
+          "pd": 0.3538083538083538,
+          "fa": 2.0391228373261435e-05,
+          "targets": 407.0,
+          "correct_targets": 144.0,
+          "false_components": 288.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 203,
+          "detected_object_windows": 85,
+          "coverage": 0.4187192118226601,
+          "breaks": 23,
+          "longest_detected_run": 21,
+          "reacquisition_gaps_windows": [
+            2,
+            1,
+            1,
+            18,
+            9,
+            20,
+            1,
+            2,
+            1,
+            1,
+            3,
+            1,
+            1,
+            2,
+            1,
+            1,
+            4,
+            4,
+            2,
+            2,
+            2,
+            2,
+            6,
+            2,
+            3
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 386292,
+        "trailing_events": 5052
+      }
+    ],
+    "causal": [
+      {
+        "name": "val_000.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2683.0,
+          "false_positive": 73.0,
+          "false_negative": 47.0,
+          "true_negative": 41906.0,
+          "iou": 0.9571887263646094,
+          "precision": 0.9735123367198839,
+          "recall": 0.9827838827838827,
+          "f1": 0.97812613926358,
+          "accuracy": 0.9973159766489968
+        },
+        "localization": {
+          "pd": 0.9787234042553191,
+          "fa": 4.318975454058846e-06,
+          "targets": 141.0,
+          "correct_targets": 138.0,
+          "false_components": 61.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 73,
+          "detected_object_windows": 72,
+          "coverage": 0.9863013698630136,
+          "breaks": 1,
+          "longest_detected_run": 29,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 44709,
+        "trailing_events": 652
+      },
+      {
+        "name": "val_001.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1210.0,
+          "false_positive": 223.0,
+          "false_negative": 22.0,
+          "true_negative": 52456.0,
+          "iou": 0.8316151202749141,
+          "precision": 0.8443824145150035,
+          "recall": 0.9821428571428571,
+          "f1": 0.9080675422138836,
+          "accuracy": 0.9954554729090538
+        },
+        "localization": {
+          "pd": 0.992,
+          "fa": 1.1257657331071418e-05,
+          "targets": 125.0,
+          "correct_targets": 124.0,
+          "false_components": 159.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 65,
+          "detected_object_windows": 64,
+          "coverage": 0.9846153846153847,
+          "breaks": 0,
+          "longest_detected_run": 36,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 53911,
+        "trailing_events": 714
+      },
+      {
+        "name": "val_002.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1832.0,
+          "false_positive": 151.0,
+          "false_negative": 39.0,
+          "true_negative": 53029.0,
+          "iou": 0.9060336300692384,
+          "precision": 0.9238527483610691,
+          "recall": 0.9791555318011759,
+          "f1": 0.9507005708354956,
+          "accuracy": 0.9965486548836533
+        },
+        "localization": {
+          "pd": 0.9752066115702479,
+          "fa": 8.779556660709784e-06,
+          "targets": 121.0,
+          "correct_targets": 118.0,
+          "false_components": 124.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 65,
+          "detected_object_windows": 64,
+          "coverage": 0.9846153846153847,
+          "breaks": 0,
+          "longest_detected_run": 18,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 55051,
+        "trailing_events": 644
+      },
+      {
+        "name": "val_003.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1184.0,
+          "false_positive": 120.0,
+          "false_negative": 60.0,
+          "true_negative": 54569.0,
+          "iou": 0.8680351906158358,
+          "precision": 0.9079754601226994,
+          "recall": 0.9517684887459807,
+          "f1": 0.9293563579277865,
+          "accuracy": 0.9967818640158761
+        },
+        "localization": {
+          "pd": 0.9015151515151515,
+          "fa": 6.8678790007165255e-06,
+          "targets": 132.0,
+          "correct_targets": 119.0,
+          "false_components": 97.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 68,
+          "detected_object_windows": 62,
+          "coverage": 0.9117647058823529,
+          "breaks": 3,
+          "longest_detected_run": 26,
+          "reacquisition_gaps_windows": [
+            2,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 55933,
+        "trailing_events": 586
+      },
+      {
+        "name": "val_004.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2270.0,
+          "false_positive": 44.0,
+          "false_negative": 27.0,
+          "true_negative": 22219.0,
+          "iou": 0.9696710807347287,
+          "precision": 0.9809853068280034,
+          "recall": 0.9882455376578145,
+          "f1": 0.9846020386033398,
+          "accuracy": 0.9971091205211726
+        },
+        "localization": {
+          "pd": 0.9931506849315068,
+          "fa": 2.4072977940655862e-06,
+          "targets": 146.0,
+          "correct_targets": 145.0,
+          "false_components": 34.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 73,
+          "coverage": 0.9864864864864865,
+          "breaks": 0,
+          "longest_detected_run": 36,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 24560,
+        "trailing_events": 373
+      },
+      {
+        "name": "val_005.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1254.0,
+          "false_positive": 71.0,
+          "false_negative": 6.0,
+          "true_negative": 21873.0,
+          "iou": 0.9421487603305785,
+          "precision": 0.9464150943396227,
+          "recall": 0.9952380952380953,
+          "f1": 0.9702127659574468,
+          "accuracy": 0.9966816066195483
+        },
+        "localization": {
+          "pd": 0.9859154929577465,
+          "fa": 4.389778330354892e-06,
+          "targets": 142.0,
+          "correct_targets": 140.0,
+          "false_components": 62.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 72,
+          "detected_object_windows": 71,
+          "coverage": 0.9861111111111112,
+          "breaks": 0,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 23204,
+        "trailing_events": 362
+      },
+      {
+        "name": "val_006.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 672.0,
+          "false_positive": 48.0,
+          "false_negative": 17.0,
+          "true_negative": 20701.0,
+          "iou": 0.9118046132971506,
+          "precision": 0.9333333333333333,
+          "recall": 0.9753265602322206,
+          "f1": 0.9538679914833215,
+          "accuracy": 0.9969680007463383
+        },
+        "localization": {
+          "pd": 0.9550561797752809,
+          "fa": 2.3364949177695397e-06,
+          "targets": 89.0,
+          "correct_targets": 85.0,
+          "false_components": 33.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 47,
+          "detected_object_windows": 45,
+          "coverage": 0.9574468085106383,
+          "breaks": 1,
+          "longest_detected_run": 21,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21438,
+        "trailing_events": 335
+      },
+      {
+        "name": "val_007.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1991.0,
+          "false_positive": 205.0,
+          "false_negative": 25.0,
+          "true_negative": 19671.0,
+          "iou": 0.8964430436740207,
+          "precision": 0.906648451730419,
+          "recall": 0.9875992063492064,
+          "f1": 0.9453941120607787,
+          "accuracy": 0.9894938790425726
+        },
+        "localization": {
+          "pd": 0.9925373134328358,
+          "fa": 4.531384082946985e-06,
+          "targets": 134.0,
+          "correct_targets": 133.0,
+          "false_components": 64.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 69,
+          "detected_object_windows": 68,
+          "coverage": 0.9855072463768116,
+          "breaks": 1,
+          "longest_detected_run": 35,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21892,
+        "trailing_events": 302
+      },
+      {
+        "name": "val_008.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 3524.0,
+          "false_positive": 164.0,
+          "false_negative": 45.0,
+          "true_negative": 66292.0,
+          "iou": 0.9440128582909189,
+          "precision": 0.955531453362256,
+          "recall": 0.9873914261697955,
+          "f1": 0.971200220476781,
+          "accuracy": 0.9970153516601213
+        },
+        "localization": {
+          "pd": 0.9863945578231292,
+          "fa": 8.354739402933505e-06,
+          "targets": 147.0,
+          "correct_targets": 145.0,
+          "false_components": 118.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 74,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 70025,
+        "trailing_events": 918
+      },
+      {
+        "name": "val_009.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2751.0,
+          "false_positive": 143.0,
+          "false_negative": 28.0,
+          "true_negative": 53727.0,
+          "iou": 0.9414784394250514,
+          "precision": 0.9505874222529371,
+          "recall": 0.9899244332493703,
+          "f1": 0.9698572184029614,
+          "accuracy": 0.9969814118519303
+        },
+        "localization": {
+          "pd": 0.9787234042553191,
+          "fa": 6.938681877012572e-06,
+          "targets": 141.0,
+          "correct_targets": 138.0,
+          "false_components": 98.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 71,
+          "detected_object_windows": 69,
+          "coverage": 0.971830985915493,
+          "breaks": 0,
+          "longest_detected_run": 17,
+          "reacquisition_gaps_windows": [
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 56649,
+        "trailing_events": 958
+      },
+      {
+        "name": "val_010.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1761.0,
+          "false_positive": 151.0,
+          "false_negative": 12.0,
+          "true_negative": 41580.0,
+          "iou": 0.9152806652806653,
+          "precision": 0.9210251046025104,
+          "recall": 0.9932318104906938,
+          "f1": 0.9557666214382632,
+          "accuracy": 0.9962532180948879
+        },
+        "localization": {
+          "pd": 1.0,
+          "fa": 8.496345155525598e-06,
+          "targets": 130.0,
+          "correct_targets": 130.0,
+          "false_components": 120.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 66,
+          "detected_object_windows": 66,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 20,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 43504,
+        "trailing_events": 393
+      },
+      {
+        "name": "val_011.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 4324.0,
+          "false_positive": 117.0,
+          "false_negative": 18.0,
+          "true_negative": 38999.0,
+          "iou": 0.9697241533976227,
+          "precision": 0.9736545823012835,
+          "recall": 0.9958544449562413,
+          "f1": 0.9846293977001025,
+          "accuracy": 0.9968935523954162
+        },
+        "localization": {
+          "pd": 0.9868421052631579,
+          "fa": 6.797076124420478e-06,
+          "targets": 152.0,
+          "correct_targets": 150.0,
+          "false_components": 96.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 76,
+          "detected_object_windows": 76,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 40,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 43458,
+        "trailing_events": 513
+      },
+      {
+        "name": "val_012.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 5764.0,
+          "false_positive": 152.0,
+          "false_negative": 20.0,
+          "true_negative": 33228.0,
+          "iou": 0.9710242587601078,
+          "precision": 0.9743069641649763,
+          "recall": 0.9965421853388658,
+          "f1": 0.9852991452991453,
+          "accuracy": 0.995608211622919
+        },
+        "localization": {
+          "pd": 0.9933774834437086,
+          "fa": 5.947441608867918e-06,
+          "targets": 151.0,
+          "correct_targets": 150.0,
+          "false_components": 84.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 77,
+          "detected_object_windows": 77,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 48,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 39164,
+        "trailing_events": 431
+      },
+      {
+        "name": "val_013.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 4458.0,
+          "false_positive": 145.0,
+          "false_negative": 27.0,
+          "true_negative": 17176.0,
+          "iou": 0.9628509719222462,
+          "precision": 0.9684988051270911,
+          "recall": 0.9939799331103679,
+          "f1": 0.9810739436619719,
+          "accuracy": 0.9921122626799963
+        },
+        "localization": {
+          "pd": 1.0,
+          "fa": 5.168609969611405e-06,
+          "targets": 149.0,
+          "correct_targets": 149.0,
+          "false_components": 73.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 74,
+          "detected_object_windows": 74,
+          "coverage": 1.0,
+          "breaks": 0,
+          "longest_detected_run": 39,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 21806,
+        "trailing_events": 228
+      },
+      {
+        "name": "val_014.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1151.0,
+          "false_positive": 144.0,
+          "false_negative": 114.0,
+          "true_negative": 42441.0,
+          "iou": 0.8168914123491838,
+          "precision": 0.8888030888030888,
+          "recall": 0.9098814229249012,
+          "f1": 0.89921875,
+          "accuracy": 0.9941163055872292
+        },
+        "localization": {
+          "pd": 0.9038461538461539,
+          "fa": 8.991965289597924e-06,
+          "targets": 208.0,
+          "correct_targets": 188.0,
+          "false_components": 127.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 102,
+          "detected_object_windows": 97,
+          "coverage": 0.9509803921568627,
+          "breaks": 2,
+          "longest_detected_run": 26,
+          "reacquisition_gaps_windows": [
+            2,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 43850,
+        "trailing_events": 549
+      },
+      {
+        "name": "val_015.npz",
+        "high_density": true,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1931.0,
+          "false_positive": 281.0,
+          "false_negative": 174.0,
+          "true_negative": 248199.0,
+          "iou": 0.8093042749371333,
+          "precision": 0.8729656419529838,
+          "recall": 0.9173396674584323,
+          "f1": 0.8946027333796618,
+          "accuracy": 0.9981842488576731
+        },
+        "localization": {
+          "pd": 0.8549222797927462,
+          "fa": 1.607225291920259e-05,
+          "targets": 193.0,
+          "correct_targets": 165.0,
+          "false_components": 227.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 98,
+          "detected_object_windows": 88,
+          "coverage": 0.8979591836734694,
+          "breaks": 3,
+          "longest_detected_run": 20,
+          "reacquisition_gaps_windows": [
+            2,
+            1,
+            4
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 250585,
+        "trailing_events": 3370
+      },
+      {
+        "name": "val_016.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 3431.0,
+          "false_positive": 116.0,
+          "false_negative": 146.0,
+          "true_negative": 16684.0,
+          "iou": 0.9290549688600054,
+          "precision": 0.9672963067380885,
+          "recall": 0.9591836734693877,
+          "f1": 0.9632229084783829,
+          "accuracy": 0.9871423663934829
+        },
+        "localization": {
+          "pd": 0.9369918699186992,
+          "fa": 7.151090505900712e-06,
+          "targets": 492.0,
+          "correct_targets": 461.0,
+          "false_components": 101.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 245,
+          "detected_object_windows": 237,
+          "coverage": 0.9673469387755103,
+          "breaks": 4,
+          "longest_detected_run": 18,
+          "reacquisition_gaps_windows": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 20377,
+        "trailing_events": 231
+      },
+      {
+        "name": "val_017.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2754.0,
+          "false_positive": 61.0,
+          "false_negative": 157.0,
+          "true_negative": 16783.0,
+          "iou": 0.9266487213997309,
+          "precision": 0.9783303730017762,
+          "recall": 0.9460666437650292,
+          "f1": 0.9619280475026196,
+          "accuracy": 0.9889648190331561
+        },
+        "localization": {
+          "pd": 0.940677966101695,
+          "fa": 4.1773697014667525e-06,
+          "targets": 354.0,
+          "correct_targets": 333.0,
+          "false_components": 59.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 176,
+          "detected_object_windows": 169,
+          "coverage": 0.9602272727272727,
+          "breaks": 2,
+          "longest_detected_run": 78,
+          "reacquisition_gaps_windows": [
+            1,
+            2,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 19755,
+        "trailing_events": 309
+      },
+      {
+        "name": "val_018.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 3015.0,
+          "false_positive": 49.0,
+          "false_negative": 208.0,
+          "true_negative": 16103.0,
+          "iou": 0.9214547677261614,
+          "precision": 0.9840078328981723,
+          "recall": 0.9354638535525908,
+          "f1": 0.9591219977731827,
+          "accuracy": 0.9867354838709678
+        },
+        "localization": {
+          "pd": 0.9097472924187726,
+          "fa": 3.0445236807300058e-06,
+          "targets": 277.0,
+          "correct_targets": 252.0,
+          "false_components": 43.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 138,
+          "detected_object_windows": 130,
+          "coverage": 0.9420289855072463,
+          "breaks": 4,
+          "longest_detected_run": 24,
+          "reacquisition_gaps_windows": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 19375,
+        "trailing_events": 219
+      },
+      {
+        "name": "val_019.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2801.0,
+          "false_positive": 118.0,
+          "false_negative": 49.0,
+          "true_negative": 28695.0,
+          "iou": 0.943733153638814,
+          "precision": 0.9595751969852689,
+          "recall": 0.9828070175438597,
+          "f1": 0.9710521754203502,
+          "accuracy": 0.994725705081641
+        },
+        "localization": {
+          "pd": 0.9709677419354839,
+          "fa": 8.142330774045365e-06,
+          "targets": 310.0,
+          "correct_targets": 301.0,
+          "false_components": 115.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 153,
+          "detected_object_windows": 151,
+          "coverage": 0.9869281045751634,
+          "breaks": 1,
+          "longest_detected_run": 66,
+          "reacquisition_gaps_windows": [
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 31663,
+        "trailing_events": 308
+      },
+      {
+        "name": "val_020.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 3448.0,
+          "false_positive": 82.0,
+          "false_negative": 45.0,
+          "true_negative": 29067.0,
+          "iou": 0.9644755244755244,
+          "precision": 0.976770538243626,
+          "recall": 0.9871170913255082,
+          "f1": 0.9819165598746974,
+          "accuracy": 0.9961093070277557
+        },
+        "localization": {
+          "pd": 0.9814814814814815,
+          "fa": 5.3102157222034985e-06,
+          "targets": 162.0,
+          "correct_targets": 159.0,
+          "false_components": 75.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 81,
+          "detected_object_windows": 80,
+          "coverage": 0.9876543209876543,
+          "breaks": 1,
+          "longest_detected_run": 49,
+          "reacquisition_gaps_windows": []
+        },
+        "closed_windows": 79,
+        "closed_events": 32642,
+        "trailing_events": 517
+      },
+      {
+        "name": "val_021.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 1067.0,
+          "false_positive": 120.0,
+          "false_negative": 63.0,
+          "true_negative": 16644.0,
+          "iou": 0.8536,
+          "precision": 0.8989048020219039,
+          "recall": 0.9442477876106194,
+          "f1": 0.9210185584807942,
+          "accuracy": 0.9897731083044596
+        },
+        "localization": {
+          "pd": 0.9240506329113924,
+          "fa": 1.2430853378084406e-05,
+          "targets": 158.0,
+          "correct_targets": 146.0,
+          "false_components": 104.0,
+          "frame_denominator": 93.0
+        },
+        "continuity": {
+          "eligible_object_windows": 77,
+          "detected_object_windows": 73,
+          "coverage": 0.948051948051948,
+          "breaks": 2,
+          "longest_detected_run": 24,
+          "reacquisition_gaps_windows": [
+            2,
+            1,
+            1
+          ]
+        },
+        "closed_windows": 47,
+        "closed_events": 17894,
+        "trailing_events": 464
+      },
+      {
+        "name": "val_022.npz",
+        "high_density": false,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2120.0,
+          "false_positive": 52.0,
+          "false_negative": 36.0,
+          "true_negative": 5858.0,
+          "iou": 0.9601449275362319,
+          "precision": 0.9760589318600368,
+          "recall": 0.9833024118738405,
+          "f1": 0.9796672828096118,
+          "accuracy": 0.9890900074386313
+        },
+        "localization": {
+          "pd": 0.9506172839506173,
+          "fa": 3.3277351859141925e-06,
+          "targets": 243.0,
+          "correct_targets": 231.0,
+          "false_components": 47.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 119,
+          "detected_object_windows": 117,
+          "coverage": 0.9831932773109243,
+          "breaks": 0,
+          "longest_detected_run": 79,
+          "reacquisition_gaps_windows": [
+            1,
+            1
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 8066,
+        "trailing_events": 99
+      },
+      {
+        "name": "val_023.npz",
+        "high_density": true,
+        "event": {
+          "threshold": 0.35,
+          "true_positive": 2226.0,
+          "false_positive": 363.0,
+          "false_negative": 3682.0,
+          "true_negative": 380021.0,
+          "iou": 0.35496730983894115,
+          "precision": 0.8597914252607184,
+          "recall": 0.3767772511848341,
+          "f1": 0.5239496292809227,
+          "accuracy": 0.9895286467232042
+        },
+        "localization": {
+          "pd": 0.35626535626535627,
+          "fa": 1.628466154809073e-05,
+          "targets": 407.0,
+          "correct_targets": 145.0,
+          "false_components": 230.0,
+          "frame_denominator": 157.0
+        },
+        "continuity": {
+          "eligible_object_windows": 203,
+          "detected_object_windows": 84,
+          "coverage": 0.41379310344827586,
+          "breaks": 23,
+          "longest_detected_run": 21,
+          "reacquisition_gaps_windows": [
+            2,
+            1,
+            1,
+            1,
+            19,
+            1,
+            20,
+            1,
+            2,
+            1,
+            1,
+            3,
+            1,
+            1,
+            1,
+            1,
+            1,
+            4,
+            4,
+            2,
+            1,
+            1,
+            2,
+            10,
+            3
+          ]
+        },
+        "closed_windows": 79,
+        "closed_events": 386292,
+        "trailing_events": 5052
+      }
+    ]
+  }
+}

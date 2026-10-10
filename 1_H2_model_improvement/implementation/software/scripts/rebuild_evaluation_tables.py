@@ -139,11 +139,13 @@ def event_metrics(path: Path) -> tuple[dict[str, Any], str]:
     event = working["overall"]["event"]
     localization = working["overall"]["localization"]
     recalls = [float(row["event"]["recall"]) for row in working["per_sequence"].values()]
+    macro_recall = (float(working["macro_sequence_recall"])
+                    if "macro_sequence_recall" in working else sum(recalls) / len(recalls))
     values = {
         "Event AP": float(working["average_precision"]), "Event IoU": float(event["iou"]),
         "Precision": float(event["precision"]), "ACC / Target-event Recall": float(event["recall"]),
         "F1": float(event["f1"]), "Pd": float(localization["pd"]), "Fa": float(localization["fa"]),
-        "Macro sequence recall": sum(recalls) / len(recalls),
+        "Macro sequence recall": macro_recall,
         "High-density recall": float(working["high_density"]["event"]["recall"]),
         "Ordinary-density recall": float(working["ordinary_density"]["event"]["recall"]),
         "Detected target events": int(event["tp"]), "Missed target events": int(event["fn"]),
@@ -239,16 +241,12 @@ def build_accuracy(root: Path) -> list[Path]:
                     row_protocol = "ICCV-2025-EV-UAV-Table-2"
                 elif status == "pending" and metric.level == "02_target_track_level":
                     row_protocol = "evuav-observable-event-track-hota-v1"
-                elif status == "pending" and model["evaluation_id"] == "EMS-YOLO":
-                    row_protocol = "evuav-event-metrics-v1+ems-yolo-sliding-box-to-event-v1"
                 elif status == "pending" and model["evaluation_id"] == "EV-SpSegNet":
                     row_protocol = "evuav-33e2aff-official-compatible-v1+step3-density-20000"
                 else:
                     row_protocol = protocol
                 if status == "pending":
                     notes = "待服务器导入同口径逐事件概率"
-                    if model["evaluation_id"] == "EMS-YOLO":
-                        notes += "；阈值0.407来自历史Validation选择，Test为主要无偏比较"
                 else:
                     notes = "论文 Test 表 2 直接报告；服务器实测后由同口径结果替换" if status == "paper_reported" else ""
                 rows.append(make_row(model, values.get(metric.source_key), metric.unit, status, evidence, row_protocol, source, notes))
@@ -400,7 +398,7 @@ def build_coverage(root: Path, fail_on_incomplete: bool = True) -> tuple[Path, b
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[4] / "5_model_evaluation"); parser.add_argument("--category", choices=("all", "accuracy", "complexity", "deployment", "coverage"), default="all"); parser.add_argument("--allow-incomplete", action="store_true"); args = parser.parse_args()
+    parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path(__file__).absolute().parents[4] / "5_model_evaluation"); parser.add_argument("--category", choices=("all", "accuracy", "complexity", "deployment", "coverage"), default="all"); parser.add_argument("--allow-incomplete", action="store_true"); args = parser.parse_args()
     if args.category in {"all", "accuracy"}: build_accuracy(args.root)
     if args.category in {"all", "complexity"}: build_complexity(args.root)
     if args.category in {"all", "deployment"}: build_deployment(args.root)

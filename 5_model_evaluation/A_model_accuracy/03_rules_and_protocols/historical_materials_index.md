@@ -1,9 +1,3 @@
-﻿# A 类历史资料索引
+# 历史材料索引
 
-A 只保存正式 H2/H2-plus 的冻结 exact-INT8 Validation/Test 结果。以下内容属于模型研究过程，不再与正式结果混放：
-
-- 原始 H2 Step1 诊断与历史独立评测宽表：`1_H2_model_improvement/seven_step_improvement_study/evaluation_cleanup_archive/2026-10-07/`。
-- H2、H2-plus Train-dev 评测：七步研究 Step4/Step5 对应结果目录。
-- H2-plus float 对照及 seed43/44 稳定性结果：七步研究 Step6/Step7 对应结果目录。
-
-迁移前逐文件计算 SHA-256；七步研究中已有相同哈希的文件不再复制，独有文件进入上述整理归档。
+正式 A 源记录只保留 H2 与 H2-pro 的相同闭合窗口前缀，以及 EV-SpSegNet 的已公开论文参照/待测状态。原 H2/H2-plus 全序列正式记录、A4-2 旧部署决策和权重在 `../../../1_H2_model_improvement/seven_step_improvement_study/step7/intermediate_H2-plus/`。七步 Step4–Step7 的训练、消融、门槛与原始评估结论仍按原目录保存，不改写历史。

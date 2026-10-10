@@ -1,0 +1,22 @@
+{
+  "selection_protocol_id": "H2-pro-stage1-selection-v2-amendment",
+  "status": "post-v1 Train-dev amendment, locked before any Validation or Test evaluation",
+  "reason": "v1 maximized IoU after a relative-to-C0 Pd/Fa guard and selected a threshold that reduced absolute high-density Recall against the frozen A4-2 reference by about two percentage points",
+  "provenance": "Uses exactly the completed v1 C0/C1/C2 seed42 epoch 0/1/2/5/8/10 float and exact-int8 checkpoints. No retraining, feature change, threshold expansion or reserved-data read.",
+  "reference": "frozen A4-2 seed42 epoch8 exact-int8 at 0.40, recomputed on the same closed-window Train-dev event prefix",
+  "numeric_path": "exact-int8",
+  "roles": ["train_main for fitting", "train_dev for this amendment and selection"],
+  "reserved_roles_untouched": ["validation", "test", "hardware_calibration"],
+  "guards": {
+    "overall_iou": ">= historical A4-2",
+    "overall_ap": ">= historical A4-2",
+    "overall_pd": ">= historical A4-2 - 0.005 absolute",
+    "overall_fa": "<= historical A4-2 * 1.10",
+    "high_density_recall": ">= historical A4-2 - 0.003 absolute",
+    "high_density_fa": "<= historical A4-2 * 1.10",
+    "ordinary_density_fa": "<= historical A4-2 * 1.10",
+    "object_window_coverage": ">= historical A4-2 - 0.005 absolute"
+  },
+  "ranking_after_guards": ["highest overall IoU", "highest AP", "highest high-density Recall", "lower Fa", "earlier epoch", "lower threshold"],
+  "interpretation_limit": "The amendment was motivated by v1 Train-dev results and remains exploratory; do not describe it as a pre-data rule. A single locked reserved-data acceptance is needed to assess generalization, with no further retuning."
+}
