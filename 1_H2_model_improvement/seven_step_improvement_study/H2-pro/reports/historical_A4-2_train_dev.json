@@ -1,0 +1,400 @@
+{
+  "role": "train_dev",
+  "model_id": "A4-2-frozen-historical-noncausal",
+  "source_int8_sha256": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4",
+  "threshold": 0.4,
+  "evaluation_subset": "same complete-100ms event prefix as H2-pro",
+  "not_independent_test": true,
+  "ap": 0.9312702201845219,
+  "event": {
+    "threshold": 0.4,
+    "true_positive": 25785.0,
+    "false_positive": 2551.0,
+    "false_negative": 4469.0,
+    "true_negative": 1188821.0,
+    "iou": 0.7860082304526749,
+    "precision": 0.9099731789949181,
+    "recall": 0.8522839955047267,
+    "f1": 0.880184331797235,
+    "accuracy": 0.9942535604186551
+  },
+  "localization": {
+    "pd": 0.843530591775326,
+    "fa": 1.2922041390632796e-05
+  },
+  "sequences": [
+    {
+      "name": "train_002.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 3924.0,
+        "false_positive": 145.0,
+        "false_negative": 19.0,
+        "true_negative": 40024.0,
+        "iou": 0.9598825831702544,
+        "precision": 0.9643647087736544,
+        "recall": 0.9951813340096374,
+        "f1": 0.9795307039440839,
+        "accuracy": 0.9962821907870875
+      },
+      "localization": {
+        "pd": 0.9931506849315068,
+        "fa": 7.009484753308619e-06,
+        "targets": 146.0,
+        "correct_targets": 145.0,
+        "false_components": 99.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 73,
+        "detected_object_windows": 73,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 39,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 7060
+    },
+    {
+      "name": "train_020.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 839.0,
+        "false_positive": 128.0,
+        "false_negative": 14.0,
+        "true_negative": 21716.0,
+        "iou": 0.855249745158002,
+        "precision": 0.8676318510858325,
+        "recall": 0.9835873388042204,
+        "f1": 0.921978021978022,
+        "accuracy": 0.993743666563863
+      },
+      "localization": {
+        "pd": 0.9819819819819819,
+        "fa": 7.3634991347888514e-06,
+        "targets": 111.0,
+        "correct_targets": 109.0,
+        "false_components": 104.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 58,
+        "detected_object_windows": 58,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 35,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 1989
+    },
+    {
+      "name": "train_034.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 3905.0,
+        "false_positive": 92.0,
+        "false_negative": 13.0,
+        "true_negative": 16510.0,
+        "iou": 0.9738154613466334,
+        "precision": 0.9769827370527896,
+        "recall": 0.9966819806023481,
+        "f1": 0.9867340492735313,
+        "accuracy": 0.9948830409356725
+      },
+      "localization": {
+        "pd": 1.0,
+        "fa": 4.743792711835126e-06,
+        "targets": 146.0,
+        "correct_targets": 146.0,
+        "false_components": 67.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 74,
+        "detected_object_windows": 74,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 30,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 8770
+    },
+    {
+      "name": "train_039.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 4647.0,
+        "false_positive": 142.0,
+        "false_negative": 15.0,
+        "true_negative": 15319.0,
+        "iou": 0.9673189009159034,
+        "precision": 0.9703487158070578,
+        "recall": 0.9967824967824968,
+        "f1": 0.9833880012697069,
+        "accuracy": 0.9921979824081897
+      },
+      "localization": {
+        "pd": 1.0,
+        "fa": 6.584667495532338e-06,
+        "targets": 144.0,
+        "correct_targets": 144.0,
+        "false_components": 93.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 73,
+        "detected_object_windows": 73,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 49,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 6525
+    },
+    {
+      "name": "train_041.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 2276.0,
+        "false_positive": 133.0,
+        "false_negative": 76.0,
+        "true_negative": 42024.0,
+        "iou": 0.9158953722334005,
+        "precision": 0.9447903694479037,
+        "recall": 0.967687074829932,
+        "f1": 0.9561016593152699,
+        "accuracy": 0.9953043204745108
+      },
+      "localization": {
+        "pd": 0.9352226720647774,
+        "fa": 8.850359537005831e-06,
+        "targets": 247.0,
+        "correct_targets": 231.0,
+        "false_components": 125.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 122,
+        "detected_object_windows": 117,
+        "coverage": 0.9590163934426229,
+        "breaks": 3,
+        "longest_detected_run": 41,
+        "reacquisition_gaps_windows": [
+          2,
+          1,
+          1
+        ]
+      },
+      "candidate_events": 6035
+    },
+    {
+      "name": "train_050.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 2163.0,
+        "false_positive": 163.0,
+        "false_negative": 42.0,
+        "true_negative": 15739.0,
+        "iou": 0.9134290540540541,
+        "precision": 0.9299226139294927,
+        "recall": 0.9809523809523809,
+        "f1": 0.9547561244758331,
+        "accuracy": 0.9886784116639974
+      },
+      "localization": {
+        "pd": 0.976027397260274,
+        "fa": 1.0195614186630718e-05,
+        "targets": 292.0,
+        "correct_targets": 285.0,
+        "false_components": 144.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 147,
+        "detected_object_windows": 145,
+        "coverage": 0.9863945578231292,
+        "breaks": 1,
+        "longest_detected_run": 18,
+        "reacquisition_gaps_windows": [
+          1
+        ]
+      },
+      "candidate_events": 3233
+    },
+    {
+      "name": "train_060.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 1186.0,
+        "false_positive": 62.0,
+        "false_negative": 20.0,
+        "true_negative": 41783.0,
+        "iou": 0.9353312302839116,
+        "precision": 0.9503205128205128,
+        "recall": 0.9834162520729685,
+        "f1": 0.9665851670741646,
+        "accuracy": 0.9980952823395508
+      },
+      "localization": {
+        "pd": 0.9920634920634921,
+        "fa": 4.035763948874659e-06,
+        "targets": 126.0,
+        "correct_targets": 125.0,
+        "false_components": 57.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 65,
+        "detected_object_windows": 65,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 22,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 13078
+    },
+    {
+      "name": "train_066.npz",
+      "high_density": false,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 1308.0,
+        "false_positive": 73.0,
+        "false_negative": 41.0,
+        "true_negative": 18804.0,
+        "iou": 0.919831223628692,
+        "precision": 0.9471397538015931,
+        "recall": 0.9696071163825055,
+        "f1": 0.9582417582417583,
+        "accuracy": 0.9943636902996144
+      },
+      "localization": {
+        "pd": 0.967741935483871,
+        "fa": 8.424796985794855e-06,
+        "targets": 186.0,
+        "correct_targets": 180.0,
+        "false_components": 72.0,
+        "frame_denominator": 95.0
+      },
+      "continuity": {
+        "eligible_object_windows": 93,
+        "detected_object_windows": 93,
+        "coverage": 1.0,
+        "breaks": 0,
+        "longest_detected_run": 48,
+        "reacquisition_gaps_windows": []
+      },
+      "candidate_events": 5338
+    },
+    {
+      "name": "train_089.npz",
+      "high_density": true,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 628.0,
+        "false_positive": 497.0,
+        "false_negative": 1982.0,
+        "true_negative": 397391.0,
+        "iou": 0.20212423559703893,
+        "precision": 0.5582222222222222,
+        "recall": 0.24061302681992336,
+        "f1": 0.3362784471218206,
+        "accuracy": 0.993810206293165
+      },
+      "localization": {
+        "pd": 0.3436426116838488,
+        "fa": 2.2373708909550742e-05,
+        "targets": 291.0,
+        "correct_targets": 100.0,
+        "false_components": 316.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 146,
+        "detected_object_windows": 63,
+        "coverage": 0.4315068493150685,
+        "breaks": 17,
+        "longest_detected_run": 18,
+        "reacquisition_gaps_windows": [
+          8,
+          1,
+          2,
+          10,
+          2,
+          1,
+          1,
+          5,
+          5,
+          3,
+          14,
+          1,
+          3,
+          3,
+          6,
+          1,
+          5,
+          6,
+          1
+        ]
+      },
+      "candidate_events": 159309
+    },
+    {
+      "name": "train_092.npz",
+      "high_density": true,
+      "event": {
+        "threshold": 0.4,
+        "true_positive": 4909.0,
+        "false_positive": 1116.0,
+        "false_negative": 2247.0,
+        "true_negative": 579511.0,
+        "iou": 0.5934477756286267,
+        "precision": 0.8147717842323652,
+        "recall": 0.6859977641140302,
+        "f1": 0.7448600257947045,
+        "accuracy": 0.9942785007392184
+      },
+      "localization": {
+        "pd": 0.7114754098360656,
+        "fa": 4.7862744376127534e-05,
+        "targets": 305.0,
+        "correct_targets": 217.0,
+        "false_components": 676.0,
+        "frame_denominator": 157.0
+      },
+      "continuity": {
+        "eligible_object_windows": 152,
+        "detected_object_windows": 117,
+        "coverage": 0.7697368421052632,
+        "breaks": 17,
+        "longest_detected_run": 22,
+        "reacquisition_gaps_windows": [
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          3,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          6,
+          4
+        ]
+      },
+      "candidate_events": 227629
+    }
+  ]
+}

@@ -3,9 +3,9 @@
 ## 正式配置
 
 - H2：冻结 exact-INT8，阈值 0.30。
-- H2-plus：A4-2、seed 42、epoch 8、冻结 exact-INT8，阈值 0.40。
+- H2-pro：C1 Proposal 历史运动特征、seed 42、epoch 10、冻结 exact-INT8，阈值 0.35；H2-plus 已归入 Step7 中间模型。
 - EV-SpSegNet：官方浮点 CUDA 数值路径，阈值 0.90；权重哈希在服务器回传导入后冻结。
-- 事件级协议：`evuav-33e2aff-official-compatible-v1+step3-density-20000`。
+- H2/H2-pro 事件级协议：`evuav-33e2aff-official-compatible-v1+step3-density-20000+closed-prefix-h2pro-v1`，使用相同首事件锚定完整 100 ms 窗口前缀。H2 历史评分来自全序列预测后裁剪，仍含非因果时间输入。
 - Validation 与 Test 只报告冻结配置，不参与调参；总体 Accuracy 受背景真负例影响，不作为主结论。
 
 ## 事件级指标
@@ -24,7 +24,7 @@
 
 ## 可观测事件轨迹 HOTA
 
-轨迹协议为 `evuav-observable-event-track-hota-v1`，评估对象是模型与共享冻结目标聚类/关联适配器的组合。它不使用背景 TN。
+H2/H2-pro 轨迹协议为 `evuav-observable-event-track-hota-closed-prefix-h2pro-v1`，评估对象是模型与共享冻结目标聚类/关联适配器的组合。它不使用背景 TN。
 
 1. 每条序列按 50 ms 左闭右开窗口划分，边界事件只统计一次。
 2. GT 使用同一非零 `name` 的目标事件最小包围框，单像素框具有非零面积；`name` 是真实轨迹身份。

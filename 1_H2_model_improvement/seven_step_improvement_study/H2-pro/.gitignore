@@ -1,0 +1,7 @@
+cache/
+smoke_cache/
+__pycache__/
+*.pyc
+results/**/epoch*.pt
+results/**/epoch*_int8.npz
+results/**/progress.json

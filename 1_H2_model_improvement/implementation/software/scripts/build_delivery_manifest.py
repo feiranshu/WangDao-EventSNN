@@ -10,9 +10,9 @@ import os
 from pathlib import Path
 
 
-IMPLEMENTATION_ROOT = Path(__file__).resolve().parents[2]
+IMPLEMENTATION_ROOT = Path(__file__).absolute().parents[2]
 DEFAULT_OUTPUT = IMPLEMENTATION_ROOT / "DELIVERY_MANIFEST.json"
-EXCLUDED_PARTS = {"__pycache__", "EV-UAV-dataset"}
+EXCLUDED_PARTS = {"__pycache__", ".pytest_cache", ".mypy_cache", "EV-UAV-dataset"}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
 
 
@@ -26,14 +26,14 @@ def sha256(path: Path) -> str:
 
 def collect_files(root: Path, output: Path) -> list[dict[str, object]]:
     files: list[dict[str, object]] = []
-    output_resolved = output.resolve()
+    output_resolved = output.absolute()
     paths: list[Path] = []
     for directory, child_directories, names in os.walk(root):
         child_directories[:] = sorted(name for name in child_directories if name not in EXCLUDED_PARTS)
         base = Path(directory)
         for name in names:
             path = base / name
-            if path.suffix not in EXCLUDED_SUFFIXES and path.resolve() != output_resolved:
+            if path.suffix not in EXCLUDED_SUFFIXES and path.absolute() != output_resolved:
                 paths.append(path)
     for path in sorted(paths, key=lambda item: item.relative_to(root).as_posix()):
         relative = path.relative_to(root)
@@ -45,17 +45,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
-    output = args.output.resolve()
+    output = args.output.absolute()
     files = collect_files(IMPLEMENTATION_ROOT, output)
     payload = {
         "schema_version": 1,
-        "artifact": "H2 ANN final A4-2 implementation",
-        "model_id": "A4-2",
+        "artifact": "H2 ANN final H2-pro implementation",
+        "model_id": "H2-pro-Causal-ANN-v1",
         "seed": 42,
-        "epoch": 8,
-        "threshold": 0.4,
+        "epoch": 10,
+        "threshold": 0.35,
         "root": "implementation",
-        "excluded": ["data/EV-UAV-dataset", "__pycache__", "*.pyc", "DELIVERY_MANIFEST.json"],
+        "excluded": ["data/EV-UAV-dataset", "__pycache__", ".pytest_cache", ".mypy_cache", "*.pyc", "DELIVERY_MANIFEST.json"],
         "file_count": len(files),
         "files": files,
     }

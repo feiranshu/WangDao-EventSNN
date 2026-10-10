@@ -1,62 +1,24 @@
-﻿# H2 ANN模型改进工程
+# H2 ANN 模型改进工程
 
-本目录是可直接上传GitHub的最终工程交付。项目从原始两级MLP H2出发，经过七步受控研究，最终选择历史特征增强模型A4-2作为实际部署版本；完整实验过程保存在`seven_step_improvement_study/`，正式运行入口、权重和独立评测结果位于`implementation/`。
+正式最终版本是 **H2-pro-Causal-ANN-v1**：保留 H2 Proposal，Refiner 仍为 36→64→32→4，将 H2-plus 的非因果全序列相对时间维度换成已闭合窗口 Proposal 历史运动 C1 特征。冻结配置是 seed42、epoch10、exact-int8、阈值 0.35。100 ms 窗口按 watermark 发布，尾部不完整窗口不发布。
 
-## 最终模型
+H2-plus/A4-2 已退出正式部署与第 5 板块注册表，旧权重、结果和正式记录归入 [Step7 中间模型](seven_step_improvement_study/step7/intermediate_H2-plus/README.md)。原 Step5/Step7 结论保持为历史事实。[H2-pro 研究目录](seven_step_improvement_study/H2-pro/README.md)保存训练、冻结及评测证据；[implementation](implementation/README.md)是正式运行入口。
 
-A4-2保留原H2 Proposal，并把Refiner输入从32维扩展到36维：原32维特征后追加来自前两个100 ms窗口的4维因果历史信息。正式配置固定为seed42、epoch 8、全局阈值0.40和exact-int8回放。
+| 划分 | 模型 | AP | IoU | Precision | HOTA |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Validation | H2 | 96.1159% | 86.1858% | 94.2416% | 39.7741% |
+| Validation | H2-plus（中间模型） | 96.1495% | 86.7004% | 94.4953% | 43.7617% |
+| Validation | H2-pro | 96.3589% | 87.8318% | 94.9168% | 43.7255% |
+| Test | H2 | 96.7807% | 85.9198% | 90.5479% | 44.0271% |
+| Test | H2-plus（中间模型） | 96.9565% | 86.8645% | 91.8429% | 43.1441% |
+| Test | H2-pro | 97.0823% | 87.1383% | 91.9882% | 42.1332% |
 
-最终决策以整体IoU、Precision和误报控制为主要部署目标：
-
-| Test指标 | H2-R | A4-2 exact-int8 | 变化 |
-| --- | ---: | ---: | ---: |
-| AP | 96.7597% | 96.9309% | +0.1712个百分点 |
-| 整体IoU | 85.9500% | 86.8931% | **+0.9431个百分点** |
-| Precision | 90.5758% | 91.8692% | **+1.2933个百分点** |
-| F1 | 92.4442% | 92.9869% | +0.5427个百分点 |
-| 总体Fa | 1.1579e-5 | 1.0871e-5 | **−6.11%** |
-| 高密度IoU | 57.3230% | 60.4175% | **+3.0945个百分点** |
-| 高密度Fa | 4.4394e-5 | 3.8405e-5 | **−13.49%** |
-
-Test整体IoU差值的10,000次配对序列bootstrap 95%区间为+0.0565至+2.2878个百分点，下界大于0。已知取舍是Test高密度Recall下降1.2138个百分点；因此本工程把A4-2定义为“整体IoU、Precision和误报控制优先”的最终模型，而不是所有指标无条件占优的模型。
-
-## 快速使用
-
-安装工程：
+Test 上 H2-pro 对 H2-plus 的 IoU 增量为 0.2737 个百分点，分层配对 bootstrap 95% 区间为 −0.0073 至 +0.6117 个百分点，跨 0；HOTA 低 1.011 个百分点。选用 H2-pro 主要是因果实时性版本决策，不能声称所有指标稳定领先。H2/H2-plus 对照来自旧全序列预测裁剪，仍带非因果时间输入。完整 A/B 指标见 [对比报告](seven_step_improvement_study/H2-pro/reports/AB_COMPARISON.md)。
 
 ```bash
-python -m pip install -e implementation
+python -m pip install -e 1_H2_model_improvement/implementation
+python 1_H2_model_improvement/implementation/software/scripts/run_h2_pro.py path/to/input.npz --output runs/h2_pro_predictions.npz
 ```
 
-对一个包含`ev`结构化数组的EV-UAV NPZ序列运行最终模型：
-
-```bash
-python implementation/software/scripts/run_a4_2.py path/to/input.npz --output runs/a4_2_predictions.npz
-```
-
-数据集不随仓库提交。完整环境、验证和服务器复现方式见[implementation/README_SERVER.md](implementation/README_SERVER.md)。
-
-## 目录结构
-
-```text
-1_H2_model_improvement/
-├─ README.md                         GitHub首页、最终结论、快速入口和总目录
-├─ H2_ANN_model_improvement_research_plan.md       七步研究路线、实验边界和最终决策记录
-├─ .gitignore                        排除数据集、缓存和本地临时文件
-├─ implementation/                   最终A4-2交付：运行代码、权重、测试和正式指标
-│  ├─ README.md                      最终实现说明及implementation完整目录
-│  ├─ README_SERVER.md               安装、测试、推理和结果复核命令
-│  ├─ PLAN.md                        Step1—7完整研究计划与结论
-│  ├─ MODEL_CARD.md                  A4-2模型卡、适用范围和已知限制
-│  ├─ DELIVERY_MANIFEST.json         最终实现全部文件的大小与SHA-256清单
-│  ├─ pyproject.toml                 Python包元数据与依赖
-│  ├─ data/                          冻结数据索引；真实数据集不入库
-│  ├─ software/                      Python包、脚本、测试和冻结权重
-│  └─ results/final_A4-2/            精简后的正式Validation/Test交付结果
-└─ seven_step_improvement_study/      Step1—7完整研究历程和原始实验产物
-   ├─ README.md                      七步状态、每步作用及目录导航
-   └─ step1/ … step7/                各步骤代码、协议、服务器包和结果
-```
-
-`seven_step_improvement_study/`是研究可追溯记录，不是部署入口；原归档清理说明及退出正式主线的评测生成器已统一迁至根级本地目录`../archive/1_H2_model_improvement/`。正式使用以`implementation/`为准。
+本目录下只保留两个子文件夹：正式 `implementation/`，以及包含原七步、中间模型和 H2-pro 研发证据的 `seven_step_improvement_study/`。数据集不入库；第 5 板块正式注册 H2、H2-pro、EV-SpSegNet，后者同口径补测未完成。
 

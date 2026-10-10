@@ -1,0 +1,14 @@
+{
+  "evaluation_id": "h2_pro__software_exact_int8",
+  "model": "H2-pro",
+  "protocol": "formal-ann-algorithm-complexity-closed-prefix-h2pro-v1",
+  "source_report": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_validation_v2.json",
+  "summary": {
+    "sequences": 24,
+    "closed_windows": 1864,
+    "candidate_events": 448120,
+    "dense_macs_per_sequence": 284066346.6666667,
+    "effective_macs_per_sequence": 85532971.54166667,
+    "effective_acs_per_sequence": 0
+  }
+}

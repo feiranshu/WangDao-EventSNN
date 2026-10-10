@@ -1,10 +1,10 @@
-# 冻结权重
+# 正式冻结权重
 
-| 文件 | 作用 | SHA-256 |
+| 文件 | 用途 | SHA-256 |
 | --- | --- | --- |
-| `H2_D1_seed42.npz` | 原H2 Proposal及基线Refiner；A4-2部署复用其中Proposal | `21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2` |
-| `A4-2_seed42_epoch008_int8.npz` | 最终36→64→32→4 exact-int8 Refiner | `d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4` |
-| `A4-2_seed42_epoch008.pt` | 对应PyTorch checkpoint，供复现和审计，不是部署必需 | `a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f` |
+| `H2_D1_seed42.npz` | 冻结 H2 Proposal 和基线 Refiner | `21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2` |
+| `H2-pro-Causal-ANN-v1_int8.npz` | 正式 C1 因果 Refiner，阈值 0.35 | `6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d` |
+| `H2-pro-Causal-ANN-v1_float.pt` | 对应 float teacher，供审计与转换 | `dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91` |
 
-正式阈值0.40记录在int8权重元数据和`results/final_A4-2/deployment_decision.json`中。不要用Test结果替换这些文件。
+旧 H2-plus/A4-2 权重已归入 `../../../seven_step_improvement_study/step7/intermediate_H2-plus/weights/`，不属于正式部署权重。
 

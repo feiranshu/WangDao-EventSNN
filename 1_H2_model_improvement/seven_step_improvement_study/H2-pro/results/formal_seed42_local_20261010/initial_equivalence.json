@@ -1,0 +1,8 @@
+{
+  "source_float_sha256": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+  "source_int8_sha256": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4",
+  "protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "other_35_equal": true,
+  "max_float_probability_error": 0.0,
+  "max_int8_probability_error": 0.0
+}

@@ -1,0 +1,2603 @@
+{
+  "source": "Train-dev only; v2 is a post-v1 amendment",
+  "selection_protocol_sha256": "ea6a94e59fd88dfdf174f338c05f28479e7b144c2a83fefdc1a0615854b39dd6",
+  "protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "historical_reference_sha256": "aed6cadcc7d05bc2068905134e5d9efe792f68b57a3bfab628ca698588cf092d",
+  "historical_reference": {
+    "iou": 0.7860082304526749,
+    "ap": 0.9312702201845219,
+    "pd": 0.843530591775326,
+    "fa": 1.2922041390632796e-05,
+    "high_density_recall": 0.5669670284661069,
+    "high_density_fa": 3.511822664283914e-05,
+    "ordinary_density_fa": 7.0848536442401725e-06,
+    "object_window_coverage": 0.8753738783649053
+  },
+  "candidates": {
+    "C0-zero": {
+      "eligible_count": 1,
+      "winner": {
+        "variant": "C0-zero",
+        "epoch": 10,
+        "threshold": 0.35,
+        "threshold_key": "0.35",
+        "metrics": {
+          "event": {
+            "threshold": 0.35,
+            "true_positive": 25905.0,
+            "false_positive": 2664.0,
+            "false_negative": 4349.0,
+            "true_negative": 1188708.0,
+            "iou": 0.7869554650950847,
+            "precision": 0.9067520739262838,
+            "recall": 0.8562504131685067,
+            "f1": 0.880777927001343,
+            "accuracy": 0.9942592904866138
+          },
+          "localization": {
+            "pd": 0.8440320962888666,
+            "fa": 1.32390110311332e-05,
+            "targets": 1994.0,
+            "false_components": 1796.0,
+            "frame_denominator": 1508.0
+          },
+          "density_strata": {
+            "high": {
+              "sequences": 2,
+              "iou": 0.490839628375445,
+              "precision": 0.7635062128579146,
+              "recall": 0.5788449723530616,
+              "pd": 0.535234899328859,
+              "fa": 3.741932012246065e-05
+            },
+            "ordinary": {
+              "sequences": 8,
+              "iou": 0.9463109200504649,
+              "precision": 0.9568627450980393,
+              "recall": 0.988481062085123,
+              "pd": 0.9756795422031473,
+              "fa": 6.880035273447421e-06
+            }
+          },
+          "high_density_recall": 0.5788449723530616,
+          "object_window_coverage": 0.8743768693918246,
+          "object_window_breaks": 37
+        },
+        "ap": 0.9317673114832634,
+        "checkpoint_sha256": "31a148f3486430a0ac35bafc0be442eebd26f551ade44453e317ac954610e1ca",
+        "int8_sha256": "92054cc5500a2372704a72130b0419219b2bea2621ea8c13df5aaaba87361901"
+      },
+      "audit": [
+        {
+          "epoch": 0,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": false,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": false,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": false,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": true
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        }
+      ],
+      "paired_bootstrap_vs_C0": null,
+      "paired_bootstrap_vs_historical": {
+        "resamples": 10000,
+        "iou_delta_vs_historical_95_interval": [
+          -0.0016896291543815778,
+          0.0009701408992163207,
+          0.004874716948837693
+        ]
+      }
+    },
+    "C1-proposal-motion": {
+      "eligible_count": 3,
+      "winner": {
+        "variant": "C1-proposal-motion",
+        "epoch": 10,
+        "threshold": 0.35,
+        "threshold_key": "0.35",
+        "metrics": {
+          "event": {
+            "threshold": 0.35,
+            "true_positive": 25932.0,
+            "false_positive": 2463.0,
+            "false_negative": 4322.0,
+            "true_negative": 1188909.0,
+            "iou": 0.792615459852676,
+            "precision": 0.9132593766508188,
+            "recall": 0.8571428571428571,
+            "f1": 0.8843117529710651,
+            "accuracy": 0.9944459269858369
+          },
+          "localization": {
+            "pd": 0.8445336008024072,
+            "fa": 1.2634557298085915e-05,
+            "targets": 1994.0,
+            "false_components": 1714.0,
+            "frame_denominator": 1508.0
+          },
+          "density_strata": {
+            "high": {
+              "sequences": 2,
+              "iou": 0.5035417035594121,
+              "precision": 0.7882189882189882,
+              "recall": 0.5823264386647553,
+              "pd": 0.5369127516778524,
+              "fa": 3.3879176307658325e-05
+            },
+            "ordinary": {
+              "sequences": 8,
+              "iou": 0.9450123698828362,
+              "precision": 0.9558545797922569,
+              "recall": 0.9881393986723936,
+              "pd": 0.9756795422031473,
+              "fa": 7.047613940459672e-06
+            }
+          },
+          "high_density_recall": 0.5823264386647553,
+          "object_window_coverage": 0.8733798604187437,
+          "object_window_breaks": 39
+        },
+        "ap": 0.9340015545162401,
+        "checkpoint_sha256": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+        "int8_sha256": "4659e4b27e13b5c1217d6d7849ac1613ce79eec3c19f147634863a4636394e39"
+      },
+      "audit": [
+        {
+          "epoch": 0,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": false,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": true
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": true
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": true
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        }
+      ],
+      "paired_bootstrap_vs_C0": {
+        "resamples": 10000,
+        "method": "sequence-level paired bootstrap stratified by >=20000 events/s",
+        "iou_delta_95_interval": [
+          0.0009335009889711587,
+          0.005657663276851688,
+          0.009727226469312789
+        ],
+        "high_density_recall_delta_95_interval": [
+          -0.0019157088122605526,
+          0.0034814663116936595,
+          0.005449972051425389
+        ]
+      },
+      "paired_bootstrap_vs_historical": {
+        "resamples": 10000,
+        "iou_delta_vs_historical_95_interval": [
+          0.004487697840210645,
+          0.006620246841849364,
+          0.008498524677720118
+        ]
+      }
+    },
+    "C2-LMEC": {
+      "eligible_count": 0,
+      "winner": null,
+      "audit": [
+        {
+          "epoch": 0,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": false,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 0,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 1,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 2,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": false,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 5,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": false,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 8,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.2,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.25,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": false,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.3,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": false,
+            "high_density_recall": true,
+            "high_density_fa": false,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.35,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": true,
+            "overall_fa": true,
+            "high_density_recall": true,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": true
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.4,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.45,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.5,
+          "checks": {
+            "overall_iou": true,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.55,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        },
+        {
+          "epoch": 10,
+          "threshold": 0.6,
+          "checks": {
+            "overall_iou": false,
+            "overall_ap": true,
+            "overall_pd": false,
+            "overall_fa": true,
+            "high_density_recall": false,
+            "high_density_fa": true,
+            "ordinary_density_fa": true,
+            "object_window_coverage": false
+          },
+          "eligible": false
+        }
+      ],
+      "paired_bootstrap_vs_C0": null,
+      "paired_bootstrap_vs_historical": null
+    }
+  },
+  "frozen_teacher": null,
+  "status": "development selection; reserved-data acceptance pending",
+  "interpretation_limit": "The amendment was motivated by v1 Train-dev results and remains exploratory; do not describe it as a pre-data rule. A single locked reserved-data acceptance is needed to assess generalization, with no further retuning."
+}

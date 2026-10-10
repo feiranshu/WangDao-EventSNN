@@ -1,0 +1,18 @@
+{
+  "evaluation_id": "h2_pro__software_exact_int8",
+  "source_report": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_test_v2.json",
+  "metric_protocol": "evuav-observable-event-track-hota-closed-prefix-h2pro-v1",
+  "metrics": {
+    "averaged": {
+      "HOTA": 0.4213319593315561,
+      "DetA": 0.5294322593440296,
+      "DetRe": 0.8062339724020028,
+      "DetPr": 0.6001499863648759,
+      "AssA": 0.33562973731714374,
+      "AssRe": 0.5322818208379045,
+      "AssPr": 0.5324965230440806,
+      "LocA": 0.9403622304382498
+    }
+  },
+  "longest_continuous_miss_p95_ms": 302.4999999999999
+}

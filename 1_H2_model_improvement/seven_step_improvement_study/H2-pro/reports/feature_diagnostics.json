@@ -1,0 +1,63 @@
+{
+  "role": "train_main",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "lmec": {
+    "positive": {
+      "n": 214937,
+      "mean": 71.18048079204604,
+      "p10": 0.0,
+      "median": 53.0,
+      "p90": 180.0
+    },
+    "negative": {
+      "n": 2004927,
+      "mean": 25.34180047453099,
+      "p10": 0.0,
+      "median": 19.0,
+      "p90": 59.0
+    },
+    "high_positive": {
+      "n": 50003,
+      "mean": 72.36171829690218,
+      "p10": 0.0,
+      "median": 51.0,
+      "p90": 184.0
+    },
+    "high_negative": {
+      "n": 1656745,
+      "mean": 26.457178986506673,
+      "p10": 0.0,
+      "median": 20.0,
+      "p90": 59.0
+    },
+    "polarity_0_positive": {
+      "n": 99245,
+      "mean": 64.89737518262885,
+      "p10": 0.0,
+      "median": 42.0,
+      "p90": 176.0
+    },
+    "polarity_1_positive": {
+      "n": 115692,
+      "mean": 76.57036787331882,
+      "p10": 0.0,
+      "median": 59.0,
+      "p90": 183.0
+    },
+    "sparse_positive": {
+      "n": 13649,
+      "mean": 10.680709209465896,
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 27.0
+    }
+  },
+  "target_adjacent_100ms_displacement_pixels": {
+    "n": 7633,
+    "mean": 4.763481536486057,
+    "p10": 1.8672478163642234,
+    "median": 4.049691346263307,
+    "p90": 8.329210169437555
+  },
+  "interpretation": "Descriptive only; no target ID or label enters the inference feature."
+}

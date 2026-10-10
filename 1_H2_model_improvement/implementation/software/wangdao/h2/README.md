@@ -11,5 +11,5 @@
 | `losses.py` | 训练损失函数，非最终推理依赖 |
 | `__init__.py` | H2子包导出 |
 
-最终A4-2继续使用这里的Proposal和`quantized_mlp`数值内核，但用36维A4-2 Refiner替换原32维H2 Refiner。
+现行 H2-pro 继续使用这里的 Proposal 和 `quantized_mlp` 数值内核，以 36 维 C1 因果 Refiner 替换原 32 维 H2 Refiner；A4-2 为 Step7 历史中间模型。
 

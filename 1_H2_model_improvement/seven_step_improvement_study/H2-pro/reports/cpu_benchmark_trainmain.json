@@ -1,0 +1,50 @@
+{
+  "role": "train_main",
+  "sequences": [
+    "train_000.npz",
+    "train_044.npz"
+  ],
+  "variants": {
+    "C0-zero": {
+      "complete_windows": 158,
+      "events": 332347,
+      "mean_compute_ms": 43.086508860759494,
+      "p95_compute_ms": 178.07968,
+      "max_compute_ms": 206.62730000000008,
+      "mean_candidates_per_window": 436.67721518987344,
+      "max_candidates_per_window": 2447,
+      "peak_retained_numpy_state_bytes": 64865
+    },
+    "C1-proposal-motion": {
+      "complete_windows": 158,
+      "events": 332347,
+      "mean_compute_ms": 93.67777088607602,
+      "p95_compute_ms": 185.5301549999986,
+      "max_compute_ms": 211.46209999999854,
+      "mean_candidates_per_window": 436.67721518987344,
+      "max_candidates_per_window": 2447,
+      "peak_retained_numpy_state_bytes": 64865
+    },
+    "C2-LMEC": {
+      "complete_windows": 158,
+      "events": 332347,
+      "mean_compute_ms": 72.93842341772127,
+      "p95_compute_ms": 155.17576000000287,
+      "max_compute_ms": 191.36780000000186,
+      "mean_candidates_per_window": 436.67721518987344,
+      "max_candidates_per_window": 2447,
+      "peak_retained_numpy_state_bytes": 64865
+    }
+  },
+  "status": "Python CPU timing, not hardware PPA",
+  "architectural_cost": {
+    "refiner_weights": 4480,
+    "dense_mac_per_candidate": 4480,
+    "two_float32_proposal_heatmaps_bytes": 11968,
+    "C2_max_needed_bin_maps_per_window": 5,
+    "C2_one_int32_count_map_bytes": 22620,
+    "C2_one_float32_quality_map_bytes": 22620,
+    "C2_velocity_hypotheses": 9,
+    "note": "C2 current NumPy implementation materializes up to five count and quality maps. The previous raw 100ms event buffer has a bounded time horizon but no fixed event-count cap. Hardware SRAM, overflow and PPA remain unmeasured."
+  }
+}

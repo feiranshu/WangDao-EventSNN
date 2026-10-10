@@ -1,4 +1,6 @@
-﻿# H2 ANN模型改进研究计划与最终结论
+> 当前版本（2026-10-10）：H2-pro-Causal-ANN-v1 已按用户要求晋级为最终因果实时模型，正式实现位于 `implementation/`，开发证据位于 `seven_step_improvement_study/H2-pro/`；H2-plus/A4-2 已归入 Step7 中间模型。下文 Step1–7 的选型和当时部署结论为历史记录，不代表现行正式版本。
+
+# H2 ANN模型改进研究计划与最终结论
 
 计划版本：2026-10-05-final。完整实验协议、各步结论和边界以[完整路线](implementation/PLAN.md)为准。
 

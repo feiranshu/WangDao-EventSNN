@@ -1,0 +1,63 @@
+{
+  "model_id": "H2-pro-Causal-ANN-v1",
+  "metadata": {
+    "model_id": "H2-pro-Causal-ANN-v1",
+    "variant": "C1-proposal-motion",
+    "epoch": 10,
+    "threshold": 0.35,
+    "feature_protocol": "H2-pro-stage1-v1",
+    "window_ms": 100,
+    "input_dtype": "uint8",
+    "dimensions": [
+      36,
+      64,
+      32,
+      4
+    ],
+    "numeric_path": "uint8-int8-int32 per-output-channel exact replay",
+    "source_model": "A4-2 seed42 epoch8",
+    "selection_role": "Train-dev",
+    "selection_amendment": "v2 post-v1 exploratory",
+    "acceptance_status": "not_yet_evaluated"
+  },
+  "selection_sha256": "c67a0f613a0b0e5db9ddf4f854f87324326197b5dc12b1cf991b3def25ed39e4",
+  "selection_protocol_sha256": "ea6a94e59fd88dfdf174f338c05f28479e7b144c2a83fefdc1a0615854b39dd6",
+  "historical_reference_sha256": "aed6cadcc7d05bc2068905134e5d9efe792f68b57a3bfab628ca698588cf092d",
+  "protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "source_weights_sha256": {
+    "H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+    "A4-2_seed42_epoch008.pt": "a9c71311dbc01c6142ed826697b466546f3404aeb76798e9ede1461a35d3119f",
+    "A4-2_seed42_epoch008_int8.npz": "d7d42a3876c37497bdcd5206e6f35a5f949b0230dde0675fd128f989b70d05c4"
+  },
+  "teacher_float_sha256": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+  "teacher_int8_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+  "candidate_delta_from_C0": {
+    "iou": 0.005659994757591269,
+    "ap": 0.0022342430329767016,
+    "high_density_recall": 0.0034814663116936595
+  },
+  "paired_bootstrap_vs_C0": {
+    "resamples": 10000,
+    "method": "sequence-level paired bootstrap stratified by >=20000 events/s",
+    "iou_delta_95_interval": [
+      0.0009335009889711587,
+      0.005657663276851688,
+      0.009727226469312789
+    ],
+    "high_density_recall_delta_95_interval": [
+      -0.0019157088122605526,
+      0.0034814663116936595,
+      0.005449972051425389
+    ]
+  },
+  "paired_bootstrap_vs_historical": {
+    "resamples": 10000,
+    "iou_delta_vs_historical_95_interval": [
+      0.004487697840210645,
+      0.006620246841849364,
+      0.008498524677720118
+    ]
+  },
+  "status": "frozen development candidate; reserved-data acceptance pending"
+}

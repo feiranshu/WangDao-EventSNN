@@ -1,27 +1,9 @@
 # 模型评测统一入口
 
-目录 5 只保留三类正式评测：A 模型准确度、B 模型复杂度、C 部署效率与硬件成本。横向比较采用“一个小指标一个目录、一个数据划分一个 CSV”，不维护集中式总表、图表或工作簿。
+正式软件模型注册表在 `model_registry.csv`：H2、H2-pro、EV-SpSegNet。H2-plus/A4-2 已退出正式注册，原 A/B 源记录移至 `../1_H2_model_improvement/seven_step_improvement_study/step7/intermediate_H2-plus/`。第 5 板块只保留 A 模型准确度、B 模型复杂度、C 部署效率与硬件成本；各项比较见 `01_metric_comparisons/`，源记录见 `02_model_records/`，协议见 `03_rules_and_protocols/`。
 
-## 准入规则
+软件正式模型要求 A Validation/Test 与 B Common/Validation/Test 完整；板端正式模型要求 A Validation/Test 与 C Common/Validation/Test 完整。H2/H2-pro A01–A22、B01–B04c 均完成，EV-SpSegNet 同口径 CUDA 补测仍未完成，论文值只标记 `paper_reported`；C 等待上板。
 
-- 软件正式模型：A Validation/Test 与 B Common/Validation/Test 必测。
-- 板端正式模型：A Validation/Test 与 C Common/Validation/Test 必测。
-- 软件模型不强制 C，板端模型不强制 B；同一模型的软件与板端配置使用不同 `evaluation_id`。
-- EV-SpSegNet 是软件正式对比模型，不再作为 `external_reference` 排除。论文能够直接支持的 Test A02/A04/A06/A07 和 B01 先标记为 `paper_reported`；其余项以及同口径复测由服务器 A+B 包完成。`paper_reported` 不等同于本项目协议下的 `complete`。
-- EMS-YOLO 是软件正式 SNN 对比模型。现有实验报告的框级 `mAP@0.5` 与 A01 Event AP 口径不同，不直接入表；A/B 由冻结权重的 CUDA 服务器包同口径实测。
-- 板端 A 优先采用板端输出；只有逐项 bit-exact 且留有等价性报告时，才可引用软件 A 结果。
+H2/H2-pro 的 A/B 正式横向比较采用首事件锚定的相同完整 100 ms 窗口前缀。H2 旧评分来自全序列预测后裁剪，保留旧非因果时间输入；H2-pro 为流式因果预测，因此因果性差异必须随指标一起阅读。B03/B04 只统计 Proposal 和条件 Refiner 的 exact-int8 MAC，不代表 CPU 延迟或硬件资源。历史的 8 秒全序列 H2/H2-plus 正式记录在 Step7 中间模型目录中保留。
 
-## 当前模型状态
-
-- H2、H2-plus：A01–A22 与 B01–B04c 均完整。
-- EV-SpSegNet：已正式注册；论文值已录入，完整性暂为 `incomplete`，等待官方 CUDA 权重同口径实测回传。
-- EMS-YOLO：已正式注册；冻结 FP32 SNN 权重和历史阈值 0.407，完整性暂为 `incomplete`，等待 Validation/Test A+B 服务器实测回传。该阈值曾由 Validation F1 峰值选择，因此 Test 是主要无偏横向结果。
-
-## 查找顺序
-
-1. 在 `model_registry.csv` 查稳定 ID、显示名、轨道、角色、权重哈希和源清单。
-2. 在各类 `01_metric_comparisons/` 按指标和数据划分查看正式对比。
-3. 在 `02_model_records/` 复核每个模型的源结果；定义与复现协议在 `03_rules_and_protocols/`。
-4. 用 `evaluation_coverage.csv` 查看强制项是否齐全；`paper_reported` 与 `pending` 都不会通过正式完整性检查。
-
-CSV 统一字段为 `evaluation_id,model_name,evaluation_track,model_role,platform_id,value,unit,status,evidence_type,protocol_id,source_file,notes`。CSV 是唯一正式对比数据，README 不重复抄录实测数值。
+`evaluation_coverage.csv` 是完整性检查；`paper_reported`、`pending` 不算 `complete`。跨模型比较只维护 CSV。
