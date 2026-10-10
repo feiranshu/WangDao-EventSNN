@@ -8,7 +8,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from rebuild_evaluation_tables import build_accuracy, build_complexity, build_coverage
+from rebuild_evaluation_tables import build_accuracy, build_complexity, build_coverage, build_deployment
 
 
 ROOT = Path(__file__).resolve().parents[4] / "5_model_evaluation"
@@ -29,7 +29,7 @@ def hashes(paths: list[Path]) -> dict[str, str]:
 
 def test_active_layout() -> None:
     files = metric_csvs(ROOT)
-    assert len(files) == 54, len(files)
+    assert len(files) == 56, len(files)
     assert len(list((ROOT / "A_model_accuracy" / "01_metric_comparisons").glob("**/A??_*/README.md"))) == 22
     for path in files:
         rows = csv_rows(path)
@@ -70,7 +70,7 @@ def test_b04c_identity() -> None:
 def test_deterministic_rebuild() -> None:
     paths = metric_csvs(ROOT) + [ROOT / "evaluation_coverage.csv"]
     before = hashes(paths)
-    build_accuracy(ROOT); build_complexity(ROOT); build_coverage(ROOT, fail_on_incomplete=False)
+    build_accuracy(ROOT); build_complexity(ROOT); build_deployment(ROOT); build_coverage(ROOT, fail_on_incomplete=False)
     after = hashes(paths)
     assert before == after
 

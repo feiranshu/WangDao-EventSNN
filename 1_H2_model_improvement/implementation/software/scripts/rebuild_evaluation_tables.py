@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
@@ -66,8 +67,10 @@ B_METRICS = (
 C_COMMON = ("C04a", "C06a", "C06b", "C06c", "C06d", "C06e")
 C_SPLIT = (
     "C01a", "C01b", "C01c", "C01d", "C02a", "C02b", "C02c", "C02d",
-    "C03a", "C03b", "C03c", "C03d", "C04b", "C04c", "C05a", "C05b",
+    "C03a", "C03b", "C03c", "C03d", "C04b", "C04c", "C05a", "C05b", "C07",
 )
+
+RUNTIME_PROTOCOL = "full-sequence-runtime-v1"
 
 C_METRICS = (
     ("C01a", "C01_kernel_latency/C01a_mean", "kernel_latency_mean_ms", "ms", "split"),
@@ -92,6 +95,7 @@ C_METRICS = (
     ("C06c", "C06_hardware_resources/C06c_bram36k", "bram36k", "count", "common"),
     ("C06d", "C06_hardware_resources/C06d_dsp", "dsp", "count", "common"),
     ("C06e", "C06_hardware_resources/C06e_clock_frequency", "clock_frequency_mhz", "MHz", "common"),
+    ("C07", "C07_runtime", "runtime_ms_per_sequence", "ms/sequence", "split"),
 )
 
 
@@ -318,25 +322,34 @@ def build_complexity(root: Path) -> list[Path]:
 
 
 def build_deployment(root: Path) -> list[Path]:
-    """Build C tables only when at least one formal board evaluation is registered."""
+    """Build board C tables, plus C07 runtime for formal software and board models."""
     category = root / "C_deployment_efficiency_and_hardware_cost"
-    boards = [model for model in read_registry(root) if model["evaluation_track"] == "board" and model["model_role"] == "formal"]
-    if not boards:
-        return []
+    formal_models = [model for model in read_registry(root) if model["model_role"] == "formal" and model["evaluation_track"] in {"software", "board"}]
     outputs: list[Path] = []
     for code, folder, source_key, unit, scope in C_METRICS:
+        models = [model for model in formal_models if code == "C07" or model["evaluation_track"] == "board"]
+        if not models:
+            continue
         splits = ("common",) if scope == "common" else ("validation", "test")
         for split in splits:
             rows = []
-            for model in boards:
+            for model in models:
                 source = record_root(category, model) / split / "summary.json"
                 data = read_json(source) if source.exists() else {}
                 summary = data.get("summary", data.get("metrics", {}))
                 value = summary.get(source_key, summary.get(code))
+                if code == "C07" and value is not None:
+                    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+                        raise ValueError(f"{source}: runtime_ms_per_sequence must be a finite positive number or null")
                 status = "complete" if value is not None else "pending"
-                evidence = data.get("evidence_type", "board_measured" if status == "complete" else "pending_board_measurement")
+                measured_evidence = "software_measured" if model["evaluation_track"] == "software" else "board_measured"
+                pending_evidence = "pending_runtime_measurement" if code == "C07" else "pending_board_measurement"
+                evidence = data.get("evidence_type", measured_evidence if status == "complete" else pending_evidence)
                 protocol = data.get("protocol_id", data.get("protocol", ""))
-                rows.append(make_row(model, value, unit, status, evidence, protocol, source, "" if status == "complete" else "缺少板端正式源记录或指标值"))
+                if code == "C07":
+                    protocol = data.get("runtime_protocol_id", protocol or RUNTIME_PROTOCOL)
+                missing_note = "待固定平台完整序列 runtime 实测；当前无源记录或指标值" if code == "C07" else "缺少板端正式源记录或指标值"
+                rows.append(make_row(model, value, unit, status, evidence, protocol, source, "" if status == "complete" else missing_note))
             path = category / "01_metric_comparisons" / Path(folder) / f"{split}.csv"
             write_csv(path, rows); outputs.append(path)
     return outputs
