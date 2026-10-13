@@ -1,0 +1,128 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "weighted_ce": 0.6766995816417684,
+      "gradient_norm_max_before_clip": 0.30894115567207336,
+      "training_candidate_events": 5485.0,
+      "wall_s": 0.017944300000000024
+    },
+    "train_dev": {
+      "role": "train_dev",
+      "sequences": 1,
+      "events": 44112,
+      "candidate_events": 7060,
+      "candidate_fraction": 0.16004715270221254,
+      "proposal_target_recall": 1.0,
+      "refiner_conditional_recall_at_0.35": 1.0,
+      "high_density_sequences": 0,
+      "high_density_recall_at_0.35": null,
+      "average_precision": 0.9602871452859569,
+      "fixed_0.35": {
+        "tp": 3943,
+        "fp": 3117,
+        "fn": 0,
+        "iou": 0.5584985835694051,
+        "precision": 0.5584985835694051,
+        "recall": 1.0
+      },
+      "threshold_curve": {
+        "0.2": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.25": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.3": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.35": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.4": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.45": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.5": {
+          "tp": 3943,
+          "fp": 3117,
+          "fn": 0,
+          "iou": 0.5584985835694051,
+          "precision": 0.5584985835694051,
+          "recall": 1.0
+        },
+        "0.55": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3943,
+          "iou": 0.0,
+          "precision": 1.0,
+          "recall": 0.0
+        },
+        "0.6": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3943,
+          "iou": 0.0,
+          "precision": 1.0,
+          "recall": 0.0
+        }
+      },
+      "cost": {
+        "frozen_proposal_dense_mac": 203857920,
+        "research_refiner_dense_mac": 23947520,
+        "total_dense_mac": 227805440,
+        "per_sequence_total_dense_mac": 227805440.0,
+        "frozen_proposal_effective_mac": null,
+        "scope": "candidate-cache replay; Proposal dense structural count, effective Proposal MAC not remeasured",
+        "research_refiner_effective_mac_skip_zero": 13608176,
+        "research_refiner_binary_ac": 0
+      },
+      "refiner_replay_wall_s": 0.005762200000000051,
+      "per_sequence": [
+        {
+          "name": "train_002.npz",
+          "event_rate_eps": 5571.421660656408,
+          "high_density": false,
+          "events": 44112,
+          "target_events": 3943,
+          "candidate_events": 7060,
+          "target_candidates": 3943,
+          "closed_windows": 79
+        }
+      ]
+    }
+  }
+]

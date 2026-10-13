@@ -1,30 +1,6 @@
-# External or copied datasets must remain local.
-**/data/EV-UAV-dataset/
+__pycache__/
+*.py[cod]
+*.pt
 
-# Exploratory runs, predictions, logs and caches are not release artifacts.
-**/results/runs/
-**/__pycache__/
-**/*.py[cod]
-**/.pytest_cache/
-**/.mypy_cache/
-**/.Xil/
-**/tmp/
-**/*.log
-**/*.jou
-**/*.str
-**/*.wdb
-**/*.vcd
-
-# Training checkpoints and generated FPGA products stay local.
-**/*.pt
-**/*.pth
-**/*.ckpt
-**/*.onnx
-**/*.bit
-**/*.bin
-**/hardware/vivado/*.runs/
-**/hardware/vivado/*.cache/
-**/hardware/vivado/*.gen/
-**/hardware/vivado/*.hw/
-**/hardware/vivado/*.ip_user_files/
-**/hardware/vivado/*.sim/
+# Local snapshot duplicates the extracted S0-S3 tree and bundles caches/checkpoints.
+/*.zip

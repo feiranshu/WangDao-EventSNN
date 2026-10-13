@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "project": "second_generation_ANN_to_SNN",
+  "id_rule": "GEN2-S<stage>-<three_digit_serial>; never reuse an ID, including stopped runs",
+  "record_rule": "Create one immutable directory or record per run, store hypothesis, preregistered change, input/index hash, code revision, seed, budget, protocol, outputs, cost and decision; append amendments with reason and timestamp instead of overwriting results",
+  "anchor_model_id": "H2-pro-Causal-ANN-v1",
+  "anchor_index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "entries": [
+    {
+      "id": "GEN2-S0-001",
+      "stage": "S0",
+      "status": "complete",
+      "kind": "read_only_contract_audit",
+      "date": "2026-10-11",
+      "training_epochs": 0,
+      "inputs": ["frozen metadata and hashes", "formal A/B summaries", "Train-dev C1 cache and selection record"],
+      "outputs": ["s0/audit.json", "s0/train_dev_errors.json", "s0/CONTRACT.md", "s0/DECISION.md"]
+    },
+    {
+      "id": "GEN2-S1-001",
+      "stage": "S1",
+      "status": "complete",
+      "kind": "Train-dev candidate error grouping",
+      "date": "2026-10-11",
+      "training_epochs": 0,
+      "allowed_roles": ["train_dev"],
+      "entry": "S0 decision card",
+      "amendments": ["cross-cell definition revised from per-event address change to 25 ms object-centroid displacement; original result preserved"],
+      "outputs": ["s1/PROTOCOL.md", "s1/results_initial_event_cell.json", "s1/results.json", "s1/REPORT.md", "s1/DECISION.md"]
+    },
+    {
+      "id": "GEN2-S2-001",
+      "stage": "S2",
+      "status": "complete_with_diagnostic_limits",
+      "kind": "matched research ANN and fixed-position SNN skeleton",
+      "allowed_roles": ["train_main", "train_dev"],
+      "entry": "S1 decision card",
+      "seed": 42,
+      "training_epochs_each_model": 5,
+      "amendments": ["stopped first full SNN run after one unhealthy epoch; reduced initialization scale and restarted in an append-only run", "post-hoc 0.65-0.95 threshold diagnostic after predeclared SNN selection hit 0.60 boundary"],
+      "outputs": ["s2/runs/GEN2-S2-001/", "s2/runs/GEN2-S2-001-revision1/", "s2/health_revision1.json", "s2/analysis_revision1.json", "s2/analysis_extended_diagnostic.json", "s2/REPORT.md", "s2/DECISION.md"]
+    },
+    {
+      "id": "GEN2-S3-001",
+      "stage": "S3",
+      "status": "in_progress_waiting_server_snn",
+      "kind": "read-only state diagnosis and matched-objective ANN/SNN reference",
+      "allowed_roles": ["train_main", "train_dev"],
+      "entry": "PLAN v1.1 section 4.1 and S2 review",
+      "seed": 42,
+      "completed": ["S3-A read-only Train-dev and fixed Train-main diagnostics", "S3-B local matched-objective ANN 10 epochs", "Linux server package and CPU gate"],
+      "awaiting": ["S3-B persistent-state SNN 10 epochs on server", "returned result validation"],
+      "outputs": ["s3/PROTOCOL.md", "s3/REPORT_A.md", "s3/STATUS.md", "s3/results/GEN2-S3-001-A-revision1/", "s3/runs/ann/", "s3/upload/GEN2_S3_server_20261012.zip"]
+    },
+    {
+      "id": "GEN2-S3-002",
+      "stage": "S3",
+      "status": "conditional_not_started",
+      "kind": "matched window-reset SNN retraining",
+      "allowed_roles": ["train_main", "train_dev"],
+      "entry": "GEN2-S3-001 server result review"
+    }
+  ]
+}

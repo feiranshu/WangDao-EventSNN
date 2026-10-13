@@ -1,0 +1,146 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "weighted_ce": 0.702897796379719,
+      "gradient_norm_max_before_clip": 0.9148564338684082,
+      "training_candidate_events": 234526,
+      "nonempty_windows": 79,
+      "spike_fraction_l1": 0.08683276765333765,
+      "spike_fraction_l2": 0.042955391939486456,
+      "spike_fraction_out": 0.02372444846200421,
+      "wall_s": 24.4587678
+    },
+    "train_dev": {
+      "role": "train_dev",
+      "sequences": 1,
+      "events": 587783,
+      "candidate_events": 227629,
+      "candidate_fraction": 0.38726706964985375,
+      "proposal_target_recall": 0.98993851313583,
+      "refiner_conditional_recall_at_0.35": 0.9963297571993224,
+      "high_density_sequences": 1,
+      "high_density_recall_at_0.35": 0.9863051984348798,
+      "average_precision": 0.4449031659367819,
+      "fixed_0.35": {
+        "tp": 7058,
+        "fp": 220359,
+        "fn": 98,
+        "iou": 0.031022130408984022,
+        "precision": 0.031035498665447175,
+        "recall": 0.9863051984348798
+      },
+      "threshold_curve": {
+        "0.2": {
+          "tp": 7084,
+          "fp": 220541,
+          "fn": 72,
+          "iou": 0.031111521012573726,
+          "precision": 0.031121361889071938,
+          "recall": 0.98993851313583
+        },
+        "0.25": {
+          "tp": 7084,
+          "fp": 220522,
+          "fn": 72,
+          "iou": 0.031114117306019904,
+          "precision": 0.031123959825312162,
+          "recall": 0.98993851313583
+        },
+        "0.3": {
+          "tp": 7075,
+          "fp": 220483,
+          "fn": 81,
+          "iou": 0.031079911614442166,
+          "precision": 0.031090974608671197,
+          "recall": 0.9886808272778088
+        },
+        "0.35": {
+          "tp": 7058,
+          "fp": 220359,
+          "fn": 98,
+          "iou": 0.031022130408984022,
+          "precision": 0.031035498665447175,
+          "recall": 0.9863051984348798
+        },
+        "0.4": {
+          "tp": 7031,
+          "fp": 219794,
+          "fn": 125,
+          "iou": 0.030980392156862744,
+          "precision": 0.03099746500606194,
+          "recall": 0.9825321408608161
+        },
+        "0.45": {
+          "tp": 6862,
+          "fp": 215081,
+          "fn": 294,
+          "iou": 0.030876946683045577,
+          "precision": 0.030917848276359246,
+          "recall": 0.9589155953046394
+        },
+        "0.5": {
+          "tp": 5177,
+          "fp": 24717,
+          "fn": 1979,
+          "iou": 0.16242587770213032,
+          "precision": 0.1731785642603867,
+          "recall": 0.7234488541084405
+        },
+        "0.55": {
+          "tp": 3536,
+          "fp": 4039,
+          "fn": 3620,
+          "iou": 0.31585529254131306,
+          "precision": 0.4667986798679868,
+          "recall": 0.4941307993292342
+        },
+        "0.6": {
+          "tp": 2646,
+          "fp": 2590,
+          "fn": 4510,
+          "iou": 0.27149599835830085,
+          "precision": 0.5053475935828877,
+          "recall": 0.3697596422582448
+        }
+      },
+      "cost": {
+        "frozen_proposal_dense_mac": 203857920,
+        "research_refiner_dense_mac": 772117568,
+        "total_dense_mac": 975975488,
+        "per_sequence_total_dense_mac": 975975488.0,
+        "frozen_proposal_effective_mac": null,
+        "scope": "candidate-cache replay; Proposal dense structural count, effective Proposal MAC not remeasured",
+        "events": 227629,
+        "input_nonzero": 5264006,
+        "spikes_l1": 940983,
+        "spikes_l2": 316433,
+        "spikes_out": 24078,
+        "positive_dt": 227623,
+        "state_channel_reads": 20031352,
+        "state_channel_writes": 20031352,
+        "refiner_dense_mac": 772117568,
+        "refiner_effective_input_mac": 252672288,
+        "refiner_binary_ac": 31377188,
+        "state_decay_multiplications": 20030824,
+        "threshold_comparisons": 19120836,
+        "readout_multiplications": 1821032,
+        "voltage_and_trace_bytes": 1990560,
+        "timestamp_bytes": 45240
+      },
+      "refiner_replay_wall_s": 5.8214739999999985,
+      "per_sequence": [
+        {
+          "name": "train_092.npz",
+          "event_rate_eps": 74439.90291496359,
+          "high_density": true,
+          "events": 587783,
+          "target_events": 7156,
+          "candidate_events": 227629,
+          "target_candidates": 7084,
+          "closed_windows": 79
+        }
+      ]
+    }
+  }
+]

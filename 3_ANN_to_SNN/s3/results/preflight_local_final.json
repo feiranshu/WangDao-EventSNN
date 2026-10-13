@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "allowed_roles": [
+    "train_main",
+    "train_dev"
+  ],
+  "validation_test_hw_read": false,
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "feature_protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "teacher_int8_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+  "s3_protocol_sha256": "4fb84430efb1dca5f94460e192641bb5ebf90b90312a9d574c202fb77ce50193",
+  "train_sequences": 79,
+  "dev_sequences": 10,
+  "train_candidates": 2219864,
+  "dev_candidates": 438966,
+  "packaged_ann_epochs": 10,
+  "torch_version": "1.9.1",
+  "numpy_version": "1.24.3",
+  "cuda_available": false,
+  "cuda_device": null,
+  "synthetic_cpu_device_gate": {
+    "ann": {
+      "prediction_max_abs_delta": 0.0,
+      "state_max_abs_delta": 0.0,
+      "loss_abs_delta": 0.0,
+      "gradient_max_abs_delta": 0.0,
+      "one_step_parameter_max_abs_delta": 0.0
+    },
+    "snn": {
+      "prediction_max_abs_delta": 0.0,
+      "state_max_abs_delta": 0.0,
+      "loss_abs_delta": 0.0,
+      "gradient_max_abs_delta": 0.0,
+      "one_step_parameter_max_abs_delta": 0.0
+    }
+  }
+}

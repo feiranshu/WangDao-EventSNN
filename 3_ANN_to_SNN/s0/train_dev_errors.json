@@ -1,0 +1,19 @@
+{
+  "scope": "H2-pro frozen C1 exact-int8 seed42 epoch10 threshold 0.35, Train-dev complete 100 ms prefixes",
+  "source": [
+    "1_H2_model_improvement/implementation/data/index.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro/results/formal_seed42_local_20261010/train_dev_selection_v2.json"
+  ],
+  "sequences": 10,
+  "events": 1221626,
+  "target_events": 30254,
+  "candidate_events": 438966,
+  "candidate_fraction": 0.3593292873596338,
+  "target_candidates": 29776,
+  "proposal_false_negatives": 478,
+  "proposal_target_recall": 0.984200436305943,
+  "refiner_false_negatives_within_candidates": 3844,
+  "refiner_conditional_recall": 0.8709027404621171,
+  "total_false_negatives": 4322,
+  "note": "The Proposal split is recomputed from frozen Train-dev caches; total false negatives come from the frozen Train-dev selection record. No Validation/Test events opened."
+}

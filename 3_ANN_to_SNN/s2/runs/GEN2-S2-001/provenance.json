@@ -1,0 +1,19 @@
+{
+  "experiment_id": "GEN2-S2-001",
+  "status": "full_s2_health_check",
+  "seed": 42,
+  "epochs": 5,
+  "models": "both",
+  "train_sequences": 79,
+  "dev_sequences": 10,
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "teacher_int8_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+  "feature_protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "training_protocol_sha256": "47e0ed436c39331e8cd137d6875db2e728f11b5f30e289d5b42e18c5fa2e8c06",
+  "core_sha256": "fcba9b3aa7de6757be8edf1524ede4c936fb9d7f264d0238e00c5c4877488d2c",
+  "train_sha256": "fdeafa5d329aa87379979465c21e2ccd8042a646e136ff64e399748e459a7d22",
+  "torch_version": "1.9.1",
+  "numpy_version": "1.24.3",
+  "device": "cpu",
+  "threads": 1
+}

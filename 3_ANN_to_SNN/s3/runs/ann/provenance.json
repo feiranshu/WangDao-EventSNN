@@ -1,0 +1,29 @@
+{
+  "experiment_id": "GEN2-S3-001",
+  "status": "formal_training",
+  "model": "ann",
+  "mode": "persistent",
+  "seed": 42,
+  "epochs": 10,
+  "train_sequences": 79,
+  "dev_sequences": 10,
+  "train_candidate_events_per_epoch": 2219864,
+  "index_sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+  "teacher_int8_sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+  "feature_protocol_sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+  "s3_protocol_sha256": "4fb84430efb1dca5f94460e192641bb5ebf90b90312a9d574c202fb77ce50193",
+  "s2_core_sha256": "4853e225196be0c913fa7d56d5dd5916683e6b08cd4714c850db1b7cc044cfb3",
+  "s2_loader_sha256": "3b27ece86ecf1a40064dd4d7d3dfd318e83de88fc1931b32497f3550ee5dfa93",
+  "s3_runtime_sha256": "7a5d68f4eb18d156519eef32e491c2232e4b90ca04e56b63a825aa81140ad0e4",
+  "s3_train_sha256": "3bb78ab41d070ff2b059adf4de01260298ab311676e171dcbfdbd0406bc9f9b6",
+  "torch_version": "1.9.1",
+  "numpy_version": "1.24.3",
+  "device": "cpu",
+  "cuda_device": null,
+  "threads": 1,
+  "objective": "sum(weight[y] * CE) / sum(weight[y]) per 8 nonempty-window update",
+  "class_weights": [
+    1.0,
+    3.0
+  ]
+}

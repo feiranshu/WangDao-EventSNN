@@ -1,0 +1,146 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "weighted_ce": 15.653177979607525,
+      "gradient_norm_max_before_clip": 951.279541015625,
+      "training_candidate_events": 5485,
+      "nonempty_windows": 78,
+      "spike_fraction_l1": 0.2627582801580067,
+      "spike_fraction_l2": 0.33379671832269825,
+      "spike_fraction_out": 0.5227894257064722,
+      "wall_s": 1.0663585
+    },
+    "train_dev": {
+      "role": "train_dev",
+      "sequences": 1,
+      "events": 44112,
+      "candidate_events": 7060,
+      "candidate_fraction": 0.16004715270221254,
+      "proposal_target_recall": 1.0,
+      "refiner_conditional_recall_at_0.35": 0.9928988080142024,
+      "high_density_sequences": 0,
+      "high_density_recall_at_0.35": null,
+      "average_precision": 0.975033903029535,
+      "fixed_0.35": {
+        "tp": 3915,
+        "fp": 2495,
+        "fn": 28,
+        "iou": 0.6081081081081081,
+        "precision": 0.6107644305772231,
+        "recall": 0.9928988080142024
+      },
+      "threshold_curve": {
+        "0.2": {
+          "tp": 3929,
+          "fp": 2817,
+          "fn": 14,
+          "iou": 0.5812130177514793,
+          "precision": 0.5824192113845241,
+          "recall": 0.9964494040071012
+        },
+        "0.25": {
+          "tp": 3926,
+          "fp": 2768,
+          "fn": 17,
+          "iou": 0.585009685590821,
+          "precision": 0.5864953689871527,
+          "recall": 0.9956885620086229
+        },
+        "0.3": {
+          "tp": 3918,
+          "fp": 2544,
+          "fn": 25,
+          "iou": 0.6039771851395098,
+          "precision": 0.606313834726091,
+          "recall": 0.9936596500126808
+        },
+        "0.35": {
+          "tp": 3915,
+          "fp": 2495,
+          "fn": 28,
+          "iou": 0.6081081081081081,
+          "precision": 0.6107644305772231,
+          "recall": 0.9928988080142024
+        },
+        "0.4": {
+          "tp": 3910,
+          "fp": 2441,
+          "fn": 33,
+          "iou": 0.6124686716791979,
+          "precision": 0.6156510785703039,
+          "recall": 0.9916307380167385
+        },
+        "0.45": {
+          "tp": 3906,
+          "fp": 2412,
+          "fn": 37,
+          "iou": 0.6146341463414634,
+          "precision": 0.6182336182336182,
+          "recall": 0.9906162820187674
+        },
+        "0.5": {
+          "tp": 3893,
+          "fp": 2320,
+          "fn": 50,
+          "iou": 0.6215870988344244,
+          "precision": 0.6265894093030742,
+          "recall": 0.9873193000253614
+        },
+        "0.55": {
+          "tp": 3887,
+          "fp": 1778,
+          "fn": 56,
+          "iou": 0.6794266736584513,
+          "precision": 0.6861429832303618,
+          "recall": 0.9857976160284048
+        },
+        "0.6": {
+          "tp": 3869,
+          "fp": 1665,
+          "fn": 74,
+          "iou": 0.6899072753209701,
+          "precision": 0.6991326346223347,
+          "recall": 0.9812325640375349
+        }
+      },
+      "cost": {
+        "frozen_proposal_dense_mac": 203857920,
+        "research_refiner_dense_mac": 23947520,
+        "total_dense_mac": 227805440,
+        "per_sequence_total_dense_mac": 227805440.0,
+        "frozen_proposal_effective_mac": null,
+        "scope": "candidate-cache replay; Proposal dense structural count, effective Proposal MAC not remeasured",
+        "events": 7060,
+        "input_nonzero": 164520,
+        "spikes_l1": 87512,
+        "spikes_l2": 80537,
+        "spikes_out": 16139,
+        "positive_dt": 7056,
+        "state_channel_reads": 621280,
+        "state_channel_writes": 621280,
+        "refiner_dense_mac": 23947520,
+        "refiner_effective_input_mac": 7896960,
+        "refiner_binary_ac": 3122532,
+        "state_decay_multiplications": 620928,
+        "threshold_comparisons": 593040,
+        "readout_multiplications": 56480,
+        "voltage_and_trace_bytes": 1990560,
+        "timestamp_bytes": 45240
+      },
+      "refiner_replay_wall_s": 0.5276904,
+      "per_sequence": [
+        {
+          "name": "train_002.npz",
+          "event_rate_eps": 5571.421660656408,
+          "high_density": false,
+          "events": 44112,
+          "target_events": 3943,
+          "candidate_events": 7060,
+          "target_candidates": 3943,
+          "closed_windows": 79
+        }
+      ]
+    }
+  }
+]

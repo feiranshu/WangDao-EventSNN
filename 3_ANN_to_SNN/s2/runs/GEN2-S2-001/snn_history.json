@@ -1,0 +1,236 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "weighted_ce": 7.3934439815576525,
+      "gradient_norm_max_before_clip": 1096.677490234375,
+      "training_candidate_events": 2219864,
+      "nonempty_windows": 6125,
+      "spike_fraction_l1": 0.20315212253243142,
+      "spike_fraction_l2": 0.353871199992432,
+      "spike_fraction_out": 0.7737378280831618,
+      "wall_s": 409.00209590000003
+    },
+    "train_dev": {
+      "role": "train_dev",
+      "sequences": 10,
+      "events": 1221626,
+      "candidate_events": 438966,
+      "candidate_fraction": 0.3593292873596338,
+      "proposal_target_recall": 0.984200436305943,
+      "refiner_conditional_recall_at_0.35": 0.45231058570660937,
+      "high_density_sequences": 2,
+      "high_density_recall_at_0.35": 0.5519148064714315,
+      "average_precision": 0.34988939721723805,
+      "fixed_0.35": {
+        "tp": 13468,
+        "fp": 41460,
+        "fn": 16786,
+        "iou": 0.1878015450260758,
+        "precision": 0.2451937081270026,
+        "recall": 0.4451642757982416
+      },
+      "threshold_curve": {
+        "0.2": {
+          "tp": 15944,
+          "fp": 60122,
+          "fn": 14310,
+          "iou": 0.1764185181906701,
+          "precision": 0.20960744616517235,
+          "recall": 0.5270046935942355
+        },
+        "0.25": {
+          "tp": 15021,
+          "fp": 50962,
+          "fn": 15233,
+          "iou": 0.18495124113475178,
+          "precision": 0.22764954609520635,
+          "recall": 0.496496331063661
+        },
+        "0.3": {
+          "tp": 14182,
+          "fp": 46237,
+          "fn": 16072,
+          "iou": 0.18540743355427436,
+          "precision": 0.23472748638673266,
+          "recall": 0.46876446089773255
+        },
+        "0.35": {
+          "tp": 13468,
+          "fp": 41460,
+          "fn": 16786,
+          "iou": 0.1878015450260758,
+          "precision": 0.2451937081270026,
+          "recall": 0.4451642757982416
+        },
+        "0.4": {
+          "tp": 12672,
+          "fp": 37064,
+          "fn": 17582,
+          "iou": 0.18824088653851867,
+          "precision": 0.2547852662055654,
+          "recall": 0.4188537052951676
+        },
+        "0.45": {
+          "tp": 11946,
+          "fp": 31810,
+          "fn": 18308,
+          "iou": 0.19247873163186388,
+          "precision": 0.273013986653259,
+          "recall": 0.3948568784292986
+        },
+        "0.5": {
+          "tp": 11230,
+          "fp": 20339,
+          "fn": 19024,
+          "iou": 0.22196746585496016,
+          "precision": 0.355728721213849,
+          "recall": 0.37119058636874463
+        },
+        "0.55": {
+          "tp": 10541,
+          "fp": 17536,
+          "fn": 19713,
+          "iou": 0.2205691567273488,
+          "precision": 0.37543184813192293,
+          "recall": 0.34841673828254116
+        },
+        "0.6": {
+          "tp": 9744,
+          "fp": 14869,
+          "fn": 20510,
+          "iou": 0.21594308889036634,
+          "precision": 0.3958883516840694,
+          "recall": 0.3220731142989357
+        }
+      },
+      "cost": {
+        "frozen_proposal_dense_mac": 1958584320,
+        "research_refiner_dense_mac": 1488972672,
+        "total_dense_mac": 3447556992,
+        "per_sequence_total_dense_mac": 344755699.2,
+        "frozen_proposal_effective_mac": null,
+        "scope": "candidate-cache replay; Proposal dense structural count, effective Proposal MAC not remeasured",
+        "events": 438966,
+        "input_nonzero": 10018377,
+        "spikes_l1": 3904582,
+        "spikes_l2": 4599660,
+        "spikes_out": 1414041,
+        "positive_dt": 438925,
+        "state_channel_reads": 38629008,
+        "state_channel_writes": 38629008,
+        "refiner_dense_mac": 1488972672,
+        "refiner_effective_input_mac": 480882096,
+        "refiner_binary_ac": 143345264,
+        "state_decay_multiplications": 38625400,
+        "threshold_comparisons": 36873144,
+        "readout_multiplications": 3511728,
+        "voltage_and_trace_bytes": 1990560,
+        "timestamp_bytes": 45240
+      },
+      "refiner_replay_wall_s": 23.11355850000001,
+      "per_sequence": [
+        {
+          "name": "train_002.npz",
+          "event_rate_eps": 5571.421660656408,
+          "high_density": false,
+          "events": 44112,
+          "target_events": 3943,
+          "candidate_events": 7060,
+          "target_candidates": 3943,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_020.npz",
+          "event_rate_eps": 2880.4181444091796,
+          "high_density": false,
+          "events": 22697,
+          "target_events": 853,
+          "candidate_events": 1989,
+          "target_candidates": 851,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_034.npz",
+          "event_rate_eps": 2606.136076078323,
+          "high_density": false,
+          "events": 20520,
+          "target_events": 3918,
+          "candidate_events": 8770,
+          "target_candidates": 3918,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_039.npz",
+          "event_rate_eps": 2542.5435410581404,
+          "high_density": false,
+          "events": 20123,
+          "target_events": 4662,
+          "candidate_events": 6525,
+          "target_candidates": 4662,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_041.npz",
+          "event_rate_eps": 5674.3931030938365,
+          "high_density": false,
+          "events": 44509,
+          "target_events": 2352,
+          "candidate_events": 6035,
+          "target_candidates": 2341,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_050.npz",
+          "event_rate_eps": 2287.71504521425,
+          "high_density": false,
+          "events": 18107,
+          "target_events": 2205,
+          "candidate_events": 3233,
+          "target_candidates": 2197,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_060.npz",
+          "event_rate_eps": 5450.856973068096,
+          "high_density": false,
+          "events": 43051,
+          "target_events": 1206,
+          "candidate_events": 13078,
+          "target_candidates": 1206,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_066.npz",
+          "event_rate_eps": 4212.581249457782,
+          "high_density": false,
+          "events": 20226,
+          "target_events": 1349,
+          "candidate_events": 5338,
+          "target_candidates": 1347,
+          "closed_windows": 48
+        },
+        {
+          "name": "train_089.npz",
+          "event_rate_eps": 50715.26267881567,
+          "high_density": true,
+          "events": 400498,
+          "target_events": 2610,
+          "candidate_events": 159309,
+          "target_candidates": 2227,
+          "closed_windows": 79
+        },
+        {
+          "name": "train_092.npz",
+          "event_rate_eps": 74439.90291496359,
+          "high_density": true,
+          "events": 587783,
+          "target_events": 7156,
+          "candidate_events": 227629,
+          "target_candidates": 7084,
+          "closed_windows": 79
+        }
+      ]
+    }
+  }
+]

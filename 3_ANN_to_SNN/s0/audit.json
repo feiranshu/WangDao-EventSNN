@@ -1,0 +1,121 @@
+{
+  "stage": "S0",
+  "status": "verified_read_only",
+  "model_id": "H2-pro-Causal-ANN-v1",
+  "variant": "C1-proposal-motion",
+  "seed": 42,
+  "epoch": 10,
+  "threshold": 0.35,
+  "numeric_path": "exact_int8_replay",
+  "window_ms": 100,
+  "feature_dimensions": [
+    36,
+    64,
+    32,
+    4
+  ],
+  "input_dtype": "uint8",
+  "source_hashes": [
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/frozen/H2-pro-Causal-ANN-v1/teacher_exact_int8.npz",
+      "sha256": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/frozen/H2-pro-Causal-ANN-v1/teacher_float.pt",
+      "sha256": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/protocol.json",
+      "sha256": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/selection_protocol_v2.json",
+      "sha256": "ea6a94e59fd88dfdf174f338c05f28479e7b144c2a83fefdc1a0615854b39dd6"
+    },
+    {
+      "path": "1_H2_model_improvement/implementation/data/index.json",
+      "sha256": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397"
+    },
+    {
+      "path": "1_H2_model_improvement/implementation/software/weights/H2_D1_seed42.npz",
+      "sha256": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/src/stream_state.py",
+      "sha256": "28984547b1b46e9be3fa3c523649bbdebb40463ad6aa7e45f4d211ffb0aea16c"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/src/causal_feature_builder.py",
+      "sha256": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454"
+    },
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/src/motion_coherence.py",
+      "sha256": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79"
+    }
+  ],
+  "roles": {
+    "train_main": 79,
+    "train_dev": 10,
+    "hw_calibration": 10,
+    "validation": 24,
+    "test": 24
+  },
+  "sensor": {
+    "width": 346,
+    "height": 260
+  },
+  "model_profile": {
+    "source": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/common/model_profile.json",
+    "total_weight_parameters": 12160,
+    "total_tensor_payload_bytes": 12912,
+    "persistent_proposal_history_bytes": 11968
+  },
+  "input_fields": [
+    "x",
+    "y",
+    "t",
+    "p"
+  ],
+  "publication_rule": "publish only after watermark reaches right boundary; discard final partial window",
+  "time_origin": "first event timestamp of independent sequence, explicitly passed to reset",
+  "accuracy_historical_locked": {
+    "validation": {
+      "source": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/validation/event_level/summary.json",
+      "event_iou": 0.8783182581538552,
+      "ap": 0.9635886297530301,
+      "precision": 0.9491681923107538,
+      "recall": 0.9216713815331818,
+      "high_density_recall": 0.5187819792836641
+    },
+    "test": {
+      "source": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/test/event_level/summary.json",
+      "event_iou": 0.8713828048381824,
+      "ap": 0.9708224996772417,
+      "precision": 0.9198818381348094,
+      "recall": 0.942946894765887,
+      "high_density_recall": 0.7687463750103571
+    }
+  },
+  "b03_b04_historical_locked": {
+    "validation": {
+      "source": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/validation/summary.json",
+      "sequences": 24,
+      "closed_windows": 1864,
+      "candidate_events": 448120,
+      "dense_macs_per_sequence": 284066346.6666667,
+      "effective_macs_per_sequence": 85532971.54166667,
+      "effective_acs_per_sequence": 0,
+      "scope": "Proposal + conditional Refiner exact-int8 MAC; excludes features, routing, postprocessing, latency and memory workspace"
+    },
+    "test": {
+      "source": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/test/summary.json",
+      "sequences": 24,
+      "closed_windows": 1850,
+      "candidate_events": 643002,
+      "dense_macs_per_sequence": 318939040.0,
+      "effective_macs_per_sequence": 111750456.95833333,
+      "effective_acs_per_sequence": 0,
+      "scope": "Proposal + conditional Refiner exact-int8 MAC; excludes features, routing, postprocessing, latency and memory workspace"
+    }
+  }
+}

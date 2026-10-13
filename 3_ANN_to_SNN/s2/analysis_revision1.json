@@ -1,0 +1,540 @@
+{
+  "experiment_id": "GEN2-S2-001",
+  "role": "train_dev",
+  "purpose": "exploratory threshold selection and offline target-subset diagnosis",
+  "run": "3_ANN_to_SNN/s2/runs/GEN2-S2-001-revision1",
+  "models": {
+    "ann": {
+      "checkpoint": "3_ANN_to_SNN/s2/runs/GEN2-S2-001-revision1/ann_epoch05.pt",
+      "selection": {
+        "threshold": 0.55,
+        "selection_rule": "max overall Event IoU; tie higher high-density Recall; tie lower threshold",
+        "curve": {
+          "0.2": {
+            "overall": {
+              "tp": 27029,
+              "fp": 14295,
+              "fn": 3225,
+              "iou": 0.606725179016364,
+              "recall": 0.8934025252859126
+            },
+            "high_density": {
+              "tp": 6924,
+              "fp": 11940,
+              "fn": 2842,
+              "iou": 0.3189901409748457,
+              "recall": 0.7089903747696088
+            }
+          },
+          "0.25": {
+            "overall": {
+              "tp": 26686,
+              "fp": 11707,
+              "fn": 3568,
+              "iou": 0.6359714973427707,
+              "recall": 0.8820651814636081
+            },
+            "high_density": {
+              "tp": 6676,
+              "fp": 9723,
+              "fn": 3090,
+              "iou": 0.3425522089383755,
+              "recall": 0.6835961499078436
+            }
+          },
+          "0.3": {
+            "overall": {
+              "tp": 26334,
+              "fp": 9728,
+              "fn": 3920,
+              "iou": 0.6586463908758942,
+              "recall": 0.8704303563165201
+            },
+            "high_density": {
+              "tp": 6450,
+              "fp": 8011,
+              "fn": 3316,
+              "iou": 0.3628283737413512,
+              "recall": 0.66045463854188
+            }
+          },
+          "0.35": {
+            "overall": {
+              "tp": 25971,
+              "fp": 8221,
+              "fn": 4283,
+              "iou": 0.675009746588694,
+              "recall": 0.8584319428835856
+            },
+            "high_density": {
+              "tp": 6252,
+              "fp": 6703,
+              "fn": 3514,
+              "iou": 0.3796223207237841,
+              "recall": 0.6401802170796641
+            }
+          },
+          "0.4": {
+            "overall": {
+              "tp": 25598,
+              "fp": 6916,
+              "fn": 4656,
+              "iou": 0.6886736615550175,
+              "recall": 0.8461029946453361
+            },
+            "high_density": {
+              "tp": 6033,
+              "fp": 5631,
+              "fn": 3733,
+              "iou": 0.39182957719036177,
+              "recall": 0.6177554781896375
+            }
+          },
+          "0.45": {
+            "overall": {
+              "tp": 25168,
+              "fp": 5868,
+              "fn": 5086,
+              "iou": 0.6967499031061403,
+              "recall": 0.8318899980167912
+            },
+            "high_density": {
+              "tp": 5818,
+              "fp": 4753,
+              "fn": 3948,
+              "iou": 0.40071630277567327,
+              "recall": 0.5957403235715748
+            }
+          },
+          "0.5": {
+            "overall": {
+              "tp": 24661,
+              "fp": 4957,
+              "fn": 5593,
+              "iou": 0.7003777228706938,
+              "recall": 0.8151318833873207
+            },
+            "high_density": {
+              "tp": 5577,
+              "fp": 3979,
+              "fn": 4189,
+              "iou": 0.4057475445616588,
+              "recall": 0.5710628711857465
+            }
+          },
+          "0.55": {
+            "overall": {
+              "tp": 24173,
+              "fp": 4137,
+              "fn": 6081,
+              "iou": 0.7028873833270333,
+              "recall": 0.7990017848879487
+            },
+            "high_density": {
+              "tp": 5355,
+              "fp": 3288,
+              "fn": 4411,
+              "iou": 0.4102190899341198,
+              "recall": 0.5483309440917469
+            }
+          },
+          "0.6": {
+            "overall": {
+              "tp": 23602,
+              "fp": 3337,
+              "fn": 6652,
+              "iou": 0.7026286803012711,
+              "recall": 0.7801282475044622
+            },
+            "high_density": {
+              "tp": 5092,
+              "fp": 2630,
+              "fn": 4674,
+              "iou": 0.41077767021619876,
+              "recall": 0.5214007782101168
+            }
+          }
+        }
+      },
+      "fixed_0.35": {
+        "overall": {
+          "tp": 25971,
+          "fp": 8221,
+          "fn": 4283,
+          "iou": 0.675009746588694,
+          "recall": 0.8584319428835856
+        },
+        "high_density": {
+          "tp": 6252,
+          "fp": 6703,
+          "fn": 3514,
+          "iou": 0.3796223207237841,
+          "recall": 0.6401802170796641
+        }
+      }
+    },
+    "snn": {
+      "checkpoint": "3_ANN_to_SNN/s2/runs/GEN2-S2-001-revision1/snn_epoch05.pt",
+      "selection": {
+        "threshold": 0.6,
+        "selection_rule": "max overall Event IoU; tie higher high-density Recall; tie lower threshold",
+        "curve": {
+          "0.2": {
+            "overall": {
+              "tp": 27521,
+              "fp": 40304,
+              "fn": 2733,
+              "iou": 0.39004790385215,
+              "recall": 0.9096648377074106
+            },
+            "high_density": {
+              "tp": 7118,
+              "fp": 36378,
+              "fn": 2648,
+              "iou": 0.15425624133148405,
+              "recall": 0.7288552119598607
+            }
+          },
+          "0.25": {
+            "overall": {
+              "tp": 27301,
+              "fp": 34643,
+              "fn": 2953,
+              "iou": 0.42068200379062204,
+              "recall": 0.9023930719904806
+            },
+            "high_density": {
+              "tp": 6912,
+              "fp": 30968,
+              "fn": 2854,
+              "iou": 0.16968625718073355,
+              "recall": 0.707761621953717
+            }
+          },
+          "0.3": {
+            "overall": {
+              "tp": 27088,
+              "fp": 29274,
+              "fn": 3166,
+              "iou": 0.4550463647359226,
+              "recall": 0.8953526806372711
+            },
+            "high_density": {
+              "tp": 6720,
+              "fp": 26012,
+              "fn": 3046,
+              "iou": 0.18782492034210968,
+              "recall": 0.6881015768994471
+            }
+          },
+          "0.35": {
+            "overall": {
+              "tp": 26847,
+              "fp": 25573,
+              "fn": 3407,
+              "iou": 0.4808963404804127,
+              "recall": 0.8873867918291796
+            },
+            "high_density": {
+              "tp": 6512,
+              "fp": 22537,
+              "fn": 3254,
+              "iou": 0.2015911834814104,
+              "recall": 0.6668031947573213
+            }
+          },
+          "0.4": {
+            "overall": {
+              "tp": 26582,
+              "fp": 18322,
+              "fn": 3672,
+              "iou": 0.5472249670619236,
+              "recall": 0.8786276194883321
+            },
+            "high_density": {
+              "tp": 6283,
+              "fp": 15622,
+              "fn": 3483,
+              "iou": 0.24747912399558847,
+              "recall": 0.6433544951873849
+            }
+          },
+          "0.45": {
+            "overall": {
+              "tp": 26336,
+              "fp": 15833,
+              "fn": 3918,
+              "iou": 0.5714409703387072,
+              "recall": 0.8704964632775831
+            },
+            "high_density": {
+              "tp": 6072,
+              "fp": 13363,
+              "fn": 3694,
+              "iou": 0.2625275627999481,
+              "recall": 0.6217489248412861
+            }
+          },
+          "0.5": {
+            "overall": {
+              "tp": 26066,
+              "fp": 13577,
+              "fn": 4188,
+              "iou": 0.5946932536332733,
+              "recall": 0.8615720235340781
+            },
+            "high_density": {
+              "tp": 5854,
+              "fp": 11333,
+              "fn": 3912,
+              "iou": 0.27745390776814066,
+              "recall": 0.5994265820192505
+            }
+          },
+          "0.55": {
+            "overall": {
+              "tp": 25753,
+              "fp": 11616,
+              "fn": 4501,
+              "iou": 0.6150704561738715,
+              "recall": 0.8512262841277186
+            },
+            "high_density": {
+              "tp": 5608,
+              "fp": 9582,
+              "fn": 4158,
+              "iou": 0.2898490800082696,
+              "recall": 0.5742371492934671
+            }
+          },
+          "0.6": {
+            "overall": {
+              "tp": 25348,
+              "fp": 9732,
+              "fn": 4906,
+              "iou": 0.6339218726554294,
+              "recall": 0.8378396245124612
+            },
+            "high_density": {
+              "tp": 5347,
+              "fp": 8034,
+              "fn": 4419,
+              "iou": 0.3003932584269663,
+              "recall": 0.5475117755478189
+            }
+          }
+        }
+      },
+      "fixed_0.35": {
+        "overall": {
+          "tp": 26847,
+          "fp": 25573,
+          "fn": 3407,
+          "iou": 0.4808963404804127,
+          "recall": 0.8873867918291796
+        },
+        "high_density": {
+          "tp": 6512,
+          "fp": 22537,
+          "fn": 3254,
+          "iou": 0.2015911834814104,
+          "recall": 0.6668031947573213
+        }
+      }
+    }
+  },
+  "target_subsets": {
+    "ann": {
+      "fixed_0.35": {
+        "cross_cell": {
+          "target_events": 442,
+          "target_candidates": 386,
+          "proposal_misses": 56,
+          "refiner_tp": 180,
+          "refiner_misses": 206,
+          "full_recall": 0.4072398190045249,
+          "conditional_recall": 0.46632124352331605
+        },
+        "first_appearance": {
+          "target_events": 606,
+          "target_candidates": 583,
+          "proposal_misses": 23,
+          "refiner_tp": 336,
+          "refiner_misses": 247,
+          "full_recall": 0.5544554455445545,
+          "conditional_recall": 0.5763293310463122
+        },
+        "reappearance": {
+          "target_events": 2235,
+          "target_candidates": 2042,
+          "proposal_misses": 193,
+          "refiner_tp": 1286,
+          "refiner_misses": 756,
+          "full_recall": 0.5753914988814318,
+          "conditional_recall": 0.6297747306562194
+        },
+        "turn": {
+          "target_events": 441,
+          "target_candidates": 406,
+          "proposal_misses": 35,
+          "refiner_tp": 167,
+          "refiner_misses": 239,
+          "full_recall": 0.3786848072562358,
+          "conditional_recall": 0.41133004926108374
+        },
+        "speed_change": {
+          "target_events": 123,
+          "target_candidates": 111,
+          "proposal_misses": 12,
+          "refiner_tp": 43,
+          "refiner_misses": 68,
+          "full_recall": 0.34959349593495936,
+          "conditional_recall": 0.38738738738738737
+        }
+      },
+      "selected": {
+        "cross_cell": {
+          "target_events": 442,
+          "target_candidates": 386,
+          "proposal_misses": 56,
+          "refiner_tp": 136,
+          "refiner_misses": 250,
+          "full_recall": 0.3076923076923077,
+          "conditional_recall": 0.35233160621761656
+        },
+        "first_appearance": {
+          "target_events": 606,
+          "target_candidates": 583,
+          "proposal_misses": 23,
+          "refiner_tp": 247,
+          "refiner_misses": 336,
+          "full_recall": 0.4075907590759076,
+          "conditional_recall": 0.4236706689536878
+        },
+        "reappearance": {
+          "target_events": 2235,
+          "target_candidates": 2042,
+          "proposal_misses": 193,
+          "refiner_tp": 920,
+          "refiner_misses": 1122,
+          "full_recall": 0.4116331096196868,
+          "conditional_recall": 0.4505386875612145
+        },
+        "turn": {
+          "target_events": 441,
+          "target_candidates": 406,
+          "proposal_misses": 35,
+          "refiner_tp": 111,
+          "refiner_misses": 295,
+          "full_recall": 0.25170068027210885,
+          "conditional_recall": 0.2733990147783251
+        },
+        "speed_change": {
+          "target_events": 123,
+          "target_candidates": 111,
+          "proposal_misses": 12,
+          "refiner_tp": 24,
+          "refiner_misses": 87,
+          "full_recall": 0.1951219512195122,
+          "conditional_recall": 0.21621621621621623
+        }
+      }
+    },
+    "snn": {
+      "fixed_0.35": {
+        "cross_cell": {
+          "target_events": 442,
+          "target_candidates": 386,
+          "proposal_misses": 56,
+          "refiner_tp": 195,
+          "refiner_misses": 191,
+          "full_recall": 0.4411764705882353,
+          "conditional_recall": 0.5051813471502591
+        },
+        "first_appearance": {
+          "target_events": 606,
+          "target_candidates": 583,
+          "proposal_misses": 23,
+          "refiner_tp": 497,
+          "refiner_misses": 86,
+          "full_recall": 0.8201320132013201,
+          "conditional_recall": 0.8524871355060034
+        },
+        "reappearance": {
+          "target_events": 2235,
+          "target_candidates": 2042,
+          "proposal_misses": 193,
+          "refiner_tp": 1555,
+          "refiner_misses": 487,
+          "full_recall": 0.6957494407158836,
+          "conditional_recall": 0.7615083251714005
+        },
+        "turn": {
+          "target_events": 441,
+          "target_candidates": 406,
+          "proposal_misses": 35,
+          "refiner_tp": 202,
+          "refiner_misses": 204,
+          "full_recall": 0.4580498866213152,
+          "conditional_recall": 0.4975369458128079
+        },
+        "speed_change": {
+          "target_events": 123,
+          "target_candidates": 111,
+          "proposal_misses": 12,
+          "refiner_tp": 46,
+          "refiner_misses": 65,
+          "full_recall": 0.37398373983739835,
+          "conditional_recall": 0.4144144144144144
+        }
+      },
+      "selected": {
+        "cross_cell": {
+          "target_events": 442,
+          "target_candidates": 386,
+          "proposal_misses": 56,
+          "refiner_tp": 146,
+          "refiner_misses": 240,
+          "full_recall": 0.33031674208144796,
+          "conditional_recall": 0.37823834196891193
+        },
+        "first_appearance": {
+          "target_events": 606,
+          "target_candidates": 583,
+          "proposal_misses": 23,
+          "refiner_tp": 388,
+          "refiner_misses": 195,
+          "full_recall": 0.6402640264026402,
+          "conditional_recall": 0.6655231560891939
+        },
+        "reappearance": {
+          "target_events": 2235,
+          "target_candidates": 2042,
+          "proposal_misses": 193,
+          "refiner_tp": 1402,
+          "refiner_misses": 640,
+          "full_recall": 0.6272930648769575,
+          "conditional_recall": 0.6865817825661117
+        },
+        "turn": {
+          "target_events": 441,
+          "target_candidates": 406,
+          "proposal_misses": 35,
+          "refiner_tp": 143,
+          "refiner_misses": 263,
+          "full_recall": 0.3242630385487528,
+          "conditional_recall": 0.3522167487684729
+        },
+        "speed_change": {
+          "target_events": 123,
+          "target_candidates": 111,
+          "proposal_misses": 12,
+          "refiner_tp": 29,
+          "refiner_misses": 82,
+          "full_recall": 0.23577235772357724,
+          "conditional_recall": 0.26126126126126126
+        }
+      }
+    }
+  }
+}

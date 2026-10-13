@@ -1,0 +1,118 @@
+{
+  "checkpoint": "3_ANN_to_SNN/s2/runs/GEN2-S2-001-revision1/snn_epoch05.pt",
+  "epoch": 5,
+  "status": "finite_and_cost_replay_equal",
+  "sequences": 10,
+  "state_extrema": {
+    "u1_abs_max": 63.12520217895508,
+    "u2_abs_max": 54.91223907470703,
+    "u3_abs_max": 68.91600799560547,
+    "trace_max": 51.69496536254883,
+    "trace_min": 0.0
+  },
+  "readout_parameters": {
+    "trace_gain": [
+      0.27264803647994995,
+      0.39965730905532837,
+      0.2520979344844818,
+      0.12510332465171814
+    ],
+    "mem_gain": [
+      0.19958019256591797,
+      0.6436911821365356,
+      0.4309622347354889,
+      0.20713837444782257
+    ],
+    "bias": [
+      -0.319039911031723,
+      0.41070565581321716,
+      -0.143400177359581,
+      -0.062422893941402435
+    ]
+  },
+  "counts": {
+    "events": 438966,
+    "spikes_l1": 4527963,
+    "spikes_l2": 4239472,
+    "spikes_out": 768456,
+    "input_nonzero": 10018377,
+    "positive_dt": 438925
+  },
+  "spike_fraction_l1": 0.21489719591038942,
+  "spike_fraction_l2": 0.3018081127012115,
+  "spike_fraction_out": 0.4376512076106122,
+  "state_bytes": 2035800,
+  "replay_wall_s": 8.6019035,
+  "per_sequence": [
+    {
+      "name": "train_002.npz",
+      "events": 7060,
+      "spikes_l1": 119679,
+      "spikes_l2": 83294,
+      "spikes_out": 9891
+    },
+    {
+      "name": "train_020.npz",
+      "events": 1989,
+      "spikes_l1": 27895,
+      "spikes_l2": 21676,
+      "spikes_out": 2864
+    },
+    {
+      "name": "train_034.npz",
+      "events": 8770,
+      "spikes_l1": 145543,
+      "spikes_l2": 98521,
+      "spikes_out": 11734
+    },
+    {
+      "name": "train_039.npz",
+      "events": 6525,
+      "spikes_l1": 140868,
+      "spikes_l2": 83875,
+      "spikes_out": 7442
+    },
+    {
+      "name": "train_041.npz",
+      "events": 6035,
+      "spikes_l1": 75517,
+      "spikes_l2": 63479,
+      "spikes_out": 9247
+    },
+    {
+      "name": "train_050.npz",
+      "events": 3233,
+      "spikes_l1": 55787,
+      "spikes_l2": 40465,
+      "spikes_out": 3876
+    },
+    {
+      "name": "train_060.npz",
+      "events": 13078,
+      "spikes_l1": 200337,
+      "spikes_l2": 151923,
+      "spikes_out": 17480
+    },
+    {
+      "name": "train_066.npz",
+      "events": 5338,
+      "spikes_l1": 84430,
+      "spikes_l2": 61073,
+      "spikes_out": 7143
+    },
+    {
+      "name": "train_089.npz",
+      "events": 159309,
+      "spikes_l1": 1452274,
+      "spikes_l2": 1461438,
+      "spikes_out": 287704
+    },
+    {
+      "name": "train_092.npz",
+      "events": 227629,
+      "spikes_l1": 2225633,
+      "spikes_l2": 2173728,
+      "spikes_out": 411075
+    }
+  ]
+}
