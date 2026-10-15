@@ -1,0 +1,218 @@
+{
+  "status": "complete_verified",
+  "completed_at": "2026-10-15T08:45:58.295307+00:00",
+  "scope": "Two complete FRED recordings; unchanged three-model weights/calibration and threshold 0.35; neighborhood count columns only",
+  "training_started": false,
+  "parameter_updates": 0,
+  "original_model_code_modified": false,
+  "threshold": 0.35,
+  "run_directory": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\fred_statistics_adaptation_v1",
+  "changed_feature_columns": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "input_adaptation": "Fixed source-ID hash 1/16 statistics updates, every original candidate queried, current query counted once in its current cell",
+  "statistics_setting_selection": "Fixed from prior analysis of these two recordings, not an independent test-set claim",
+  "coverage": {
+    "source_events": 48516008,
+    "closed_source_events": 48495873,
+    "source_tail_events": 20135,
+    "candidate_events": 38041712,
+    "statistics_update_events": 3031921,
+    "query_only_closed_events": 45463952,
+    "discarded_query_events": 0
+  },
+  "metrics_and_neural_costs": [
+    {
+      "model": "h2pro_ann",
+      "input": "before",
+      "iou_pct": 10.489611536989774,
+      "precision_pct": 28.38942596996355,
+      "recall_pct": 14.263700819986608,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 176.12715008,
+      "neural_ac_g": 0.0
+    },
+    {
+      "model": "h2pro_ann",
+      "input": "adapted",
+      "iou_pct": 28.68222585283982,
+      "precision_pct": 34.16661360417825,
+      "recall_pct": 64.11711583499532,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 176.12715008,
+      "neural_ac_g": 0.0
+    },
+    {
+      "model": "r1_t16_task_rescore",
+      "input": "before",
+      "iou_pct": 9.473574494051263,
+      "precision_pct": 29.30852417681189,
+      "recall_pct": 12.279428980292908,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 98.217723904,
+      "neural_ac_g": 558.164359136
+    },
+    {
+      "model": "r1_t16_task_rescore",
+      "input": "adapted",
+      "iou_pct": 27.217132574164836,
+      "precision_pct": 33.902256867798684,
+      "recall_pct": 57.98781595520931,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 98.217723904,
+      "neural_ac_g": 450.469786272
+    },
+    {
+      "model": "r2_t8_epoch088",
+      "input": "before",
+      "iou_pct": 7.8448213816690355,
+      "precision_pct": 21.44363501830918,
+      "recall_pct": 11.008518600376053,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 93.348384768,
+      "neural_ac_g": 301.46662576
+    },
+    {
+      "model": "r2_t8_epoch088",
+      "input": "adapted",
+      "iou_pct": 33.37380297712452,
+      "precision_pct": 37.91678672162734,
+      "recall_pct": 73.58309160463044,
+      "proposal_recall_pct": 99.99101510315252,
+      "neural_mac_g": 93.348384768,
+      "neural_ac_g": 244.128194324
+    }
+  ],
+  "deltas_pp": {
+    "h2pro_ann": {
+      "iou": 18.192614315850047,
+      "precision": 5.7771876342147035,
+      "recall": 49.853415015008714,
+      "proposal_recall": 0.0
+    },
+    "r1_t16_task_rescore": {
+      "iou": 17.743558080113576,
+      "precision": 4.593732690986796,
+      "recall": 45.7083869749164,
+      "proposal_recall": 0.0
+    },
+    "r2_t8_epoch088": {
+      "iou": 25.52898159545548,
+      "precision": 16.47315170331816,
+      "recall": 62.57457300425438,
+      "proposal_recall": 0.0
+    }
+  },
+  "ac_change_percent": {
+    "r1_t16_task_rescore": -19.294419484379798,
+    "r2_t8_epoch088": -19.019827250014597
+  },
+  "material_limitations": [
+    "Box-derived weak labels, with uncertain no-box negatives",
+    "Opening-scene false positives increased",
+    "Same already-examined two official training recordings",
+    "Original incomplete tail windows remain unpublished",
+    "MAC/AC neural equivalents are not measured hardware energy or latency"
+  ],
+  "verification": {
+    "regression_tests_passed": 8,
+    "reviewer_test_event_rows": 4000,
+    "reviewer_test_model_segments": 15,
+    "independent_audits": [
+      {
+        "sequence": "train_000",
+        "source_ids_verified": 26614561,
+        "all_query_coverage_preserved": true,
+        "confusions_independently_recounted": true,
+        "all_window_costs_recounted": true,
+        "original_candidates_and_label_bits_exact": true,
+        "real_feature_oracle_queries": 22,
+        "baseline_ann_replay_events": 26595483,
+        "explicit_snn_checks": {
+          "r1_t16_task_rescore": 176,
+          "r2_t8_epoch088": 176
+        }
+      },
+      {
+        "sequence": "train_001",
+        "source_ids_verified": 21901447,
+        "all_query_coverage_preserved": true,
+        "confusions_independently_recounted": true,
+        "all_window_costs_recounted": true,
+        "original_candidates_and_label_bits_exact": true,
+        "real_feature_oracle_queries": 24,
+        "baseline_ann_replay_events": 21900390,
+        "explicit_snn_checks": {
+          "r1_t16_task_rescore": 192,
+          "r2_t8_epoch088": 192
+        }
+      }
+    ],
+    "preservation": {
+      "checked_files": 1139,
+      "changed_files": [],
+      "unchanged": true
+    },
+    "resume": {
+      "status": "passed",
+      "reused_sequences": 2,
+      "unchanged_completed_files_hash_and_mtime": 8,
+      "new_inference": false,
+      "training_started": false
+    },
+    "executed_notebook_cells": 4,
+    "python_ast_files_checked": 6
+  },
+  "artifacts_sha256": {
+    "software\\scripts\\prepare_fred_statistics.py": "d55529d13bdaafe1db1fe23870f12782c4d3d865e1eeef0856f9674cc2bb0a01",
+    "software\\scripts\\adapt_fred_statistics.py": "4bf1d4676014950db81545722f6ea6b62abedaac8ea6ab48103dbf6885fc58ff",
+    "software\\scripts\\review_fred_statistics.py": "59247d69a64f69a4e8dd1283c5f67a73ca19ae9ae346fb2432027a3067da9183",
+    "software\\wangdao\\fred_statistics_v1\\__init__.py": "693126b05b1ef45bebfb352b9c22657bf540f3e27d1c49a15ed5b1453b3f29db",
+    "software\\wangdao\\fred_statistics_v1\\neighborhood.py": "7524199d25c6253ec1035cbe9440de1aeb8572cd27800d31e34ddc61ff50a7de",
+    "software\\tests\\test_fred_statistics_adaptation.py": "1fe68ee4624944335a1641f761be5197364f1d4cc8afa8ea91a6dcfcc83439cb",
+    "README.md": "ba33da965495a756fcb9376918b908c445a369891174ea5d2ab42d4c0ceb6663",
+    "results\\runs\\fred_statistics_adaptation_v1\\comparison.json": "13c88d62d08584568286a18894cfebf3a7fe68a4ca3a1e81d71360a649efb281",
+    "results\\runs\\fred_statistics_adaptation_v1\\readout.json": "deb41aa09dfeb20f19255d46589760edfdd3b26d883a8d3ee348013529c452d2",
+    "results\\runs\\fred_statistics_adaptation_v1\\experiment_identity.json": "4ea3a258bf61c576ca230ae22ccff6e815191cdbced6cbc4853f5ec073397972",
+    "results\\runs\\fred_statistics_adaptation_v1\\completed.json": "eb1db7438319e7ace96fe37b88c54608275e8abed7f8246a179d9039b31d29d8",
+    "results\\runs\\fred_statistics_adaptation_v1\\preservation_before.json": "e1684e714917df141a5ad51317f1763cc6fe58f8c9330dd3922f7b389e0ab0b0",
+    "results\\runs\\fred_statistics_adaptation_v1\\preservation_after.json": "8a1badeb19198104facd332b0787ce4958c45b91145c5d9f750524130828068a",
+    "results\\runs\\fred_statistics_adaptation_v1\\resume_verified.json": "0646609d70395c93022efac803d6c85028686ffbe8ffa4cc4f6b6c748e2ed101",
+    "results\\runs\\fred_statistics_adaptation_v1\\regression.log": "7f40caf2e00f93b2090fd174615a84a283345575f4a79e8f5812d9e1ab88ec15",
+    "results\\runs\\fred_statistics_adaptation_v1\\review_smoke.json": "774f3b1b2eec9cb9737834066c67a95867e672dc3ed42a13eb103d181eed6a24",
+    "results\\runs\\fred_statistics_adaptation_v1\\review.log": "afd9a5a209b52042ab1db3e5ecc10faa920921e5b9431a4196fd096dab82c21a",
+    "results\\runs\\fred_statistics_adaptation_v1\\inference.log": "ba442b6a3de01d02b6a06517d65ca3ac6e3aa58ccbb4758cb7634f292388b8af",
+    "results\\runs\\fred_statistics_adaptation_v1\\resume.log": "3e713c4c894e8d9bce3734949fd349616cf061ebfce56cc91c8f53d349067084",
+    "results\\runs\\fred_statistics_adaptation_v1\\preparation_reuse.log": "42a874a5fe1683099c4e9761929bc9d67add1de00482c172000ad567d973ec9d",
+    "results\\runs\\fred_statistics_adaptation_v1\\deliver.log": "c9f7c99406bc218f18ec95fc93380979994844f134088ad3114f9eb92c97ba7e",
+    "results\\runs\\fred_statistics_adaptation_v1\\FRED_statistics_adaptation.ipynb": "0787fdcf1458121a2e90a7eec5b5e6101badb2b3564052250aadef599b934403",
+    "results\\runs\\fred_statistics_adaptation_v1\\sources_receipt.json": "2122f77054659802e9aa9e1f4dafb13e5f773b638e97d23d1457d3d0ec75f548",
+    "results\\runs\\fred_statistics_adaptation_v1\\feature_histograms.npz": "c2963c872a2b8cd109af685d6ba986d5388017ae2331a590f37f1535def595c8"
+  },
+  "sources_receipt_html": "C:\\Users\\markz\\.codex\\visualizations\\2026\\10\\14\\01a13aa0-f1bc-79c3-81d2-a6e84ff026c4\\fred-statistics-adaptation-v1-sources.html",
+  "sources_receipt_sha256": "52b7772d4b7f3379265924e14314845cc717f5bb29e0360fa3e4365b8e5fe593",
+  "documentation": "README.md current status, implementation entry, artifact index, stage G, section 8.7 and change history"
+}

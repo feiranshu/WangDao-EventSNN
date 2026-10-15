@@ -1,0 +1,84 @@
+{
+  "status": "implemented_verified_pilot_dataset",
+  "source": "FRED official real event streams",
+  "source_selection": {
+    "repository": "GabrieleMagrini/FRED",
+    "revision": "980a8fa0331a8f03ffbcb30d4bf673ad439fc0fd",
+    "selection_reason": "Explicit sequence IDs selected before model evaluation; adapter pilot only",
+    "files": [
+      {
+        "path": "train/0.zip",
+        "size": 450817254,
+        "sha256": "2eabdec62d6d1d6f5c32614af7276db84361006a61cd818120fd9f5da36c3555"
+      },
+      {
+        "path": "train/1.zip",
+        "size": 452754302,
+        "sha256": "df224382bbe4419f80682297e89ad468c4979f93bb37677e4cdb4ef75ab6c718"
+      }
+    ]
+  },
+  "dataset_index": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\fred_external_v1\\dataset\\index.json",
+  "index_sha256": "646b971c88d08f9b802dfa54f68b54c4cd08c5a9fe4c2e4b8fa8d97eef04d23f",
+  "duration_s": 221.051918,
+  "summary": {
+    "sequence_count": 2,
+    "file_count": 23,
+    "events": 48516008,
+    "evaluated_events": 48147527,
+    "target_events_weak": 7642936,
+    "evaluated_target_events_weak": 7642936,
+    "total_bytes": 208335994
+  },
+  "all_events_checked_against_source": true,
+  "decoded_events_deleted_or_added": 0,
+  "weak_labels_require_eval_mask": true,
+  "ignored_labels": 368481,
+  "label_limitations": [
+    "bounding-box-derived, not manual event segmentation",
+    "unlisted annotated frame assumed target absent",
+    "not an independent official test benchmark"
+  ],
+  "regression_tests_passed": 12,
+  "frozen_model_clip_checks_passed": 6,
+  "frozen_model_check_events": 1456111,
+  "explicit_snn_parity_events": 768,
+  "visual_alignment_frames": 8,
+  "official_active_pixel_coverage": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "resume_files_byte_and_mtime_unchanged": 35,
+  "protected_original_files_unchanged": 22,
+  "training_started": false,
+  "full_external_accuracy_evaluation_performed": false,
+  "source_hashes": {
+    "software/wangdao/fred_adapter_v1/core.py": "ad40b1031f0ffaa6f52def3dc5f112c6a6e50ae6e4ce21747bb37f882921fa13",
+    "software/wangdao/fred_adapter_v1/download.py": "366aeb3ca193d86b040ab733aaebae5814a65f4674fe3d4ef3c3fc0cb236259e",
+    "software/wangdao/fred_adapter_v1/ecf.py": "a4fe215be46071f8c8814a4d8be17105f1b6c1ac8cd2712346ff76195f63c085",
+    "software/wangdao/fred_adapter_v1/ecf_bridge.cpp": "01582c415e43aa18129dfa0d401ec6a5ad22ae5d091739da1db8b279efc00fcc",
+    "software/wangdao/fred_adapter_v1/verify.py": "836818a3b0ca09da6865a5d5b25bd7d60168e25efec042928f4a3ba20bd540f8",
+    "software/wangdao/fred_adapter_v1/workflow.py": "6ad57b677f762808aace5cc5e7ad4ddbacbc5c93d1d169fbc23982082009dd85",
+    "software/wangdao/fred_adapter_v1/__init__.py": "62fb543b1bea200424fadf8550a7d66451986ced8768c22fe57a64b599c33dbf",
+    "software/wangdao/fred_adapter_v1/vendor/ecf_codec.cpp": "4ec9e32356a575b28246f25f99b9d889d3ee521a4015cf42c051d27fbec43357",
+    "software/wangdao/fred_adapter_v1/vendor/ecf_codec.h": "a9855efd722e9db61ecaf9f4455c0f5a5ae091203a0ddfeb3b7866c7a5f1a46a",
+    "software/wangdao/fred_adapter_v1/vendor/ecf_codec_export.h": "c37beb8c6bc50128f6f52f6a7acc97dd7c341500f8da73d96662e3db499bb148",
+    "software/wangdao/fred_adapter_v1/vendor/LICENSE": "ab1119dedc6ca90aef94f95ad78b10580cca0a1de76e3ca3052b166be8399f03",
+    "software/wangdao/fred_adapter_v1/vendor/source.json": "f6c3fdddd1a19b89b77347fa63f352a5f880856bb9917044e97ecfa15f180f28",
+    "software/scripts/prepare_fred.py": "1e893772c8c4a5682c3dea9fe0984a7a0b9ba56e1adf572e1b9488d5a359c179",
+    "software/scripts/check_fred_model.py": "b211fbe58663c5cfca119bb289269e75cd05f63083f8ccf2772cd9ad64389eb9",
+    "software/tests/test_fred_adapter.py": "f3ca032aef66f4611bc0bc60f3bfff6a527ed183129093ff6b2643f3d6146608",
+    "prepare_fred.ps1": "ea24e7a76b500310ecbd8a946d415f5f65df738d98f52834610501a17773ea94"
+  },
+  "observations": [
+    "Opening images show a nearby device/digits, different from the later sky/UAV scenes; all input events retained",
+    "Shards are storage units; preserve state and split membership at original-recording level"
+  ],
+  "qa_render_checked": true
+}
