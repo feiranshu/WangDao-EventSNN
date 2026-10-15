@@ -1,0 +1,2779 @@
+{
+  "review_version": "h2pro_distill_epoch5_readonly_v1",
+  "date": "2026-10-14",
+  "run": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_distill_r2t8_v1_s42",
+  "status": "five_epochs_complete_verified",
+  "actions": {
+    "optimizer_steps": 0,
+    "new_model_inference": false,
+    "gpu_allocated": false,
+    "training_code_modified": false,
+    "reserved_data_read": false,
+    "test_suite_rerun": false
+  },
+  "verification": {
+    "run_files_sha256": {
+      "results/runs/h2pro_distill_r2t8_v1_s42/.lock": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "results/runs/h2pro_distill_r2t8_v1_s42/best.pt": "6e0264fb5b6b7a516179d390591621bfd69c8ae6ae02bf9fb2cbc4717bde2c51",
+      "results/runs/h2pro_distill_r2t8_v1_s42/best_int8.npz": "2e26265320484342c2818efb77bb37215cc7d441f67eded9ba678a664c9b9fdf",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_001.json": "83df75b3d04ba8414ea7a5f944f3ed3acd019f517cf9d992572f25b83d96c168",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_001_int8.npz": "82ff242f500471d28c9e0872675441b41223e7087eed5a23a273368bf20740ee",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_002.json": "2603bbc1d4e53ba40cac3a23efa50e62bb39d59081701fa0b0c8365577017951",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_002_int8.npz": "dce8374459547cfd009547b6de7a6854f48aac29ecc5d85edd331312e4ce21f4",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_003.json": "661fcbbe50606b963e6d1e950ee83cc716546a90ce5b6312a57548e837b6e1cd",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_003_int8.npz": "46ab29e7c8ddcc216137a172a1cdb117658c7b23b84691dfa5dceca8b8d2a5fd",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_004.json": "d3a7d923e9a0ad975327c587c8335855761860fdbb1acc45d03223de05f09390",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_004_int8.npz": "3a774804eb3abb34bcf49612cfb2805e69c678066f00e50f78fd5c4ef62888bb",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_005.json": "f46aa01d165eae3ce9091763ded4ca71178bba91fe40ca5b431ef5b3b9411b11",
+      "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_005_int8.npz": "2e26265320484342c2818efb77bb37215cc7d441f67eded9ba678a664c9b9fdf",
+      "results/runs/h2pro_distill_r2t8_v1_s42/identity.json": "efe29ec06da7a9e1065078f26a2406ae210c6976e175897a1a1df441aef08cae",
+      "results/runs/h2pro_distill_r2t8_v1_s42/last.pt": "6e0264fb5b6b7a516179d390591621bfd69c8ae6ae02bf9fb2cbc4717bde2c51",
+      "results/runs/h2pro_distill_r2t8_v1_s42/progress.json": "b415a98bb348a45d6049062fc31f46812bf6fabceb172e34c210a42d022f03f9",
+      "results/runs/h2pro_distill_r2t8_v1_s42/progress.jsonl": "f617a6bd79dd84602da9b6facfafd0580aefb52291ae94c524fe3dcbfdd726e3",
+      "results/runs/h2pro_distill_r2t8_v1_s42/ready.json": "a3fd65730fca0e319d6ae249f0f30a637257ff0d19105b918fdaad14ed6389b7",
+      "results/runs/h2pro_distill_r2t8_v1_s42/training.json": "e272bf4ec74f1e7314b378d5c2c1c1ecc9c9df5669155aabde3aae5ff49a0929"
+    },
+    "source_files_checked": 17,
+    "source_and_teacher_identity_match": true,
+    "cache_npz_hash_verified": 89,
+    "ready_baselines_match": true,
+    "epochs_match_training_json_and_both_checkpoints": true,
+    "all_adam_steps": 1355,
+    "best_epoch": 5,
+    "best_last_model_optimizer_equal": true,
+    "all_export_scales_unchanged": true,
+    "all_export_changed_weights_verified": true,
+    "best_export_matches_checkpoint_and_epoch5": true,
+    "metrics_recomputed_from_saved_sequence_counts": true,
+    "ac_recomputed_from_saved_spikes": true,
+    "log_lines": 146,
+    "failure_files": [],
+    "all_run_files_unchanged": true
+  },
+  "protocol": {
+    "version": "h2pro_r2t8_distill_v1",
+    "direction": 4,
+    "dimensions": [
+      36,
+      64,
+      32,
+      4
+    ],
+    "proposal": "frozen exact H2 ANN; routing and all C1 features unchanged",
+    "teacher": "frozen H2-pro exact-int8 export; cached original four-prototype logits",
+    "student": "original r2/T8; initialize ALL layers from the frozen int8 export",
+    "weight_update": "FP32 master weights; int8 round/clamp STE, original fixed per-output scales",
+    "activation": "original clip [0,1] and round-to-even uint8; clamp gradient retained",
+    "if": "T=8, theta=255, v0=127, binary soft reset; independent per event and layer",
+    "gradient": "straight-through round and IF count; no surrogate changes to the forward model",
+    "training_backend": "dense exact-count reference with FP64 integer-valued sums and scale decode",
+    "inference": "exported int8 weights supported by the existing explicit binary spike-add kernel",
+    "readout": "unchanged max of two prototypes per class, threshold 0.35",
+    "loss": "(1-alpha)*unweighted CE + alpha*temperature^2*KL(teacher||student)",
+    "sampling": "all Train-main candidates exactly once per epoch, uniform shuffled order",
+    "no_direction_5_or_6": true,
+    "hard_mining": false,
+    "spike_regularization": false,
+    "roles": [
+      "train_main",
+      "train_dev"
+    ],
+    "reserved_splits_read": false,
+    "evaluation": "full closed-prefix events including fixed Proposal rejects; overall/HD/per-sequence",
+    "best_selection": "highest full-event Train-dev IoU, tie by recall; epoch zero eligible",
+    "cost": "training dense MAC separate from inference-equivalent MAC/AC and scalar/state operations",
+    "numerical_checks": "nonfinite loss, gradients, parameters; no finite-amplitude stop guards",
+    "timing": "layer-serial coding, T is not milliseconds; original 100 ms closure remains"
+  },
+  "config": {
+    "seed": 42,
+    "batch_size": 8192,
+    "learning_rate": 0.0001,
+    "kd_alpha": 0.5,
+    "temperature": 2.0
+  },
+  "engine": {
+    "torch": "2.5.1+cu121",
+    "numpy": "2.2.6",
+    "cuda": "12.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "forward_precision": "FP64 exact integer sums/scale decode, FP32 original logits",
+    "optimizer_precision": "FP32",
+    "deterministic": true
+  },
+  "coverage": {
+    "train_main": {
+      "sequences": 79,
+      "events": 7154631,
+      "target_events": 217211,
+      "candidate_events": 2219864,
+      "candidate_targets": 214937,
+      "hd_candidates": 1706748,
+      "hd_candidate_targets": 50003
+    },
+    "train_dev": {
+      "sequences": 10,
+      "events": 1221626,
+      "target_events": 30254,
+      "candidate_events": 438966,
+      "candidate_targets": 29776,
+      "hd_candidates": 386938,
+      "hd_candidate_targets": 9311
+    }
+  },
+  "frozen_ann": {
+    "overall": {
+      "events": 1221626,
+      "target_events": 30254,
+      "candidate_events": 438966,
+      "candidate_targets": 29776,
+      "proposal_fn": 478,
+      "refiner_fn": 3844,
+      "tp": 25932,
+      "fp": 2463,
+      "fn": 4322,
+      "tn": 1188909,
+      "iou": 0.792615459852676,
+      "precision": 0.9132593766508188,
+      "recall": 0.8571428571428571,
+      "proposal_target_recall": 0.984200436305943,
+      "refiner_conditional_recall": 0.8709027404621171,
+      "candidate_fraction": 0.3593292873596338,
+      "f1": 0.8843117529710651
+    },
+    "high_density": {
+      "events": 988281,
+      "target_events": 9766,
+      "candidate_events": 386938,
+      "candidate_targets": 9311,
+      "proposal_fn": 455,
+      "refiner_fn": 3624,
+      "tp": 5687,
+      "fp": 1528,
+      "fn": 4079,
+      "tn": 976987,
+      "iou": 0.5035417035594121,
+      "precision": 0.7882189882189882,
+      "recall": 0.5823264386647553,
+      "proposal_target_recall": 0.9534097890640999,
+      "refiner_conditional_recall": 0.6107829449038772,
+      "candidate_fraction": 0.3915262966706837,
+      "f1": 0.6698074318355809
+    },
+    "ordinary": {
+      "events": 233345,
+      "target_events": 20488,
+      "candidate_events": 52028,
+      "candidate_targets": 20465,
+      "proposal_fn": 23,
+      "refiner_fn": 220,
+      "tp": 20245,
+      "fp": 935,
+      "fn": 243,
+      "tn": 211922,
+      "iou": 0.9450123698828362,
+      "precision": 0.9558545797922569,
+      "recall": 0.9881393986723936,
+      "proposal_target_recall": 0.9988773916438891,
+      "refiner_conditional_recall": 0.9892499389201075,
+      "candidate_fraction": 0.22296599455741498,
+      "f1": 0.9717289046750504
+    },
+    "sequences": [
+      {
+        "sequence": "train/train_002.npz",
+        "high_density": false,
+        "counts": {
+          "events": 44112,
+          "target_events": 3943,
+          "candidate_events": 7060,
+          "candidate_targets": 3943,
+          "proposal_fn": 0,
+          "refiner_fn": 22,
+          "tp": 3921,
+          "fp": 146,
+          "fn": 22,
+          "tn": 40023
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_020.npz",
+        "high_density": false,
+        "counts": {
+          "events": 22697,
+          "target_events": 853,
+          "candidate_events": 1989,
+          "candidate_targets": 851,
+          "proposal_fn": 2,
+          "refiner_fn": 13,
+          "tp": 838,
+          "fp": 127,
+          "fn": 15,
+          "tn": 21717
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_034.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20520,
+          "target_events": 3918,
+          "candidate_events": 8770,
+          "candidate_targets": 3918,
+          "proposal_fn": 0,
+          "refiner_fn": 10,
+          "tp": 3908,
+          "fp": 91,
+          "fn": 10,
+          "tn": 16511
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_039.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20123,
+          "target_events": 4662,
+          "candidate_events": 6525,
+          "candidate_targets": 4662,
+          "proposal_fn": 0,
+          "refiner_fn": 10,
+          "tp": 4652,
+          "fp": 135,
+          "fn": 10,
+          "tn": 15326
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_041.npz",
+        "high_density": false,
+        "counts": {
+          "events": 44509,
+          "target_events": 2352,
+          "candidate_events": 6035,
+          "candidate_targets": 2341,
+          "proposal_fn": 11,
+          "refiner_fn": 71,
+          "tp": 2270,
+          "fp": 117,
+          "fn": 82,
+          "tn": 42040
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_050.npz",
+        "high_density": false,
+        "counts": {
+          "events": 18107,
+          "target_events": 2205,
+          "candidate_events": 3233,
+          "candidate_targets": 2197,
+          "proposal_fn": 8,
+          "refiner_fn": 31,
+          "tp": 2166,
+          "fp": 183,
+          "fn": 39,
+          "tn": 15719
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_060.npz",
+        "high_density": false,
+        "counts": {
+          "events": 43051,
+          "target_events": 1206,
+          "candidate_events": 13078,
+          "candidate_targets": 1206,
+          "proposal_fn": 0,
+          "refiner_fn": 19,
+          "tp": 1187,
+          "fp": 62,
+          "fn": 19,
+          "tn": 41783
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_066.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20226,
+          "target_events": 1349,
+          "candidate_events": 5338,
+          "candidate_targets": 1347,
+          "proposal_fn": 2,
+          "refiner_fn": 44,
+          "tp": 1303,
+          "fp": 74,
+          "fn": 46,
+          "tn": 18803
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_089.npz",
+        "high_density": true,
+        "counts": {
+          "events": 400498,
+          "target_events": 2610,
+          "candidate_events": 159309,
+          "candidate_targets": 2227,
+          "proposal_fn": 383,
+          "refiner_fn": 1548,
+          "tp": 679,
+          "fp": 465,
+          "fn": 1931,
+          "tn": 397423
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      },
+      {
+        "sequence": "train/train_092.npz",
+        "high_density": true,
+        "counts": {
+          "events": 587783,
+          "target_events": 7156,
+          "candidate_events": 227629,
+          "candidate_targets": 7084,
+          "proposal_fn": 72,
+          "refiner_fn": 2076,
+          "tp": 5008,
+          "fp": 1063,
+          "fn": 2148,
+          "tn": 579564
+        },
+        "hidden_spikes": [
+          0,
+          0
+        ]
+      }
+    ],
+    "threshold": 0.35,
+    "role": "train_dev",
+    "cost": {
+      "mac_sparse_proposal": 2394416168,
+      "mac_dense_proposal": 3925152000,
+      "ac": 0
+    }
+  },
+  "initial_student": {
+    "overall": {
+      "events": 1221626,
+      "target_events": 30254,
+      "candidate_events": 438966,
+      "candidate_targets": 29776,
+      "proposal_fn": 478,
+      "refiner_fn": 3863,
+      "tp": 25913,
+      "fp": 3195,
+      "fn": 4341,
+      "tn": 1188177,
+      "iou": 0.7747017848067207,
+      "precision": 0.8902363611378316,
+      "recall": 0.8565148410127587,
+      "proposal_target_recall": 0.984200436305943,
+      "refiner_conditional_recall": 0.8702646426652337,
+      "candidate_fraction": 0.3593292873596338,
+      "f1": 0.8730500993901823
+    },
+    "high_density": {
+      "events": 988281,
+      "target_events": 9766,
+      "candidate_events": 386938,
+      "candidate_targets": 9311,
+      "proposal_fn": 455,
+      "refiner_fn": 3615,
+      "tp": 5696,
+      "fp": 2196,
+      "fn": 4070,
+      "tn": 976319,
+      "iou": 0.4761745527503762,
+      "precision": 0.7217435377597567,
+      "recall": 0.5832480032766741,
+      "proposal_target_recall": 0.9534097890640999,
+      "refiner_conditional_recall": 0.611749543550639,
+      "candidate_fraction": 0.3915262966706837,
+      "f1": 0.6451466757277154
+    },
+    "ordinary": {
+      "events": 233345,
+      "target_events": 20488,
+      "candidate_events": 52028,
+      "candidate_targets": 20465,
+      "proposal_fn": 23,
+      "refiner_fn": 248,
+      "tp": 20217,
+      "fp": 999,
+      "fn": 271,
+      "tn": 211858,
+      "iou": 0.9408944943454182,
+      "precision": 0.9529128959276018,
+      "recall": 0.9867727450214759,
+      "proposal_target_recall": 0.9988773916438891,
+      "refiner_conditional_recall": 0.9878817493281212,
+      "candidate_fraction": 0.22296599455741498,
+      "f1": 0.9695472856320737
+    },
+    "sequences": [
+      {
+        "sequence": "train/train_002.npz",
+        "high_density": false,
+        "counts": {
+          "events": 44112,
+          "target_events": 3943,
+          "candidate_events": 7060,
+          "candidate_targets": 3943,
+          "proposal_fn": 0,
+          "refiner_fn": 26,
+          "tp": 3917,
+          "fp": 158,
+          "fn": 26,
+          "tn": 40011
+        },
+        "hidden_spikes": [
+          883768,
+          706862
+        ]
+      },
+      {
+        "sequence": "train/train_020.npz",
+        "high_density": false,
+        "counts": {
+          "events": 22697,
+          "target_events": 853,
+          "candidate_events": 1989,
+          "candidate_targets": 851,
+          "proposal_fn": 2,
+          "refiner_fn": 23,
+          "tp": 828,
+          "fp": 133,
+          "fn": 25,
+          "tn": 21711
+        },
+        "hidden_spikes": [
+          203390,
+          182010
+        ]
+      },
+      {
+        "sequence": "train/train_034.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20520,
+          "target_events": 3918,
+          "candidate_events": 8770,
+          "candidate_targets": 3918,
+          "proposal_fn": 0,
+          "refiner_fn": 13,
+          "tp": 3905,
+          "fp": 106,
+          "fn": 13,
+          "tn": 16496
+        },
+        "hidden_spikes": [
+          1168954,
+          894780
+        ]
+      },
+      {
+        "sequence": "train/train_039.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20123,
+          "target_events": 4662,
+          "candidate_events": 6525,
+          "candidate_targets": 4662,
+          "proposal_fn": 0,
+          "refiner_fn": 16,
+          "tp": 4646,
+          "fp": 138,
+          "fn": 16,
+          "tn": 15323
+        },
+        "hidden_spikes": [
+          936001,
+          708090
+        ]
+      },
+      {
+        "sequence": "train/train_041.npz",
+        "high_density": false,
+        "counts": {
+          "events": 44509,
+          "target_events": 2352,
+          "candidate_events": 6035,
+          "candidate_targets": 2341,
+          "proposal_fn": 11,
+          "refiner_fn": 63,
+          "tp": 2278,
+          "fp": 135,
+          "fn": 74,
+          "tn": 42022
+        },
+        "hidden_spikes": [
+          650012,
+          563452
+        ]
+      },
+      {
+        "sequence": "train/train_050.npz",
+        "high_density": false,
+        "counts": {
+          "events": 18107,
+          "target_events": 2205,
+          "candidate_events": 3233,
+          "candidate_targets": 2197,
+          "proposal_fn": 8,
+          "refiner_fn": 35,
+          "tp": 2162,
+          "fp": 191,
+          "fn": 43,
+          "tn": 15711
+        },
+        "hidden_spikes": [
+          345007,
+          289558
+        ]
+      },
+      {
+        "sequence": "train/train_060.npz",
+        "high_density": false,
+        "counts": {
+          "events": 43051,
+          "target_events": 1206,
+          "candidate_events": 13078,
+          "candidate_targets": 1206,
+          "proposal_fn": 0,
+          "refiner_fn": 23,
+          "tp": 1183,
+          "fp": 62,
+          "fn": 23,
+          "tn": 41783
+        },
+        "hidden_spikes": [
+          1735546,
+          1274823
+        ]
+      },
+      {
+        "sequence": "train/train_066.npz",
+        "high_density": false,
+        "counts": {
+          "events": 20226,
+          "target_events": 1349,
+          "candidate_events": 5338,
+          "candidate_targets": 1347,
+          "proposal_fn": 2,
+          "refiner_fn": 49,
+          "tp": 1298,
+          "fp": 76,
+          "fn": 51,
+          "tn": 18801
+        },
+        "hidden_spikes": [
+          614058,
+          501908
+        ]
+      },
+      {
+        "sequence": "train/train_089.npz",
+        "high_density": true,
+        "counts": {
+          "events": 400498,
+          "target_events": 2610,
+          "candidate_events": 159309,
+          "candidate_targets": 2227,
+          "proposal_fn": 383,
+          "refiner_fn": 1538,
+          "tp": 689,
+          "fp": 681,
+          "fn": 1921,
+          "tn": 397207
+        },
+        "hidden_spikes": [
+          19281263,
+          16863982
+        ]
+      },
+      {
+        "sequence": "train/train_092.npz",
+        "high_density": true,
+        "counts": {
+          "events": 587783,
+          "target_events": 7156,
+          "candidate_events": 227629,
+          "candidate_targets": 7084,
+          "proposal_fn": 72,
+          "refiner_fn": 2077,
+          "tp": 5007,
+          "fp": 1515,
+          "fn": 2149,
+          "tn": 579112
+        },
+        "hidden_spikes": [
+          28778811,
+          24228223
+        ]
+      }
+    ],
+    "threshold": 0.35,
+    "role": "train_dev",
+    "cost": {
+      "inference_equivalent_mac_sparse_proposal": 1439226152,
+      "inference_equivalent_mac_dense_proposal": 2969961984,
+      "inference_equivalent_ac": 1931952672,
+      "refiner_mac": 1011377664,
+      "proposal_sparse_mac": 427848488,
+      "proposal_dense_mac": 1958584320,
+      "frozen_ann_sparse_mac": 2394416168,
+      "frozen_ann_dense_mac": 3925152000,
+      "executed_reference_refiner_mac": 1966567680,
+      "executed_reference_refiner_ac": 0,
+      "hidden1_spikes": 54596810,
+      "hidden2_spikes": 46213688,
+      "equivalent_if_state_adds": 337125888,
+      "equivalent_if_comparisons": 337125888,
+      "equivalent_if_resets": 100810498,
+      "decode_scale_mul": 43896600,
+      "decode_divisions": 43896600,
+      "hidden_quantizer_mul": 42140736,
+      "hidden_quantizer_round": 42140736,
+      "count_reference_mul_add_div_each": 42140736,
+      "weight_bytes_int8": 4480,
+      "scale_bytes_fp32": 400,
+      "peak_serial_if_state_elements_per_candidate": 64,
+      "memory_traffic_measured": false,
+      "energy_measured": false,
+      "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+      "unaccounted": [
+        "feature construction",
+        "routing/components",
+        "prototype readout",
+        "memory traffic",
+        "physical instruction costs"
+      ]
+    },
+    "inference_seconds": 0.3520152999990387,
+    "explicit_verified_candidates": 640,
+    "export_verified": true,
+    "student_backend": "dense count reference, exact int8 forward"
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "global_step": 271,
+      "training": {
+        "events": 2219864,
+        "loss_sums": [
+          63232.97577153146,
+          99486.21350610256,
+          26979.73823532462
+        ],
+        "spikes": [
+          288895552,
+          233406999
+        ],
+        "gradient_norm_max": 0.1968371194680734,
+        "logit_absmax": 17.833030700683594,
+        "train_seconds": 2.2961065999916173,
+        "mean_losses": [
+          0.028485067450767912,
+          0.044816355193877895,
+          0.012153779797016673
+        ]
+      },
+      "evaluation": {
+        "overall": {
+          "events": 1221626,
+          "target_events": 30254,
+          "candidate_events": 438966,
+          "candidate_targets": 29776,
+          "proposal_fn": 478,
+          "refiner_fn": 3860,
+          "tp": 25916,
+          "fp": 2866,
+          "fn": 4338,
+          "tn": 1188506,
+          "iou": 0.782487922705314,
+          "precision": 0.9004238760336322,
+          "recall": 0.8566140014543532,
+          "proposal_target_recall": 0.984200436305943,
+          "refiner_conditional_recall": 0.8703653949489522,
+          "candidate_fraction": 0.3593292873596338,
+          "f1": 0.8779727623822752
+        },
+        "high_density": {
+          "events": 988281,
+          "target_events": 9766,
+          "candidate_events": 386938,
+          "candidate_targets": 9311,
+          "proposal_fn": 455,
+          "refiner_fn": 3603,
+          "tp": 5708,
+          "fp": 1890,
+          "fn": 4058,
+          "tn": 976625,
+          "iou": 0.48970487302676735,
+          "precision": 0.7512503290339563,
+          "recall": 0.584476756092566,
+          "proposal_target_recall": 0.9534097890640999,
+          "refiner_conditional_recall": 0.6130383417463215,
+          "candidate_fraction": 0.3915262966706837,
+          "f1": 0.6574521999539277
+        },
+        "ordinary": {
+          "events": 233345,
+          "target_events": 20488,
+          "candidate_events": 52028,
+          "candidate_targets": 20465,
+          "proposal_fn": 23,
+          "refiner_fn": 257,
+          "tp": 20208,
+          "fp": 976,
+          "fn": 280,
+          "tn": 211881,
+          "iou": 0.9414834140887067,
+          "precision": 0.9539274924471299,
+          "recall": 0.9863334634908238,
+          "proposal_target_recall": 0.9988773916438891,
+          "refiner_conditional_recall": 0.9874419741021255,
+          "candidate_fraction": 0.22296599455741498,
+          "f1": 0.969859857938184
+        },
+        "sequences": [
+          {
+            "sequence": "train/train_002.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44112,
+              "target_events": 3943,
+              "candidate_events": 7060,
+              "candidate_targets": 3943,
+              "proposal_fn": 0,
+              "refiner_fn": 35,
+              "tp": 3908,
+              "fp": 158,
+              "fn": 35,
+              "tn": 40011
+            },
+            "hidden_spikes": [
+              889578,
+              707568
+            ]
+          },
+          {
+            "sequence": "train/train_020.npz",
+            "high_density": false,
+            "counts": {
+              "events": 22697,
+              "target_events": 853,
+              "candidate_events": 1989,
+              "candidate_targets": 851,
+              "proposal_fn": 2,
+              "refiner_fn": 27,
+              "tp": 824,
+              "fp": 132,
+              "fn": 29,
+              "tn": 21712
+            },
+            "hidden_spikes": [
+              204887,
+              182984
+            ]
+          },
+          {
+            "sequence": "train/train_034.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20520,
+              "target_events": 3918,
+              "candidate_events": 8770,
+              "candidate_targets": 3918,
+              "proposal_fn": 0,
+              "refiner_fn": 9,
+              "tp": 3909,
+              "fp": 97,
+              "fn": 9,
+              "tn": 16505
+            },
+            "hidden_spikes": [
+              1177086,
+              893144
+            ]
+          },
+          {
+            "sequence": "train/train_039.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20123,
+              "target_events": 4662,
+              "candidate_events": 6525,
+              "candidate_targets": 4662,
+              "proposal_fn": 0,
+              "refiner_fn": 13,
+              "tp": 4649,
+              "fp": 136,
+              "fn": 13,
+              "tn": 15325
+            },
+            "hidden_spikes": [
+              941817,
+              702860
+            ]
+          },
+          {
+            "sequence": "train/train_041.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44509,
+              "target_events": 2352,
+              "candidate_events": 6035,
+              "candidate_targets": 2341,
+              "proposal_fn": 11,
+              "refiner_fn": 70,
+              "tp": 2271,
+              "fp": 127,
+              "fn": 81,
+              "tn": 42030
+            },
+            "hidden_spikes": [
+              654762,
+              567258
+            ]
+          },
+          {
+            "sequence": "train/train_050.npz",
+            "high_density": false,
+            "counts": {
+              "events": 18107,
+              "target_events": 2205,
+              "candidate_events": 3233,
+              "candidate_targets": 2197,
+              "proposal_fn": 8,
+              "refiner_fn": 33,
+              "tp": 2164,
+              "fp": 181,
+              "fn": 41,
+              "tn": 15721
+            },
+            "hidden_spikes": [
+              347671,
+              290558
+            ]
+          },
+          {
+            "sequence": "train/train_060.npz",
+            "high_density": false,
+            "counts": {
+              "events": 43051,
+              "target_events": 1206,
+              "candidate_events": 13078,
+              "candidate_targets": 1206,
+              "proposal_fn": 0,
+              "refiner_fn": 22,
+              "tp": 1184,
+              "fp": 61,
+              "fn": 22,
+              "tn": 41784
+            },
+            "hidden_spikes": [
+              1754230,
+              1275413
+            ]
+          },
+          {
+            "sequence": "train/train_066.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20226,
+              "target_events": 1349,
+              "candidate_events": 5338,
+              "candidate_targets": 1347,
+              "proposal_fn": 2,
+              "refiner_fn": 48,
+              "tp": 1299,
+              "fp": 84,
+              "fn": 50,
+              "tn": 18793
+            },
+            "hidden_spikes": [
+              620247,
+              502655
+            ]
+          },
+          {
+            "sequence": "train/train_089.npz",
+            "high_density": true,
+            "counts": {
+              "events": 400498,
+              "target_events": 2610,
+              "candidate_events": 159309,
+              "candidate_targets": 2227,
+              "proposal_fn": 383,
+              "refiner_fn": 1527,
+              "tp": 700,
+              "fp": 631,
+              "fn": 1910,
+              "tn": 397257
+            },
+            "hidden_spikes": [
+              19415866,
+              16877736
+            ]
+          },
+          {
+            "sequence": "train/train_092.npz",
+            "high_density": true,
+            "counts": {
+              "events": 587783,
+              "target_events": 7156,
+              "candidate_events": 227629,
+              "candidate_targets": 7084,
+              "proposal_fn": 72,
+              "refiner_fn": 2076,
+              "tp": 5008,
+              "fp": 1259,
+              "fn": 2148,
+              "tn": 579368
+            },
+            "hidden_spikes": [
+              28962013,
+              24228452
+            ]
+          }
+        ],
+        "threshold": 0.35,
+        "role": "train_dev",
+        "cost": {
+          "inference_equivalent_mac_sparse_proposal": 1439226152,
+          "inference_equivalent_mac_dense_proposal": 2969961984,
+          "inference_equivalent_ac": 1943895536,
+          "refiner_mac": 1011377664,
+          "proposal_sparse_mac": 427848488,
+          "proposal_dense_mac": 1958584320,
+          "frozen_ann_sparse_mac": 2394416168,
+          "frozen_ann_dense_mac": 3925152000,
+          "executed_reference_refiner_mac": 1966567680,
+          "executed_reference_refiner_ac": 0,
+          "hidden1_spikes": 54968157,
+          "hidden2_spikes": 46228628,
+          "equivalent_if_state_adds": 337125888,
+          "equivalent_if_comparisons": 337125888,
+          "equivalent_if_resets": 101196785,
+          "decode_scale_mul": 43896600,
+          "decode_divisions": 43896600,
+          "hidden_quantizer_mul": 42140736,
+          "hidden_quantizer_round": 42140736,
+          "count_reference_mul_add_div_each": 42140736,
+          "weight_bytes_int8": 4480,
+          "scale_bytes_fp32": 400,
+          "peak_serial_if_state_elements_per_candidate": 64,
+          "memory_traffic_measured": false,
+          "energy_measured": false,
+          "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+          "unaccounted": [
+            "feature construction",
+            "routing/components",
+            "prototype readout",
+            "memory traffic",
+            "physical instruction costs"
+          ]
+        },
+        "inference_seconds": 0.19162090000099852,
+        "explicit_verified_candidates": 640,
+        "export_verified": true,
+        "student_backend": "dense count reference, exact int8 forward",
+        "delta_to_ann_pp": {
+          "overall": {
+            "iou": -1.0127537147362031,
+            "precision": -1.2835500617186635,
+            "recall": -0.05288556885039153,
+            "f1": -0.633899058878995
+          },
+          "high_density": {
+            "iou": -1.3836830532644728,
+            "precision": -3.6968659185031894,
+            "recall": 0.21503174278106885,
+            "f1": -1.2355231881653217
+          },
+          "ordinary": {
+            "iou": -0.35289557941294847,
+            "precision": -0.1927087345126921,
+            "recall": -0.18059351815697955,
+            "f1": -0.18690467368663866
+          }
+        },
+        "delta_to_initial_r2t8_pp": {
+          "overall": {
+            "iou": 0.7786137898593282,
+            "precision": 1.018751489580061,
+            "recall": 0.009916044159452575,
+            "f1": 0.49226629920928744
+          },
+          "high_density": {
+            "iou": 1.3530320276391172,
+            "precision": 2.950679127419953,
+            "recall": 0.12287528158918537,
+            "f1": 1.2305524226212228
+          },
+          "ordinary": {
+            "iou": 0.05889197432885629,
+            "precision": 0.1014596519528177,
+            "recall": -0.04392815306520914,
+            "f1": 0.03125723061102592
+          }
+        }
+      },
+      "memory": {
+        "peak_allocated_bytes": 250350080,
+        "peak_reserved_bytes": 270532608
+      },
+      "student_updates": {
+        "changed_int8_weights_per_layer": [
+          581,
+          228,
+          33
+        ],
+        "master_weight_delta_l2_per_layer": [
+          0.16905413568019867,
+          0.22805635631084442,
+          0.10566940158605576
+        ]
+      }
+    },
+    {
+      "epoch": 2,
+      "global_step": 542,
+      "training": {
+        "events": 2219864,
+        "loss_sums": [
+          61568.50259938836,
+          97900.80117696524,
+          25236.20441838354
+        ],
+        "spikes": [
+          289826959,
+          232995925
+        ],
+        "gradient_norm_max": 0.13442668455795187,
+        "logit_absmax": 17.833030700683594,
+        "train_seconds": 1.7020579999662004,
+        "mean_losses": [
+          0.02773525882639133,
+          0.044102161743676746,
+          0.011368356087752916
+        ]
+      },
+      "evaluation": {
+        "overall": {
+          "events": 1221626,
+          "target_events": 30254,
+          "candidate_events": 438966,
+          "candidate_targets": 29776,
+          "proposal_fn": 478,
+          "refiner_fn": 3847,
+          "tp": 25929,
+          "fp": 3001,
+          "fn": 4325,
+          "tn": 1188371,
+          "iou": 0.779702300405954,
+          "precision": 0.8962668510197027,
+          "recall": 0.8570436967012627,
+          "proposal_target_recall": 0.984200436305943,
+          "refiner_conditional_recall": 0.8708019881783987,
+          "candidate_fraction": 0.3593292873596338,
+          "f1": 0.8762165450121655
+        },
+        "high_density": {
+          "events": 988281,
+          "target_events": 9766,
+          "candidate_events": 386938,
+          "candidate_targets": 9311,
+          "proposal_fn": 455,
+          "refiner_fn": 3584,
+          "tp": 5727,
+          "fp": 2034,
+          "fn": 4039,
+          "tn": 976481,
+          "iou": 0.48533898305084744,
+          "precision": 0.7379203710862002,
+          "recall": 0.5864222813843949,
+          "proposal_target_recall": 0.9534097890640999,
+          "refiner_conditional_recall": 0.6150789388894855,
+          "candidate_fraction": 0.3915262966706837,
+          "f1": 0.6535060192845324
+        },
+        "ordinary": {
+          "events": 233345,
+          "target_events": 20488,
+          "candidate_events": 52028,
+          "candidate_targets": 20465,
+          "proposal_fn": 23,
+          "refiner_fn": 263,
+          "tp": 20202,
+          "fp": 967,
+          "fn": 286,
+          "tn": 211890,
+          "iou": 0.9415986949429037,
+          "precision": 0.954319996220889,
+          "recall": 0.9860406091370558,
+          "proposal_target_recall": 0.9988773916438891,
+          "refiner_conditional_recall": 0.9871487906181285,
+          "candidate_fraction": 0.22296599455741498,
+          "f1": 0.9699210216770291
+        },
+        "sequences": [
+          {
+            "sequence": "train/train_002.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44112,
+              "target_events": 3943,
+              "candidate_events": 7060,
+              "candidate_targets": 3943,
+              "proposal_fn": 0,
+              "refiner_fn": 35,
+              "tp": 3908,
+              "fp": 153,
+              "fn": 35,
+              "tn": 40016
+            },
+            "hidden_spikes": [
+              892202,
+              707428
+            ]
+          },
+          {
+            "sequence": "train/train_020.npz",
+            "high_density": false,
+            "counts": {
+              "events": 22697,
+              "target_events": 853,
+              "candidate_events": 1989,
+              "candidate_targets": 851,
+              "proposal_fn": 2,
+              "refiner_fn": 24,
+              "tp": 827,
+              "fp": 133,
+              "fn": 26,
+              "tn": 21711
+            },
+            "hidden_spikes": [
+              205572,
+              182657
+            ]
+          },
+          {
+            "sequence": "train/train_034.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20520,
+              "target_events": 3918,
+              "candidate_events": 8770,
+              "candidate_targets": 3918,
+              "proposal_fn": 0,
+              "refiner_fn": 10,
+              "tp": 3908,
+              "fp": 94,
+              "fn": 10,
+              "tn": 16508
+            },
+            "hidden_spikes": [
+              1181429,
+              893021
+            ]
+          },
+          {
+            "sequence": "train/train_039.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20123,
+              "target_events": 4662,
+              "candidate_events": 6525,
+              "candidate_targets": 4662,
+              "proposal_fn": 0,
+              "refiner_fn": 15,
+              "tp": 4647,
+              "fp": 141,
+              "fn": 15,
+              "tn": 15320
+            },
+            "hidden_spikes": [
+              944853,
+              701738
+            ]
+          },
+          {
+            "sequence": "train/train_041.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44509,
+              "target_events": 2352,
+              "candidate_events": 6035,
+              "candidate_targets": 2341,
+              "proposal_fn": 11,
+              "refiner_fn": 73,
+              "tp": 2268,
+              "fp": 129,
+              "fn": 84,
+              "tn": 42028
+            },
+            "hidden_spikes": [
+              656917,
+              566904
+            ]
+          },
+          {
+            "sequence": "train/train_050.npz",
+            "high_density": false,
+            "counts": {
+              "events": 18107,
+              "target_events": 2205,
+              "candidate_events": 3233,
+              "candidate_targets": 2197,
+              "proposal_fn": 8,
+              "refiner_fn": 36,
+              "tp": 2161,
+              "fp": 180,
+              "fn": 44,
+              "tn": 15722
+            },
+            "hidden_spikes": [
+              348686,
+              290415
+            ]
+          },
+          {
+            "sequence": "train/train_060.npz",
+            "high_density": false,
+            "counts": {
+              "events": 43051,
+              "target_events": 1206,
+              "candidate_events": 13078,
+              "candidate_targets": 1206,
+              "proposal_fn": 0,
+              "refiner_fn": 23,
+              "tp": 1183,
+              "fp": 60,
+              "fn": 23,
+              "tn": 41785
+            },
+            "hidden_spikes": [
+              1760260,
+              1277025
+            ]
+          },
+          {
+            "sequence": "train/train_066.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20226,
+              "target_events": 1349,
+              "candidate_events": 5338,
+              "candidate_targets": 1347,
+              "proposal_fn": 2,
+              "refiner_fn": 47,
+              "tp": 1300,
+              "fp": 77,
+              "fn": 49,
+              "tn": 18800
+            },
+            "hidden_spikes": [
+              623037,
+              500990
+            ]
+          },
+          {
+            "sequence": "train/train_089.npz",
+            "high_density": true,
+            "counts": {
+              "events": 400498,
+              "target_events": 2610,
+              "candidate_events": 159309,
+              "candidate_targets": 2227,
+              "proposal_fn": 383,
+              "refiner_fn": 1561,
+              "tp": 666,
+              "fp": 677,
+              "fn": 1944,
+              "tn": 397211
+            },
+            "hidden_spikes": [
+              19510121,
+              16870614
+            ]
+          },
+          {
+            "sequence": "train/train_092.npz",
+            "high_density": true,
+            "counts": {
+              "events": 587783,
+              "target_events": 7156,
+              "candidate_events": 227629,
+              "candidate_targets": 7084,
+              "proposal_fn": 72,
+              "refiner_fn": 2023,
+              "tp": 5061,
+              "fp": 1357,
+              "fn": 2095,
+              "tn": 579270
+            },
+            "hidden_spikes": [
+              29100787,
+              24215792
+            ]
+          }
+        ],
+        "threshold": 0.35,
+        "role": "train_dev",
+        "cost": {
+          "inference_equivalent_mac_sparse_proposal": 1439226152,
+          "inference_equivalent_mac_dense_proposal": 2969961984,
+          "inference_equivalent_ac": 1951989984,
+          "refiner_mac": 1011377664,
+          "proposal_sparse_mac": 427848488,
+          "proposal_dense_mac": 1958584320,
+          "frozen_ann_sparse_mac": 2394416168,
+          "frozen_ann_dense_mac": 3925152000,
+          "executed_reference_refiner_mac": 1966567680,
+          "executed_reference_refiner_ac": 0,
+          "hidden1_spikes": 55223864,
+          "hidden2_spikes": 46206584,
+          "equivalent_if_state_adds": 337125888,
+          "equivalent_if_comparisons": 337125888,
+          "equivalent_if_resets": 101430448,
+          "decode_scale_mul": 43896600,
+          "decode_divisions": 43896600,
+          "hidden_quantizer_mul": 42140736,
+          "hidden_quantizer_round": 42140736,
+          "count_reference_mul_add_div_each": 42140736,
+          "weight_bytes_int8": 4480,
+          "scale_bytes_fp32": 400,
+          "peak_serial_if_state_elements_per_candidate": 64,
+          "memory_traffic_measured": false,
+          "energy_measured": false,
+          "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+          "unaccounted": [
+            "feature construction",
+            "routing/components",
+            "prototype readout",
+            "memory traffic",
+            "physical instruction costs"
+          ]
+        },
+        "inference_seconds": 0.20040359999984503,
+        "explicit_verified_candidates": 640,
+        "export_verified": true,
+        "student_backend": "dense count reference, exact int8 forward",
+        "delta_to_ann_pp": {
+          "overall": {
+            "iou": -1.2913159446722,
+            "precision": -1.6992525631116084,
+            "recall": -0.009916044159441473,
+            "f1": -0.809520795889962
+          },
+          "high_density": {
+            "iou": -1.820272050856464,
+            "precision": -5.029861713278794,
+            "recall": 0.40958427196395863,
+            "f1": -1.6301412551048444
+          },
+          "ordinary": {
+            "iou": -0.34136749399324984,
+            "precision": -0.15345835713678202,
+            "recall": -0.20987895353378194,
+            "f1": -0.18078829980212596
+          }
+        },
+        "delta_to_initial_r2t8_pp": {
+          "overall": {
+            "iou": 0.5000515599233313,
+            "precision": 0.6030489881871159,
+            "recall": 0.05288556885040263,
+            "f1": 0.3166445621983205
+          },
+          "high_density": {
+            "iou": 0.916443030047126,
+            "precision": 1.6176833326443485,
+            "recall": 0.31742781077207516,
+            "f1": 0.8359343556817
+          },
+          "ordinary": {
+            "iou": 0.07042005974855492,
+            "precision": 0.14071002932872778,
+            "recall": -0.07321358844201153,
+            "f1": 0.037373604495538615
+          }
+        }
+      },
+      "memory": {
+        "peak_allocated_bytes": 250350080,
+        "peak_reserved_bytes": 270532608
+      },
+      "student_updates": {
+        "changed_int8_weights_per_layer": [
+          851,
+          525,
+          57
+        ],
+        "master_weight_delta_l2_per_layer": [
+          0.21695372462272644,
+          0.38230448961257935,
+          0.16960209608078003
+        ]
+      }
+    },
+    {
+      "epoch": 3,
+      "global_step": 813,
+      "training": {
+        "events": 2219864,
+        "loss_sums": [
+          60948.61150032282,
+          97207.1149110496,
+          24690.108066394925
+        ],
+        "spikes": [
+          290371493,
+          233168424
+        ],
+        "gradient_norm_max": 0.12107164190068986,
+        "logit_absmax": 17.817930221557617,
+        "train_seconds": 1.6433730999779073,
+        "mean_losses": [
+          0.027456011494543277,
+          0.043789671309165605,
+          0.011122351669469357
+        ]
+      },
+      "evaluation": {
+        "overall": {
+          "events": 1221626,
+          "target_events": 30254,
+          "candidate_events": 438966,
+          "candidate_targets": 29776,
+          "proposal_fn": 478,
+          "refiner_fn": 3956,
+          "tp": 25820,
+          "fp": 2787,
+          "fn": 4434,
+          "tn": 1188585,
+          "iou": 0.7814533458430435,
+          "precision": 0.9025762925158178,
+          "recall": 0.8534408673233291,
+          "proposal_target_recall": 0.984200436305943,
+          "refiner_conditional_recall": 0.8671413218699624,
+          "candidate_fraction": 0.3593292873596338,
+          "f1": 0.8773211464297243
+        },
+        "high_density": {
+          "events": 988281,
+          "target_events": 9766,
+          "candidate_events": 386938,
+          "candidate_targets": 9311,
+          "proposal_fn": 455,
+          "refiner_fn": 3690,
+          "tp": 5621,
+          "fp": 1859,
+          "fn": 4145,
+          "tn": 976656,
+          "iou": 0.4835268817204301,
+          "precision": 0.7514705882352941,
+          "recall": 0.57556829817735,
+          "proposal_target_recall": 0.9534097890640999,
+          "refiner_conditional_recall": 0.6036945548276232,
+          "candidate_fraction": 0.3915262966706837,
+          "f1": 0.651861301171286
+        },
+        "ordinary": {
+          "events": 233345,
+          "target_events": 20488,
+          "candidate_events": 52028,
+          "candidate_targets": 20465,
+          "proposal_fn": 23,
+          "refiner_fn": 266,
+          "tp": 20199,
+          "fp": 928,
+          "fn": 289,
+          "tn": 211929,
+          "iou": 0.9431733283526336,
+          "precision": 0.9560751644814692,
+          "recall": 0.9858941819601718,
+          "proposal_target_recall": 0.9988773916438891,
+          "refiner_conditional_recall": 0.9870021988761299,
+          "candidate_fraction": 0.22296599455741498,
+          "f1": 0.9707557371140214
+        },
+        "sequences": [
+          {
+            "sequence": "train/train_002.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44112,
+              "target_events": 3943,
+              "candidate_events": 7060,
+              "candidate_targets": 3943,
+              "proposal_fn": 0,
+              "refiner_fn": 36,
+              "tp": 3907,
+              "fp": 149,
+              "fn": 36,
+              "tn": 40020
+            },
+            "hidden_spikes": [
+              889337,
+              704682
+            ]
+          },
+          {
+            "sequence": "train/train_020.npz",
+            "high_density": false,
+            "counts": {
+              "events": 22697,
+              "target_events": 853,
+              "candidate_events": 1989,
+              "candidate_targets": 851,
+              "proposal_fn": 2,
+              "refiner_fn": 26,
+              "tp": 825,
+              "fp": 127,
+              "fn": 28,
+              "tn": 21717
+            },
+            "hidden_spikes": [
+              204599,
+              182291
+            ]
+          },
+          {
+            "sequence": "train/train_034.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20520,
+              "target_events": 3918,
+              "candidate_events": 8770,
+              "candidate_targets": 3918,
+              "proposal_fn": 0,
+              "refiner_fn": 9,
+              "tp": 3909,
+              "fp": 92,
+              "fn": 9,
+              "tn": 16510
+            },
+            "hidden_spikes": [
+              1177465,
+              890990
+            ]
+          },
+          {
+            "sequence": "train/train_039.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20123,
+              "target_events": 4662,
+              "candidate_events": 6525,
+              "candidate_targets": 4662,
+              "proposal_fn": 0,
+              "refiner_fn": 13,
+              "tp": 4649,
+              "fp": 135,
+              "fn": 13,
+              "tn": 15326
+            },
+            "hidden_spikes": [
+              941476,
+              698332
+            ]
+          },
+          {
+            "sequence": "train/train_041.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44509,
+              "target_events": 2352,
+              "candidate_events": 6035,
+              "candidate_targets": 2341,
+              "proposal_fn": 11,
+              "refiner_fn": 74,
+              "tp": 2267,
+              "fp": 123,
+              "fn": 85,
+              "tn": 42034
+            },
+            "hidden_spikes": [
+              654682,
+              565920
+            ]
+          },
+          {
+            "sequence": "train/train_050.npz",
+            "high_density": false,
+            "counts": {
+              "events": 18107,
+              "target_events": 2205,
+              "candidate_events": 3233,
+              "candidate_targets": 2197,
+              "proposal_fn": 8,
+              "refiner_fn": 35,
+              "tp": 2162,
+              "fp": 171,
+              "fn": 43,
+              "tn": 15731
+            },
+            "hidden_spikes": [
+              346644,
+              288450
+            ]
+          },
+          {
+            "sequence": "train/train_060.npz",
+            "high_density": false,
+            "counts": {
+              "events": 43051,
+              "target_events": 1206,
+              "candidate_events": 13078,
+              "candidate_targets": 1206,
+              "proposal_fn": 0,
+              "refiner_fn": 22,
+              "tp": 1184,
+              "fp": 60,
+              "fn": 22,
+              "tn": 41785
+            },
+            "hidden_spikes": [
+              1756526,
+              1276215
+            ]
+          },
+          {
+            "sequence": "train/train_066.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20226,
+              "target_events": 1349,
+              "candidate_events": 5338,
+              "candidate_targets": 1347,
+              "proposal_fn": 2,
+              "refiner_fn": 51,
+              "tp": 1296,
+              "fp": 71,
+              "fn": 53,
+              "tn": 18806
+            },
+            "hidden_spikes": [
+              620945,
+              498805
+            ]
+          },
+          {
+            "sequence": "train/train_089.npz",
+            "high_density": true,
+            "counts": {
+              "events": 400498,
+              "target_events": 2610,
+              "candidate_events": 159309,
+              "candidate_targets": 2227,
+              "proposal_fn": 383,
+              "refiner_fn": 1588,
+              "tp": 639,
+              "fp": 608,
+              "fn": 1971,
+              "tn": 397280
+            },
+            "hidden_spikes": [
+              19497093,
+              16897603
+            ]
+          },
+          {
+            "sequence": "train/train_092.npz",
+            "high_density": true,
+            "counts": {
+              "events": 587783,
+              "target_events": 7156,
+              "candidate_events": 227629,
+              "candidate_targets": 7084,
+              "proposal_fn": 72,
+              "refiner_fn": 2102,
+              "tp": 4982,
+              "fp": 1251,
+              "fn": 2174,
+              "tn": 579376
+            },
+            "hidden_spikes": [
+              29079827,
+              24259679
+            ]
+          }
+        ],
+        "threshold": 0.35,
+        "role": "train_dev",
+        "cost": {
+          "inference_equivalent_mac_sparse_proposal": 1439226152,
+          "inference_equivalent_mac_dense_proposal": 2969961984,
+          "inference_equivalent_ac": 1950446876,
+          "refiner_mac": 1011377664,
+          "proposal_sparse_mac": 427848488,
+          "proposal_dense_mac": 1958584320,
+          "frozen_ann_sparse_mac": 2394416168,
+          "frozen_ann_dense_mac": 3925152000,
+          "executed_reference_refiner_mac": 1966567680,
+          "executed_reference_refiner_ac": 0,
+          "hidden1_spikes": 55168594,
+          "hidden2_spikes": 46262967,
+          "equivalent_if_state_adds": 337125888,
+          "equivalent_if_comparisons": 337125888,
+          "equivalent_if_resets": 101431561,
+          "decode_scale_mul": 43896600,
+          "decode_divisions": 43896600,
+          "hidden_quantizer_mul": 42140736,
+          "hidden_quantizer_round": 42140736,
+          "count_reference_mul_add_div_each": 42140736,
+          "weight_bytes_int8": 4480,
+          "scale_bytes_fp32": 400,
+          "peak_serial_if_state_elements_per_candidate": 64,
+          "memory_traffic_measured": false,
+          "energy_measured": false,
+          "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+          "unaccounted": [
+            "feature construction",
+            "routing/components",
+            "prototype readout",
+            "memory traffic",
+            "physical instruction costs"
+          ]
+        },
+        "inference_seconds": 0.18100409999897238,
+        "explicit_verified_candidates": 640,
+        "export_verified": true,
+        "student_backend": "dense count reference, exact int8 forward",
+        "delta_to_ann_pp": {
+          "overall": {
+            "iou": -1.1162114009632518,
+            "precision": -1.0683084135000964,
+            "recall": -0.3701989819527962,
+            "f1": -0.6990606541340871
+          },
+          "high_density": {
+            "iou": -2.0014821838981955,
+            "precision": -3.674839998369406,
+            "recall": -0.6758140487405306,
+            "f1": -1.7946130664294846
+          },
+          "ordinary": {
+            "iou": -0.18390415302026453,
+            "precision": 0.02205846892123775,
+            "recall": -0.2245216712221887,
+            "f1": -0.09731675610289425
+          }
+        },
+        "delta_to_initial_r2t8_pp": {
+          "overall": {
+            "iou": 0.6751561036322795,
+            "precision": 1.233993137798628,
+            "recall": -0.3073973689429521,
+            "f1": 0.4271047039541953
+          },
+          "high_density": {
+            "iou": 0.7352328970053945,
+            "precision": 2.9727050475537364,
+            "recall": -0.7679705099324141,
+            "f1": 0.6714625443570599
+          },
+          "ordinary": {
+            "iou": 0.22788340072154023,
+            "precision": 0.31622685538674755,
+            "recall": -0.08785630613041828,
+            "f1": 0.12084514819477032
+          }
+        }
+      },
+      "memory": {
+        "peak_allocated_bytes": 250350080,
+        "peak_reserved_bytes": 270532608
+      },
+      "student_updates": {
+        "changed_int8_weights_per_layer": [
+          1061,
+          700,
+          66
+        ],
+        "master_weight_delta_l2_per_layer": [
+          0.26886677742004395,
+          0.5121963620185852,
+          0.23343722522258759
+        ]
+      }
+    },
+    {
+      "epoch": 4,
+      "global_step": 1084,
+      "training": {
+        "events": 2219864,
+        "loss_sums": [
+          60437.595296129584,
+          96614.3680048883,
+          24260.822640620172
+        ],
+        "spikes": [
+          290548243,
+          233100563
+        ],
+        "gradient_norm_max": 0.1252253162427686,
+        "logit_absmax": 17.77263069152832,
+        "train_seconds": 1.6959425999775704,
+        "mean_losses": [
+          0.027225809912737712,
+          0.043522651840332695,
+          0.010928968009130367
+        ]
+      },
+      "evaluation": {
+        "overall": {
+          "events": 1221626,
+          "target_events": 30254,
+          "candidate_events": 438966,
+          "candidate_targets": 29776,
+          "proposal_fn": 478,
+          "refiner_fn": 3914,
+          "tp": 25862,
+          "fp": 2855,
+          "fn": 4392,
+          "tn": 1188517,
+          "iou": 0.7811169168504032,
+          "precision": 0.9005815370686353,
+          "recall": 0.8548291135056522,
+          "proposal_target_recall": 0.984200436305943,
+          "refiner_conditional_recall": 0.8685518538420204,
+          "candidate_fraction": 0.3593292873596338,
+          "f1": 0.8771090875175934
+        },
+        "high_density": {
+          "events": 988281,
+          "target_events": 9766,
+          "candidate_events": 386938,
+          "candidate_targets": 9311,
+          "proposal_fn": 455,
+          "refiner_fn": 3665,
+          "tp": 5646,
+          "fp": 1882,
+          "fn": 4120,
+          "tn": 976633,
+          "iou": 0.4847184065934066,
+          "precision": 0.75,
+          "recall": 0.5781281998771247,
+          "proposal_target_recall": 0.9534097890640999,
+          "refiner_conditional_recall": 0.6063795510686285,
+          "candidate_fraction": 0.3915262966706837,
+          "f1": 0.652943217300798
+        },
+        "ordinary": {
+          "events": 233345,
+          "target_events": 20488,
+          "candidate_events": 52028,
+          "candidate_targets": 20465,
+          "proposal_fn": 23,
+          "refiner_fn": 249,
+          "tp": 20216,
+          "fp": 973,
+          "fn": 272,
+          "tn": 211884,
+          "iou": 0.9419877918083966,
+          "precision": 0.9540799471423852,
+          "recall": 0.9867239359625146,
+          "proposal_target_recall": 0.9988773916438891,
+          "refiner_conditional_recall": 0.9878328854141216,
+          "candidate_fraction": 0.22296599455741498,
+          "f1": 0.9701274084027162
+        },
+        "sequences": [
+          {
+            "sequence": "train/train_002.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44112,
+              "target_events": 3943,
+              "candidate_events": 7060,
+              "candidate_targets": 3943,
+              "proposal_fn": 0,
+              "refiner_fn": 34,
+              "tp": 3909,
+              "fp": 156,
+              "fn": 34,
+              "tn": 40013
+            },
+            "hidden_spikes": [
+              891332,
+              702299
+            ]
+          },
+          {
+            "sequence": "train/train_020.npz",
+            "high_density": false,
+            "counts": {
+              "events": 22697,
+              "target_events": 853,
+              "candidate_events": 1989,
+              "candidate_targets": 851,
+              "proposal_fn": 2,
+              "refiner_fn": 20,
+              "tp": 831,
+              "fp": 131,
+              "fn": 22,
+              "tn": 21713
+            },
+            "hidden_spikes": [
+              204984,
+              181433
+            ]
+          },
+          {
+            "sequence": "train/train_034.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20520,
+              "target_events": 3918,
+              "candidate_events": 8770,
+              "candidate_targets": 3918,
+              "proposal_fn": 0,
+              "refiner_fn": 6,
+              "tp": 3912,
+              "fp": 92,
+              "fn": 6,
+              "tn": 16510
+            },
+            "hidden_spikes": [
+              1180212,
+              889915
+            ]
+          },
+          {
+            "sequence": "train/train_039.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20123,
+              "target_events": 4662,
+              "candidate_events": 6525,
+              "candidate_targets": 4662,
+              "proposal_fn": 0,
+              "refiner_fn": 12,
+              "tp": 4650,
+              "fp": 133,
+              "fn": 12,
+              "tn": 15328
+            },
+            "hidden_spikes": [
+              943163,
+              696945
+            ]
+          },
+          {
+            "sequence": "train/train_041.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44509,
+              "target_events": 2352,
+              "candidate_events": 6035,
+              "candidate_targets": 2341,
+              "proposal_fn": 11,
+              "refiner_fn": 81,
+              "tp": 2260,
+              "fp": 132,
+              "fn": 92,
+              "tn": 42025
+            },
+            "hidden_spikes": [
+              656512,
+              565052
+            ]
+          },
+          {
+            "sequence": "train/train_050.npz",
+            "high_density": false,
+            "counts": {
+              "events": 18107,
+              "target_events": 2205,
+              "candidate_events": 3233,
+              "candidate_targets": 2197,
+              "proposal_fn": 8,
+              "refiner_fn": 30,
+              "tp": 2167,
+              "fp": 188,
+              "fn": 38,
+              "tn": 15714
+            },
+            "hidden_spikes": [
+              347038,
+              287507
+            ]
+          },
+          {
+            "sequence": "train/train_060.npz",
+            "high_density": false,
+            "counts": {
+              "events": 43051,
+              "target_events": 1206,
+              "candidate_events": 13078,
+              "candidate_targets": 1206,
+              "proposal_fn": 0,
+              "refiner_fn": 19,
+              "tp": 1187,
+              "fp": 66,
+              "fn": 19,
+              "tn": 41779
+            },
+            "hidden_spikes": [
+              1760070,
+              1273409
+            ]
+          },
+          {
+            "sequence": "train/train_066.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20226,
+              "target_events": 1349,
+              "candidate_events": 5338,
+              "candidate_targets": 1347,
+              "proposal_fn": 2,
+              "refiner_fn": 47,
+              "tp": 1300,
+              "fp": 75,
+              "fn": 49,
+              "tn": 18802
+            },
+            "hidden_spikes": [
+              621916,
+              497968
+            ]
+          },
+          {
+            "sequence": "train/train_089.npz",
+            "high_density": true,
+            "counts": {
+              "events": 400498,
+              "target_events": 2610,
+              "candidate_events": 159309,
+              "candidate_targets": 2227,
+              "proposal_fn": 383,
+              "refiner_fn": 1574,
+              "tp": 653,
+              "fp": 652,
+              "fn": 1957,
+              "tn": 397236
+            },
+            "hidden_spikes": [
+              19538238,
+              16891947
+            ]
+          },
+          {
+            "sequence": "train/train_092.npz",
+            "high_density": true,
+            "counts": {
+              "events": 587783,
+              "target_events": 7156,
+              "candidate_events": 227629,
+              "candidate_targets": 7084,
+              "proposal_fn": 72,
+              "refiner_fn": 2091,
+              "tp": 4993,
+              "fp": 1230,
+              "fn": 2163,
+              "tn": 579397
+            },
+            "hidden_spikes": [
+              29144175,
+              24248036
+            ]
+          }
+        ],
+        "threshold": 0.35,
+        "role": "train_dev",
+        "cost": {
+          "inference_equivalent_mac_sparse_proposal": 1439226152,
+          "inference_equivalent_mac_dense_proposal": 2969961984,
+          "inference_equivalent_ac": 1954142524,
+          "refiner_mac": 1011377664,
+          "proposal_sparse_mac": 427848488,
+          "proposal_dense_mac": 1958584320,
+          "frozen_ann_sparse_mac": 2394416168,
+          "frozen_ann_dense_mac": 3925152000,
+          "executed_reference_refiner_mac": 1966567680,
+          "executed_reference_refiner_ac": 0,
+          "hidden1_spikes": 55287640,
+          "hidden2_spikes": 46234511,
+          "equivalent_if_state_adds": 337125888,
+          "equivalent_if_comparisons": 337125888,
+          "equivalent_if_resets": 101522151,
+          "decode_scale_mul": 43896600,
+          "decode_divisions": 43896600,
+          "hidden_quantizer_mul": 42140736,
+          "hidden_quantizer_round": 42140736,
+          "count_reference_mul_add_div_each": 42140736,
+          "weight_bytes_int8": 4480,
+          "scale_bytes_fp32": 400,
+          "peak_serial_if_state_elements_per_candidate": 64,
+          "memory_traffic_measured": false,
+          "energy_measured": false,
+          "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+          "unaccounted": [
+            "feature construction",
+            "routing/components",
+            "prototype readout",
+            "memory traffic",
+            "physical instruction costs"
+          ]
+        },
+        "inference_seconds": 0.1751893000000564,
+        "explicit_verified_candidates": 640,
+        "export_verified": true,
+        "student_backend": "dense count reference, exact int8 forward",
+        "delta_to_ann_pp": {
+          "overall": {
+            "iou": -1.149854300227282,
+            "precision": -1.2677839582183492,
+            "recall": -0.23137436372049347,
+            "f1": -0.7202665453471702
+          },
+          "high_density": {
+            "iou": -1.8823296966005487,
+            "precision": -3.821898821898817,
+            "recall": -0.41982387876305927,
+            "f1": -1.6864214534782929
+          },
+          "ordinary": {
+            "iou": -0.30245780744395656,
+            "precision": -0.17746326498716547,
+            "recall": -0.1415462709879023,
+            "f1": -0.16014962723341908
+          }
+        },
+        "delta_to_initial_r2t8_pp": {
+          "overall": {
+            "iou": 0.6415132043682492,
+            "precision": 1.0345175930803752,
+            "recall": -0.16857275071064937,
+            "f1": 0.4058988127411123
+          },
+          "high_density": {
+            "iou": 0.8543853843030413,
+            "precision": 2.825646224024325,
+            "recall": -0.5119803399549427,
+            "f1": 0.7796541573082516
+          },
+          "ordinary": {
+            "iou": 0.1093297462978482,
+            "precision": 0.11670512147834433,
+            "recall": -0.004880905896131882,
+            "f1": 0.0580122770642455
+          }
+        }
+      },
+      "memory": {
+        "peak_allocated_bytes": 250350080,
+        "peak_reserved_bytes": 270532608
+      },
+      "student_updates": {
+        "changed_int8_weights_per_layer": [
+          1216,
+          800,
+          71
+        ],
+        "master_weight_delta_l2_per_layer": [
+          0.3210592269897461,
+          0.6304450035095215,
+          0.29324597120285034
+        ]
+      }
+    },
+    {
+      "epoch": 5,
+      "global_step": 1355,
+      "training": {
+        "events": 2219864,
+        "loss_sums": [
+          60044.53300201893,
+          96216.84672892094,
+          23872.21909185499
+        ],
+        "spikes": [
+          290533511,
+          233119738
+        ],
+        "gradient_norm_max": 0.10717410099416347,
+        "logit_absmax": 17.77263069152832,
+        "train_seconds": 1.6442534999841882,
+        "mean_losses": [
+          0.02704874397801799,
+          0.043343577232173205,
+          0.010753910641307301
+        ]
+      },
+      "evaluation": {
+        "overall": {
+          "events": 1221626,
+          "target_events": 30254,
+          "candidate_events": 438966,
+          "candidate_targets": 29776,
+          "proposal_fn": 478,
+          "refiner_fn": 4031,
+          "tp": 25745,
+          "fp": 2625,
+          "fn": 4509,
+          "tn": 1188747,
+          "iou": 0.7830225980108884,
+          "precision": 0.9074726824109975,
+          "recall": 0.8509618562834667,
+          "proposal_target_recall": 0.984200436305943,
+          "refiner_conditional_recall": 0.8646225147770016,
+          "candidate_fraction": 0.3593292873596338,
+          "f1": 0.8783092248908297
+        },
+        "high_density": {
+          "events": 988281,
+          "target_events": 9766,
+          "candidate_events": 386938,
+          "candidate_targets": 9311,
+          "proposal_fn": 455,
+          "refiner_fn": 3766,
+          "tp": 5545,
+          "fp": 1678,
+          "fn": 4221,
+          "tn": 976837,
+          "iou": 0.48453337993708495,
+          "precision": 0.7676865568323411,
+          "recall": 0.5677861970100349,
+          "proposal_target_recall": 0.9534097890640999,
+          "refiner_conditional_recall": 0.5955321662549672,
+          "candidate_fraction": 0.3915262966706837,
+          "f1": 0.6527753252104302
+        },
+        "ordinary": {
+          "events": 233345,
+          "target_events": 20488,
+          "candidate_events": 52028,
+          "candidate_targets": 20465,
+          "proposal_fn": 23,
+          "refiner_fn": 265,
+          "tp": 20200,
+          "fp": 947,
+          "fn": 288,
+          "tn": 211910,
+          "iou": 0.9423839514812223,
+          "precision": 0.9552182342649076,
+          "recall": 0.9859429910191332,
+          "proposal_target_recall": 0.9988773916438891,
+          "refiner_conditional_recall": 0.9870510627901294,
+          "candidate_fraction": 0.22296599455741498,
+          "f1": 0.9703374564669148
+        },
+        "sequences": [
+          {
+            "sequence": "train/train_002.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44112,
+              "target_events": 3943,
+              "candidate_events": 7060,
+              "candidate_targets": 3943,
+              "proposal_fn": 0,
+              "refiner_fn": 29,
+              "tp": 3914,
+              "fp": 151,
+              "fn": 29,
+              "tn": 40018
+            },
+            "hidden_spikes": [
+              888116,
+              703665
+            ]
+          },
+          {
+            "sequence": "train/train_020.npz",
+            "high_density": false,
+            "counts": {
+              "events": 22697,
+              "target_events": 853,
+              "candidate_events": 1989,
+              "candidate_targets": 851,
+              "proposal_fn": 2,
+              "refiner_fn": 25,
+              "tp": 826,
+              "fp": 126,
+              "fn": 27,
+              "tn": 21718
+            },
+            "hidden_spikes": [
+              204085,
+              181111
+            ]
+          },
+          {
+            "sequence": "train/train_034.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20520,
+              "target_events": 3918,
+              "candidate_events": 8770,
+              "candidate_targets": 3918,
+              "proposal_fn": 0,
+              "refiner_fn": 11,
+              "tp": 3907,
+              "fp": 91,
+              "fn": 11,
+              "tn": 16511
+            },
+            "hidden_spikes": [
+              1176226,
+              888958
+            ]
+          },
+          {
+            "sequence": "train/train_039.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20123,
+              "target_events": 4662,
+              "candidate_events": 6525,
+              "candidate_targets": 4662,
+              "proposal_fn": 0,
+              "refiner_fn": 18,
+              "tp": 4644,
+              "fp": 139,
+              "fn": 18,
+              "tn": 15322
+            },
+            "hidden_spikes": [
+              939810,
+              696679
+            ]
+          },
+          {
+            "sequence": "train/train_041.npz",
+            "high_density": false,
+            "counts": {
+              "events": 44509,
+              "target_events": 2352,
+              "candidate_events": 6035,
+              "candidate_targets": 2341,
+              "proposal_fn": 11,
+              "refiner_fn": 83,
+              "tp": 2258,
+              "fp": 128,
+              "fn": 94,
+              "tn": 42029
+            },
+            "hidden_spikes": [
+              654200,
+              564747
+            ]
+          },
+          {
+            "sequence": "train/train_050.npz",
+            "high_density": false,
+            "counts": {
+              "events": 18107,
+              "target_events": 2205,
+              "candidate_events": 3233,
+              "candidate_targets": 2197,
+              "proposal_fn": 8,
+              "refiner_fn": 31,
+              "tp": 2166,
+              "fp": 176,
+              "fn": 39,
+              "tn": 15726
+            },
+            "hidden_spikes": [
+              345315,
+              286133
+            ]
+          },
+          {
+            "sequence": "train/train_060.npz",
+            "high_density": false,
+            "counts": {
+              "events": 43051,
+              "target_events": 1206,
+              "candidate_events": 13078,
+              "candidate_targets": 1206,
+              "proposal_fn": 0,
+              "refiner_fn": 20,
+              "tp": 1186,
+              "fp": 64,
+              "fn": 20,
+              "tn": 41781
+            },
+            "hidden_spikes": [
+              1754576,
+              1277089
+            ]
+          },
+          {
+            "sequence": "train/train_066.npz",
+            "high_density": false,
+            "counts": {
+              "events": 20226,
+              "target_events": 1349,
+              "candidate_events": 5338,
+              "candidate_targets": 1347,
+              "proposal_fn": 2,
+              "refiner_fn": 48,
+              "tp": 1299,
+              "fp": 72,
+              "fn": 50,
+              "tn": 18805
+            },
+            "hidden_spikes": [
+              618878,
+              497406
+            ]
+          },
+          {
+            "sequence": "train/train_089.npz",
+            "high_density": true,
+            "counts": {
+              "events": 400498,
+              "target_events": 2610,
+              "candidate_events": 159309,
+              "candidate_targets": 2227,
+              "proposal_fn": 383,
+              "refiner_fn": 1595,
+              "tp": 632,
+              "fp": 559,
+              "fn": 1978,
+              "tn": 397329
+            },
+            "hidden_spikes": [
+              19496307,
+              16883479
+            ]
+          },
+          {
+            "sequence": "train/train_092.npz",
+            "high_density": true,
+            "counts": {
+              "events": 587783,
+              "target_events": 7156,
+              "candidate_events": 227629,
+              "candidate_targets": 7084,
+              "proposal_fn": 72,
+              "refiner_fn": 2171,
+              "tp": 4913,
+              "fp": 1119,
+              "fn": 2243,
+              "tn": 579508
+            },
+            "hidden_spikes": [
+              29078048,
+              24224413
+            ]
+          }
+        ],
+        "threshold": 0.35,
+        "role": "train_dev",
+        "cost": {
+          "inference_equivalent_mac_sparse_proposal": 1439226152,
+          "inference_equivalent_mac_dense_proposal": 2969961984,
+          "inference_equivalent_ac": 1949792672,
+          "refiner_mac": 1011377664,
+          "proposal_sparse_mac": 427848488,
+          "proposal_dense_mac": 1958584320,
+          "frozen_ann_sparse_mac": 2394416168,
+          "frozen_ann_dense_mac": 3925152000,
+          "executed_reference_refiner_mac": 1966567680,
+          "executed_reference_refiner_ac": 0,
+          "hidden1_spikes": 55155561,
+          "hidden2_spikes": 46203680,
+          "equivalent_if_state_adds": 337125888,
+          "equivalent_if_comparisons": 337125888,
+          "equivalent_if_resets": 101359241,
+          "decode_scale_mul": 43896600,
+          "decode_divisions": 43896600,
+          "hidden_quantizer_mul": 42140736,
+          "hidden_quantizer_round": 42140736,
+          "count_reference_mul_add_div_each": 42140736,
+          "weight_bytes_int8": 4480,
+          "scale_bytes_fp32": 400,
+          "peak_serial_if_state_elements_per_candidate": 64,
+          "memory_traffic_measured": false,
+          "energy_measured": false,
+          "scope": "neural inference; extra training/QAT/backward/optimizer cost excluded",
+          "unaccounted": [
+            "feature construction",
+            "routing/components",
+            "prototype readout",
+            "memory traffic",
+            "physical instruction costs"
+          ]
+        },
+        "inference_seconds": 0.17544429999907152,
+        "explicit_verified_candidates": 640,
+        "export_verified": true,
+        "student_backend": "dense count reference, exact int8 forward",
+        "delta_to_ann_pp": {
+          "overall": {
+            "iou": -0.9592861841787648,
+            "precision": -0.5786694239821255,
+            "recall": -0.618100085939044,
+            "f1": -0.6002528080235381
+          },
+          "high_density": {
+            "iou": -1.9008323622327128,
+            "precision": -2.0532431386647065,
+            "recall": -1.4540241654720454,
+            "f1": -1.7032106625150645
+          },
+          "ordinary": {
+            "iou": -0.26284184016138745,
+            "precision": -0.0636345527349258,
+            "recall": -0.2196407653260457,
+            "f1": -0.13914482081355262
+          }
+        },
+        "delta_to_initial_r2t8_pp": {
+          "overall": {
+            "iou": 0.8320813204167665,
+            "precision": 1.7236321273165989,
+            "recall": -0.5552984729291999,
+            "f1": 0.5259125500647444
+          },
+          "high_density": {
+            "iou": 0.8358827186708773,
+            "precision": 4.594301907258435,
+            "recall": -1.5461806266639289,
+            "f1": 0.76286494827148
+          },
+          "ordinary": {
+            "iou": 0.1489457135804173,
+            "precision": 0.230533833730584,
+            "recall": -0.0829754002342753,
+            "f1": 0.07901708348411196
+          }
+        }
+      },
+      "memory": {
+        "peak_allocated_bytes": 250350080,
+        "peak_reserved_bytes": 270532608
+      },
+      "student_updates": {
+        "changed_int8_weights_per_layer": [
+          1305,
+          890,
+          72
+        ],
+        "master_weight_delta_l2_per_layer": [
+          0.370623916387558,
+          0.7528234720230103,
+          0.3467957377433777
+        ]
+      }
+    }
+  ],
+  "epoch5_minus_initial_pp": {
+    "overall": {
+      "iou": 0.8320813204167665,
+      "precision": 1.7236321273165989,
+      "recall": -0.5552984729291999,
+      "f1": 0.5259125500647444
+    },
+    "high_density": {
+      "iou": 0.8358827186708773,
+      "precision": 4.594301907258435,
+      "recall": -1.5461806266639289,
+      "f1": 0.76286494827148
+    },
+    "ordinary": {
+      "iou": 0.1489457135804173,
+      "precision": 0.230533833730584,
+      "recall": -0.0829754002342753,
+      "f1": 0.07901708348411196
+    }
+  },
+  "epoch5_minus_ann_pp": {
+    "overall": {
+      "iou": -0.9592861841787648,
+      "precision": -0.5786694239821255,
+      "recall": -0.618100085939044,
+      "f1": -0.6002528080235381
+    },
+    "high_density": {
+      "iou": -1.9008323622327128,
+      "precision": -2.0532431386647065,
+      "recall": -1.4540241654720454,
+      "f1": -1.7032106625150645
+    },
+    "ordinary": {
+      "iou": -0.26284184016138745,
+      "precision": -0.0636345527349258,
+      "recall": -0.2196407653260457,
+      "f1": -0.13914482081355262
+    }
+  },
+  "epoch5_minus_epoch1_pp": {
+    "overall": {
+      "iou": 0.05346753055743836,
+      "precision": 0.704880637736538,
+      "recall": -0.5652145170886524,
+      "f1": 0.033646250855456916
+    },
+    "high_density": {
+      "iou": -0.51714930896824,
+      "precision": 1.6436227798384828,
+      "recall": -1.6690559082531142,
+      "f1": -0.4676874743497428
+    },
+    "ordinary": {
+      "iou": 0.09005373925156102,
+      "precision": 0.1290741817777663,
+      "recall": -0.03904724716906616,
+      "f1": 0.04775985287308604
+    }
+  },
+  "epoch5_minus_initial_counts": {
+    "overall": {
+      "tp": -168,
+      "fp": -570,
+      "fn": 168,
+      "proposal_fn": 0,
+      "refiner_fn": 168
+    },
+    "high_density": {
+      "tp": -151,
+      "fp": -518,
+      "fn": 151,
+      "proposal_fn": 0,
+      "refiner_fn": 151
+    },
+    "ordinary": {
+      "tp": -17,
+      "fp": -52,
+      "fn": 17,
+      "proposal_fn": 0,
+      "refiner_fn": 17
+    }
+  },
+  "epoch5_minus_ann_counts": {
+    "overall": {
+      "tp": -187,
+      "fp": 162,
+      "fn": 187,
+      "proposal_fn": 0,
+      "refiner_fn": 187
+    },
+    "high_density": {
+      "tp": -142,
+      "fp": 150,
+      "fn": 142,
+      "proposal_fn": 0,
+      "refiner_fn": 142
+    },
+    "ordinary": {
+      "tp": -45,
+      "fp": 12,
+      "fn": 45,
+      "proposal_fn": 0,
+      "refiner_fn": 45
+    }
+  },
+  "learning": {
+    "loss_epoch1_to_5_change_percent": [
+      -5.04237343033288,
+      -3.286251091445025,
+      -11.517973659955494
+    ],
+    "iou_conversion_gap_recovered_percent": 46.449503984088416,
+    "best_iou_epoch": 5,
+    "best_overall_recall_epoch": 2,
+    "best_hd_recall_epoch": 2,
+    "best_hd_iou_epoch": 1,
+    "changed_int8_weights": 2267,
+    "weight_count": 4480,
+    "dev_loss_and_ap_not_logged": true
+  },
+  "cost_comparison": {
+    "mac_reduction_vs_sparse_ann_percent": 39.89239751909326,
+    "mac_reduction_vs_dense_ann_percent": 24.335108958837772,
+    "ac_change_vs_initial_percent": 0.9234180660094404,
+    "mac_plus_ac_sparse": 3389018824,
+    "unweighted_sum_increase_vs_sparse_ann_percent": 41.538420483969944,
+    "energy_speedup_measured": false
+  },
+  "memory": {
+    "peak_allocated_bytes": 250350080,
+    "peak_reserved_bytes": 270532608,
+    "peak_allocated_mib": 238.75244140625,
+    "peak_reserved_mib": 258.0,
+    "resident_data_mib": 134.38986778259277,
+    "scope": "PyTorch allocator maxima; excludes CUDA context, driver, other processes; no matched ANN training memory benchmark"
+  },
+  "timing": {
+    "log_span_seconds": 11.330825567245483,
+    "sum_update_seconds": 8.981733799897484,
+    "first_log_local": "2026-10-14T21:02:50.081549+08:00",
+    "last_log_local": "2026-10-14T21:03:01.412375+08:00",
+    "scope": "cached model loop excluding prior raw data preparation and interpreter startup; not deployment latency"
+  },
+  "data_path": {
+    "resident_bytes": 140917990,
+    "placement": "cuda:0",
+    "load_seconds": 0.780276600002253,
+    "per_batch_disk_reads": 0,
+    "per_batch_feature_cpu_computation": false,
+    "per_batch_input_h2d_bytes": 0,
+    "epoch_order_h2d_bytes": 17758912,
+    "sequence_count": 89
+  },
+  "decision": {
+    "recommendation": "diagnose_recall_tradeoff_before_extending_unchanged_training",
+    "keep_original_r2t8": true,
+    "replace_baseline": false,
+    "reason": "IoU improved but still below ANN, HD recall degraded, AC did not decrease",
+    "next_proposed_only": [
+      "Read-only score/PR and threshold diagnosis on fixed epoch 1,2,5 weights; any revised threshold selected on Main then evaluated on Dev, always retaining threshold 0.35 comparison",
+      "If threshold tradeoff fails, propose a separate one-factor training objective/HD hard-example adaptation; direction 5 requires new user scope, direction 6 remains separate"
+    ],
+    "optional_longer_control": "If user chooses a longer unchanged control, resume last.pt to total 10 epochs; not initiated or current recommended priority",
+    "limitations": [
+      "single seed",
+      "10 Dev sequences including only 2 HD",
+      "no reserved split validation",
+      "no logged PR/AP or Dev loss, so no claim of calibration-only error or proven overfitting",
+      "full Dev uses dense count reference; per-epoch explicit spike equivalence checked on 640 fixed samples"
+    ]
+  }
+}

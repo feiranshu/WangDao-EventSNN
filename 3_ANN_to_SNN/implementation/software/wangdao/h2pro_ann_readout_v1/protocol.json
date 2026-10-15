@@ -1,0 +1,16 @@
+{
+  "version": "ann_readout_v1",
+  "reference": "phase_grid_ann_state_v1",
+  "single_factor": "Head state transition replaced by signed normalized linear EMA without firing/reset",
+  "head_state": "z_t = lambda*z_prev + (1-lambda)*head_current; lambda=exp(-10/20)",
+  "operation_order": "multiply previous state by lambda; multiply current by 1-lambda; add; compute signed tail loss; add one-time prototype bias; class-wise max then foreground-minus-background",
+  "stem_hidden": "Unchanged continuous charge, thresholds, time constants and detached reset gradients",
+  "matched": ["seed42 parameters and prior", "9856 parameters", "state shapes", "input features", "frozen Proposal", "stream order", "labels and teacher", "loss coefficients", "soft head limit16", "optimizer", "30-epoch scheduler", "batch2", "TBPTT100ms", "sequence-boundary reset", "25 logit thresholds", "deterministic FP32"],
+  "gradient": "Exact linear gradient for the new head; no compensating learning-rate/weight rescaling; unchanged stem/hidden surrogate reset gradient",
+  "regularizer": "Unchanged mean squared positive/negative head peak excess above16, weight0.1, now evaluated on the new z state; unchanged stem/hidden activity regularizer",
+  "guards": "Unchanged positive-part amplitude/threshold<=256, absolute signed voltage/threshold<=4096 for all layers, loss<=100 and gradient norm<=10000; |logit|>80 advisory only",
+  "guard_note": "The head has no activation/firing. relu(z/theta) is a monitor-only positive-amplitude proxy. Signed head min/max and absolute voltage are always reported. No original guard is removed or weakened.",
+  "cost": "Same dense synaptic MAC; count 128 extra current-normalization multiplications per executed grid cell-step separately; no AC or energy claim",
+  "data": "Train-main fitting and stress checks; Train-dev selection; reserved splits unopened",
+  "budget": "One fresh seed42 epoch, explicitly authorized; no automatic continuation"
+}

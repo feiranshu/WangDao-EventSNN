@@ -1,0 +1,136 @@
+{
+  "status": "implemented_checked_ready_not_trained",
+  "suite": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1_lr_v1_s42_ep159",
+  "source_checkpoint": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\epochs\\epoch_159.pt",
+  "source_checkpoint_sha256": "3e3ef613c71d7eb8dfd55b1e3640db2fb09126d13b0e6a10e9bc3c3db36c98d9",
+  "source_epoch": 159,
+  "initial_adam_step": 43089,
+  "planned_additional_epochs_per_arm": 50,
+  "learning_rates": {
+    "control": 0.0001,
+    "low_lr": 3e-05
+  },
+  "milestones_added": [
+    10,
+    25,
+    50
+  ],
+  "milestones_effective": [
+    169,
+    184,
+    209
+  ],
+  "final_planned_adam_step": 56639,
+  "planned_updates_per_arm": 13550,
+  "formal_training_started": false,
+  "real_data_optimizer_steps": 0,
+  "source_model_adam_rng_exact_except_lr": true,
+  "initial_exports_exact_source159": true,
+  "full_dev_candidates_exact": 438966,
+  "full_dev_metrics_and_cost_exact": true,
+  "hardcases": {
+    "status": "passed",
+    "unique_candidates": 637,
+    "groups": {
+      "false_negatives": 128,
+      "false_positives": 128,
+      "hd_targets": 128,
+      "decision_boundary": 128,
+      "largest_logits": 128
+    },
+    "backward_calls": 0,
+    "optimizer_steps": 0,
+    "selection_changes": 0
+  },
+  "real_backward_without_update": {
+    "control": {
+      "losses": [
+        0.019567295908927917,
+        0.03566760569810867,
+        0.0034669877495616674
+      ],
+      "gradient_norms": [
+        0.04502189367372876,
+        0.020848414852830743,
+        0.0037019442318071078
+      ],
+      "gradient_digest": "706e11b286508e2a2ea53292c86eff0fb87126a5bca813716ad0019e139fcf61"
+    },
+    "low_lr": {
+      "losses": [
+        0.019567295908927917,
+        0.03566760569810867,
+        0.0034669877495616674
+      ],
+      "gradient_norms": [
+        0.04502189367372876,
+        0.020848414852830743,
+        0.0037019442318071078
+      ],
+      "gradient_digest": "706e11b286508e2a2ea53292c86eff0fb87126a5bca813716ad0019e139fcf61"
+    }
+  },
+  "gpu_synthetic_resume": {
+    "control": {
+      "model_adam_rng_bit_exact": true,
+      "learning_rate": 0.0001,
+      "synthetic_optimizer_steps": 4,
+      "real_data_optimizer_steps": 0
+    },
+    "low_lr": {
+      "model_adam_rng_bit_exact": true,
+      "learning_rate": 3e-05,
+      "synthetic_optimizer_steps": 4,
+      "real_data_optimizer_steps": 0
+    }
+  },
+  "preflight_memory": {
+    "peak_allocated_bytes": 250726912,
+    "peak_reserved_bytes": 272629760
+  },
+  "data_placement": {
+    "resident_bytes": 140917990,
+    "placement": "cuda:0",
+    "load_seconds": 0.8340497000026517,
+    "per_batch_disk_reads": 0,
+    "per_batch_feature_cpu_computation": false,
+    "per_batch_input_h2d_bytes": 0,
+    "epoch_order_h2d_bytes": 17758912,
+    "sequence_count": 89
+  },
+  "tests": {
+    "new_lr_tests": 18,
+    "shared_regressions": 67,
+    "total": 85,
+    "all_passed": true
+  },
+  "protected_original_files_count": 7939,
+  "all_original_hashes_unchanged": true,
+  "prepared_files_count": 19,
+  "prepared_files_sha256": {
+    "control/best.pt": "cdb3364b8632e144672125eb5ed174b526d38e9408a31a52982f0dbd5a29dd5a",
+    "control/best_int8.npz": "e8a336ccab6553a59bc72c6b112813008c454e8064a7dd554b0b751ca93d188b",
+    "control/identity.json": "a83753e07ca9c187597362c0424f7425b56e2315fad899bdb5d79b994123b1d7",
+    "control/initial.pt": "cdb3364b8632e144672125eb5ed174b526d38e9408a31a52982f0dbd5a29dd5a",
+    "control/initial_int8.npz": "e8a336ccab6553a59bc72c6b112813008c454e8064a7dd554b0b751ca93d188b",
+    "control/last.pt": "cdb3364b8632e144672125eb5ed174b526d38e9408a31a52982f0dbd5a29dd5a",
+    "control/progress.json": "90c3ac8442a45eafc23d3033d7ac49fe3890b9d5171d0e523f9addd8633254a8",
+    "identity.json": "a8da1684db4b0f3810d43f0b0f4fc6472940331f4840d39192362397e4532a24",
+    "low_lr/best.pt": "d956e2a6c07bd614f9893c30a1364c93301a7a00a79121df215dc69320ff02db",
+    "low_lr/best_int8.npz": "e8a336ccab6553a59bc72c6b112813008c454e8064a7dd554b0b751ca93d188b",
+    "low_lr/identity.json": "c762300f5983af11e9ddc961f35fc7dff01c3d8ce5ea18a36fd5c90346375b0d",
+    "low_lr/initial.pt": "d956e2a6c07bd614f9893c30a1364c93301a7a00a79121df215dc69320ff02db",
+    "low_lr/initial_int8.npz": "e8a336ccab6553a59bc72c6b112813008c454e8064a7dd554b0b751ca93d188b",
+    "low_lr/last.pt": "d956e2a6c07bd614f9893c30a1364c93301a7a00a79121df215dc69320ff02db",
+    "low_lr/progress.json": "0974152c51f02a337496d195d250d9b1f4baee5f9b754dd7173d7a32aa8d211e",
+    "ready.json": "7381a6cd50a6252e5ae0315548bc0dab81eb9018c8d1de41b178ea0d4d2ecefc",
+    "suite_status.json": "cfa28ed3ce0c8c2540d3098a1e04fb550245da80ee6b881c865a3102d0821333",
+    "synthetic_checks/control_random_data.pt": "8fba4aece4f0a767de663a3a58f2f48f2eb3cf445902cc251d509f8f11e2c93e",
+    "synthetic_checks/low_lr_random_data.pt": "21cb110fa7d5eef827a275240060f15cba13d48ee0ddc07d05276f62045bad73"
+  },
+  "completed_preflight_reuse_no_data_no_inference_no_file_changes": true,
+  "training_started_by_user_only": true,
+  "reserved_data_read": false,
+  "preflight_fix": "isolated each synthetic trajectory Adam tensor storage; failed diagnostic retained",
+  "logs": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1_lr_v1_checks_20261015"
+}

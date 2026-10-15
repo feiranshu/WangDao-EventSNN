@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "research_id": "H2-pro-SNN-fixed-stability-v2",
+  "model_version": "phase_grid_refiner_v2",
+  "status": "implementation_pending_manual_one_epoch_health_check",
+  "baseline": "H2-pro-Causal-ANN-v1",
+  "allowed_modes": ["fixed"],
+  "training_policy": {"launcher": "user_only", "automatic_training": false, "initial_epochs": 1, "schedule_epochs": 30},
+  "data": "Reuse verified v1 Train-main/Train-dev teacher cache; reserved roles remain inaccessible",
+  "numerics": {
+    "threshold": 0.25,
+    "forward": "n=floor(max(v/theta,0)); no spike cap or state clamp",
+    "surrogate": "dn/dv=1/theta for v>0, zero otherwise; approximate positive-rate STE",
+    "reset": "v_residual=v-theta*stop_gradient(n); forward charge is conserved; temporal surrogate slope is one",
+    "synapses": "hidden and head receive theta*n; input stem, grid, width, decay, and phase queries match v1",
+    "readout": "pre-reset head voltage, two max prototypes per class, one-time bias; no logit clipping",
+    "selection": "raw-logit comparisons on a fixed grid; no sigmoid rounding before decisions",
+    "precision": "FP32, deterministic CUDA, no AMP/TF32",
+    "diagnostics": "Current/voltage/spike maxima and RMS, candidate logit saturation, pre-clip gradients, weight norms",
+    "failure_policy": "Stop on nonfinite or explicit catastrophic limits before optimizer.step; retain last completed epoch, write failure diagnostic"
+  },
+  "time": {"internal_bin_ms": 10, "proposal_wait_ms": 100, "tbptt_ms": 100, "reset": "sequence boundary only"},
+  "interpretation": "Stability revision combines a numerical contract and a lower learning rate; not an isolated causal ablation or an accuracy improvement claim",
+  "not_implemented": ["v2 migration modes", "learned router", "SNN Proposal", "sparse spike runtime", "full-chain cost", "hardware validation"]
+}

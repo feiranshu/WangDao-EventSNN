@@ -1,0 +1,387 @@
+{
+  "status": "review_complete",
+  "data_role": "train_dev",
+  "threshold": 0.35,
+  "source_run": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42",
+  "source_files_sha256": {
+    "best.pt": "34e0cd8f023488db3d87b526ee848d2057738468bdd1fddc0060756805b1dfa7",
+    "best_int8.npz": "a830720e24a03b3dab6e4ed0cc696e6a9955b448861f737b12ec1abcb594ff78",
+    "epochs/epoch_001.json": "4e28015f2eb31f1e95a65c0c2639fe2d77fa5e543e891076d5bd2c68af8db2fa",
+    "epochs/epoch_001.pt": "2c27d18219b19b843b318c00b2630f42492863311cd1662b9c512941436ab6e4",
+    "epochs/epoch_001_int8.npz": "16aa884a41d0d9897237d74536019b67d4ae4bb4cbcf4c24c6dd3dc7c3de046c",
+    "epochs/epoch_002.json": "ccaed5c15034a06e0e815e95de12ce516df91409c915959a8f1e8f08cdf85863",
+    "epochs/epoch_002.pt": "86e0511da54523551f7501819f085eec7bc92a9a392fe5f3a8b72b1f13635427",
+    "epochs/epoch_002_int8.npz": "bc90b612b836707ed32075b1a04f58e7adcc89917280d3b4f96f0d2195901c56",
+    "epochs/epoch_003.json": "3edb2e4c11c4b3c2bf23420646c7c2c6b75a81a2db7edf4a0c8c7ba05f877c18",
+    "epochs/epoch_003.pt": "fab413fc00e4f7c7890c156ac532a8882f97d165fe22ce9190d5970de02e9759",
+    "epochs/epoch_003_int8.npz": "9ad3b895b7a5f78e84df78831a23a3b9bcb81aef8052100d65800144a04a42d3",
+    "epochs/epoch_004.json": "262bc4a9aa3f7fe883ec1f83090bb1244fa21a1c1026ce8053c576a195d6abef",
+    "epochs/epoch_004.pt": "97b4c34ca721006ca4167febf4ddc339b614b8a40ce3239874eb7cb4c1925c13",
+    "epochs/epoch_004_int8.npz": "be4f8ca988957368621e029aefb6c090098d18017a71482f6d5b1385945bfb69",
+    "epochs/epoch_005.json": "d4f87cdde13f3f8f495a084aea2b37161a04971a0c438fc35556799ac3ad7c9b",
+    "epochs/epoch_005.pt": "7865a880360b513e3e52e9392341db030e1096970b3846f76818bbf2bcf8d374",
+    "epochs/epoch_005_int8.npz": "84d884d0c9221747fd02d23c798ec0efe8ae3c4fdef18c344189a3f16dcc94fd",
+    "identity.json": "d3db4da297f8e1984ed5e26564f46ee6bcbe5582b5d2c58477aca484c4399f83",
+    "initial_student_int8.npz": "a830720e24a03b3dab6e4ed0cc696e6a9955b448861f737b12ec1abcb594ff78",
+    "last.pt": "7865a880360b513e3e52e9392341db030e1096970b3846f76818bbf2bcf8d374",
+    "progress.json": "bb1e2d6fa93ac2849163f5e6835eff9764be3043262248212ede2383bbdbba12",
+    "progress.jsonl": "c6a381ca15c7a451bb1f2da360e2b02fa264e1cbdb5d97ce8f6fbb0ae29fce33",
+    "ready.json": "ef1c135baa955c8cb443ea98847b3969ee4d9cb00064520efdd285cda520a32f",
+    "training.json": "cd23b3bdb092c0b6721c9a86fdf55a75891bad3a59407f8131ed86b5f5946153"
+  },
+  "source_files_count": 24,
+  "snapshot": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42_epoch5_snapshot_20261015",
+  "snapshot_exact": true,
+  "training_started_by_this_review": false,
+  "inference_started_by_this_review": false,
+  "real_data_optimizer_steps_this_review": 0,
+  "completed_epochs": 5,
+  "global_step": 1355,
+  "candidates_per_epoch": 2219864,
+  "all_inclusive_best_epoch": 0,
+  "best_trained_epoch": 4,
+  "highest_trained_hd_recall_epoch": 2,
+  "rows": [
+    {
+      "epoch": "ANN",
+      "iou": 0.792615459852676,
+      "precision": 0.9132593766508188,
+      "recall": 0.8571428571428571,
+      "hd_recall": 0.5823264386647553,
+      "mac": 2394416168,
+      "ac": 0,
+      "tp": 25932,
+      "fp": 2463,
+      "mean_losses": null,
+      "memory": null
+    },
+    {
+      "epoch": 0,
+      "iou": 0.7931076885240862,
+      "precision": 0.9189641661323644,
+      "recall": 0.8527467442321677,
+      "hd_recall": 0.5708580790497645,
+      "mac": 1495413800,
+      "ac": 3645249984,
+      "tp": 25799,
+      "fp": 2275,
+      "mean_losses": null,
+      "memory": null
+    },
+    {
+      "epoch": 1,
+      "iou": 0.787903717245582,
+      "precision": 0.9097273526824978,
+      "recall": 0.8547299530640576,
+      "hd_recall": 0.575670694245341,
+      "mac": 1495413800,
+      "ac": 3590855136,
+      "tp": 25859,
+      "fp": 2566,
+      "mean_losses": [
+        0.022919353062878876,
+        0.04222251442937356,
+        0.0036161916791469513
+      ],
+      "memory": {
+        "peak_allocated_bytes": 250481152,
+        "peak_reserved_bytes": 270532608
+      }
+    },
+    {
+      "epoch": 2,
+      "iou": 0.7894768874958157,
+      "precision": 0.9086865148861646,
+      "recall": 0.8575064454287037,
+      "hd_recall": 0.5830432111406922,
+      "mac": 1495413800,
+      "ac": 3580690368,
+      "tp": 25943,
+      "fp": 2607,
+      "mean_losses": [
+        0.02246263327046804,
+        0.04174104557524996,
+        0.0031842210397022676
+      ],
+      "memory": {
+        "peak_allocated_bytes": 250481152,
+        "peak_reserved_bytes": 270532608
+      }
+    },
+    {
+      "epoch": 3,
+      "iou": 0.7896134823227697,
+      "precision": 0.9118569967915947,
+      "recall": 0.8548621669861837,
+      "hd_recall": 0.5763874667212779,
+      "mac": 1495413800,
+      "ac": 3567057152,
+      "tp": 25863,
+      "fp": 2500,
+      "mean_losses": [
+        0.022398522546812634,
+        0.04157963660564929,
+        0.0032174084777710776
+      ],
+      "memory": {
+        "peak_allocated_bytes": 250481152,
+        "peak_reserved_bytes": 270532608
+      }
+    },
+    {
+      "epoch": 4,
+      "iou": 0.7921934454400392,
+      "precision": 0.9170870337477798,
+      "recall": 0.8533086534012031,
+      "hd_recall": 0.5712676633217284,
+      "mac": 1495413800,
+      "ac": 3566591584,
+      "tp": 25816,
+      "fp": 2334,
+      "mean_losses": [
+        0.022317581178279703,
+        0.04143852701200834,
+        0.0031966354122883777
+      ],
+      "memory": {
+        "peak_allocated_bytes": 250481152,
+        "peak_reserved_bytes": 270532608
+      }
+    },
+    {
+      "epoch": 5,
+      "iou": 0.7908436686571735,
+      "precision": 0.9149365832920003,
+      "recall": 0.8536061347259867,
+      "hd_recall": 0.5714724554577104,
+      "mac": 1495413800,
+      "ac": 3559620480,
+      "tp": 25825,
+      "fp": 2401,
+      "mean_losses": [
+        0.022307011377255763,
+        0.04136375639914909,
+        0.003250266325166439
+      ],
+      "memory": {
+        "peak_allocated_bytes": 250481152,
+        "peak_reserved_bytes": 270532608
+      }
+    }
+  ],
+  "deltas": {
+    "1": {
+      "initial": {
+        "iou_pp": -0.5203971278504249,
+        "precision_pp": -0.9236813449866599,
+        "recall_pp": 0.198320883188996,
+        "hd_recall_pp": 0.48126151955765195,
+        "tp": 60,
+        "fp": 291
+      },
+      "ann": {
+        "iou_pp": -0.47117426070940605,
+        "precision_pp": -0.3532023968320974,
+        "recall_pp": -0.24129040787994604,
+        "hd_recall_pp": -0.66557444194143,
+        "tp": -73,
+        "fp": 103
+      },
+      "ac_relative_initial_pct": -1.492211734140425
+    },
+    "2": {
+      "initial": {
+        "iou_pp": -0.3630801028270514,
+        "precision_pp": -1.0277651246199837,
+        "recall_pp": 0.4759701196536015,
+        "hd_recall_pp": 1.2185132090927753,
+        "tp": 144,
+        "fp": 332
+      },
+      "ann": {
+        "iou_pp": -0.3138572356860325,
+        "precision_pp": -0.45728617646542125,
+        "recall_pp": 0.03635882858465944,
+        "hd_recall_pp": 0.07167724759369332,
+        "tp": 11,
+        "fp": 144
+      },
+      "ac_relative_initial_pct": -1.77106141645621
+    },
+    "3": {
+      "initial": {
+        "iou_pp": -0.3494206201316463,
+        "precision_pp": -0.7107169340769715,
+        "recall_pp": 0.21154227540159942,
+        "hd_recall_pp": 0.5529387671513453,
+        "tp": 64,
+        "fp": 225
+      },
+      "ann": {
+        "iou_pp": -0.30019775299062745,
+        "precision_pp": -0.140237985922409,
+        "recall_pp": -0.2280690156673426,
+        "hd_recall_pp": -0.5938971943477367,
+        "tp": -69,
+        "fp": 37
+      },
+      "ac_relative_initial_pct": -2.1450608968715423
+    },
+    "4": {
+      "initial": {
+        "iou_pp": -0.09142430840469729,
+        "precision_pp": -0.18771323845846455,
+        "recall_pp": 0.05619091690354239,
+        "hd_recall_pp": 0.04095842719639142,
+        "tp": 17,
+        "fp": 59
+      },
+      "ann": {
+        "iou_pp": -0.04220144126367842,
+        "precision_pp": 0.3827657096960979,
+        "recall_pp": -0.38342037416539965,
+        "hd_recall_pp": -1.1058775343026905,
+        "tp": -116,
+        "fp": -129
+      },
+      "ac_relative_initial_pct": -2.1578328055758433
+    },
+    "5": {
+      "initial": {
+        "iou_pp": -0.22640198669127143,
+        "precision_pp": -0.40275828403640856,
+        "recall_pp": 0.08593904938190011,
+        "hd_recall_pp": 0.061437640794592685,
+        "tp": 26,
+        "fp": 126
+      },
+      "ann": {
+        "iou_pp": -0.17717911955025256,
+        "precision_pp": 0.1677206641181539,
+        "recall_pp": -0.3536722416870419,
+        "hd_recall_pp": -1.0853983207044893,
+        "tp": -107,
+        "fp": -62
+      },
+      "ac_relative_initial_pct": -2.349070828498767
+    }
+  },
+  "audit": {
+    "identity_current": true,
+    "cache_roles_and_hashes": true,
+    "all_epoch_json_exact": true,
+    "metrics_and_costs_reaggregated": true,
+    "checkpoints": [
+      {
+        "epoch": 1,
+        "optimizer_steps": 271,
+        "changed_int8_weights": [
+          368,
+          99,
+          12
+        ],
+        "out_of_int8_bins": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "epoch": 2,
+        "optimizer_steps": 542,
+        "changed_int8_weights": [
+          491,
+          245,
+          27
+        ],
+        "out_of_int8_bins": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "epoch": 3,
+        "optimizer_steps": 813,
+        "changed_int8_weights": [
+          666,
+          400,
+          30
+        ],
+        "out_of_int8_bins": [
+          6,
+          2,
+          0
+        ]
+      },
+      {
+        "epoch": 4,
+        "optimizer_steps": 1084,
+        "changed_int8_weights": [
+          772,
+          499,
+          44
+        ],
+        "out_of_int8_bins": [
+          9,
+          4,
+          0
+        ]
+      },
+      {
+        "epoch": 5,
+        "optimizer_steps": 1355,
+        "changed_int8_weights": [
+          884,
+          590,
+          51
+        ],
+        "out_of_int8_bins": [
+          15,
+          4,
+          0
+        ]
+      }
+    ],
+    "last_equals_epoch5": true,
+    "best_equals_untrained_anchor": true,
+    "log_records": 146,
+    "failure_records": 0,
+    "logged_epoch_coverage_exact": true
+  },
+  "timing": {
+    "logged_run_wall_seconds": 11.354340076446533,
+    "training_seconds_sum": 8.73588650007514,
+    "evaluation_seconds_sum": 0.9870858999929624,
+    "cache_load_seconds": 0.8008196000009775,
+    "scope": "wall interval starts after cache/model/checkpoint initialization; not end-to-end launch time"
+  },
+  "memory": {
+    "training_peak": {
+      "peak_allocated_bytes": 250481152,
+      "peak_reserved_bytes": 270532608
+    },
+    "preflight_peak": {
+      "peak_allocated_bytes": 244868096,
+      "peak_reserved_bytes": 272629760
+    },
+    "separate_ann_memory_measured": false,
+    "per_epoch_fields_are_process_cumulative_peaks": true
+  },
+  "decision": {
+    "recommendation": "continue unchanged to total epoch20; inspect saved epochs10 and20",
+    "additional_epochs": 15,
+    "resume_from": "last.pt (epoch5), not best.pt (epoch0)",
+    "preserve_candidates": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "rationale": "limited five-epoch evidence; recovering IoU after epoch1, falling AC, high-recall epoch2; no stable IoU improvement yet",
+    "if_later_stagnant": "independent same-checkpoint lower-LR/decay control; consider separate precision/recall objectives; no model abandonment from this run alone",
+    "no_automatic_early_stop": true,
+    "training_started_by_user_only": true
+  },
+  "plot": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\h2pro_r1t16_train_v1_epoch5_curves_20261015.png"
+}

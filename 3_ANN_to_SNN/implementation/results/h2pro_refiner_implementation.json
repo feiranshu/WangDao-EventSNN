@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "status": "implementation_verified_training_not_started",
+  "experiment_id": "H2pro-Refiner-4060-implementation-v1",
+  "stage": "single_refiner_training_infrastructure",
+  "data_role": [
+    "train_main_prefix",
+    "train_dev_prefix"
+  ],
+  "primary_metrics": {
+    "regression_tests_passed": 157,
+    "new_refiner_tests": 26,
+    "pyright_errors": 0,
+    "cuda_modes_checked": 3,
+    "refiner_parameters": 9856,
+    "state_scalars_per_stream": 1059168,
+    "dense_check_peak_allocated_bytes": 392544768,
+    "dense_check_peak_reserved_bytes": 497025024,
+    "real_dev_prefix_events_per_mode": 1527,
+    "real_dev_prefix_candidates_per_mode": 106
+  },
+  "decision": "user_may_launch_fixed_seed42_5_epochs_then_review_full_Train_dev",
+  "conclusion": "Frozen Proposal plus trainable SNN Refiner is implemented. No project training was launched; no learned accuracy or efficiency improvement is claimed.",
+  "training_started": false,
+  "student_checkpoint_exported": false,
+  "reserved_sequences_read": 0,
+  "baseline": {
+    "model_id": "H2-pro-Causal-ANN-v1",
+    "threshold": 0.35,
+    "verified_files": {
+      "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "software/wangdao/h2_pro/protocol.json": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+      "software/weights/H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "software/weights/H2-pro-Causal-ANN-v1_int8.npz": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+      "software/weights/H2-pro-Causal-ANN-v1_float.pt": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+      "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+      "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+      "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+      "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+      "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+      "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+      "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+      "software/wangdao/h2/numpy_model.py": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee",
+      "software/wangdao/h2/representation.py": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003",
+      "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+      "software/wangdao/h2_pro/__init__.py": "95e214860f13ada109353da455004e3ab43218258c9c5fb42eb1d648f959619a",
+      "software/wangdao/h2_pro/causal_feature_builder.py": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454",
+      "software/wangdao/h2_pro/motion_coherence.py": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79",
+      "software/wangdao/h2_pro/stream_state.py": "771c4f2cd5eb19c450d856ffa4565ec8570f6d83349ffa1155d87c7bd304ddc3"
+    },
+    "baseline_lock_sha256": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "research_protocol_sha256": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58"
+  },
+  "research_sources_utf8_lf": {
+    "software/wangdao/h2pro_snn/__init__.py": "1a2dad08b56e7094d6acd275875875a36ed30aaa5afd31e82dbf3391ef08d9d2",
+    "software/wangdao/h2pro_snn/ann_worker.py": "d3179f2a18f9aa7f2e46520236517a664530c11fa4b9ff759208034dd98e0d1e",
+    "software/wangdao/h2pro_snn/cache_worker.py": "23cde41381ae29c53d15988f42fdaf80c965310a365187577312a91b77ffb8c7",
+    "software/wangdao/h2pro_snn/costs.py": "9902d3e104a2f2fb61ecb68b5e410a762e58edd48e3bbb22a94e887b43fe3b64",
+    "software/wangdao/h2pro_snn/diagnostics.py": "adaef9137403c674a265ea10961df10ef41b76789cca1e4d66ab97ad723b99bf",
+    "software/wangdao/h2pro_snn/foundation.py": "6216de658af2517e3e1eb8c092c2f61f62e5e5efff2be918c02631863aa126b8",
+    "software/wangdao/h2pro_snn/refiner.py": "b2311449a7e6acbe5b8c666d7b0ee66aa5a1ad2e7022a0f8e05b919da1b45718",
+    "software/wangdao/h2pro_snn/stream_data.py": "8eb8d9e574255610991eda2e6c0f48f0fa79b6830a505d4f115f9dcb8ff86528",
+    "software/wangdao/h2pro_snn/torch_cell.py": "45fdc154a28c9fb0b30cbbbf5703efdccfd9c45e6eb1fcb1317981043819fd52",
+    "software/wangdao/h2pro_snn/training.py": "57eff4a4bebe6f2ab63b3266ea1bcbeb6fad6f386d4a552a0ede1e1ab19c106e",
+    "software/wangdao/h2pro_snn/transport.py": "e8900a92ab1fe945b630f3bb2b42eb002633fde71893b04d9e5e741fb954ea41",
+    "software/wangdao/h2pro_snn/baseline_lock.json": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "software/wangdao/h2pro_snn/local_4060.json": "0e733a11bbc5a5c0203fd114d2cefe7448bf640bf611443766b5ac03e16feae4",
+    "software/wangdao/h2pro_snn/protocol.json": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58",
+    "software/scripts/h2pro_snn.py": "327b222c647d0c32cac541076c96ab4106dbe56c5135a96b84002dc677bbbfb7",
+    "software/scripts/train_h2pro_refiner.py": "3b52a98a072d39e73c5981fdf7a35233d1cb64e2806df0f15c668ae71a052baf"
+  },
+  "launcher_sha256": "975c9e80a22d51d5a8a9f5087899f8bc8e4dfc84ac0d4bb9a2b3ff87c29a1ba6",
+  "profile": {
+    "schema_version": 1,
+    "profile": "rtx4060_laptop_8gb_v1",
+    "model": {
+      "mode": "fixed"
+    },
+    "training": {
+      "seed": 42,
+      "batch_size": 2,
+      "schedule_epochs": 30,
+      "learning_rate": 0.001,
+      "minimum_learning_rate": 1e-05,
+      "weight_decay": 0.0001,
+      "gradient_clip": 5.0,
+      "kd_weight": 0.2,
+      "soft_iou_weight": 0.5,
+      "focal_alpha": 0.75,
+      "focal_gamma": 2.0,
+      "spike_weight": 0.001,
+      "spike_ceiling": 0.25,
+      "cache_mib": 1024,
+      "vram_limit_gib": 6.0,
+      "cpu_threads": 1,
+      "thresholds": [
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95
+      ]
+    },
+    "execution": {
+      "precision": "float32",
+      "amp": false,
+      "tf32": false,
+      "tbptt_ms": 100,
+      "prefetch_batches": 1,
+      "state_reset": "sequence boundaries only; detach after every 100 ms training block",
+      "training_launcher": "user_only",
+      "automatic_training": false
+    }
+  },
+  "environment": {
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "numpy": "2.2.6",
+    "cuda_runtime": "12.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "deterministic_algorithms": true
+  },
+  "validation": {
+    "unit_tests": "157 passed; lifecycle/optimizer recovery tested without updating new-model parameters",
+    "static": "pyright: 0 errors, 0 warnings",
+    "frozen_inputs": "all baseline locks verified; no ANN source/weight changes",
+    "cuda": "forward/backward on RTX 4060 Laptop; no optimizer created, zero weight updates",
+    "powershell_launcher": "prepare/check arguments and actual check invocation verified; train not launched",
+    "cache": "complete manifest reuse is byte stable; payload hashes and roles validated",
+    "coverage": "3 modes, same 1527 published events, 106 candidates; teacher metrics exactly reproduce prior frozen-ANN prefix diagnosis"
+  },
+  "evidence_sha256": {
+    "results/runs/h2pro_refiner_implementation_checks/fixed_cuda_dense.json": "b5ab086727435553c3ff25ec125e6e7878060c7ac826e109e6aa6d723cf0f8db",
+    "results/runs/h2pro_refiner_implementation_checks/spike_route_cuda.json": "9bdb3d511ab58ec528731459c9370f6d13d8098e86b963c832762f41d6bc9ac1",
+    "results/runs/h2pro_refiner_implementation_checks/membrane_route_cuda.json": "26b5e2d01e3f0537617c8f57f886bf621baf81f708d3537f6bb912f889240560",
+    "results/runs/h2pro_refiner_implementation_checks/real_prefix_pipeline_verified.json": "e92d83250724135e131ffd2808b981eb2b3bbe08cf2447b60335bc9bcdbe4d8e"
+  },
+  "limitations": [
+    "All SNN weights are untrained; no accuracy claim.",
+    "Full-epoch timing and peak memory await user-launched pilot.",
+    "ANN Proposal waits for 100ms closure; internal 10ms bins are not 10ms end-to-end latency.",
+    "Motion routing is an activity heuristic, not a learned motion estimator.",
+    "GPU spike convolutions use dense emulation; full-chain cost and sparse deployment remain incomplete.",
+    "Phase-specific output states increase persistent memory; this is not a hardware-fit claim."
+  ]
+}

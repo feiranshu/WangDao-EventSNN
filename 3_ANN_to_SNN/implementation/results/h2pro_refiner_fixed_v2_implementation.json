@@ -1,0 +1,586 @@
+{
+  "schema_version": 2,
+  "experiment_id": "h2pro_fixed_v2_implementation_20261011",
+  "status": "checked_ready_for_user_launched_one_epoch",
+  "stage": "single_refiner_control_stability_revision",
+  "model_version": "phase_grid_refiner_v2",
+  "training_started": false,
+  "project_weight_updates": 0,
+  "trained_v2_checkpoint_created": false,
+  "manual_launch_required": true,
+  "new_run_directory": "results/runs/h2pro_refiner_fixed_v2_s42",
+  "initial_epoch_budget": 1,
+  "baseline": {
+    "model_id": "H2-pro-Causal-ANN-v1",
+    "threshold": 0.35,
+    "verified_files": {
+      "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "software/wangdao/h2_pro/protocol.json": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+      "software/weights/H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "software/weights/H2-pro-Causal-ANN-v1_int8.npz": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+      "software/weights/H2-pro-Causal-ANN-v1_float.pt": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+      "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+      "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+      "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+      "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+      "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+      "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+      "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+      "software/wangdao/h2/numpy_model.py": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee",
+      "software/wangdao/h2/representation.py": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003",
+      "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+      "software/wangdao/h2_pro/__init__.py": "95e214860f13ada109353da455004e3ab43218258c9c5fb42eb1d648f959619a",
+      "software/wangdao/h2_pro/causal_feature_builder.py": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454",
+      "software/wangdao/h2_pro/motion_coherence.py": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79",
+      "software/wangdao/h2_pro/stream_state.py": "771c4f2cd5eb19c450d856ffa4565ec8570f6d83349ffa1155d87c7bd304ddc3"
+    },
+    "baseline_lock_sha256": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "research_protocol_sha256": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58"
+  },
+  "profile": {
+    "schema_version": 2,
+    "profile": "rtx4060_laptop_8gb_fixed_v2",
+    "model": {
+      "version": "phase_grid_refiner_v2",
+      "rows": 68,
+      "columns": 88,
+      "micro_ms": 10,
+      "stem_channels": 16,
+      "hidden_channels": 32,
+      "local_channels": 16,
+      "threshold": 0.25,
+      "tau_short_ms": 20.0,
+      "tau_long_ms": 100.0,
+      "readout_tau_ms": 20.0,
+      "mode": "fixed"
+    },
+    "training": {
+      "seed": 42,
+      "batch_size": 2,
+      "schedule_epochs": 30,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-06,
+      "weight_decay": 0.0001,
+      "gradient_clip": 5.0,
+      "kd_weight": 0.2,
+      "soft_iou_weight": 0.5,
+      "focal_alpha": 0.75,
+      "focal_gamma": 2.0,
+      "spike_weight": 0.001,
+      "spike_ceiling": 0.25,
+      "cache_mib": 1024,
+      "vram_limit_gib": 6.0,
+      "cpu_threads": 1,
+      "logit_thresholds": [
+        -8.0,
+        -6.0,
+        -4.0,
+        -2.9444389792,
+        -2.1972245773,
+        -1.7346010554,
+        -1.3862943611,
+        -1.0986122887,
+        -0.8472978604,
+        -0.6190392084,
+        -0.4054651081,
+        -0.2006706955,
+        0.0,
+        0.2006706955,
+        0.4054651081,
+        0.6190392084,
+        0.8472978604,
+        1.0986122887,
+        1.3862943611,
+        1.7346010554,
+        2.1972245773,
+        2.9444389792,
+        4.0,
+        6.0,
+        8.0
+      ],
+      "stability_limits": {
+        "max_unit_burst": 256.0,
+        "max_abs_voltage_in_thresholds": 4096.0,
+        "max_abs_logit": 80.0,
+        "max_gradient_norm": 10000.0,
+        "max_loss": 100.0
+      }
+    },
+    "execution": {
+      "precision": "float32",
+      "amp": false,
+      "tf32": false,
+      "tbptt_ms": 100,
+      "prefetch_batches": 1,
+      "state_reset": "sequence boundaries only; detach after every 100 ms training block",
+      "training_launcher": "user_only",
+      "automatic_training": false,
+      "threshold_domain": "logit"
+    }
+  },
+  "research_sources_utf8_lf": {
+    "software/wangdao/h2pro_snn/__init__.py": "1a2dad08b56e7094d6acd275875875a36ed30aaa5afd31e82dbf3391ef08d9d2",
+    "software/wangdao/h2pro_snn/ann_worker.py": "d3179f2a18f9aa7f2e46520236517a664530c11fa4b9ff759208034dd98e0d1e",
+    "software/wangdao/h2pro_snn/cache_worker.py": "23cde41381ae29c53d15988f42fdaf80c965310a365187577312a91b77ffb8c7",
+    "software/wangdao/h2pro_snn/costs.py": "9902d3e104a2f2fb61ecb68b5e410a762e58edd48e3bbb22a94e887b43fe3b64",
+    "software/wangdao/h2pro_snn/diagnostics.py": "adaef9137403c674a265ea10961df10ef41b76789cca1e4d66ab97ad723b99bf",
+    "software/wangdao/h2pro_snn/foundation.py": "6216de658af2517e3e1eb8c092c2f61f62e5e5efff2be918c02631863aa126b8",
+    "software/wangdao/h2pro_snn/refiner.py": "b2311449a7e6acbe5b8c666d7b0ee66aa5a1ad2e7022a0f8e05b919da1b45718",
+    "software/wangdao/h2pro_snn/stream_data.py": "8eb8d9e574255610991eda2e6c0f48f0fa79b6830a505d4f115f9dcb8ff86528",
+    "software/wangdao/h2pro_snn/torch_cell.py": "45fdc154a28c9fb0b30cbbbf5703efdccfd9c45e6eb1fcb1317981043819fd52",
+    "software/wangdao/h2pro_snn/training.py": "57eff4a4bebe6f2ab63b3266ea1bcbeb6fad6f386d4a552a0ede1e1ab19c106e",
+    "software/wangdao/h2pro_snn/transport.py": "e8900a92ab1fe945b630f3bb2b42eb002633fde71893b04d9e5e741fb954ea41",
+    "software/wangdao/h2pro_snn/baseline_lock.json": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "software/wangdao/h2pro_snn/local_4060.json": "0e733a11bbc5a5c0203fd114d2cefe7448bf640bf611443766b5ac03e16feae4",
+    "software/wangdao/h2pro_snn/protocol.json": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58",
+    "software/scripts/h2pro_snn.py": "327b222c647d0c32cac541076c96ab4106dbe56c5135a96b84002dc677bbbfb7",
+    "software/scripts/train_h2pro_refiner.py": "3b52a98a072d39e73c5981fdf7a35233d1cb64e2806df0f15c668ae71a052baf",
+    "software/wangdao/h2pro_snn_v2/__init__.py": "b00c6eb98a126fd2d5112ec13c4d85dbfe0a462fd1bc4c1d75f255d889776005",
+    "software/wangdao/h2pro_snn_v2/foundation.py": "82fca9b4a85f6ddea1150ba4140cfd0decbc7ae3e2b73c6778f35e002650d42b",
+    "software/wangdao/h2pro_snn_v2/monitor.py": "dbf87429fec2691727389ec5623c6d33c02214effc33887e8f5f37144fd748da",
+    "software/wangdao/h2pro_snn_v2/neurons.py": "9467b3b57c92af971ae6d4563afb6b2f75bcf7d3bd7a777f6aabd2ecef7e11da",
+    "software/wangdao/h2pro_snn_v2/refiner.py": "154ff4dbd40ac6d2105984cbf74aeeaad42af940f75859120c23ee1d16a70267",
+    "software/wangdao/h2pro_snn_v2/training.py": "2a8ce72e4636533b665fbca1c58837b8b0e2845a2e7625ed853c518dc8f5c246",
+    "software/wangdao/h2pro_snn_v2/local_4060.json": "8e89522c8dd64eee107a909a64cf439cf10e8ce7e8d95ceca4164de06721d786",
+    "software/wangdao/h2pro_snn_v2/protocol.json": "de8892f0709b240cf425254ef46d1eca39aa43fdb7e1da98d7a19170332307e8",
+    "software/scripts/train_h2pro_refiner_v2.py": "b403b6899963cd2a590aeeee2f5276fdf0433ff32802292ba75505539a31ee03",
+    "train_local_4060_v2.ps1": "af32b5b7eac90e095f22d57bf64af1ff337da41eedec0a67d2fd80c4a98dea7c"
+  },
+  "architecture": {
+    "config": {
+      "version": "phase_grid_refiner_v2",
+      "rows": 68,
+      "columns": 88,
+      "micro_ms": 10,
+      "stem_channels": 16,
+      "hidden_channels": 32,
+      "local_channels": 16,
+      "threshold": 0.25,
+      "tau_short_ms": 20.0,
+      "tau_long_ms": 100.0,
+      "readout_tau_ms": 20.0,
+      "mode": "fixed"
+    },
+    "parameters": 9856,
+    "state_scalars_per_stream": 1059168,
+    "readout": "4 LIF prototypes per pixel-phase/polarity query; pre-reset voltage + bias",
+    "router": "disabled; fixed mode only",
+    "numerics": "positive-rate multi-spike STE; detached soft reset; theta-scaled synaptic charge",
+    "backend": "active-cell stem, dense convolutional spike emulation"
+  },
+  "v1_preservation": {
+    "source_identity_matches_old_checkpoint": true,
+    "training_json_best_last_unchanged": true,
+    "teacher_cache_manifest_unchanged": true,
+    "old_artifact_hashes": {
+      "training.json": "a6fbc4fd521bb403b804c1355b4f02f35d039ebc9090d1cf068a90ddcb70ebd4",
+      "best.pt": "44ff368428345a4a991702d23eb075016edef64ada038e23e0a29e622d188234",
+      "last.pt": "d06ba08032f7147c36e8248a04298fb4b380196c190ed0426ffce59b415f7fae"
+    },
+    "snapshot_directory": "results/runs/h2pro_refiner_fixed_s42/v1_source_snapshot_20261011",
+    "snapshot_manifest_sha256": "4826179354e2176ba63c014383378474da57b136fe70b224d0244e625c1f4f1d",
+    "snapshot_file_count": 17,
+    "snapshot_and_working_sources_byte_identical": true
+  },
+  "implementation_changes": [
+    "Separate v2 package and launcher; v1 source identity and entrypoints untouched.",
+    "Exact multi-spike forward; positive-rate STE at every positive burst level; detached soft reset.",
+    "Hidden/head synapses receive theta*n charge; no hard spike cap, membrane clamp or logit clipping.",
+    "Raw-logit decisions on a predeclared 25-point threshold grid; teacher threshold remains frozen probability 0.35.",
+    "Layer current/voltage/spike diagnostics, score saturation, pre-clip gradients, parameter norms, failure limits and last-complete-epoch recovery.",
+    "Learning rate 1e-4 with seed42, batch2 and one-epoch initial manual budget."
+  ],
+  "validation": {
+    "unit_tests": {
+      "tests": 176,
+      "failures": 0,
+      "errors": 0,
+      "passed": true,
+      "temporary_directory": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_v2_checks\\unit_temp"
+    },
+    "new_tests": 19,
+    "static_analysis": {
+      "tool": "pyright",
+      "command": "pyright --pythonpath C:\\Anaconda\\envs\\gazelle-train\\python.exe software/wangdao/h2pro_snn_v2 software/scripts/train_h2pro_refiner_v2.py",
+      "errors": 0,
+      "warnings": 0
+    },
+    "gpu_check": {
+      "entrypoint": "train_local_4060_v2.ps1 -Action check",
+      "path": "results/runs/h2pro_v2_checks/fixed_v2_20261011_112530_477.json",
+      "sha256": "482836a01a1d5e0cc60a9ce2646fad1c1805d1789826e53df70e03a8659de6c5",
+      "environment": {
+        "python": "3.10.20",
+        "torch": "2.5.1+cu121",
+        "numpy": "2.2.6",
+        "cuda_runtime": "12.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "deterministic_algorithms": true
+      },
+      "peak_allocated_bytes": 348819456,
+      "peak_reserved_bytes": 467664896,
+      "optimizer_created": false,
+      "weight_updates": 0,
+      "cases": [
+        {
+          "name": "dense_synthetic",
+          "sequences": null,
+          "objective_values": [
+            7.768298149108887
+          ],
+          "parameters_unchanged": true,
+          "gradient_clipping_applied": false,
+          "stability": {
+            "active_stream_steps": 20,
+            "layer_statistics_scope": "Per-stream full-grid statistics; means weighted by active steps, excluding padded slots",
+            "layers": {
+              "stem": {
+                "mean_over_active_steps": {
+                  "current_absmax": 1.7891409397125244,
+                  "current_rms": 0.8354489207267761,
+                  "voltage_absmax": 3.8508825302124023,
+                  "voltage_rms": 1.3822599232196808,
+                  "unit_spike_max": 4.2,
+                  "unit_spike_mean": 1.7125,
+                  "firing_fraction": 0.6375
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 1.7891409397125244,
+                  "current_rms": 0.8354489207267761,
+                  "voltage_absmax": 4.516452789306641,
+                  "voltage_rms": 1.5698273181915283,
+                  "unit_spike_max": 5.0,
+                  "unit_spike_mean": 1.875,
+                  "firing_fraction": 0.6875
+                }
+              },
+              "hidden": {
+                "mean_over_active_steps": {
+                  "current_absmax": 2.356020140647888,
+                  "current_rms": 0.97828528881073,
+                  "voltage_absmax": 9.826385450363158,
+                  "voltage_rms": 2.5456027567386625,
+                  "unit_spike_max": 8.9,
+                  "unit_spike_mean": 1.4747065305709839,
+                  "firing_fraction": 0.41020221412181856
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 2.591496229171753,
+                  "current_rms": 1.071603536605835,
+                  "voltage_absmax": 15.7035493850708,
+                  "voltage_rms": 3.8018651008605957,
+                  "unit_spike_max": 10.0,
+                  "unit_spike_mean": 1.66227126121521,
+                  "firing_fraction": 0.4350716471672058
+                }
+              },
+              "head": {
+                "mean_over_active_steps": {
+                  "current_absmax": 2.440936267375946,
+                  "current_rms": 0.9279764592647552,
+                  "voltage_absmax": 4.54247373342514,
+                  "voltage_rms": 1.5515452563762664,
+                  "unit_spike_max": 9.6,
+                  "unit_spike_mean": 1.3524047613143921,
+                  "firing_fraction": 0.4142841875553131
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 2.693556547164917,
+                  "current_rms": 1.0106852054595947,
+                  "voltage_absmax": 5.453582763671875,
+                  "voltage_rms": 1.8245882987976074,
+                  "unit_spike_max": 11.0,
+                  "unit_spike_mean": 1.5180703401565552,
+                  "firing_fraction": 0.4351460635662079
+                }
+              }
+            },
+            "candidate_logits": {
+              "count": 3829760,
+              "absmax": 6.134462833404541,
+              "rms": 2.484893314648991,
+              "fp32_probability_saturation_fraction": 0.0
+            },
+            "pre_clip_gradients": {
+              "backward_passes": 1,
+              "global_norm_mean": 169.025250930049,
+              "global_norm_max": 169.025250930049,
+              "fraction_above_clip_limit": 1.0,
+              "parameter_norm_mean": {
+                "bias": 1.1892026662826538,
+                "stem.weight": 154.43606567382812,
+                "hidden.weight": 67.9775619506836,
+                "head.weight": 9.832290649414062
+              },
+              "parameter_norm_max": {
+                "bias": 1.1892026662826538,
+                "stem.weight": 154.43606567382812,
+                "hidden.weight": 67.9775619506836,
+                "head.weight": 9.832290649414062
+              }
+            },
+            "warnings": [
+              "more_than_half_of_gradients_exceed_clip_limit"
+            ],
+            "failure_limits": {
+              "max_unit_burst": 256.0,
+              "max_abs_voltage_in_thresholds": 4096.0,
+              "max_abs_logit": 80.0,
+              "max_gradient_norm": 10000.0,
+              "max_loss": 100.0
+            }
+          }
+        },
+        {
+          "name": "train_main_ordinary",
+          "sequences": [
+            "train/train_031.npz",
+            "train/train_029.npz"
+          ],
+          "objective_values": [
+            0.6689693331718445,
+            0.6878076791763306,
+            0.7105380892753601,
+            0.7338029146194458
+          ],
+          "parameters_unchanged": true,
+          "gradient_clipping_applied": false,
+          "stability": {
+            "active_stream_steps": 80,
+            "layer_statistics_scope": "Per-stream full-grid statistics; means weighted by active steps, excluding padded slots",
+            "layers": {
+              "stem": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.7281101778149605,
+                  "current_rms": 0.016653659602161495,
+                  "voltage_absmax": 0.8350652426481247,
+                  "voltage_rms": 0.019984129525255412,
+                  "unit_spike_max": 2.275,
+                  "unit_spike_mean": 0.000796916795297875,
+                  "firing_fraction": 0.0007368608086835593
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 1.0832592248916626,
+                  "current_rms": 0.022748630493879318,
+                  "voltage_absmax": 1.674138069152832,
+                  "voltage_rms": 0.025306805968284607,
+                  "unit_spike_max": 3.0,
+                  "unit_spike_mean": 0.001305564888752997,
+                  "firing_fraction": 0.001284675789065659
+                }
+              },
+              "hidden": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.38301849979907276,
+                  "current_rms": 0.010624287324026227,
+                  "voltage_absmax": 0.9672714104875922,
+                  "voltage_rms": 0.020785269630141556,
+                  "unit_spike_max": 1.2125,
+                  "unit_spike_mean": 0.00021646265391837006,
+                  "firing_fraction": 0.00021372096758796034
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 0.7085118889808655,
+                  "current_rms": 0.01395174115896225,
+                  "voltage_absmax": 1.4562702178955078,
+                  "voltage_rms": 0.024900071322917938,
+                  "unit_spike_max": 2.0,
+                  "unit_spike_mean": 0.0005535595118999481,
+                  "firing_fraction": 0.0005274481954984367
+                }
+              },
+              "head": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.3972111653536558,
+                  "current_rms": 0.004961432707204949,
+                  "voltage_absmax": 0.46687707137316464,
+                  "voltage_rms": 0.00656351147335954,
+                  "unit_spike_max": 1.0375,
+                  "unit_spike_mean": 3.410788204405435e-05,
+                  "firing_fraction": 3.369989308907861e-05
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 0.8462563753128052,
+                  "current_rms": 0.008779453113675117,
+                  "voltage_absmax": 0.8345948457717896,
+                  "voltage_rms": 0.010826459154486656,
+                  "unit_spike_max": 2.0,
+                  "unit_spike_mean": 0.00020758481696248055,
+                  "firing_fraction": 0.00019844586495310068
+                }
+              }
+            },
+            "candidate_logits": {
+              "count": 4362,
+              "absmax": 2.703993558883667,
+              "rms": 2.230351916990229,
+              "fp32_probability_saturation_fraction": 0.0
+            },
+            "pre_clip_gradients": {
+              "backward_passes": 4,
+              "global_norm_mean": 0.12435998188979183,
+              "global_norm_max": 0.14679567728199663,
+              "fraction_above_clip_limit": 0.0,
+              "parameter_norm_mean": {
+                "bias": 0.026788487564772367,
+                "stem.weight": 0.087770476937294,
+                "hidden.weight": 0.08287722058594227,
+                "head.weight": 0.010621229419484735
+              },
+              "parameter_norm_max": {
+                "bias": 0.030274227261543274,
+                "stem.weight": 0.10975981503725052,
+                "hidden.weight": 0.09287594258785248,
+                "head.weight": 0.011471636593341827
+              }
+            },
+            "warnings": [],
+            "failure_limits": {
+              "max_unit_burst": 256.0,
+              "max_abs_voltage_in_thresholds": 4096.0,
+              "max_abs_logit": 80.0,
+              "max_gradient_norm": 10000.0,
+              "max_loss": 100.0
+            }
+          }
+        },
+        {
+          "name": "train_main_high_density",
+          "sequences": [
+            "train/train_096.npz",
+            "train/train_098.npz"
+          ],
+          "objective_values": [
+            0.534561038017273,
+            0.5449342131614685,
+            0.5487164855003357,
+            0.5656579732894897
+          ],
+          "parameters_unchanged": true,
+          "gradient_clipping_applied": false,
+          "stability": {
+            "active_stream_steps": 80,
+            "layer_statistics_scope": "Per-stream full-grid statistics; means weighted by active steps, excluding padded slots",
+            "layers": {
+              "stem": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.8696412675082683,
+                  "current_rms": 0.05456317309290171,
+                  "voltage_absmax": 1.060182872414589,
+                  "voltage_rms": 0.06551426537334919,
+                  "unit_spike_max": 2.7375,
+                  "unit_spike_mean": 0.0078094973810948435,
+                  "firing_fraction": 0.007461694889934733
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 1.160421371459961,
+                  "current_rms": 0.06356406211853027,
+                  "voltage_absmax": 1.339552402496338,
+                  "voltage_rms": 0.07461311668157578,
+                  "unit_spike_max": 4.0,
+                  "unit_spike_mean": 0.010486297309398651,
+                  "firing_fraction": 0.010005849413573742
+                }
+              },
+              "hidden": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.43227891586720946,
+                  "current_rms": 0.03283454310148955,
+                  "voltage_absmax": 1.1869007468223571,
+                  "voltage_rms": 0.06354020102880895,
+                  "unit_spike_max": 1.4,
+                  "unit_spike_mean": 0.0012528200464657856,
+                  "firing_fraction": 0.001248576961188519
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 0.7156945466995239,
+                  "current_rms": 0.03837883844971657,
+                  "voltage_absmax": 1.7594579458236694,
+                  "voltage_rms": 0.07273217290639877,
+                  "unit_spike_max": 2.0,
+                  "unit_spike_mean": 0.002146348590031266,
+                  "firing_fraction": 0.0021202373318374157
+                }
+              },
+              "head": {
+                "mean_over_active_steps": {
+                  "current_absmax": 0.4723900929093361,
+                  "current_rms": 0.012365802971180529,
+                  "voltage_absmax": 0.5692049082368612,
+                  "voltage_rms": 0.015759772283490747,
+                  "unit_spike_max": 1.275,
+                  "unit_spike_mean": 8.84356995697999e-05,
+                  "firing_fraction": 8.716277396842997e-05
+                },
+                "max_over_active_steps": {
+                  "current_absmax": 0.8115876913070679,
+                  "current_rms": 0.0165074672549963,
+                  "voltage_absmax": 0.9101735353469849,
+                  "voltage_rms": 0.02057904377579689,
+                  "unit_spike_max": 3.0,
+                  "unit_spike_mean": 0.00032116894726641476,
+                  "firing_fraction": 0.0003068077494390309
+                }
+              }
+            },
+            "candidate_logits": {
+              "count": 19919,
+              "absmax": 2.727674722671509,
+              "rms": 2.232360376928757,
+              "fp32_probability_saturation_fraction": 0.0
+            },
+            "pre_clip_gradients": {
+              "backward_passes": 4,
+              "global_norm_mean": 0.03470551934996775,
+              "global_norm_max": 0.057556924746775526,
+              "fraction_above_clip_limit": 0.0,
+              "parameter_norm_mean": {
+                "bias": 0.006464090431109071,
+                "stem.weight": 0.02752676699310541,
+                "hidden.weight": 0.01978521840646863,
+                "head.weight": 0.0025094352895393968
+              },
+              "parameter_norm_max": {
+                "bias": 0.009051438421010971,
+                "stem.weight": 0.044857803732156754,
+                "hidden.weight": 0.034689489752054214,
+                "head.weight": 0.003909960854798555
+              }
+            },
+            "warnings": [],
+            "failure_limits": {
+              "max_unit_burst": 256.0,
+              "max_abs_voltage_in_thresholds": 4096.0,
+              "max_abs_logit": 80.0,
+              "max_gradient_norm": 10000.0,
+              "max_loss": 100.0
+            }
+          }
+        }
+      ]
+    },
+    "test_artifacts": {
+      "results/runs/h2pro_v2_checks/unit_tests_final_20261011.json": "be28aae381e23b48b75a7449681276236cade480e59a28c82a1e77c84b88f0c9",
+      "results/runs/h2pro_v2_checks/unit_tests_final_20261011.log": "5018774eb30de09ab3ba9cfca45bc50d12916fc91d94d161111a194d4c2e7fa6"
+    },
+    "environment_note": "Initial full regression encountered Windows sandbox default temp-directory permissions; redirected test temporary files into the workspace and reran all 176 successfully. No permission escalation or training was required."
+  },
+  "next_manual_command": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\train_local_4060_v2.ps1 -Action train -Epochs 1",
+  "review_after_one_epoch": [
+    "Candidate-weighted focal/IoU/KD/spike losses",
+    "Support-region spike rates and layer burst/voltage maxima",
+    "Pre-clip gradient norm distribution and fraction over clipping limit",
+    "Weight norm drift and logit saturation",
+    "Full Train-dev IoU/precision/recall and high-density FP/FN against frozen H2-pro",
+    "Selected logit threshold and scan boundary",
+    "Measured full-epoch allocated/reserved memory and elapsed time"
+  ],
+  "limitations": [
+    "No v2 fitting, convergence or accuracy improvement has been demonstrated.",
+    "Prefix initialization checks are not full-epoch resource measurements.",
+    "Dense synthetic objective exceeds the training gradient-clip limit (169.03 versus 5); no clipping or weight update was applied in the check. Real prefix gradients stayed below 5.",
+    "This is a combined stability revision, not a one-variable causal ablation.",
+    "Migration modes, learned routing, sparse execution, full-chain cost and hardware claims remain outside this revision."
+  ]
+}

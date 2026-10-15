@@ -1,0 +1,717 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "status": "one_epoch_completed_stress_gate_failed",
+  "training_authorization": "Direct user authorization on 2026-10-12 after checks; agent launched one fresh seed42 epoch",
+  "run": "results/runs/h2pro_refiner_fixed_v2_2_s42",
+  "completed_epochs": 1,
+  "launched_by": "user_authorized_agent",
+  "regressions": {
+    "tests": 227,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success": true,
+    "python": "C:\\Anaconda\\envs\\gazelle-train\\python.exe"
+  },
+  "type_check": "0 errors,0 warnings",
+  "comparison_scope": "Both versions trained from the same initial parameters, same seed42 ordering and one complete epoch; same 79/10 Train-main/Train-dev splits and registered logit grid",
+  "v2_1_epoch1": {
+    "threshold_logit": 4.0,
+    "overall": {
+      "events": 1221626,
+      "target_events": 30254,
+      "candidate_events": 438966,
+      "candidate_targets": 29776,
+      "proposal_fn": 478,
+      "refiner_fn": 16512,
+      "tp": 13264,
+      "fp": 9680,
+      "fn": 16990,
+      "tn": 1181692,
+      "iou": 0.33214804427305056,
+      "precision": 0.5781032078103208,
+      "recall": 0.43842136576981555,
+      "proposal_target_recall": 0.984200436305943,
+      "refiner_conditional_recall": 0.445459430413756,
+      "candidate_fraction": 0.3593292873596338
+    },
+    "high_density": {
+      "events": 988281,
+      "target_events": 9766,
+      "candidate_events": 386938,
+      "candidate_targets": 9311,
+      "proposal_fn": 455,
+      "refiner_fn": 5882,
+      "tp": 3429,
+      "fp": 4876,
+      "fn": 6337,
+      "tn": 973639,
+      "iou": 0.2341893183991258,
+      "precision": 0.41288380493678506,
+      "recall": 0.3511161171411018,
+      "proposal_target_recall": 0.9534097890640999,
+      "refiner_conditional_recall": 0.36827408441628184,
+      "candidate_fraction": 0.3915262966706837
+    },
+    "ordinary": {
+      "events": 233345,
+      "target_events": 20488,
+      "candidate_events": 52028,
+      "candidate_targets": 20465,
+      "proposal_fn": 23,
+      "refiner_fn": 10630,
+      "tp": 9835,
+      "fp": 4804,
+      "fn": 10653,
+      "tn": 208053,
+      "iou": 0.38885813696030364,
+      "precision": 0.6718355078898832,
+      "recall": 0.4800370948848106,
+      "proposal_target_recall": 0.9988773916438891,
+      "refiner_conditional_recall": 0.4805765941851942,
+      "candidate_fraction": 0.22296599455741498
+    },
+    "online_training_total_loss": 0.8472725633477158,
+    "online_training_base_loss_without_new_term": 0.8472725633477158,
+    "online_training_head_loss_weighted": 0.0,
+    "loss_parts_unweighted": {
+      "focal": 0.21767120491129147,
+      "soft_iou": 0.8987133391831545,
+      "kd": 0.9011646014984729,
+      "spike": 0.011762320885318272
+    },
+    "training_head_burst_max": 228.0,
+    "training_head_abs_voltage_max": 85.24678802490234,
+    "training_logits": {
+      "count": 2219864,
+      "min": -4.357256889343262,
+      "max": 84.84324645996094,
+      "absmax": 84.84324645996094,
+      "rms": 5.149330326177933,
+      "fp32_probability_saturation_fraction": 0.020842718292652163,
+      "above_warning_count": 17,
+      "above_warning_fraction": 7.65812680416458e-06,
+      "warning_batches": 3
+    },
+    "training_gradients": {
+      "backward_passes": 3113,
+      "global_norm_mean": 1.6275861854997062,
+      "global_norm_max": 72.74556732177734,
+      "fraction_above_clip_limit": 0.021522646964343077,
+      "parameter_norm_mean": {
+        "bias": 0.07776619092143361,
+        "stem.weight": 1.4670915157421096,
+        "hidden.weight": 0.6433246379165913,
+        "head.weight": 0.18386080533340518
+      },
+      "parameter_norm_max": {
+        "bias": 0.7390531301498413,
+        "stem.weight": 68.01174926757812,
+        "hidden.weight": 24.4543399810791,
+        "head.weight": 8.263455390930176
+      },
+      "last_observed_norm": 3.033207416534424
+    },
+    "dev_head_burst_max": 103.0,
+    "dev_logits": {
+      "count": 438966,
+      "min": -3.398249626159668,
+      "max": 35.257568359375,
+      "absmax": 35.257568359375,
+      "rms": 2.338700996856733,
+      "fp32_probability_saturation_fraction": 0.0012483882578605177,
+      "above_warning_count": 0,
+      "above_warning_fraction": 0.0,
+      "warning_batches": 0
+    },
+    "epoch_peak_allocated_mib": 437.89453125,
+    "epoch_peak_reserved_mib": 506.0,
+    "train_seconds": 199.74534820000008,
+    "dev_seconds": 16.757370599998467,
+    "best_replay_seconds": 17.876347199999145,
+    "cost": {
+      "scope": "SNN Refiner reference only; closed-prefix event encoding and frozen Proposal excluded",
+      "dense_backend_synaptic_mac_estimate": 412580440064,
+      "active_cell_stem_mac_estimate": 1111025664,
+      "ideal_nonzero_input_stem_mac_upper_bound": 38806688,
+      "ideal_unit_spike_ac_upper_bound": 6642700128,
+      "reference_leak_scalar_multiplications": 8320153600,
+      "reference_charge_scale_scalar_multiplications": 2269132800,
+      "logical_stream_steps": 7590,
+      "executed_stream_steps_including_batch_padding": 7900,
+      "state_scalars_per_stream": 1059168,
+      "moved_sources": 0,
+      "spike_convolution_zero_skip_implemented": false,
+      "ac_note": "Burst n counts as n unit-spike additions with theta-scaled weights; dense reference scales charge explicitly; 3x3 fanout includes padding (upper bound)",
+      "count_basis": "Executed tensor shapes and observed spike counts; dense-convolution equivalent, not GPU instruction counters",
+      "end_to_end_complete": false,
+      "energy_measured": false,
+      "unaccounted_components": [
+        "frozen Proposal",
+        "event encoding",
+        "diagnostic reductions",
+        "threshold/reset/bias/max/probability operations",
+        "memory traffic"
+      ]
+    },
+    "mean_support_spikes_per_neuron_step": [
+      0.029443170683365764,
+      0.07994934627764337
+    ]
+  },
+  "v2_2_epoch1": {
+    "threshold_logit": 4.0,
+    "overall": {
+      "events": 1221626,
+      "target_events": 30254,
+      "candidate_events": 438966,
+      "candidate_targets": 29776,
+      "proposal_fn": 478,
+      "refiner_fn": 16743,
+      "tp": 13033,
+      "fp": 8275,
+      "fn": 17221,
+      "tn": 1183097,
+      "iou": 0.3382646837447118,
+      "precision": 0.6116482072461048,
+      "recall": 0.43078601176703907,
+      "proposal_target_recall": 0.984200436305943,
+      "refiner_conditional_recall": 0.43770150456743684,
+      "candidate_fraction": 0.3593292873596338
+    },
+    "high_density": {
+      "events": 988281,
+      "target_events": 9766,
+      "candidate_events": 386938,
+      "candidate_targets": 9311,
+      "proposal_fn": 455,
+      "refiner_fn": 5981,
+      "tp": 3330,
+      "fp": 4343,
+      "fn": 6436,
+      "tn": 974172,
+      "iou": 0.2360195619817138,
+      "precision": 0.4339893131760719,
+      "recall": 0.34097890640999384,
+      "proposal_target_recall": 0.9534097890640999,
+      "refiner_conditional_recall": 0.357641499301901,
+      "candidate_fraction": 0.3915262966706837
+    },
+    "ordinary": {
+      "events": 233345,
+      "target_events": 20488,
+      "candidate_events": 52028,
+      "candidate_targets": 20465,
+      "proposal_fn": 23,
+      "refiner_fn": 10762,
+      "tp": 9703,
+      "fp": 3932,
+      "fn": 10785,
+      "tn": 208925,
+      "iou": 0.39733824733824735,
+      "precision": 0.7116244957829116,
+      "recall": 0.4735942991019133,
+      "proposal_target_recall": 0.9988773916438891,
+      "refiner_conditional_recall": 0.47412655753725874,
+      "candidate_fraction": 0.22296599455741498
+    },
+    "online_training_total_loss": 0.7864495054147577,
+    "online_training_base_loss_without_new_term": 0.7801724360134243,
+    "online_training_head_loss_weighted": 0.006277069401333341,
+    "loss_parts_unweighted": {
+      "focal": 0.18080377930693836,
+      "soft_iou": 0.8993251942310287,
+      "kd": 0.7484959836277076,
+      "spike": 0.006858779183483542,
+      "head_voltage": 0.0627706940133334,
+      "head_voltage_positive": 0.012191039580644441,
+      "head_voltage_negative": 0.05057965405676252
+    },
+    "training_head_burst_max": 181.0,
+    "training_head_abs_voltage_max": 72.09093475341797,
+    "training_logits": {
+      "count": 2219864,
+      "min": -3.999701976776123,
+      "max": 78.77299499511719,
+      "absmax": 78.77299499511719,
+      "rms": 4.3512736383343595,
+      "fp32_probability_saturation_fraction": 0.01628523188807963,
+      "above_warning_count": 0,
+      "above_warning_fraction": 0.0,
+      "warning_batches": 0
+    },
+    "training_gradients": {
+      "backward_passes": 3113,
+      "global_norm_mean": 1.6487217406784758,
+      "global_norm_max": 77.971923828125,
+      "fraction_above_clip_limit": 0.027947317699967878,
+      "parameter_norm_mean": {
+        "bias": 0.07811758288598467,
+        "stem.weight": 1.4886536848359768,
+        "hidden.weight": 0.6479856318764573,
+        "head.weight": 0.1748862658459955
+      },
+      "parameter_norm_max": {
+        "bias": 0.7275329828262329,
+        "stem.weight": 73.40691375732422,
+        "hidden.weight": 25.06016731262207,
+        "head.weight": 7.9380717277526855
+      },
+      "last_observed_norm": 3.335165500640869
+    },
+    "dev_head_burst_max": 81.0,
+    "dev_logits": {
+      "count": 438966,
+      "min": -3.1695244312286377,
+      "max": 33.99629592895508,
+      "absmax": 33.99629592895508,
+      "rms": 2.273339076858056,
+      "fp32_probability_saturation_fraction": 0.0010114678585585216,
+      "above_warning_count": 0,
+      "above_warning_fraction": 0.0,
+      "warning_batches": 0
+    },
+    "epoch_peak_allocated_mib": 490.50927734375,
+    "epoch_peak_reserved_mib": 554.0,
+    "train_seconds": 222.2305355999997,
+    "dev_seconds": 19.27566200000001,
+    "best_replay_seconds": 18.520164100002148,
+    "cost": {
+      "scope": "SNN Refiner reference only; closed-prefix event encoding and frozen Proposal excluded",
+      "dense_backend_synaptic_mac_estimate": 412580440064,
+      "active_cell_stem_mac_estimate": 1111025664,
+      "ideal_nonzero_input_stem_mac_upper_bound": 38806688,
+      "ideal_unit_spike_ac_upper_bound": 5850359232,
+      "reference_leak_scalar_multiplications": 8320153600,
+      "reference_charge_scale_scalar_multiplications": 2269132800,
+      "logical_stream_steps": 7590,
+      "executed_stream_steps_including_batch_padding": 7900,
+      "state_scalars_per_stream": 1059168,
+      "moved_sources": 0,
+      "spike_convolution_zero_skip_implemented": false,
+      "ac_note": "Burst n counts as n unit-spike additions with theta-scaled weights; dense reference scales charge explicitly; 3x3 fanout includes padding (upper bound)",
+      "count_basis": "Executed tensor shapes and observed spike counts; dense-convolution equivalent, not GPU instruction counters",
+      "end_to_end_complete": false,
+      "energy_measured": false,
+      "unaccounted_components": [
+        "frozen Proposal",
+        "event encoding",
+        "diagnostic reductions",
+        "threshold/reset/bias/max/probability operations",
+        "memory traffic"
+      ]
+    },
+    "mean_support_spikes_per_neuron_step": [
+      0.028010513575039028,
+      0.06823578581295625
+    ]
+  },
+  "delta_percentage_points": {
+    "overall": {
+      "iou": 0.6116639471661245,
+      "precision": 3.354499943578404,
+      "recall": -0.7635354002776484
+    },
+    "high_density": {
+      "iou": 0.18302435825880148,
+      "precision": 2.110550823928686,
+      "recall": -1.013721073110796
+    },
+    "ordinary": {
+      "iou": 0.8480110377943717,
+      "precision": 3.9788987893028427,
+      "recall": -0.6442795782897304
+    }
+  },
+  "training_coverage": {
+    "events": 7154631,
+    "candidate_events": 2219864,
+    "windows": 6166,
+    "updates": 3113,
+    "batches": 3115
+  },
+  "post_training_hard_prefix": {
+    "phase": "post_training",
+    "trained_checkpoint": "results\\runs\\h2pro_refiner_fixed_v2_2_s42\\best.pt",
+    "prefix": {
+      "weights": "trained_v2_2",
+      "sequence": "train/train_098.npz",
+      "windows": [
+        {
+          "window": 0,
+          "unit_burst_max_by_layer": [
+            6.0,
+            10.0,
+            28.0
+          ],
+          "voltage_absmax_by_layer": [
+            1.6529847383499146,
+            2.606335163116455,
+            7.105264663696289
+          ],
+          "head_tail_sign_means": [
+            0.0,
+            0.0
+          ],
+          "max_candidate_logit": 8.17387580871582,
+          "background_above80": 0,
+          "guard": null
+        },
+        {
+          "window": 1,
+          "unit_burst_max_by_layer": [
+            6.0,
+            12.0,
+            34.0
+          ],
+          "voltage_absmax_by_layer": [
+            1.6015385389328003,
+            3.624829053878784,
+            8.590174674987793
+          ],
+          "head_tail_sign_means": [
+            0.0,
+            0.0
+          ],
+          "max_candidate_logit": 8.675355911254883,
+          "background_above80": 0,
+          "guard": null
+        },
+        {
+          "window": 2,
+          "unit_burst_max_by_layer": [
+            6.0,
+            11.0,
+            32.0
+          ],
+          "voltage_absmax_by_layer": [
+            1.5649486780166626,
+            4.790379047393799,
+            8.382953643798828
+          ],
+          "head_tail_sign_means": [
+            0.0,
+            0.0
+          ],
+          "max_candidate_logit": 8.31389045715332,
+          "background_above80": 0,
+          "guard": null
+        },
+        {
+          "window": 3,
+          "unit_burst_max_by_layer": [
+            7.0,
+            13.0,
+            40.0
+          ],
+          "voltage_absmax_by_layer": [
+            1.8330751657485962,
+            5.519330024719238,
+            10.068431854248047
+          ],
+          "head_tail_sign_means": [
+            0.0,
+            0.0
+          ],
+          "max_candidate_logit": 15.602812767028809,
+          "background_above80": 0,
+          "guard": null
+        },
+        {
+          "window": 4,
+          "unit_burst_max_by_layer": [
+            18.0,
+            61.0,
+            184.0
+          ],
+          "voltage_absmax_by_layer": [
+            4.504772186279297,
+            15.359431266784668,
+            46.21311569213867
+          ],
+          "head_tail_sign_means": [
+            0.36467498540878296,
+            0.14558984339237213
+          ],
+          "max_candidate_logit": 65.79957580566406,
+          "background_above80": 0,
+          "guard": null
+        },
+        {
+          "window": 5,
+          "unit_burst_max_by_layer": [
+            19.0,
+            90.0,
+            264.0
+          ],
+          "voltage_absmax_by_layer": [
+            4.77178955078125,
+            22.550315856933594,
+            74.09645080566406
+          ],
+          "head_tail_sign_means": [
+            1.6976721286773682,
+            4.007791042327881
+          ],
+          "max_candidate_logit": 110.16574096679688,
+          "background_above80": 58,
+          "guard": "V2.2 hard guard: max_unit_burst=264 exceeds 256"
+        }
+      ],
+      "parameters_unchanged": true,
+      "all_guards_passed": false
+    },
+    "old_files_preserved": true,
+    "parameter_updates_in_this_check": 0
+  },
+  "post_training_all_train_main": {
+    "status": "finite_budget_outliers_found",
+    "role": "train_main",
+    "scope": "All frozen training prefixes, final checkpoint constant throughout; not online training or a new accuracy selection",
+    "checkpoint_epoch": 1,
+    "events": 7154631,
+    "windows": 6166,
+    "batches": 3115,
+    "hard_guard_outlier_batches": [
+      {
+        "batch": 322,
+        "message": "V2.2 hard guard: max_unit_burst=264 exceeds 256",
+        "refs": [
+          {
+            "sequence": "train/train_098.npz",
+            "slot": 0,
+            "window": 5
+          },
+          {
+            "sequence": "train/train_042.npz",
+            "slot": 1,
+            "window": 5
+          }
+        ]
+      },
+      {
+        "batch": 1429,
+        "message": "V2.2 hard guard: max_unit_burst=268 exceeds 256",
+        "refs": [
+          {
+            "sequence": "train/train_043.npz",
+            "slot": 0,
+            "window": 41
+          },
+          {
+            "sequence": "train/train_097.npz",
+            "slot": 1,
+            "window": 6
+          }
+        ]
+      },
+      {
+        "batch": 2210,
+        "message": "V2.2 hard guard: max_unit_burst=259 exceeds 256",
+        "refs": [
+          {
+            "sequence": "train/train_088.npz",
+            "slot": 0,
+            "window": 32
+          },
+          {
+            "sequence": "train/train_096.npz",
+            "slot": 1,
+            "window": 76
+          }
+        ]
+      }
+    ],
+    "stability": {
+      "active_stream_steps": 61660,
+      "layer_statistics_scope": "Full-grid per active stream step; padded slots excluded",
+      "layers": {
+        "stem": {
+          "mean_over_active_steps": {
+            "current_absmax": 0.8706528558896959,
+            "current_rms": 0.020448791408684636,
+            "voltage_absmax": 0.919560815964137,
+            "voltage_rms": 0.02414542713421622,
+            "unit_spike_max": 3.1601686668829063,
+            "unit_spike_mean": 0.004307106680443927,
+            "firing_fraction": 0.0035811858518615316
+          },
+          "max_over_active_steps": {
+            "current_absmax": 5.6855268478393555,
+            "current_rms": 0.11007574200630188,
+            "voltage_absmax": 5.830291271209717,
+            "voltage_rms": 0.11953102797269821,
+            "unit_spike_max": 23.0,
+            "unit_spike_mean": 0.053110379725694656,
+            "firing_fraction": 0.03964739292860031
+          }
+        },
+        "hidden": {
+          "mean_over_active_steps": {
+            "current_absmax": 1.4441611681667592,
+            "current_rms": 0.036186399629255066,
+            "voltage_absmax": 3.56930233184363,
+            "voltage_rms": 0.06206373776134324,
+            "unit_spike_max": 5.700454103146286,
+            "unit_spike_mean": 0.015395241639276882,
+            "firing_fraction": 0.011047695650779487
+          },
+          "max_over_active_steps": {
+            "current_absmax": 22.54325294494629,
+            "current_rms": 0.3618978261947632,
+            "voltage_absmax": 38.50749206542969,
+            "voltage_rms": 0.49175354838371277,
+            "unit_spike_max": 91.0,
+            "unit_spike_mean": 0.2529087960720062,
+            "firing_fraction": 0.14786306023597717
+          }
+        },
+        "head": {
+          "mean_over_active_steps": {
+            "current_absmax": 3.994594584826889,
+            "current_rms": 0.07280619343198186,
+            "voltage_absmax": 5.472303452166,
+            "voltage_rms": 0.11399196666303385,
+            "unit_spike_max": 15.736101200129744,
+            "unit_spike_mean": 0.019479656428249944,
+            "firing_fraction": 0.008455463322144993
+          },
+          "max_over_active_steps": {
+            "current_absmax": 67.20230102539062,
+            "current_rms": 0.9283838868141174,
+            "voltage_absmax": 74.26870727539062,
+            "voltage_rms": 1.4958831071853638,
+            "unit_spike_max": 268.0,
+            "unit_spike_mean": 0.3675817847251892,
+            "firing_fraction": 0.11452414840459824
+          }
+        }
+      },
+      "candidate_logits": {
+        "count": 2208127,
+        "min": -4.5894775390625,
+        "max": 110.23358154296875,
+        "absmax": 110.23358154296875,
+        "rms": 7.075890845183087,
+        "fp32_probability_saturation_fraction": 0.03390158265353397,
+        "above_warning_count": 280,
+        "above_warning_fraction": 0.00012680430065843134,
+        "warning_batches": 15
+      },
+      "pre_clip_gradients": {
+        "backward_passes": 0,
+        "global_norm_mean": 0.0,
+        "global_norm_max": 0.0,
+        "fraction_above_clip_limit": 0.0,
+        "parameter_norm_mean": {},
+        "parameter_norm_max": {},
+        "last_observed_norm": null
+      },
+      "last_observed_loss": null,
+      "warnings": [
+        "finite_candidate_logit_magnitude",
+        "fp32_probability_saturation_above_0.1_percent"
+      ],
+      "failure_limits": {
+        "max_unit_burst": 256.0,
+        "max_abs_voltage_in_thresholds": 4096.0,
+        "max_gradient_norm": 10000.0,
+        "max_loss": 100.0
+      },
+      "warning_limits": {
+        "max_abs_logit": 80.0
+      },
+      "finite_logit_policy": "Advisory only; no clipping or automatic hyperparameter change"
+    },
+    "mean_signed_head_tail_per_active_step": [
+      0.032052330279966526,
+      0.10280106324585113
+    ],
+    "parameters_unchanged": true,
+    "optimizer_created": false,
+    "parameter_updates": 0,
+    "elapsed_seconds": 144.04682460000186,
+    "sources": {
+      "software/wangdao/h2pro_snn/__init__.py": "1a2dad08b56e7094d6acd275875875a36ed30aaa5afd31e82dbf3391ef08d9d2",
+      "software/wangdao/h2pro_snn/ann_worker.py": "d3179f2a18f9aa7f2e46520236517a664530c11fa4b9ff759208034dd98e0d1e",
+      "software/wangdao/h2pro_snn/cache_worker.py": "23cde41381ae29c53d15988f42fdaf80c965310a365187577312a91b77ffb8c7",
+      "software/wangdao/h2pro_snn/costs.py": "9902d3e104a2f2fb61ecb68b5e410a762e58edd48e3bbb22a94e887b43fe3b64",
+      "software/wangdao/h2pro_snn/diagnostics.py": "adaef9137403c674a265ea10961df10ef41b76789cca1e4d66ab97ad723b99bf",
+      "software/wangdao/h2pro_snn/foundation.py": "6216de658af2517e3e1eb8c092c2f61f62e5e5efff2be918c02631863aa126b8",
+      "software/wangdao/h2pro_snn/refiner.py": "b2311449a7e6acbe5b8c666d7b0ee66aa5a1ad2e7022a0f8e05b919da1b45718",
+      "software/wangdao/h2pro_snn/stream_data.py": "8eb8d9e574255610991eda2e6c0f48f0fa79b6830a505d4f115f9dcb8ff86528",
+      "software/wangdao/h2pro_snn/torch_cell.py": "45fdc154a28c9fb0b30cbbbf5703efdccfd9c45e6eb1fcb1317981043819fd52",
+      "software/wangdao/h2pro_snn/training.py": "57eff4a4bebe6f2ab63b3266ea1bcbeb6fad6f386d4a552a0ede1e1ab19c106e",
+      "software/wangdao/h2pro_snn/transport.py": "e8900a92ab1fe945b630f3bb2b42eb002633fde71893b04d9e5e741fb954ea41",
+      "software/wangdao/h2pro_snn/baseline_lock.json": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+      "software/wangdao/h2pro_snn/local_4060.json": "0e733a11bbc5a5c0203fd114d2cefe7448bf640bf611443766b5ac03e16feae4",
+      "software/wangdao/h2pro_snn/protocol.json": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58",
+      "software/scripts/h2pro_snn.py": "327b222c647d0c32cac541076c96ab4106dbe56c5135a96b84002dc677bbbfb7",
+      "software/scripts/train_h2pro_refiner.py": "3b52a98a072d39e73c5981fdf7a35233d1cb64e2806df0f15c668ae71a052baf",
+      "software/wangdao/h2pro_snn_v2/__init__.py": "b00c6eb98a126fd2d5112ec13c4d85dbfe0a462fd1bc4c1d75f255d889776005",
+      "software/wangdao/h2pro_snn_v2/foundation.py": "82fca9b4a85f6ddea1150ba4140cfd0decbc7ae3e2b73c6778f35e002650d42b",
+      "software/wangdao/h2pro_snn_v2/monitor.py": "dbf87429fec2691727389ec5623c6d33c02214effc33887e8f5f37144fd748da",
+      "software/wangdao/h2pro_snn_v2/neurons.py": "9467b3b57c92af971ae6d4563afb6b2f75bcf7d3bd7a777f6aabd2ecef7e11da",
+      "software/wangdao/h2pro_snn_v2/refiner.py": "154ff4dbd40ac6d2105984cbf74aeeaad42af940f75859120c23ee1d16a70267",
+      "software/wangdao/h2pro_snn_v2/training.py": "2a8ce72e4636533b665fbca1c58837b8b0e2845a2e7625ed853c518dc8f5c246",
+      "software/wangdao/h2pro_snn_v2/local_4060.json": "8e89522c8dd64eee107a909a64cf439cf10e8ce7e8d95ceca4164de06721d786",
+      "software/wangdao/h2pro_snn_v2/protocol.json": "de8892f0709b240cf425254ef46d1eca39aa43fdb7e1da98d7a19170332307e8",
+      "software/scripts/train_h2pro_refiner_v2.py": "b403b6899963cd2a590aeeee2f5276fdf0433ff32802292ba75505539a31ee03",
+      "train_local_4060_v2.ps1": "af32b5b7eac90e095f22d57bf64af1ff337da41eedec0a67d2fd80c4a98dea7c",
+      "software/wangdao/h2pro_snn_v2_1/__init__.py": "7a5a5ce6b0d0cdb15b2680a67d98e83ddd68dcc6256c41c5f48d403de583bae4",
+      "software/wangdao/h2pro_snn_v2_1/diagnostics.py": "322ec1dc5572d0e7cc19638bf038af979384a31fa83186b61f6cd644cf35e67d",
+      "software/wangdao/h2pro_snn_v2_1/foundation.py": "a1f2883517e915484b1ea57f507bfb1772290ac89fa4e50d913b375882892480",
+      "software/wangdao/h2pro_snn_v2_1/monitor.py": "0345b19815b64624eb48ade874a2e153508b98e2d6aa47533fd33edf5d6c46c0",
+      "software/wangdao/h2pro_snn_v2_1/training.py": "ed97967c0bacc54b89d6fbb8b6a24e6890fbab12e2d0f44ab6f5872498d3a4f0",
+      "software/wangdao/h2pro_snn_v2_1/local_4060.json": "2dd7a90f9d278f6c359d3c88b2153e4316a633dd0bdfa48ae2e5e364f3a48b6e",
+      "software/wangdao/h2pro_snn_v2_1/protocol.json": "127439c1a5ea01f9df4ec400d1fa99c6e7a1a6b7e38b4812a0564dadccce4ca6",
+      "software/scripts/train_h2pro_refiner_v2_1.py": "a1232eff7c17dcbb92fab48e3bb411ee1115cf2922e061273cbd436c60133c15",
+      "train_local_4060_v2_1.ps1": "ff7303d3a6d2adcc966020524cceb1f35ddc5dda1b91234920a678a4f7624800",
+      "software/wangdao/h2pro_snn_v2_2/__init__.py": "9bbdaa4578301b628ecd3294ae14b8a33b0fa5fa686f93d984dd6cab48d6ded5",
+      "software/wangdao/h2pro_snn_v2_2/diagnostics.py": "08e664ece721e2b90573a3022ef70cfe4eabae08de1de5f14d8e5c4ee7d7f110",
+      "software/wangdao/h2pro_snn_v2_2/foundation.py": "0549b32879122b878256a0896f3497b8010a48e133231e0862132740770c2c04",
+      "software/wangdao/h2pro_snn_v2_2/monitor.py": "29de1a7949691fa1976fc95c4b9db0e5c1dac3b87341158a9e18228f93fcfa54",
+      "software/wangdao/h2pro_snn_v2_2/refiner.py": "2cdd5829717a4d63e0442fbbce357f294df31e02356ab5eff643535eee05bb1b",
+      "software/wangdao/h2pro_snn_v2_2/training.py": "2a5cbd6f2d6021d8c585426776b252b4b9ffcaaa637516467bfe9c91bea7219d",
+      "software/wangdao/h2pro_snn_v2_2/local_4060.json": "e26bc2b613a1fc07d32b79786a40af11dc8ce632dd8d2346def6f3a87d165193",
+      "software/wangdao/h2pro_snn_v2_2/protocol.json": "c4f4fd4bc05e5f6ad7d13ec7d5ce3e04db36666eff750e730dedf101cc9feb35",
+      "software/scripts/train_h2pro_refiner_v2_2.py": "08e5bb211356870671fcb7a167a8350d5d543305438663f8238332abfbcc4f19",
+      "train_local_4060_v2_2.ps1": "ef28709e1e938c362c710c95e6880045be889d403418435680490d11a83039b3"
+    },
+    "peak_allocated_bytes": 161967104,
+    "peak_reserved_bytes": 213909504
+  },
+  "frozen_sweep_logit_statistics_note": "HealthMonitor candidate-logit summaries skip hard-guard outlier batches. Layer maxima and event/window coverage include every batch.",
+  "stability_gate_passed": false,
+  "interpretation": [
+    "The authorized one-epoch budget completed with exact best-checkpoint Dev replay, no NaN/Inf, OOM or hard stop during training.",
+    "A completed training budget is not a passed frozen-weight stress gate. The new loss reduces peaks, but its soft constraint does not guarantee burst<=256.",
+    "Overall IoU and precision improve slightly relative to the matched one-epoch baseline, while overall and high-density recall decrease. This is not ANN-level or no-loss accuracy.",
+    "FP32 sigmoid saturation remains in training and Dev; decisions still use raw logits. No |logit|>80 warning occurred during online training.",
+    "Online training losses use changing weights and should not be called a fixed-model convergence proof; the new regularizer is separated for comparison.",
+    "Dense Refiner MAC count is unchanged. Ideal spike-addition estimates are proxies, not measured GPU instruction counts or power savings."
+  ],
+  "decision": {
+    "promote": false,
+    "start_epoch2": false,
+    "raise_hard_limits": false,
+    "reason": "Final fixed weights still violate the unchanged burst budget on known and full Train-main stress checks",
+    "next_step": "Preserve this controlled result. Reassess signed prototype-voltage readout and state scaling with matched analog-state/direct-conversion controls before another numerical variant; do not repeatedly relax guards or blindly extend training."
+  },
+  "preservation": {
+    "old_files_byte_identical": true,
+    "old_file_count": 75,
+    "new_checkpoint_source_identity_verified": true,
+    "new_last_and_best_identical_epoch1_weights": true,
+    "last_pt_sha256": "6d0727c5cd2743cfe6a358739683d18f6bf75ebf0caea6a42229cf32d0a0949e",
+    "best_pt_sha256": "bb5e56da2823cc94c44268284b546434f6362cf8845325c5f6427a9cd36dcd4e",
+    "frozen_ann_changed": false,
+    "validation_test_hw_calibration_opened": false
+  },
+  "artifacts": {
+    "implementation": "results/h2pro_refiner_fixed_v2_2_implementation.json",
+    "training": "results/runs/h2pro_refiner_fixed_v2_2_s42/training.json",
+    "checks": "results/runs/h2pro_v2_2_checks_20261012"
+  }
+}

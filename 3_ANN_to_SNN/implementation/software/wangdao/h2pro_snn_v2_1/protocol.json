@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "research_id": "H2-pro-SNN-fixed-diagnostics-v2.1",
+  "model_version": "phase_grid_refiner_v2",
+  "status": "implementation_pending_manual_one_epoch_health_check",
+  "baseline": "H2-pro-Causal-ANN-v1",
+  "allowed_modes": [
+    "fixed"
+  ],
+  "training_policy": {
+    "launcher": "user_only",
+    "automatic_training": false,
+    "initial_epochs": 1,
+    "schedule_epochs": 30
+  },
+  "data": "Reuse verified v1 Train-main/Train-dev teacher cache; reserved roles remain inaccessible",
+  "numerics": {
+    "threshold": 0.25,
+    "forward": "n=floor(max(v/theta,0)); no spike cap or state clamp",
+    "surrogate": "dn/dv=1/theta for v>0, zero otherwise; approximate positive-rate STE",
+    "reset": "v_residual=v-theta*stop_gradient(n); forward charge is conserved; temporal surrogate slope is one",
+    "synapses": "hidden and head receive theta*n; input stem, grid, width, decay, and phase queries match v1",
+    "readout": "pre-reset head voltage, two max prototypes per class, one-time bias; no logit clipping",
+    "selection": "raw-logit comparisons on a fixed grid; no sigmoid rounding before decisions",
+    "precision": "FP32, deterministic CUDA, no AMP/TF32",
+    "diagnostics": "Persisted progress, class-conditional signed logit quantiles, errors at logit zero, batch/sequence identity, layer statistics, memory and bounded full snapshots",
+    "failure_policy": "Finite |logit|>80 is advisory; nonfinite values or unchanged burst/voltage/gradient/loss budgets stop. Preserve last committed checkpoint, write diagnostic-only snapshot and stopped report."
+  },
+  "time": {
+    "internal_bin_ms": 10,
+    "proposal_wait_ms": 100,
+    "tbptt_ms": 100,
+    "reset": "sequence boundary only"
+  },
+  "interpretation": "Diagnostic/guard revision only. Reuses frozen v2 Refiner/neurons and the same optimizer/loss/threshold grid; no convergence or accuracy claim.",
+  "not_implemented": [
+    "v2 migration modes",
+    "learned router",
+    "SNN Proposal",
+    "sparse spike runtime",
+    "full-chain cost",
+    "hardware validation"
+  ],
+  "diagnostic_revision": "fixed_v2_1",
+  "diagnostic_storage": {
+    "warning_snapshots": "first warning per phase per process attempt",
+    "failure_snapshot": "one per failed attempt",
+    "progress_interval_batches": 50,
+    "resume": "complete epochs from last.pt only; no mid-epoch recovery"
+  }
+}

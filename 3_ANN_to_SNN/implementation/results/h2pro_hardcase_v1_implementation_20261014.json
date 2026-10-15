@@ -1,0 +1,1150 @@
+{
+  "version": "h2pro_hardcase_v1_implementation",
+  "date": "2026-10-14",
+  "status": "ready_not_trained",
+  "suite": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_hardcase_v1_s42",
+  "source_run": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_distill_r2t8_v1_s42",
+  "source_epoch": 88,
+  "protocol": {
+    "version": "h2pro_hardcase_v1",
+    "direction": 5,
+    "source_epoch": 88,
+    "arms": [
+      "control",
+      "hard_weighted"
+    ],
+    "planned_additional_epochs_per_arm": 20,
+    "milestones": [
+      5,
+      10,
+      20
+    ],
+    "initialization": "identical FP32 master weights, original fixed scales, Adam moments/steps and RNG from epoch88 best.pt",
+    "control": "unchanged direction4 update/loss implementation",
+    "hard_selection": "Main only; frozen ANN correct AND frozen epoch88 student wrong at probability >= FP32(0.35)",
+    "hard_positive": "label=1, teacher positive, source student negative",
+    "hard_negative": "label=0, teacher negative, source student positive",
+    "hard_weight": 2.0,
+    "ordinary_weight": 1.0,
+    "hard_mask_refresh": "never; fixed before training",
+    "weighted_loss": "sum(w*((1-alpha)*CE + alpha*Tdistill^2*KL(teacher||student)))/sum(w) per batch",
+    "sampling": "all Main candidates once per epoch; same seed42 permutation using absolute epoch88+added_epoch",
+    "unchanged": [
+      "36-64-32-4 structure",
+      "T8 theta255 m0=127",
+      "teacher",
+      "ANN Proposal",
+      "features",
+      "scales",
+      "STE",
+      "lr1e-4",
+      "batch8192",
+      "alpha0.5",
+      "temperature2",
+      "Adam settings"
+    ],
+    "ac_regularization": false,
+    "hd_resampling": false,
+    "density_specific_loss_weight": false,
+    "best_selection": "Dev IoU at 0.35, tie by recall; source epoch88 eligible",
+    "milestone_calibration": "Main-only main_iou and main_recall_matched policies from fixed_diagnosis_v1, sealed before that milestone Dev inference",
+    "cost": "full-event inference-equivalent MAC/AC separate from dense GPU training and scalar/state operations",
+    "numerics": "nonfinite/integrity checks only; no finite-activation stopping threshold",
+    "roles": [
+      "train_main",
+      "train_dev"
+    ],
+    "reserved_splits_read": false
+  },
+  "identity": {
+    "protocol": {
+      "version": "h2pro_hardcase_v1",
+      "direction": 5,
+      "source_epoch": 88,
+      "arms": [
+        "control",
+        "hard_weighted"
+      ],
+      "planned_additional_epochs_per_arm": 20,
+      "milestones": [
+        5,
+        10,
+        20
+      ],
+      "initialization": "identical FP32 master weights, original fixed scales, Adam moments/steps and RNG from epoch88 best.pt",
+      "control": "unchanged direction4 update/loss implementation",
+      "hard_selection": "Main only; frozen ANN correct AND frozen epoch88 student wrong at probability >= FP32(0.35)",
+      "hard_positive": "label=1, teacher positive, source student negative",
+      "hard_negative": "label=0, teacher negative, source student positive",
+      "hard_weight": 2.0,
+      "ordinary_weight": 1.0,
+      "hard_mask_refresh": "never; fixed before training",
+      "weighted_loss": "sum(w*((1-alpha)*CE + alpha*Tdistill^2*KL(teacher||student)))/sum(w) per batch",
+      "sampling": "all Main candidates once per epoch; same seed42 permutation using absolute epoch88+added_epoch",
+      "unchanged": [
+        "36-64-32-4 structure",
+        "T8 theta255 m0=127",
+        "teacher",
+        "ANN Proposal",
+        "features",
+        "scales",
+        "STE",
+        "lr1e-4",
+        "batch8192",
+        "alpha0.5",
+        "temperature2",
+        "Adam settings"
+      ],
+      "ac_regularization": false,
+      "hd_resampling": false,
+      "density_specific_loss_weight": false,
+      "best_selection": "Dev IoU at 0.35, tie by recall; source epoch88 eligible",
+      "milestone_calibration": "Main-only main_iou and main_recall_matched policies from fixed_diagnosis_v1, sealed before that milestone Dev inference",
+      "cost": "full-event inference-equivalent MAC/AC separate from dense GPU training and scalar/state operations",
+      "numerics": "nonfinite/integrity checks only; no finite-activation stopping threshold",
+      "roles": [
+        "train_main",
+        "train_dev"
+      ],
+      "reserved_splits_read": false
+    },
+    "config": {
+      "seed": 42,
+      "batch_size": 8192,
+      "learning_rate": 0.0001,
+      "kd_alpha": 0.5,
+      "temperature": 2.0
+    },
+    "source_identity": {
+      "version": "h2pro_r2t8_distill_v1",
+      "protocol": {
+        "version": "h2pro_r2t8_distill_v1",
+        "direction": 4,
+        "dimensions": [
+          36,
+          64,
+          32,
+          4
+        ],
+        "proposal": "frozen exact H2 ANN; routing and all C1 features unchanged",
+        "teacher": "frozen H2-pro exact-int8 export; cached original four-prototype logits",
+        "student": "original r2/T8; initialize ALL layers from the frozen int8 export",
+        "weight_update": "FP32 master weights; int8 round/clamp STE, original fixed per-output scales",
+        "activation": "original clip [0,1] and round-to-even uint8; clamp gradient retained",
+        "if": "T=8, theta=255, v0=127, binary soft reset; independent per event and layer",
+        "gradient": "straight-through round and IF count; no surrogate changes to the forward model",
+        "training_backend": "dense exact-count reference with FP64 integer-valued sums and scale decode",
+        "inference": "exported int8 weights supported by the existing explicit binary spike-add kernel",
+        "readout": "unchanged max of two prototypes per class, threshold 0.35",
+        "loss": "(1-alpha)*unweighted CE + alpha*temperature^2*KL(teacher||student)",
+        "sampling": "all Train-main candidates exactly once per epoch, uniform shuffled order",
+        "no_direction_5_or_6": true,
+        "hard_mining": false,
+        "spike_regularization": false,
+        "roles": [
+          "train_main",
+          "train_dev"
+        ],
+        "reserved_splits_read": false,
+        "evaluation": "full closed-prefix events including fixed Proposal rejects; overall/HD/per-sequence",
+        "best_selection": "highest full-event Train-dev IoU, tie by recall; epoch zero eligible",
+        "cost": "training dense MAC separate from inference-equivalent MAC/AC and scalar/state operations",
+        "numerical_checks": "nonfinite loss, gradients, parameters; no finite-amplitude stop guards",
+        "timing": "layer-serial coding, T is not milliseconds; original 100 ms closure remains"
+      },
+      "config": {
+        "seed": 42,
+        "batch_size": 8192,
+        "learning_rate": 0.0001,
+        "kd_alpha": 0.5,
+        "temperature": 2.0
+      },
+      "baseline": {
+        "model_id": "H2-pro-Causal-ANN-v1",
+        "threshold": 0.35,
+        "verified_files": {
+          "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+          "software/wangdao/h2_pro/protocol.json": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+          "software/weights/H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+          "software/weights/H2-pro-Causal-ANN-v1_int8.npz": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+          "software/weights/H2-pro-Causal-ANN-v1_float.pt": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+          "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+          "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+          "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+          "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+          "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+          "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+          "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+          "software/wangdao/h2/numpy_model.py": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee",
+          "software/wangdao/h2/representation.py": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003",
+          "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+          "software/wangdao/h2_pro/__init__.py": "95e214860f13ada109353da455004e3ab43218258c9c5fb42eb1d648f959619a",
+          "software/wangdao/h2_pro/causal_feature_builder.py": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454",
+          "software/wangdao/h2_pro/motion_coherence.py": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79",
+          "software/wangdao/h2_pro/stream_state.py": "771c4f2cd5eb19c450d856ffa4565ec8570f6d83349ffa1155d87c7bd304ddc3"
+        },
+        "baseline_lock_sha256": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+        "research_protocol_sha256": "3d6ebe3f5bd48e7774708f4d4efe6e37d6bc530104bea423f1fda92138f86d58"
+      },
+      "cache_manifest_sha256": "484f3243681ff62e7fb9160a558662eb1ea58fb4631c35a4d84996ab5cafc759",
+      "sources": {
+        "software/scripts/train_h2pro_distill.py": "275f68b48fd99223d33cc7464266954d8492ebe774301602131e8f24f829837c",
+        "software/wangdao/h2pro_direct_v1/common.py": "2b2ae4daf7721206d5a9177dfd8209eb70c7544eda109b0362f826fb600b8e17",
+        "software/wangdao/h2pro_direct_v1/core.py": "e4b9c61cf4bdab1d7ff6e8e1c098588dcf46286a1f15b5505a0074acbdc11c40",
+        "software/wangdao/h2pro_distill_v1/__init__.py": "f0ee09a67ac5d5b3faec39328ea3a2d19fe6e2c1465231bffba7354015feb951",
+        "software/wangdao/h2pro_distill_v1/checks.py": "771cb681755e5ab1347637f42cdb11f5cc2185afae4dc78e419fc9da763f8c1c",
+        "software/wangdao/h2pro_distill_v1/common.py": "4860ee55733fb3cbb1be53970d121c3c12346140f029ed2c149e52bb7fbe4438",
+        "software/wangdao/h2pro_distill_v1/data.py": "40505576357056226efebf91c59ee60e65a3f175e132bcc5034dca8a0b85f53a",
+        "software/wangdao/h2pro_distill_v1/evaluation.py": "94dc62524a3d2d399d4aaae66a01d83ee0d65a6da0837c402d10ab91a0c4508e",
+        "software/wangdao/h2pro_distill_v1/model.py": "2d8e4419b1aa9272f91f2e0203537e2d2bcab7aacbfe580ac6db0fdda5f52abb",
+        "software/wangdao/h2pro_distill_v1/prepare.py": "b3f12330cf9a580f2f3b5b1d87f5217d1ac95b59498b4340e3be91d627f8ac6e",
+        "software/wangdao/h2pro_distill_v1/runtime.py": "6e3a400df348704863cc8c4109da30e4d126337b56fde6c0815b4d6a67bbc74e",
+        "software/wangdao/h2pro_longtrain_v1/storage.py": "22bcf4555b65df20fb022fb0ffb57a8e6e17d488e2f22e4391f8483a52526766",
+        "software/wangdao/h2pro_snn/diagnostics.py": "adaef9137403c674a265ea10961df10ef41b76789cca1e4d66ab97ad723b99bf",
+        "software/wangdao/h2pro_snn/foundation.py": "6216de658af2517e3e1eb8c092c2f61f62e5e5efff2be918c02631863aa126b8",
+        "software/wangdao/h2pro_snn/stream_data.py": "8eb8d9e574255610991eda2e6c0f48f0fa79b6830a505d4f115f9dcb8ff86528",
+        "software/wangdao/h2pro_snn/training.py": "57eff4a4bebe6f2ab63b3266ea1bcbeb6fad6f386d4a552a0ede1e1ab19c106e",
+        "train_local_4060_distill.ps1": "56ef0e768815dad3a27d62f907fc5883420efc649be4f053827d9404baaccdd1"
+      },
+      "engine": {
+        "torch": "2.5.1+cu121",
+        "numpy": "2.2.6",
+        "cuda": "12.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "forward_precision": "FP64 exact integer sums/scale decode, FP32 original logits",
+        "optimizer_precision": "FP32",
+        "deterministic": true
+      }
+    },
+    "source_checkpoint_sha256": "9f86deb8a0ab49e76a7dc900a8b16ac3f0ac1542f19688bfdfd014550c35b269",
+    "sources": {
+      "software/scripts/train_h2pro_hardcase.py": "a74b48a459056a5d43a8de649da24d8b22729bde27166de68908d547f9cd86f5",
+      "software/wangdao/h2pro_fixed_diagnosis_v1/thresholds.py": "014638fdb6a6a64da5fa9252cf34ccd56d7d835fb4d2f6dfb723bbff27f4d74e",
+      "software/wangdao/h2pro_hardcase_v1/__init__.py": "98af836281170f12d2dd5c00518cc5305528e836cec17d2218800376b39c3ad2",
+      "software/wangdao/h2pro_hardcase_v1/checks.py": "fb7ee7b350a1dcf4cd941f0fa53684c84d5478f8c16c8d72ffd2dd901f3786bd",
+      "software/wangdao/h2pro_hardcase_v1/common.py": "cba949a117343f8511431afa176190a40fa015ea80a232408aa3aa2cbdbf6d20",
+      "software/wangdao/h2pro_hardcase_v1/evaluation.py": "d22320b92948674a934f4cf6b337ad174a853ffc9a811441f59c8c203e9a8638",
+      "software/wangdao/h2pro_hardcase_v1/objective.py": "ff9162ef8b4e65920f957fc5e7bbc74fa4d887828c8469be272af6754d0a5ab1",
+      "software/wangdao/h2pro_hardcase_v1/runtime.py": "c1a120fe5374d2479b5925104b0d52cf4272401fa679f0221eb86fec72f35684",
+      "train_local_4060_hardcase.ps1": "1561535450e32cdd65141008fb97b9620432478ca20a3fecfcbec12467e0c8b8"
+    },
+    "engine": {
+      "torch": "2.5.1+cu121",
+      "numpy": "2.2.6",
+      "cuda": "12.1",
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "forward_precision": "FP64 exact integer sums/scale decode, FP32 original logits",
+      "optimizer_precision": "FP32",
+      "deterministic": true
+    },
+    "source_model_digest": "eae65950f0afb81fc674f0c99273a48299c127b9395e1669fe0b276531e9f79c",
+    "source_optimizer_digest": "5dccae8185860c2f7d5e661dd10fccd5ac611857c4eeb4ddece1af57b9fd9716",
+    "source_rng_digest": "8e6a9c9a379b9d0f452a738587f8d35684d8821000c1dd810860c52cb7de02ea",
+    "diagnosis_predictions": {
+      "train_main_ann_predictions.npz": "c57982b9349582ca2f33744acf458acaedda96cbc3e509dcce0552f88dda5fb4",
+      "train_main_epoch_088_predictions.npz": "27e0403ef142a3738b0429fdb2319775938157a014d13be7928f525895c68897"
+    },
+    "paths": {
+      "cache": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_distill_v1_features",
+      "source": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_distill_r2t8_v1_s42",
+      "diagnosis": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_fixed_diagnosis_v1"
+    }
+  },
+  "planned_additional_epochs_per_arm": 20,
+  "milestones_added_epochs": [
+    5,
+    10,
+    20
+  ],
+  "corresponding_absolute_epochs": [
+    93,
+    98,
+    108
+  ],
+  "planned_updates_per_arm": 5420,
+  "training_started": false,
+  "real_data_optimizer_steps": 0,
+  "arms": {
+    "control": {
+      "new_real_data_updates": 0,
+      "completed_additional_epochs": 0,
+      "adam_step": 23848,
+      "master_weights_optimizer_rng_equal_source": true,
+      "int8_export_equal_epoch88": true
+    },
+    "hard_weighted": {
+      "new_real_data_updates": 0,
+      "completed_additional_epochs": 0,
+      "adam_step": 23848,
+      "master_weights_optimizer_rng_equal_source": true,
+      "int8_export_equal_epoch88": true
+    }
+  },
+  "hard_mining": {
+    "role": "train_main",
+    "source_model": "epoch88",
+    "teacher_threshold": 0.35,
+    "student_threshold": 0.35,
+    "categories": {
+      "0": "ordinary",
+      "1": "hard_positive",
+      "2": "hard_negative"
+    },
+    "counts": [
+      2215942,
+      1656,
+      2266
+    ],
+    "total_candidates": 2219864,
+    "hard_fraction": 0.0017667749015254988,
+    "sequences": [
+      {
+        "sequence": "train/train_000.npz",
+        "high_density": false,
+        "category_counts": [
+          5461,
+          11,
+          13
+        ]
+      },
+      {
+        "sequence": "train/train_001.npz",
+        "high_density": false,
+        "category_counts": [
+          5994,
+          22,
+          6
+        ]
+      },
+      {
+        "sequence": "train/train_003.npz",
+        "high_density": false,
+        "category_counts": [
+          8313,
+          7,
+          4
+        ]
+      },
+      {
+        "sequence": "train/train_004.npz",
+        "high_density": false,
+        "category_counts": [
+          4718,
+          8,
+          8
+        ]
+      },
+      {
+        "sequence": "train/train_005.npz",
+        "high_density": false,
+        "category_counts": [
+          4823,
+          5,
+          11
+        ]
+      },
+      {
+        "sequence": "train/train_006.npz",
+        "high_density": false,
+        "category_counts": [
+          5620,
+          4,
+          19
+        ]
+      },
+      {
+        "sequence": "train/train_007.npz",
+        "high_density": false,
+        "category_counts": [
+          5220,
+          10,
+          13
+        ]
+      },
+      {
+        "sequence": "train/train_008.npz",
+        "high_density": false,
+        "category_counts": [
+          5279,
+          9,
+          12
+        ]
+      },
+      {
+        "sequence": "train/train_009.npz",
+        "high_density": false,
+        "category_counts": [
+          6487,
+          10,
+          17
+        ]
+      },
+      {
+        "sequence": "train/train_010.npz",
+        "high_density": false,
+        "category_counts": [
+          6280,
+          3,
+          14
+        ]
+      },
+      {
+        "sequence": "train/train_011.npz",
+        "high_density": false,
+        "category_counts": [
+          5890,
+          9,
+          1
+        ]
+      },
+      {
+        "sequence": "train/train_012.npz",
+        "high_density": false,
+        "category_counts": [
+          5717,
+          9,
+          1
+        ]
+      },
+      {
+        "sequence": "train/train_013.npz",
+        "high_density": false,
+        "category_counts": [
+          6833,
+          5,
+          4
+        ]
+      },
+      {
+        "sequence": "train/train_014.npz",
+        "high_density": false,
+        "category_counts": [
+          8153,
+          5,
+          14
+        ]
+      },
+      {
+        "sequence": "train/train_015.npz",
+        "high_density": false,
+        "category_counts": [
+          2650,
+          9,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_016.npz",
+        "high_density": false,
+        "category_counts": [
+          2722,
+          3,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_017.npz",
+        "high_density": false,
+        "category_counts": [
+          3012,
+          3,
+          8
+        ]
+      },
+      {
+        "sequence": "train/train_018.npz",
+        "high_density": false,
+        "category_counts": [
+          2724,
+          4,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_019.npz",
+        "high_density": false,
+        "category_counts": [
+          1919,
+          2,
+          3
+        ]
+      },
+      {
+        "sequence": "train/train_021.npz",
+        "high_density": false,
+        "category_counts": [
+          3094,
+          11,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_023.npz",
+        "high_density": false,
+        "category_counts": [
+          2829,
+          5,
+          6
+        ]
+      },
+      {
+        "sequence": "train/train_024.npz",
+        "high_density": false,
+        "category_counts": [
+          2683,
+          5,
+          14
+        ]
+      },
+      {
+        "sequence": "train/train_025.npz",
+        "high_density": false,
+        "category_counts": [
+          2269,
+          2,
+          7
+        ]
+      },
+      {
+        "sequence": "train/train_026.npz",
+        "high_density": false,
+        "category_counts": [
+          2127,
+          2,
+          4
+        ]
+      },
+      {
+        "sequence": "train/train_027.npz",
+        "high_density": false,
+        "category_counts": [
+          2193,
+          6,
+          6
+        ]
+      },
+      {
+        "sequence": "train/train_028.npz",
+        "high_density": false,
+        "category_counts": [
+          40900,
+          1,
+          45
+        ]
+      },
+      {
+        "sequence": "train/train_029.npz",
+        "high_density": false,
+        "category_counts": [
+          43249,
+          10,
+          38
+        ]
+      },
+      {
+        "sequence": "train/train_030.npz",
+        "high_density": false,
+        "category_counts": [
+          39217,
+          5,
+          36
+        ]
+      },
+      {
+        "sequence": "train/train_031.npz",
+        "high_density": false,
+        "category_counts": [
+          44028,
+          1,
+          24
+        ]
+      },
+      {
+        "sequence": "train/train_032.npz",
+        "high_density": false,
+        "category_counts": [
+          17385,
+          7,
+          13
+        ]
+      },
+      {
+        "sequence": "train/train_033.npz",
+        "high_density": false,
+        "category_counts": [
+          14491,
+          4,
+          29
+        ]
+      },
+      {
+        "sequence": "train/train_035.npz",
+        "high_density": false,
+        "category_counts": [
+          7061,
+          5,
+          18
+        ]
+      },
+      {
+        "sequence": "train/train_036.npz",
+        "high_density": false,
+        "category_counts": [
+          6411,
+          2,
+          19
+        ]
+      },
+      {
+        "sequence": "train/train_037.npz",
+        "high_density": false,
+        "category_counts": [
+          7938,
+          2,
+          30
+        ]
+      },
+      {
+        "sequence": "train/train_038.npz",
+        "high_density": false,
+        "category_counts": [
+          4973,
+          5,
+          10
+        ]
+      },
+      {
+        "sequence": "train/train_040.npz",
+        "high_density": false,
+        "category_counts": [
+          5165,
+          9,
+          11
+        ]
+      },
+      {
+        "sequence": "train/train_042.npz",
+        "high_density": false,
+        "category_counts": [
+          5177,
+          12,
+          9
+        ]
+      },
+      {
+        "sequence": "train/train_043.npz",
+        "high_density": false,
+        "category_counts": [
+          5884,
+          13,
+          10
+        ]
+      },
+      {
+        "sequence": "train/train_044.npz",
+        "high_density": true,
+        "category_counts": [
+          63422,
+          43,
+          45
+        ]
+      },
+      {
+        "sequence": "train/train_045.npz",
+        "high_density": true,
+        "category_counts": [
+          36931,
+          49,
+          99
+        ]
+      },
+      {
+        "sequence": "train/train_046.npz",
+        "high_density": true,
+        "category_counts": [
+          43375,
+          32,
+          96
+        ]
+      },
+      {
+        "sequence": "train/train_047.npz",
+        "high_density": true,
+        "category_counts": [
+          37296,
+          18,
+          24
+        ]
+      },
+      {
+        "sequence": "train/train_048.npz",
+        "high_density": false,
+        "category_counts": [
+          5082,
+          28,
+          27
+        ]
+      },
+      {
+        "sequence": "train/train_051.npz",
+        "high_density": false,
+        "category_counts": [
+          2842,
+          12,
+          36
+        ]
+      },
+      {
+        "sequence": "train/train_052.npz",
+        "high_density": false,
+        "category_counts": [
+          2598,
+          14,
+          12
+        ]
+      },
+      {
+        "sequence": "train/train_053.npz",
+        "high_density": false,
+        "category_counts": [
+          2431,
+          8,
+          24
+        ]
+      },
+      {
+        "sequence": "train/train_054.npz",
+        "high_density": false,
+        "category_counts": [
+          1998,
+          8,
+          7
+        ]
+      },
+      {
+        "sequence": "train/train_055.npz",
+        "high_density": false,
+        "category_counts": [
+          5164,
+          30,
+          9
+        ]
+      },
+      {
+        "sequence": "train/train_056.npz",
+        "high_density": false,
+        "category_counts": [
+          9914,
+          12,
+          23
+        ]
+      },
+      {
+        "sequence": "train/train_057.npz",
+        "high_density": false,
+        "category_counts": [
+          3799,
+          20,
+          19
+        ]
+      },
+      {
+        "sequence": "train/train_061.npz",
+        "high_density": false,
+        "category_counts": [
+          13019,
+          3,
+          16
+        ]
+      },
+      {
+        "sequence": "train/train_062.npz",
+        "high_density": false,
+        "category_counts": [
+          7982,
+          11,
+          18
+        ]
+      },
+      {
+        "sequence": "train/train_063.npz",
+        "high_density": false,
+        "category_counts": [
+          7315,
+          15,
+          18
+        ]
+      },
+      {
+        "sequence": "train/train_064.npz",
+        "high_density": false,
+        "category_counts": [
+          8275,
+          11,
+          12
+        ]
+      },
+      {
+        "sequence": "train/train_068.npz",
+        "high_density": false,
+        "category_counts": [
+          6396,
+          11,
+          21
+        ]
+      },
+      {
+        "sequence": "train/train_069.npz",
+        "high_density": false,
+        "category_counts": [
+          6822,
+          7,
+          23
+        ]
+      },
+      {
+        "sequence": "train/train_070.npz",
+        "high_density": false,
+        "category_counts": [
+          6417,
+          6,
+          10
+        ]
+      },
+      {
+        "sequence": "train/train_072.npz",
+        "high_density": false,
+        "category_counts": [
+          10850,
+          14,
+          25
+        ]
+      },
+      {
+        "sequence": "train/train_073.npz",
+        "high_density": false,
+        "category_counts": [
+          13062,
+          23,
+          18
+        ]
+      },
+      {
+        "sequence": "train/train_074.npz",
+        "high_density": false,
+        "category_counts": [
+          19796,
+          19,
+          15
+        ]
+      },
+      {
+        "sequence": "train/train_075.npz",
+        "high_density": false,
+        "category_counts": [
+          1557,
+          8,
+          2
+        ]
+      },
+      {
+        "sequence": "train/train_076.npz",
+        "high_density": false,
+        "category_counts": [
+          1678,
+          5,
+          9
+        ]
+      },
+      {
+        "sequence": "train/train_077.npz",
+        "high_density": false,
+        "category_counts": [
+          1713,
+          7,
+          6
+        ]
+      },
+      {
+        "sequence": "train/train_078.npz",
+        "high_density": false,
+        "category_counts": [
+          1884,
+          8,
+          7
+        ]
+      },
+      {
+        "sequence": "train/train_080.npz",
+        "high_density": false,
+        "category_counts": [
+          1540,
+          6,
+          7
+        ]
+      },
+      {
+        "sequence": "train/train_082.npz",
+        "high_density": false,
+        "category_counts": [
+          2583,
+          5,
+          12
+        ]
+      },
+      {
+        "sequence": "train/train_083.npz",
+        "high_density": false,
+        "category_counts": [
+          2114,
+          7,
+          6
+        ]
+      },
+      {
+        "sequence": "train/train_084.npz",
+        "high_density": false,
+        "category_counts": [
+          2306,
+          4,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_085.npz",
+        "high_density": false,
+        "category_counts": [
+          1973,
+          9,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_086.npz",
+        "high_density": false,
+        "category_counts": [
+          2635,
+          13,
+          5
+        ]
+      },
+      {
+        "sequence": "train/train_087.npz",
+        "high_density": false,
+        "category_counts": [
+          3000,
+          7,
+          12
+        ]
+      },
+      {
+        "sequence": "train/train_088.npz",
+        "high_density": true,
+        "category_counts": [
+          154672,
+          215,
+          112
+        ]
+      },
+      {
+        "sequence": "train/train_090.npz",
+        "high_density": true,
+        "category_counts": [
+          171090,
+          111,
+          168
+        ]
+      },
+      {
+        "sequence": "train/train_091.npz",
+        "high_density": true,
+        "category_counts": [
+          164176,
+          125,
+          111
+        ]
+      },
+      {
+        "sequence": "train/train_094.npz",
+        "high_density": true,
+        "category_counts": [
+          234279,
+          82,
+          165
+        ]
+      },
+      {
+        "sequence": "train/train_095.npz",
+        "high_density": true,
+        "category_counts": [
+          153960,
+          28,
+          82
+        ]
+      },
+      {
+        "sequence": "train/train_096.npz",
+        "high_density": true,
+        "category_counts": [
+          217615,
+          107,
+          151
+        ]
+      },
+      {
+        "sequence": "train/train_097.npz",
+        "high_density": true,
+        "category_counts": [
+          215588,
+          130,
+          126
+        ]
+      },
+      {
+        "sequence": "train/train_098.npz",
+        "high_density": true,
+        "category_counts": [
+          211904,
+          140,
+          181
+        ]
+      }
+    ],
+    "used_dev_labels": false,
+    "refreshed_during_training": false,
+    "hard_weight": 2.0,
+    "normal_weight": 1.0,
+    "sha256": "bd0587a72a48e4b22fe2038c8958fc983331549ed22c47c9b96e08531c4e6a48"
+  },
+  "real_data_preflight": {
+    "full_main_predictions_exact": 2219864,
+    "full_dev_metrics_and_cost_exact": true,
+    "real_data_backward_checks": {
+      "control": {
+        "losses": [
+          0.025404583662748337,
+          0.04301009327173233,
+          0.007799074053764343
+        ],
+        "gradient_norms": [
+          0.044883438328493216,
+          0.02551781816751902,
+          0.005562493428162675
+        ]
+      },
+      "hard_weighted": {
+        "losses": [
+          0.026673484593629837,
+          0.04477780684828758,
+          0.008569163270294666
+        ],
+        "gradient_norms": [
+          0.05081635990228387,
+          0.03135733806816407,
+          0.006513014950301491
+        ]
+      }
+    },
+    "data": {
+      "resident_bytes": 140917990,
+      "placement": "cuda:0",
+      "load_seconds": 0.6495654999998806,
+      "per_batch_disk_reads": 0,
+      "per_batch_feature_cpu_computation": false,
+      "per_batch_input_h2d_bytes": 0,
+      "epoch_order_h2d_bytes": 17758912,
+      "sequence_count": 89
+    },
+    "memory": {
+      "peak_allocated_bytes": 250604032,
+      "peak_reserved_bytes": 272629760
+    },
+    "seconds": 2.847749599997769
+  },
+  "verification": {
+    "regression": {
+      "tests_run": 51,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 19.187000000001717,
+      "patterns": [
+        "test_h2pro_hardcase.py",
+        "test_h2pro_distill.py",
+        "test_h2pro_fixed_diagnosis.py",
+        "test_h2pro_direct.py"
+      ],
+      "optimizer_test_data": "synthetic random features and labels only",
+      "real_data_optimizer_steps": 0
+    },
+    "gpu_synthetic": {
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "data": "47 synthetic random Main features and labels; synthetic Dev too",
+      "real_data_optimizer_steps": 0,
+      "arms": {
+        "control": {
+          "status": "passed",
+          "new_steps_per_completed_path": 6,
+          "nonzero_adam_inherited": true,
+          "weights_and_adam_bit_exact_after_resume": true,
+          "updated_export_spike_add_verified": true
+        },
+        "hard_weighted": {
+          "status": "passed",
+          "new_steps_per_completed_path": 6,
+          "nonzero_adam_inherited": true,
+          "weights_and_adam_bit_exact_after_resume": true,
+          "updated_export_spike_add_verified": true
+        }
+      }
+    },
+    "same_initial_weights_adam_rng": true,
+    "repeated_check_no_data_reload": true,
+    "repeated_check_preserved_files": 22,
+    "original_training_files_unchanged": 209,
+    "epoch5_snapshot_files_unchanged": 19,
+    "fixed_diagnosis_files_unchanged": 38,
+    "original_training_sources_unchanged": 17,
+    "teacher_identity_unchanged": true,
+    "reserved_splits_read": false,
+    "initial_suite_files_sha256": {
+      ".lock": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "control/.lock": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "control/best.pt": "b3e1c12fcfbefc53cb6ab7a8b75bdc87aa77afcbd1d810c511404432cb88b4de",
+      "control/best_int8.npz": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+      "control/identity.json": "7fd348a19dce61e41465b99dc9975b8aec3f3b25f1f78c29af4e9808bbedb4ad",
+      "control/initial.pt": "b3e1c12fcfbefc53cb6ab7a8b75bdc87aa77afcbd1d810c511404432cb88b4de",
+      "control/initial_int8.npz": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+      "control/last.pt": "b3e1c12fcfbefc53cb6ab7a8b75bdc87aa77afcbd1d810c511404432cb88b4de",
+      "control/progress.json": "70fef990171f849e700c2e4edd3c7612632ee4ea990e8f3e42c135620b2bd513",
+      "hard_mining.json": "801335f2abb37afc640115e36e0bbd9a013e1e17b133d5e1ba12fc06b2b78d54",
+      "hard_weighted/.lock": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "hard_weighted/best.pt": "8ab25eb79f26b51e633ef92cdab428617b92253db08117d7100f9368e1f3cd6d",
+      "hard_weighted/best_int8.npz": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+      "hard_weighted/identity.json": "8bda5383568e9be18b44397c48cc0cf24162f1d75b8006878fb56ac7656b3981",
+      "hard_weighted/initial.pt": "8ab25eb79f26b51e633ef92cdab428617b92253db08117d7100f9368e1f3cd6d",
+      "hard_weighted/initial_int8.npz": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+      "hard_weighted/last.pt": "8ab25eb79f26b51e633ef92cdab428617b92253db08117d7100f9368e1f3cd6d",
+      "hard_weighted/progress.json": "e4a619d1cdda612eddf231b2cfe8b7dfe8ca151d9eae5bca979ef3577adc5743",
+      "identity.json": "17340aa36477923fc8c20f5c87ebf57599d2c217d9cf50e2b874e7118b5bb89a",
+      "main_hard_categories.npz": "bd0587a72a48e4b22fe2038c8958fc983331549ed22c47c9b96e08531c4e6a48",
+      "ready.json": "3668df8e2a5dfdc68489866ea78805fdd804c5d42f44aa2712a6b49176adc328",
+      "suite_status.json": "a76ee474b661f4eccffad4505e3e7052ce964b58b4bef36d211715d867b06ef6"
+    },
+    "regression_source_sha256": "38d4d6746c0ca758b78afc91b579b203b4400abb68b00293a7f74ec1b4d17e63"
+  },
+  "commands": {
+    "start_or_resume": ".\\train_local_4060_hardcase.ps1 -Action train -AdditionalEpochs 20",
+    "pause": ".\\train_local_4060_hardcase.ps1 -Action pause",
+    "status": ".\\train_local_4060_hardcase.ps1 -Action status"
+  },
+  "limitations": [
+    "No direction5 trained accuracy yet",
+    "Initial metrics reproduce epoch88 only",
+    "2x weighting is a fixed experimental choice, not demonstrated optimal",
+    "Reported 238.995 MiB is preflight memory, not a completed training peak",
+    "Dense reference training and equivalent MAC/AC are not hardware measurements"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "profile": "rtx4060_laptop_8gb_fixed_v2",
+  "model": {
+    "version": "phase_grid_refiner_v2",
+    "mode": "fixed"
+  },
+  "training": {
+    "seed": 42,
+    "batch_size": 2,
+    "schedule_epochs": 30,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 1e-06,
+    "weight_decay": 0.0001,
+    "gradient_clip": 5.0,
+    "kd_weight": 0.2,
+    "soft_iou_weight": 0.5,
+    "focal_alpha": 0.75,
+    "focal_gamma": 2.0,
+    "spike_weight": 0.001,
+    "spike_ceiling": 0.25,
+    "cache_mib": 1024,
+    "vram_limit_gib": 6.0,
+    "cpu_threads": 1,
+    "logit_thresholds": [
+      -8.0,
+      -6.0,
+      -4.0,
+      -2.9444389792,
+      -2.1972245773,
+      -1.7346010554,
+      -1.3862943611,
+      -1.0986122887,
+      -0.8472978604,
+      -0.6190392084,
+      -0.4054651081,
+      -0.2006706955,
+      0.0,
+      0.2006706955,
+      0.4054651081,
+      0.6190392084,
+      0.8472978604,
+      1.0986122887,
+      1.3862943611,
+      1.7346010554,
+      2.1972245773,
+      2.9444389792,
+      4.0,
+      6.0,
+      8.0
+    ],
+    "stability_limits": {
+      "max_unit_burst": 256.0,
+      "max_abs_voltage_in_thresholds": 4096.0,
+      "max_abs_logit": 80.0,
+      "max_gradient_norm": 10000.0,
+      "max_loss": 100.0
+    }
+  },
+  "execution": {
+    "precision": "float32",
+    "amp": false,
+    "tf32": false,
+    "tbptt_ms": 100,
+    "prefetch_batches": 1,
+    "state_reset": "sequence boundaries only; detach after every 100 ms training block",
+    "training_launcher": "user_only",
+    "automatic_training": false,
+    "threshold_domain": "logit"
+  }
+}

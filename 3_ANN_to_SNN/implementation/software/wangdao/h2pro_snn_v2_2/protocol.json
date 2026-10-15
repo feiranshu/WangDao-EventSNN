@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "research_id": "H2-pro-SNN-fixed-signed-head-v2.2",
+  "model_version": "phase_grid_refiner_v2_2",
+  "diagnostic_revision": "fixed_v2_2",
+  "baseline": "H2-pro-Causal-ANN-v1",
+  "allowed_modes": ["fixed"],
+  "training_policy": {
+    "launcher": "explicit_user_or_user_authorized_agent",
+    "automatic_training": false,
+    "initial_epochs": 1,
+    "schedule_epochs": 30,
+    "authorization": "On 2026-10-12 the user authorized the agent to launch a new one-epoch experiment after hard-case checks and full regressions"
+  },
+  "experiment": {
+    "only_numerical_change": "Additional signed head-voltage peak penalty in the training loss",
+    "initialization": "Fresh seed42, same parameter initialization as v2/v2.1; no old checkpoint warm start",
+    "soft_limit_volts": 16.0,
+    "soft_limit_in_neuron_thresholds": 64.0,
+    "weight": 0.1,
+    "positive": "relu(max_over_head_units(v_pre)/16 - 1)^2",
+    "negative": "relu(-min_over_head_units(v_pre)/16 - 1)^2",
+    "reduction": "Mean of the two-sign sum over time and active streams; padded streams excluded. Peak reduction prevents dilution by inactive cells.",
+    "scope": "Training regularizer; no forward clipping, saturation, reset or readout changes",
+    "hyperparameter_status": "Predeclared engineering starting point, not proven optimal; same coefficients apply to every sequence and label"
+  },
+  "unchanged": {
+    "forward": "v2 positive-rate multi-spike STE, detached soft reset, theta-scaled charge, signed pre-reset prototype readout",
+    "threshold": 0.25,
+    "hard_guards": {"max_unit_burst": 256.0, "max_abs_voltage_in_thresholds": 4096.0, "max_gradient_norm": 10000.0, "max_loss": 100.0},
+    "logit_warning": 80.0,
+    "precision": "FP32, deterministic CUDA, no AMP/TF32",
+    "time": "10 ms internal bins, 100 ms Proposal closure and TBPTT; sequence-boundary state reset",
+    "optimizer": "AdamW lr1e-4, same 30-epoch cosine schedule, batch2",
+    "data": "Verified frozen-ANN Train-main/Train-dev cache only; no reserved-role data"
+  },
+  "storage": {
+    "run": "results/runs/h2pro_refiner_fixed_v2_2_s42",
+    "resume": "Same v2.2 identity and last.pt complete epochs only",
+    "failure_snapshot": "Diagnostic only; never resume from failure.pt",
+    "old_versions": "v1/v2/v2.1 source, profiles, launchers and run results remain byte-identical"
+  },
+  "interpretation": "A controlled loss experiment, not a new scientific novelty or an accuracy/energy claim"
+}

@@ -1,0 +1,14 @@
+{
+  "version": "ann_state_v1",
+  "reference": "phase_grid_refiner_v2_2",
+  "single_factor": "Replace floor(relu(v/theta)) by relu(v/theta) in stem, hidden and head",
+  "state": "v_next = v_pre - theta * activation.detach(); negative residual retained",
+  "readout": "Unchanged pre-reset signed voltage, per-class max of two prototypes, one-time bias",
+  "matched": ["seed42 initialization", "9856 parameters", "input encoding", "train order", "candidate mask", "teacher", "task losses", "head tail loss", "optimizer", "scheduler", "batch2", "TBPTT100ms", "time constants", "sequence resets", "threshold grid", "FP32"],
+  "activity_regularization": "Same rate-squared loss evaluated on continuous threshold-unit activation; reported as activation, not spike count",
+  "guards": "Same numeric ceilings; positive activation/threshold <=256 is an amplitude budget, not a spike-burst claim",
+  "cost": "Dense MAC only; continuous activation does not justify spike AC or energy estimates",
+  "data": "Train-main fitting; Train-dev selection; no Validation/Test/HW-calibration",
+  "budget": "First experiment is one fresh epoch; no automatic continuation",
+  "interpretation": "A matched continuous-state diagnostic, not H2-pro conversion or a replacement ANN baseline"
+}
