@@ -1,0 +1,44 @@
+{
+  "version": "h2pro_direct_if_rate_v1",
+  "teacher": "H2-pro-Causal-ANN-v1",
+  "numeric_source": "frozen exact-int8 export; float checkpoint is not substituted",
+  "refiner_dimensions": [36, 64, 32, 4],
+  "proposal": "unchanged frozen exact-int8 ANN",
+  "features": "unchanged frozen C1-proposal-motion 36-dimensional uint8 features",
+  "stages": {
+    "ann": "original three exact-int8 matrix products",
+    "r1": "hidden1 IF rate transport; layer2 receives binary spikes; hidden2 and output activation contract unchanged",
+    "r2": "add hidden2 IF rate transport; output receives binary spikes; original prototype readout unchanged"
+  },
+  "steps": [4, 8, 16, 32, 64, 255],
+  "decision_threshold": 0.35,
+  "threshold_retuning": false,
+  "if_neuron": {
+    "leak": 1,
+    "threshold": 255,
+    "initial_membrane": 127,
+    "input": "original uint8 clipped/rounded hidden activation a",
+    "update": "v += a; s = (v >= 255); v -= 255*s",
+    "spikes": "binary, at most one per simulation tick; no multi-valued spike counted as one AC",
+    "rate": "sum(s)/T; count equals floor((T*a+127)/255)",
+    "normalization": "signed integer spike-weight accumulation * original per-output scale / T",
+    "exact_endpoint": "T=255 reproduces each original uint8 activation exactly",
+    "state_reset": "independent per candidate feature vector and per converted hidden layer"
+  },
+  "execution": {
+    "order": "layer-serial: finish one layer's rate window before the next; not a pipelined temporal SNN",
+    "first_layer": "original analog/uint8 input, one dense MAC per connection",
+    "output": "continuous signed logits and original two-prototype-per-class softmax",
+    "timing": "T is a coding budget, not milliseconds; original 100 ms closed-window latency remains",
+    "backends": {
+      "spike_add": "explicit IF ticks; gather active rows and add original weight rows; no synaptic multiplication in converted connections",
+      "count_reference": "closed-form spike counts and dense integer matmul; exact reference only, its executed MACs are still counted"
+    }
+  },
+  "training": {"enabled": false, "weights_frozen": true, "future_training_launcher": "user_only"},
+  "data_roles": ["train_dev"],
+  "reserved_splits_used": false,
+  "cost_scope": "Proposal + Refiner neural layers; feature construction/routing/readout and memory traffic not fully counted",
+  "energy_claim": false,
+  "stage_progression": "Verify ANN replay, then r1 T255 exact alignment, then r2 T255 exact alignment, before comparing low-T points"
+}

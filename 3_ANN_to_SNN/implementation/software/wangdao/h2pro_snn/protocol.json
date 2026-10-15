@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "research_id": "H2-pro-SNN-research-v1",
+  "status": "single_refiner_manual_training_ready_untrained",
+  "training_enabled": true,
+  "training_reason": "User authorizes implementation; all training is launched manually by the user.",
+  "training_policy": {"launcher": "user_only", "automatic_training": false, "initial_epochs": 5, "max_epochs": 30, "profile": "local_4060.json"},
+  "development_roles": ["train_main", "train_dev"],
+  "reserved_roles": ["hw_calibration", "validation", "test"],
+  "baseline": "H2-pro-Causal-ANN-v1",
+  "prototype_defaults": {
+    "sensor_width": 346, "sensor_height": 260,
+    "padded_width": 352, "padded_height": 272,
+    "cell_pixels": 4, "proposal_cell_pixels": 8,
+    "stem_channels": 16, "refiner_channels": 32,
+    "local_channels": 16, "output_lif_neurons": 4,
+    "tau_short_ms": 20.0, "tau_long_ms": 100.0,
+    "threshold": 1.0, "reset": "subtract threshold per unit spike",
+    "modes": ["fixed", "spike_route", "membrane_route"],
+    "routing": "one destination per source within the 3x3 neighborhood; uncertain routes stay",
+    "implemented": "isolated mechanisms plus phase_grid_refiner_v1; see local_4060.json for the distinct trainable-network numeric contract",
+    "not_implemented": ["learned router", "SNN Proposal", "deferred gate", "sparse spike convolution runtime"]
+  },
+  "trainable_refiner": {
+    "model_version": "phase_grid_refiner_v1",
+    "input": "32 polarity/pixel-phase counts + 32 last-event times per 4px cell; labels and teacher predictions excluded",
+    "micro_ms": 10,
+    "tbptt_ms": 100,
+    "sequence_state": "carried across windows; gradients detached per 100ms; reset only at sequence boundaries",
+    "hidden_threshold": 0.25,
+    "output": "4 LIF prototypes for each of 32 polarity/pixel-phase queries; 128 grid channels",
+    "router": "label-free local activity heuristic, not learned motion",
+    "precision": "FP32; no AMP/TF32",
+    "proposal_wait_ms": 100,
+    "encoding_wait_ms": 10,
+    "training_data": "all closed-prefix events build state; only frozen Proposal candidates contribute classification/KD loss",
+    "evaluation_data": "all closed-prefix events, including Proposal rejects; teacher evaluated on identical events",
+    "pretrained_student_weights_included": false
+  },
+  "time_contract": {
+    "unit": "milliseconds",
+    "dynamics": "exp(-elapsed_ms/tau_ms); equal timestamps have beta=1",
+    "simulation_steps_are_not_elapsed_time": true,
+    "packet_boundary_changes_state": false,
+    "burst_counts": "count n represents n binary spikes, not one multivalued AC",
+    "routing_update": "simultaneous snapshot; each source consumed at most once"
+  },
+  "success_targets": {
+    "event_iou_delta_min": 0.0,
+    "high_density_recall_delta_min": 0.0,
+    "end_to_end_multiplication_ratio_max": 0.10,
+    "event_wait_target_ms": 10.0,
+    "hardware_energy_claim": false
+  },
+  "stage_order": ["baseline_audit", "failure_diagnosis", "single_refiner_control", "transport_ablation", "proposal_and_execution", "conditional_deferred_gate", "frozen_evaluation", "external_validation"],
+  "evaluation_policy": {
+    "candidate_rejections_count_as_background": true,
+    "publish_each_event_once": true,
+    "teacher_100ms_context_is_privileged_for_10ms_student": true,
+    "final_seeds": [42, 43, 44],
+    "bootstrap_unit": "paired sequence, not independent event",
+    "high_density_events_per_second": 20000,
+    "new_subgroup_thresholds": "derive only from Train-main, then freeze"
+  }
+}

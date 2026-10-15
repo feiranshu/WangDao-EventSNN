@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "status": "foundation_validated_no_training",
+  "experiment_id": "h2pro_snn_foundation_v1",
+  "stage": "baseline_audit_and_initial_diagnosis",
+  "data_role": "train_dev",
+  "primary_metrics": {
+    "events": 1221626,
+    "target_events": 30254,
+    "candidate_events": 438966,
+    "candidate_targets": 29776,
+    "proposal_fn": 478,
+    "refiner_fn": 3844,
+    "tp": 25932,
+    "fp": 2463,
+    "fn": 4322,
+    "tn": 1188909,
+    "iou": 0.792615459852676,
+    "precision": 0.9132593766508188,
+    "recall": 0.8571428571428571,
+    "proposal_target_recall": 0.984200436305943,
+    "refiner_conditional_recall": 0.8709027404621171,
+    "candidate_fraction": 0.3593292873596338
+  },
+  "decision": "prioritize_refiner_cause_diagnosis_before_training",
+  "conclusion": "Frozen ANN development errors are mainly post-Proposal; this does not establish membrane-transport benefit.",
+  "training_started": false,
+  "reserved_sequences_read": 0,
+  "validation": {
+    "unittest_passed": 131,
+    "unittest_failed": 0,
+    "new_tests": 35,
+    "frozen_ann_bit_exact_replay_calls": {
+      "proposal": 759,
+      "refiner": 757
+    },
+    "synthetic_transport_demo": {
+      "fixed_spikes": 0,
+      "spike_route_spikes": 0,
+      "membrane_route_spikes": 1,
+      "oracle_routes": true
+    }
+  },
+  "baseline": {
+    "model_id": "H2-pro-Causal-ANN-v1",
+    "threshold": 0.35,
+    "verified_files": {
+      "data/index.json": "7968011347d9d6291a94e183b4268a84549301003523bca7b4b185a5ca36a397",
+      "software/wangdao/h2_pro/protocol.json": "57d11d912d45a16bc8b4edf1f467d56537d071835a3ca2256e150eb60e6835b3",
+      "software/weights/H2_D1_seed42.npz": "21019377617e429a599497a0a6b0f541d2c05bf7bc8fee83005deae72bb578b2",
+      "software/weights/H2-pro-Causal-ANN-v1_int8.npz": "6e9221829459825413c58604a40da3582137a555aaa508d84d9da8325aa5368d",
+      "software/weights/H2-pro-Causal-ANN-v1_float.pt": "dd4b81fb5cef1b5e5f120afbc5e30c9b7d3b0e5f48cd275a0caf0534e2112c91",
+      "software/wangdao/data.py": "3ef9694d05aea105d96fff066fb7c51373d31bcf9cdbea5ac324141c05f0436f",
+      "software/wangdao/__init__.py": "2694a77106b899330a8ff59b5751b991f2ad14ccb0f99d72286d38cfe5297617",
+      "software/wangdao/h2/__init__.py": "f80db412e054d7b5c40aa756512d7d58db9327edf66c930ec075fca384cb3409",
+      "software/wangdao/h2/constants.py": "b0ce1899cc46fffd9b1208e6846dc61d9ffcd79744b0f4d9b93085f4e0314cc6",
+      "software/wangdao/h2/export.py": "8238997257dd970759554c63475dcb9682e4fb2aaa42f93d11a74536667555c2",
+      "software/wangdao/h2/features.py": "cb52c69fdf7a3ff7a8e1bb20bf6d9a2cfd82769e85db9866ddc586e0d0c9ef16",
+      "software/wangdao/h2/losses.py": "dd4637a43936cec743c99475b133849755679e61e40bd27050dac81df337d207",
+      "software/wangdao/h2/numpy_model.py": "505222f01b98bf832f83992c9657ddf62ca7c0a142a204d785f9a5757a7170ee",
+      "software/wangdao/h2/representation.py": "c94fca9627898ad5ba6e04f149134ba1d08baa6a77695a56ef488cbd9ea98003",
+      "software/wangdao/h2/torch_model.py": "2165bb20cd12d13ff359f741498bafa3b9e1fdfbf37870a9dd3c56cace1e7b87",
+      "software/wangdao/h2_pro/__init__.py": "95e214860f13ada109353da455004e3ab43218258c9c5fb42eb1d648f959619a",
+      "software/wangdao/h2_pro/causal_feature_builder.py": "0ae1c45bbdf6cdf499732480d8b03607bc50bbe6b9b7df6d5767b31056f44454",
+      "software/wangdao/h2_pro/motion_coherence.py": "885cd342014529a55f6891dcc1379045170b9637b77b583c350ae4aa79e60d79",
+      "software/wangdao/h2_pro/stream_state.py": "771c4f2cd5eb19c450d856ffa4565ec8570f6d83349ffa1155d87c7bd304ddc3"
+    },
+    "baseline_lock_sha256": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "research_protocol_sha256": "95aa0998b20550792adc20fedfade2ca3cad30037577ac66046dabd6bcf1d9a9"
+  },
+  "research_sources_utf8_lf": {
+    "software/wangdao/h2pro_snn/__init__.py": "1a2dad08b56e7094d6acd275875875a36ed30aaa5afd31e82dbf3391ef08d9d2",
+    "software/wangdao/h2pro_snn/ann_worker.py": "7fb38dd560439c351a4ff9f637bb01d4edaa7462d4574200b9df45f5e0faca52",
+    "software/wangdao/h2pro_snn/costs.py": "9902d3e104a2f2fb61ecb68b5e410a762e58edd48e3bbb22a94e887b43fe3b64",
+    "software/wangdao/h2pro_snn/diagnostics.py": "adaef9137403c674a265ea10961df10ef41b76789cca1e4d66ab97ad723b99bf",
+    "software/wangdao/h2pro_snn/foundation.py": "9f15b7ac89adef6b1fc843e72072f86a1c8bf657a4096a466265e8a132df1f64",
+    "software/wangdao/h2pro_snn/torch_cell.py": "dcb508a9184c5446e661594adea4e521e16d6ae2b626741ae14fc6d61b6020ed",
+    "software/wangdao/h2pro_snn/transport.py": "e8900a92ab1fe945b630f3bb2b42eb002633fde71893b04d9e5e741fb954ea41",
+    "software/wangdao/h2pro_snn/baseline_lock.json": "171292b4cd9b6f7471278140ad32e3ab79238798037217728165cdd85ea352aa",
+    "software/wangdao/h2pro_snn/protocol.json": "95aa0998b20550792adc20fedfade2ca3cad30037577ac66046dabd6bcf1d9a9",
+    "software/scripts/h2pro_snn.py": "327b222c647d0c32cac541076c96ab4106dbe56c5135a96b84002dc677bbbfb7"
+  },
+  "density_groups": {
+    "high_density": {
+      "events": 988281,
+      "target_events": 9766,
+      "candidate_events": 386938,
+      "candidate_targets": 9311,
+      "proposal_fn": 455,
+      "refiner_fn": 3624,
+      "tp": 5687,
+      "fp": 1528,
+      "fn": 4079,
+      "tn": 976987,
+      "iou": 0.5035417035594121,
+      "precision": 0.7882189882189882,
+      "recall": 0.5823264386647553,
+      "proposal_target_recall": 0.9534097890640999,
+      "refiner_conditional_recall": 0.6107829449038772,
+      "candidate_fraction": 0.3915262966706837
+    },
+    "ordinary": {
+      "events": 233345,
+      "target_events": 20488,
+      "candidate_events": 52028,
+      "candidate_targets": 20465,
+      "proposal_fn": 23,
+      "refiner_fn": 220,
+      "tp": 20245,
+      "fp": 935,
+      "fn": 243,
+      "tn": 211922,
+      "iou": 0.9450123698828362,
+      "precision": 0.9558545797922569,
+      "recall": 0.9881393986723936,
+      "proposal_target_recall": 0.9988773916438891,
+      "refiner_conditional_recall": 0.9892499389201075,
+      "candidate_fraction": 0.22296599455741498
+    }
+  },
+  "neural_cost": {
+    "proposal": {
+      "scope": "frozen ANN neural layers only",
+      "counts": {
+        "dense_neural_mac": 1958584320,
+        "zero_skip_neural_mac_proxy": 424904330,
+        "ac": 0,
+        "scalar_mul": 40803840,
+        "scalar_div": 22442112,
+        "exp": 0,
+        "floor": 0,
+        "round_to_nearest": 18361728,
+        "comparisons": 73446912,
+        "state_scalar_updates": 0,
+        "state_read_bytes": 0,
+        "state_write_bytes": 0,
+        "routed_scalars": 0,
+        "route_checks": 0,
+        "unit_spikes": 0
+      },
+      "unaccounted_components": [
+        "feature construction",
+        "Proposal heatmap and dilation",
+        "C1 motion and history",
+        "candidate routing",
+        "connected components",
+        "probability readout",
+        "state and workspace traffic"
+      ],
+      "end_to_end_complete": false,
+      "memory_definition": "logical persistent-state traffic; not cache or DRAM profiling",
+      "zero_skip_is_implemented": false,
+      "energy_measured": false
+    },
+    "refiner": {
+      "scope": "frozen ANN neural layers only",
+      "counts": {
+        "dense_neural_mac": 1966567680,
+        "zero_skip_neural_mac_proxy": 1235262133,
+        "ac": 0,
+        "scalar_mul": 86037336,
+        "scalar_div": 43896600,
+        "exp": 0,
+        "floor": 0,
+        "round_to_nearest": 42140736,
+        "comparisons": 168562944,
+        "state_scalar_updates": 0,
+        "state_read_bytes": 0,
+        "state_write_bytes": 0,
+        "routed_scalars": 0,
+        "route_checks": 0,
+        "unit_spikes": 0
+      },
+      "unaccounted_components": [
+        "feature construction",
+        "Proposal heatmap and dilation",
+        "C1 motion and history",
+        "candidate routing",
+        "connected components",
+        "probability readout",
+        "state and workspace traffic"
+      ],
+      "end_to_end_complete": false,
+      "memory_definition": "logical persistent-state traffic; not cache or DRAM profiling",
+      "zero_skip_is_implemented": false,
+      "energy_measured": false
+    }
+  },
+  "local_evidence": [
+    "results/runs/h2pro_snn_foundation_v1/baseline_audit_verified.json",
+    "results/runs/h2pro_snn_foundation_v1/train_dev_verified.json",
+    "results/runs/h2pro_snn_foundation_v1/mechanism_demo.json"
+  ],
+  "limitations": [
+    "No learned router or complete detector SNN implemented",
+    "No model training or SNN accuracy measurement",
+    "ANN end-to-end feature/routing/readout cost audit incomplete",
+    "No hardware energy or latency claim"
+  ]
+}

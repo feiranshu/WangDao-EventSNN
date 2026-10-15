@@ -19,6 +19,18 @@ package-dir = {"" = "software"}
 where = ["software"]
 include = ["wangdao*"]
 
+[tool.setuptools.package-data]
+"wangdao.fred_adapter_v1" = ["*.cpp", "vendor/*.cpp", "vendor/*.h", "vendor/LICENSE", "vendor/source.json"]
+"wangdao.h2pro_snn" = ["*.json"]
+"wangdao.h2pro_snn_v2" = ["*.json"]
+"wangdao.h2pro_snn_v2_1" = ["*.json"]
+"wangdao.h2pro_snn_v2_2" = ["*.json"]
+"wangdao.h2pro_ann_state_v1" = ["*.json"]
+"wangdao.h2pro_ann_readout_v1" = ["*.json"]
+"wangdao.h2pro_direct_v1" = ["*.json"]
+"wangdao.h2pro_calibration_v1" = ["*.json"]
+"wangdao.h2pro_task_calibration_v1" = ["*.json"]
+
 [tool.pyright]
 include = ["software/wangdao", "software/scripts", "software/tests"]
 extraPaths = ["software"]

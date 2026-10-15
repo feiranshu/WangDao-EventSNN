@@ -1,0 +1,31 @@
+{
+  "version": "h2pro_task_if_calibration_v1",
+  "weights_frozen": true,
+  "training_enabled": false,
+  "labels_used": true,
+  "decision_threshold": 0.35,
+  "steps": [4, 8, 16],
+  "stages": ["r1", "r2"],
+  "modes": ["uncalibrated", "mse_reference", "task_rescore", "task", "task_matched_ac"],
+  "threshold_grid": [128, 160, 192, 224, 255, 288, 320, 384, 448, 510],
+  "initial_phase_quarters": [0, 1, 2, 3],
+  "coordinate_passes": 2,
+  "refinement_passes": 2,
+  "threshold_refinement_offsets": [-16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16],
+  "membrane_refinement_offsets": [-16, -8, -4, -2, 0, 2, 4, 8, 16],
+  "sample_seed": 42,
+  "candidate_rows_per_sequence": 2048,
+  "boundary_margin_width": 0.5,
+  "selection": {
+    "data": "Reuse exactly the old 12 Train-main sequences and uniform candidate row indices, now reading their labels. No new sampling or feature extraction.",
+    "objective": "Maximize mean of ordinary/high-density group IoU estimates. Expand each sequence's sampled candidate confusion counts by N/k, add exact fixed Proposal rejects, divide by the full sequence event count, then average equally across sequences within each group. These are sample estimates, not full-stream accuracy.",
+    "tie_breaks": "Fewer teacher-correct events made wrong (density/sequence balanced), lower balanced teacher-margin MSE, lower sample equivalent AC, deterministic encoder key. No tunable weighted sum of objectives.",
+    "task_rescore": "Select by the task objective from exactly the previous MSE search's candidate pool. This isolates selection objective from search-budget changes.",
+    "task": "Same objective, additionally run bounded coordinate search from the best rescored point and stagewise seed using the unchanged coarse/refinement ranges. Archive every candidate.",
+    "task_matched_ac": "Best task objective among candidates with equivalent synaptic AC on the fixed calibration sample <= the same-stage/same-T uncalibrated value. A second coordinate path searches within that budget. This calibration constraint is not a guarantee on Dev AC or a runtime guard.",
+    "freeze": "All six selections and source identities are saved before any new Dev evaluation. Never change calibration after seeing Dev results. No optimizer, backpropagation, weight updates or decision-threshold tuning."
+  },
+  "encoding": "Import the unchanged h2pro_calibration_v1 Encoder/forward, with one shared integer theta/m0 per hidden layer, original integer weights/scales/uint8 quantizers, and separately counted post-accumulation decode scaling.",
+  "evaluation": "Replay ANN and five modes at each r1/r2 and T=4/8/16 on all ten closed-prefix Train-dev sequences. Explicit binary spike additions must match the count reference exactly. No Validation/Test access.",
+  "limitations": "Hybrid layer-serial Refiner conversion; Proposal and first-layer continuous MAC remain. T is coding steps, not milliseconds. MAC/AC are neural arithmetic counts, not full pipeline cost or measured energy. This is supervised calibration, not a novel network or a label-free method."
+}

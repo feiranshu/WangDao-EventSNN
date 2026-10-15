@@ -15,3 +15,5 @@
 # Keep the implementation manifest and frozen feature protocol byte-stable on Windows.
 1_H2_model_improvement/implementation/** text=auto eol=lf
 1_H2_model_improvement/seven_step_improvement_study/H2-pro/protocol.json text eol=lf
+3_ANN_to_SNN/implementation/data/index.json text eol=lf
+3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/** text=auto eol=lf

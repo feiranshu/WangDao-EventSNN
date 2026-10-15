@@ -1,0 +1,36 @@
+{
+  "version": "h2pro_short_if_calibration_v1",
+  "weights_frozen": true,
+  "training_enabled": false,
+  "decision_threshold": 0.35,
+  "steps": [4, 8, 16],
+  "stages": ["r1", "r2"],
+  "threshold_grid": [128, 160, 192, 224, 255, 288, 320, 384, 448, 510],
+  "initial_phase_quarters": [0, 1, 2, 3],
+  "coordinate_passes": 2,
+  "refinement_passes": 2,
+  "threshold_refinement_offsets": [-16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16],
+  "membrane_refinement_offsets": [-16, -8, -4, -2, 0, 2, 4, 8, 16],
+  "sample_seed": 42,
+  "ordinary_sequences": 8,
+  "high_density_sequences": 4,
+  "candidate_rows_per_sequence": 2048,
+  "selection": {
+    "labels_used": false,
+    "objective": "Mean squared error of original two-class logit margin, equal weight to ordinary/high-density groups and equal weight to sequences within each group.",
+    "accuracy": "Lowest calibration margin MSE; equivalent synaptic AC breaks ties.",
+    "low_spike": "Lowest equivalent synaptic AC among searched candidates whose margin MSE is no worse than uncalibrated at the same T in BOTH density groups; otherwise retain uncalibrated. This is selection, never an execution guard.",
+    "search": "Stagewise coordinate grid search, two coarse passes followed by two local integer-threshold/membrane refinement passes; archive all evaluated candidates. The refinement was added after the Train-main coarse search retained the default, BEFORE any Dev evaluation. No gradient, optimizer, weight update or Train-dev feedback. r2 starts from the r1 accuracy calibration and also includes the original default."
+  },
+  "encoding": {
+    "parameters": "One positive integer threshold theta and initial membrane m0 in [0,theta) per converted hidden layer, shared across channels.",
+    "update": "v += original uint8 activation a; fire at most one binary spike if v>=theta; subtract theta on firing.",
+    "count": "min(T, floor((T*a+m0)/theta))",
+    "decode": "sum(original_int8_weight_per_spike) * original_output_scale / T * theta / 255; default theta=255 uses exactly the original direct_v1 arithmetic.",
+    "defaults": {"threshold": 255, "initial_membrane": 127},
+    "saturation": "a>theta saturates at one spike per tick; count and disclose these cells, do not stop the run.",
+    "unchanged": "Proposal, candidate gating, C1 36-dimensional features, 36-64-32-4 bias-free Refiner, all weight/scale arrays, original uint8 quantizers, prototype readout, 0.35 decision threshold, closed 100ms windows."
+  },
+  "evaluation": "Freeze selections on deterministic Train-main subset, then evaluate uncalibrated/accuracy/low_spike on all ten Train-dev sequences. Every calibrated point uses explicit binary spike additions and checks full logits against the analytic count reference.",
+  "limitations": "Layer-serial hybrid network, not fully spiking or pipelined. T is coding steps, not milliseconds. Neural MAC/AC exclude some feature/routing/readout/memory costs; no hardware energy or latency claim."
+}
