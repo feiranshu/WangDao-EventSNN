@@ -1,0 +1,454 @@
+{
+  "status": "complete",
+  "version": "h2pro_adaptive_t_v1",
+  "source_epoch": 159,
+  "source_checkpoint_sha256": "3e3ef613c71d7eb8dfd55b1e3640db2fb09126d13b0e6a10e9bc3c3db36c98d9",
+  "scope": "frozen weight inference and exit calibration; 100 ms input window unchanged",
+  "weights_updated": false,
+  "real_data_training_started": false,
+  "reserved_splits_read": false,
+  "design": {
+    "version": "h2pro_adaptive_t_v1",
+    "source_epoch": 159,
+    "steps": [
+      4,
+      8,
+      16
+    ],
+    "theta": 255,
+    "m0": 191,
+    "final_threshold": 0.35,
+    "event_window_ms": 100,
+    "weights_updated": false,
+    "training_started": false,
+    "proposal": "original frozen ANN",
+    "features": "original frozen 36 columns and candidate mask",
+    "hidden1_projection": "computed once",
+    "transport": "binary IF; preserve membrane and weighted accumulator",
+    "readout": "original 32->4 recomputed at every visited checkpoint; divide accumulated current by elapsed T",
+    "negative_grid": [
+      null,
+      0.0001,
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "positive_grid": [
+      null,
+      0.9999,
+      0.999,
+      0.99,
+      0.97,
+      0.95,
+      0.9,
+      0.8,
+      0.6,
+      0.4
+    ],
+    "modes": [
+      "confidence",
+      "stable8"
+    ],
+    "stability": "stable8 cannot exit at4; at8 require class agreement with4 and confidence",
+    "split": "within Main only, separately sort ordinary/HD by SHA256(seed42:sequence), every fourth validates",
+    "objectives": {
+      "accuracy": 0.0,
+      "balanced": 0.0025,
+      "efficiency": 0.01
+    },
+    "objective_formula": "IoU - lambda*(AC / fixedT16 AC) on the same subset; no hard acceptance/stop threshold",
+    "shortlist": "union of top8 per objective on Main-fit; identical objectives select on Main-validation",
+    "tie_break": "IoU, HD recall, lower AC, lower MAC; deterministic grid order",
+    "main_validation_scope": "held out for exit-parameter selection only; source weights used all Main during training",
+    "no_runtime_inputs": [
+      "labels",
+      "teacher predictions",
+      "future prefix logits",
+      "Dev-selected thresholds",
+      "HD ground-truth tags"
+    ],
+    "full_event_scoring": true,
+    "roles": [
+      "train_main",
+      "train_dev"
+    ],
+    "reserved_splits_read": false,
+    "calibration_backend": "dense count reference for all prefixes",
+    "verification_backend": "full Dev selected policies execute actual incremental CPU spike-add with early stop",
+    "cost": "include repeated readout MAC; AC, scalar, IF state and control/traffic limitations separate"
+  },
+  "main_selection": {
+    "split_sizes": {
+      "fit": 59,
+      "validation": 20
+    },
+    "grid_size": 200,
+    "shortlist_size": 16,
+    "selected": {
+      "accuracy": {
+        "policy": {
+          "negative": 0.3,
+          "positive": 0.95,
+          "mode": "stable8"
+        },
+        "policy_id": "f2d5fdd96883",
+        "coefficient": 0.0,
+        "fit_iou": 0.8635558346321608,
+        "validation_iou": 0.8833532889321261,
+        "full_main_iou": 0.8681206808789654
+      },
+      "balanced": {
+        "policy": {
+          "negative": 0.01,
+          "positive": 0.99,
+          "mode": "confidence"
+        },
+        "policy_id": "5738bd2ebae7",
+        "coefficient": 0.0025,
+        "fit_iou": 0.8625725111491132,
+        "validation_iou": 0.8832589660773295,
+        "full_main_iou": 0.8673382049969678
+      },
+      "efficiency": {
+        "policy": {
+          "negative": 0.01,
+          "positive": 0.99,
+          "mode": "confidence"
+        },
+        "policy_id": "5738bd2ebae7",
+        "coefficient": 0.01,
+        "fit_iou": 0.8625725111491132,
+        "validation_iou": 0.8832589660773295,
+        "full_main_iou": 0.8673382049969678
+      }
+    },
+    "main_sealed_before_dev": true,
+    "balanced_and_efficiency_identical": true
+  },
+  "dev": {
+    "sequences": 10,
+    "events": 1221626,
+    "candidates": 438966,
+    "target_events": 30254,
+    "hd_sequences": 2,
+    "hd_targets": 9766
+  },
+  "summary": [
+    {
+      "name": "Frozen ANN",
+      "iou": 0.792615459852676,
+      "precision": 0.9132593766508188,
+      "recall": 0.8571428571428571,
+      "high_density_recall": 0.5823264386647553,
+      "mac": 2394416168,
+      "ac": 0,
+      "average_steps": null
+    },
+    {
+      "name": "Fixed T4",
+      "iou": 0.7554285714285714,
+      "precision": 0.8694435075885328,
+      "recall": 0.8520856746215376,
+      "high_density_recall": 0.5785377841490886,
+      "mac": 1495413800,
+      "ac": 992632320,
+      "average_steps": 4.0
+    },
+    {
+      "name": "Fixed T8",
+      "iou": 0.7889454900405698,
+      "precision": 0.910928750044025,
+      "recall": 0.8548952204667152,
+      "high_density_recall": 0.5778210116731517,
+      "mac": 1495413800,
+      "ac": 1845107552,
+      "average_steps": 8.0
+    },
+    {
+      "name": "Fixed T16",
+      "iou": 0.796941219826792,
+      "precision": 0.9183240144383892,
+      "recall": 0.8577378197924241,
+      "high_density_recall": 0.5824288347327463,
+      "mac": 1495413800,
+      "ac": 3550377728,
+      "average_steps": 16.0
+    },
+    {
+      "name": "Adaptive stable8",
+      "iou": 0.7969941054840601,
+      "precision": 0.9231786659040537,
+      "recall": 0.8536061347259867,
+      "high_density_recall": 0.5709604751177555,
+      "mac": 1553090216,
+      "ac": 1892354528,
+      "average_steps": 8.211970858790886
+    },
+    {
+      "name": "Adaptive 4/8/16",
+      "iou": 0.7968975579788051,
+      "precision": 0.9185313694944058,
+      "recall": 0.8575064454287037,
+      "high_density_recall": 0.5821216465287733,
+      "mac": 1507217960,
+      "ac": 1253837632,
+      "average_steps": 5.190151401247477
+    }
+  ],
+  "deltas": {
+    "accuracy": {
+      "T16_metric_pp": {
+        "iou": 0.0052885657268131325,
+        "precision": 0.485465146566455,
+        "recall": -0.41316850664374627,
+        "high_density_recall": -1.146835961499082
+      },
+      "ANN_metric_pp": {
+        "iou": 0.4378645631384126,
+        "precision": 0.9919289253234931,
+        "recall": -0.3536722416870419,
+        "high_density_recall": -1.1365963546999813
+      },
+      "ac_reduction_vs_t16_percent": 46.6999098975871,
+      "mac_increase_vs_t16_percent": 3.8568867025301046,
+      "mac_reduction_vs_ann_percent": 35.13699762154295,
+      "unweighted_ops_reduction_vs_t16_percent": 31.71646658644911,
+      "unweighted_ops_ratio_to_ann": 1.4389498325505794,
+      "exit_percent": {
+        "4": 0.0,
+        "8": 97.35036426511392,
+        "16": 2.6496357348860733
+      },
+      "ordinary": {
+        "exit_counts": {
+          "4": 0,
+          "8": 47763,
+          "16": 4265
+        },
+        "average_steps": 8.655800722687783,
+        "ac": 232819872,
+        "ac_reduction_percent": 44.66343178827047,
+        "target_by_exit": {
+          "4": 0,
+          "8": 17210,
+          "16": 3255
+        }
+      },
+      "high_density": {
+        "exit_counts": {
+          "4": 0,
+          "8": 379572,
+          "16": 7366
+        },
+        "average_steps": 8.152293132233071,
+        "ac": 1659534656,
+        "ac_reduction_percent": 46.973684210526315,
+        "target_by_exit": {
+          "4": 0,
+          "8": 5541,
+          "16": 3770
+        }
+      }
+    },
+    "balanced": {
+      "T16_metric_pp": {
+        "iou": -0.004366184798687556,
+        "precision": 0.020735505601665594,
+        "recall": -0.023137436372044906,
+        "high_density_recall": -0.030718820397301894
+      },
+      "ANN_metric_pp": {
+        "iou": 0.4282098126129119,
+        "precision": 0.5271992843587037,
+        "recall": 0.03635882858465944,
+        "high_density_recall": -0.020479213598201262
+      },
+      "ac_reduction_vs_t16_percent": 64.68438774523543,
+      "mac_increase_vs_t16_percent": 0.7893574340426701,
+      "mac_reduction_vs_ann_percent": 37.05279891845434,
+      "unweighted_ops_reduction_vs_t16_percent": 45.28003036434603,
+      "unweighted_ops_ratio_to_ann": 1.153122681386772,
+      "exit_percent": {
+        "4": 87.73686344728293,
+        "8": 3.5178123134821377,
+        "16": 8.745324239234929
+      },
+      "ordinary": {
+        "exit_counts": {
+          "4": 39473,
+          "8": 2765,
+          "16": 9790
+        },
+        "average_steps": 6.4705927577458295,
+        "ac": 176216384,
+        "ac_reduction_percent": 58.116934480402406,
+        "target_by_exit": {
+          "4": 11886,
+          "8": 1587,
+          "16": 6992
+        }
+      },
+      "high_density": {
+        "exit_counts": {
+          "4": 345662,
+          "8": 12677,
+          "16": 28599
+        },
+        "average_steps": 5.017982209036073,
+        "ac": 1077621248,
+        "ac_reduction_percent": 65.5672845449184,
+        "target_by_exit": {
+          "4": 1694,
+          "8": 367,
+          "16": 7250
+        }
+      }
+    },
+    "efficiency": {
+      "T16_metric_pp": {
+        "iou": -0.004366184798687556,
+        "precision": 0.020735505601665594,
+        "recall": -0.023137436372044906,
+        "high_density_recall": -0.030718820397301894
+      },
+      "ANN_metric_pp": {
+        "iou": 0.4282098126129119,
+        "precision": 0.5271992843587037,
+        "recall": 0.03635882858465944,
+        "high_density_recall": -0.020479213598201262
+      },
+      "ac_reduction_vs_t16_percent": 64.68438774523543,
+      "mac_increase_vs_t16_percent": 0.7893574340426701,
+      "mac_reduction_vs_ann_percent": 37.05279891845434,
+      "unweighted_ops_reduction_vs_t16_percent": 45.28003036434603,
+      "unweighted_ops_ratio_to_ann": 1.153122681386772,
+      "exit_percent": {
+        "4": 87.73686344728293,
+        "8": 3.5178123134821377,
+        "16": 8.745324239234929
+      },
+      "ordinary": {
+        "exit_counts": {
+          "4": 39473,
+          "8": 2765,
+          "16": 9790
+        },
+        "average_steps": 6.4705927577458295,
+        "ac": 176216384,
+        "ac_reduction_percent": 58.116934480402406,
+        "target_by_exit": {
+          "4": 11886,
+          "8": 1587,
+          "16": 6992
+        }
+      },
+      "high_density": {
+        "exit_counts": {
+          "4": 345662,
+          "8": 12677,
+          "16": 28599
+        },
+        "average_steps": 5.017982209036073,
+        "ac": 1077621248,
+        "ac_reduction_percent": 65.5672845449184,
+        "target_by_exit": {
+          "4": 1694,
+          "8": 367,
+          "16": 7250
+        }
+      }
+    }
+  },
+  "early_exit_errors": {
+    "accuracy": {
+      "early_candidates": 427335,
+      "changed_predictions": 284,
+      "t16_correct_to_wrong": 125,
+      "t16_wrong_to_correct": 159,
+      "additional_target_misses": 125,
+      "recovered_targets": 0,
+      "extra_background_false_positives": 0,
+      "removed_background_false_positives": 159
+    },
+    "balanced": {
+      "early_candidates": 400577,
+      "changed_predictions": 16,
+      "t16_correct_to_wrong": 8,
+      "t16_wrong_to_correct": 8,
+      "additional_target_misses": 7,
+      "recovered_targets": 0,
+      "extra_background_false_positives": 1,
+      "removed_background_false_positives": 8
+    },
+    "efficiency": {
+      "early_candidates": 400577,
+      "changed_predictions": 16,
+      "t16_correct_to_wrong": 8,
+      "t16_wrong_to_correct": 8,
+      "additional_target_misses": 7,
+      "recovered_targets": 0,
+      "extra_background_false_positives": 1,
+      "removed_background_false_positives": 8
+    }
+  },
+  "exact_source159_replay": true,
+  "full_explicit_candidates_per_policy": {
+    "f2d5fdd96883": 438966,
+    "5738bd2ebae7": 438966
+  },
+  "audit": {
+    "status": "passed",
+    "real_data_training_started": false,
+    "weights_updated": false,
+    "reserved_splits_read": false,
+    "source_epoch": 159,
+    "source_checkpoint_sha256": "3e3ef613c71d7eb8dfd55b1e3640db2fb09126d13b0e6a10e9bc3c3db36c98d9",
+    "comparison_sha256": "317ef062966f2e45d63b09920a363c9a2e8659de11771eb0fcd37f6f764a7a3d",
+    "main_seal_sha256": "1ecb64a620ee11bc170e85af7b1d521ee4fff4356b3ff55cf6083aa81f8ced77",
+    "main_sealed_before_dev": true,
+    "cache_files_verified": 89,
+    "main_scores_independently_recomputed": 228,
+    "completed_reuse_without_inference": true,
+    "completed_run_files_unchanged": 225,
+    "old_protected_files": 1227,
+    "old_protected_files_unchanged": 1227,
+    "allowed_document_changes": [],
+    "tests": {
+      "new_adaptive_tests": 20,
+      "shared_regression_tests": 67,
+      "shared_scope": "includes synthetic training/resume tests only; no real-data model optimization"
+    },
+    "numerical_scope": "Saved predictions recounted independently, full original event denominators; integer AC/MAC recomputed",
+    "timing_scope": "Measured evaluation runtime includes calibration, verification and IO; no sparse GPU/FPGA speed or energy claim"
+  },
+  "backend": "Main/full-prefix evidence uses dense count reference on CUDA; both selected Dev policies execute actual CPU binary spike-add with active-row stopping",
+  "cost_scope": "Proposal+Refiner synaptic costs; repeated readout MAC included. IF/scalar costs separate. Physical compaction, traffic and energy unmeasured.",
+  "findings": [
+    "Adaptive confidence .01/.99 keeps Dev IoU within -0.004366 percentage points of fixed T16, reduces AC by 64.6844%, increases MAC by 0.7894%.",
+    "Only 16 candidate decisions change against T16: 7 lost targets, 1 added FP and 8 removed FP; HD loses 3 targets.",
+    "Both balanced and efficiency objectives selected the same policy on Main; these are one model, not independent replications.",
+    "Main accuracy policy stable8 .30/.95 has Dev IoU +0.005289 pp but HD recall -1.146836 pp. Preserve this precision/recall tradeoff.",
+    "Dynamic coding T reduces computation; it does not shorten the real 100 ms event window or repair the existing high-density miss mechanism.",
+    "Recommend retaining adaptive .01/.99 as a low-AC development candidate and original fixed T16 as accuracy reference. No perfect-lossless, independent-test or energy claim."
+  ],
+  "next_options": [
+    "Frozen-weight, Main-only step-specific and asymmetric negative/positive exit calibration; include this policy as unchanged control and retain full T16.",
+    "After user chooses a next experiment: separate weak AC regularization or multi-T supervision from gate-only evaluation; do not start training automatically.",
+    "Before deployment, measure actual sparse execution, state/traffic/control overhead and timing on the intended backend."
+  ],
+  "artifacts": {
+    "results/runs/h2pro_adaptive_t_v1_s42_ep159/comparison.json": "317ef062966f2e45d63b09920a363c9a2e8659de11771eb0fcd37f6f764a7a3d",
+    "results/runs/h2pro_adaptive_t_v1_s42_ep159/selection.json": "11558b89e1617266893d8dbdd46fa77188ab3665b3698957b3587b76a74c956b",
+    "results/runs/h2pro_adaptive_t_v1_s42_ep159/main_seal.json": "1ecb64a620ee11bc170e85af7b1d521ee4fff4356b3ff55cf6083aa81f8ced77",
+    "results/runs/h2pro_adaptive_t_v1_checks_20261015/audit.json": "edce14eedc3504c96d3df963ba74a7f07a9399d4ecedff448f530730bd528359",
+    "results/runs/h2pro_adaptive_t_v1_checks_20261015/audit.py": "c8218e73cb1f8d8e5119f20b62e7b2873f248e712b4383c4f50ea9ccc01c4047",
+    "results/runs/h2pro_adaptive_t_v1_checks_20261015/tests.log": "5c9ca115fd68f42d6e33766b4aac3ecd935ca7173e13058ad201a5083cb70c7f",
+    "results/runs/h2pro_adaptive_t_v1_checks_20261015/shared_tests.log": "34dae59d64eaf1d26262bbbb8c925e4864a765a95a0dede30fcafffb131bca70",
+    "results/h2pro_adaptive_t_v1_comparison_20261015.png": "c39c5fb4595f10f0fe4c9c6fc42f98c262a7e00355f50f5377bf26c279c0ae77"
+  }
+}

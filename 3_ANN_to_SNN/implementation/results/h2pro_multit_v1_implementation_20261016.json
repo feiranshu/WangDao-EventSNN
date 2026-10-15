@@ -1,0 +1,73 @@
+{
+  "status": "ready_not_trained",
+  "formal_training_started": false,
+  "real_data_optimizer_steps": 0,
+  "suite": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159",
+  "source_epoch": 159,
+  "source_adam_step": 43089,
+  "additional_epochs_per_arm": 5,
+  "total_new_tests": 21,
+  "shared_regression_tests": 94,
+  "tests": {
+    "tests_attempt1.log": {
+      "passed": 21,
+      "seconds": 19.309
+    },
+    "shared_regression.log": {
+      "passed": 94,
+      "seconds": 25.403
+    }
+  },
+  "preflight": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\ready.json",
+  "audit": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN\\3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_checks_20261016\\audit.json",
+  "completed_reuse": {
+    "status": "passed",
+    "files_unchanged": 27,
+    "real_data_optimizer_steps": 0,
+    "initial_last_best_adam_rng_not_reset": true
+  },
+  "source_model_adam_rng_exact": true,
+  "protected_old_files_unchanged": 1859,
+  "full_dev_candidates_exact_per_prefix": 438966,
+  "gpu_memory_by_arm": {
+    "control": {
+      "peak_allocated_bytes": 244900864,
+      "peak_reserved_bytes": 272629760
+    },
+    "multit": {
+      "peak_allocated_bytes": 265498112,
+      "peak_reserved_bytes": 274726912
+    }
+  },
+  "data_coverage": {
+    "train_main": {
+      "sequences": 79,
+      "events": 7154631,
+      "candidates": 2219864,
+      "targets": 217211
+    },
+    "train_dev": {
+      "sequences": 10,
+      "events": 1221626,
+      "candidates": 438966,
+      "targets": 30254
+    }
+  },
+  "reserved_splits_used_for_training_or_selection": false,
+  "readme_added_links_checked": 18,
+  "source_files_sha256": {
+    "software\\wangdao\\h2pro_multit_v1\\checks.py": "3bd93ecd1faf32a88493a4caf45b33479e40ee4e06489faa11e7fdc531039895",
+    "software\\wangdao\\h2pro_multit_v1\\common.py": "f7658d52c5897b13a7497eed416e1a6a177fbbaeefc89653f755e6dfb98456d7",
+    "software\\wangdao\\h2pro_multit_v1\\comparison.py": "1e0f412a289ffa55de4c3017939cded23b1b484ff7b9fcbc4c33132bd4a2b95e",
+    "software\\wangdao\\h2pro_multit_v1\\evaluation.py": "e7e0eb7b365153e659ebc54900bbbc5263d7a3c62acc3f7952c3db8725e030e1",
+    "software\\wangdao\\h2pro_multit_v1\\model.py": "2356c569aeaf81fdd5b4192f9895da621d89a7eb6c810b442986763ffe8b1f35",
+    "software\\wangdao\\h2pro_multit_v1\\runtime.py": "b1480e9dfc1c48d74997b23f21fbf7e8d97e2be03733e5677847fec2f97141ac",
+    "software\\wangdao\\h2pro_multit_v1\\__init__.py": "1560aab34cf76084a537d1dacfc718d831148c6f4ef55cb7602452c5c8552a91",
+    "software\\scripts\\train_h2pro_multit.py": "c4c6f682e68609474aa799586446e9f464fe38914857810ff9b05f4e3c3d6737",
+    "software\\tests\\test_h2pro_multit.py": "ef2691a815cc19a5d4fac47d28db15e4562ce8ac362e94fcbf9de25b04810d4a",
+    "train_local_4060_multit.ps1": "7cbe5601e7600b62f6e1e3d84744f42d51eac1205226db64b53ce92258f9a88c"
+  },
+  "train_command": ".\\train_local_4060_multit.ps1 -Action train -AdditionalEpochs 5",
+  "pause_command": ".\\train_local_4060_multit.ps1 -Action pause",
+  "status_command": ".\\train_local_4060_multit.ps1 -Action status"
+}
