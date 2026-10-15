@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.lock
+results/runs/
+results/cache/
+results/checks/

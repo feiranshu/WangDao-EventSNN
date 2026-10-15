@@ -1,0 +1,23 @@
+{
+  "version": "h2pro_dynamic_ann_refiner_train_v1",
+  "arms": {"fixed100": "fixed100", "dynamic2000": "adaptive2000_rate100"},
+  "input_contract": "Read-only H2-pro_dynamic_window_v1; 2000 observed events, 25ms closed tick, max100ms; count normalization before log compression; original physical history retained",
+  "proposal": "Original frozen H2-pro ANN Proposal weights, threshold0.51, all current and anchor inference accounted; no optimizer parameters",
+  "refiner": "Original trained H2-pro-C1 seed42 epoch10 float checkpoint; 36->64->32->4 bias-free, original old/new first-layer partition and max-of-two prototypes per class",
+  "initial_state": "Both arms restore one shared initial model, fresh AdamW and Python/NumPy/Torch CPU/CUDA random states; no warmup or newly initialized weights",
+  "training": "Full FP32 supervised cross entropy (same two-class objective as original softmax BCE), all original Refiner matrices trainable; no KD, QAT, hard mining, clipping, AC regularization or amplitude stop",
+  "optimizer": {"name": "AdamW", "learning_rate": 0.00001, "weight_decay": 0.0001, "betas": [0.9, 0.999], "eps": 1e-8},
+  "budget": "Five full Main epochs per arm; identical shuffled source-event order and source-event batch boundaries, identical optimizer step count; each arm's complete candidate set visited once per epoch. Candidate counts and actual FLOPs can differ. No candidate thinning or repeated oversampling to equalize counts.",
+  "source_event_batch_size": 32768,
+  "evaluation_batch_size": 16384,
+  "seed": 42,
+  "export": "Original ANN quantize_weight: per-output absmax/127 and round-to-even int8. Scales follow learned weights; not fixed to the original range.",
+  "evaluation": "Epoch0 and every epoch: full Dev float and exact exported-int8, fixed event threshold0.35, all original closed-prefix events including Proposal rejects, original sequence HD>=20000events/s",
+  "selection": "Dev int8 full-event IoU, ties by recall; epoch0 eligible; all epoch weights/Adam/RNG/export/predictions/metrics retained",
+  "data_roles": ["train_main", "train_dev"],
+  "reserved_splits_read": false,
+  "data_acceleration": "Precompute both policies' full uint8 candidate features; verify against prior full inference; one arm's Main/Dev tensors and source-to-candidate map resident on GPU; deterministic GPU permutation once per epoch; no per-batch disk loading or CPU feature calculation",
+  "resumption": "Atomic last checkpoint every10 committed updates by default; Ctrl+C or suite PAUSE requests a safe boundary checkpoint and stops the whole suite. Hard-killed processes resume last committed batch. Preserve every epoch full state. OS-owned lock prevents duplicate writers.",
+  "cost": "Unchanged frozen Proposal current/anchor MAC plus4480MAC per candidate; both zero-skip and dense Proposal conventions, AC0. Training compute/host memoization/scalar/feature/control/memory work not deployment energy.",
+  "training_start": "User only. Preparation/preflight may infer and backpropagate real data without optimizer steps; update/resume tests use synthetic data only."
+}

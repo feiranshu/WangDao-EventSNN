@@ -1,0 +1,21 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.pt
+*.pth
+*.ckpt
+*.lock
+results/runs/
+results/cache/
+results/checks/
+
+# Publish only reviewed summaries/figures; preserve all raw files locally.
+results/reviews/*
+!results/reviews/epoch5_20261015/
+results/reviews/epoch5_20261015/*
+!results/reviews/epoch5_20261015/review.json
+!results/reviews/epoch5_20261015/learning_curves.png
+!results/reviews/epoch200_20261016/
+results/reviews/epoch200_20261016/*
+!results/reviews/epoch200_20261016/summary.json
+!results/reviews/epoch200_20261016/learning_curves.png
