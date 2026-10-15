@@ -8,7 +8,8 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from rebuild_evaluation_tables import build_accuracy, build_complexity, build_coverage, build_deployment
+from rebuild_evaluation_tables import (A_METRICS, B_METRICS, C_METRICS, build_accuracy,
+    build_complexity, build_coverage, build_deployment)
 
 
 ROOT = Path(__file__).absolute().parents[4] / "5_model_evaluation"
@@ -20,7 +21,7 @@ def csv_rows(path: Path) -> list[dict[str, str]]:
 
 
 def metric_csvs(root: Path) -> list[Path]:
-    return sorted(path for path in root.glob("*/01_metric_comparisons/**/*.csv") if "archive" not in path.parts)
+    return sorted(path for path in root.glob("*/01_metric_comparisons/**/*.csv") if "archive" not in path.parts and "uncertainty" not in path.parts)
 
 
 def hashes(paths: list[Path]) -> dict[str, str]:
@@ -29,7 +30,9 @@ def hashes(paths: list[Path]) -> dict[str, str]:
 
 def test_active_layout() -> None:
     files = metric_csvs(ROOT)
-    assert len(files) == 56, len(files)
+    expected = len(A_METRICS)*2 + sum(1 if m.code in {"B01", "B02", "B05"} else 2 for m in B_METRICS)
+    expected += 2*sum(code == "C07" or code.startswith(("C08", "C09")) for code, *_ in C_METRICS)
+    assert len(files) == expected, (len(files), expected)
     assert len(list((ROOT / "A_model_accuracy" / "01_metric_comparisons").glob("**/A??_*/README.md"))) == 22
     for path in files:
         rows = csv_rows(path)
@@ -66,15 +69,19 @@ def test_b04c_identity() -> None:
 
 
 def test_deterministic_rebuild() -> None:
-    paths = metric_csvs(ROOT) + [ROOT / "evaluation_coverage.csv"]
-    before = hashes(paths)
-    build_accuracy(ROOT); build_complexity(ROOT); build_deployment(ROOT); build_coverage(ROOT, fail_on_incomplete=False)
-    after = hashes(paths)
-    assert before == after
+    with tempfile.TemporaryDirectory(prefix="wangdao_layout_", dir=ROOT.parent.parent) as tmp:
+        copied = Path(tmp) / "5_model_evaluation"
+        shutil.copytree(ROOT, copied, ignore=shutil.ignore_patterns("*.zip"))
+        def snapshot():
+            return {p.relative_to(copied).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in metric_csvs(copied) + [copied / "evaluation_coverage.csv"]}
+        before = snapshot()
+        build_accuracy(copied); build_complexity(copied); build_deployment(copied); build_coverage(copied, fail_on_incomplete=False)
+        assert before == snapshot()
 
 
 def test_coverage_rules_for_new_models() -> None:
-    with tempfile.TemporaryDirectory() as tmp:
+    with tempfile.TemporaryDirectory(prefix="wangdao_coverage_", dir=ROOT.parent.parent) as tmp:
         temp_root = Path(tmp) / "5_model_evaluation"; temp_root.mkdir()
         for category in ("A_model_accuracy", "B_model_complexity", "C_deployment_efficiency_and_hardware_cost"):
             source = ROOT / category / "01_metric_comparisons"

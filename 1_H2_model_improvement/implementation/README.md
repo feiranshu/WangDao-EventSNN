@@ -11,3 +11,5 @@ python software/scripts/run_h2_pro.py path/to/input.npz --output runs/h2_pro_pre
 
 正式权重在 `software/weights/`；`results/final_H2-pro/` 是冻结后 Validation/Test 同前缀 A/B 交付。第 5 板块保存正式表。Test 相对 H2-plus 的 IoU 增量置信区间跨 0，HOTA 更低，限制见 [MODEL_CARD.md](MODEL_CARD.md)。H2-plus 旧正式文件归入 `../seven_step_improvement_study/step7/intermediate_H2-plus/`；完整 H2-pro 开发证据在 `../seven_step_improvement_study/H2-pro/`。
 
+评价标准已升级为 [v2](../../5_model_evaluation/EVALUATION_STANDARD_V2.md)：冻结模型不变，旧 Pd/Fa 仅作历史记录，新版统一重算与 B05 状态清单待补。`software/scripts/recompute_localization_v2.py` 只统计冻结预测；`rebuild_evaluation_tables.py` 与导入器核验来源/协议/证据。新增测量定义不代表已执行 Validation/Test 或板端实验。
+

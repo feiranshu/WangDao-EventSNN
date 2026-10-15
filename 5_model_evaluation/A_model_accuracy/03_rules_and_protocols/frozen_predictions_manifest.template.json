@@ -1,0 +1,29 @@
+{
+  "record": {
+    "record_schema": "evaluation-record-v2",
+    "evaluation_id": null,
+    "platform_id": null,
+    "split": null,
+    "comparison": {
+      "scope_id": "first-event-complete-100ms-prefix-v1",
+      "causality": null,
+      "numeric_path": null,
+      "threshold": null,
+      "sequence_ids": []
+    },
+    "provenance": {
+      "weight_sha256": null,
+      "config_sha256": null,
+      "index_sha256": null,
+      "artifacts": []
+    }
+  },
+  "sequences": [
+    {
+      "sequence_id": null,
+      "events_file": null,
+      "probabilities_file": null,
+      "probabilities_sha256": null
+    }
+  ]
+}

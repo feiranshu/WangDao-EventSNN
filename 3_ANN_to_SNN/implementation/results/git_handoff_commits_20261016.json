@@ -1,0 +1,2215 @@
+{
+  "scope": "Six local commits; no push, fetch, branch change, real-data training or Test evaluation by this task",
+  "base_commit": "5a06ffe3c0b87af83903c5cc62dc2c171c2c51b1",
+  "branch": "main",
+  "prior_local_unpushed_commits": [
+    "7e65382",
+    "5a06ffe"
+  ],
+  "commits": [
+    {
+      "batch": 1,
+      "commit": "4f1ca8e520b47541b70031f010fb43daa8b6014c",
+      "title": "冻结 H2-pro 原结构转换与校准基线",
+      "tree": "1735823760fb0d2af34edf68bf74c4afdd40075d",
+      "checks": [
+        {
+          "label": "tests",
+          "exit_code": 0,
+          "seconds": 18.61,
+          "log": "batch_1_tests_1792090598159046100.log"
+        }
+      ],
+      "files": [
+        ".gitattributes",
+        "3_ANN_to_SNN/implementation/calibrate_h2pro.ps1",
+        "3_ANN_to_SNN/implementation/calibrate_h2pro_task.ps1",
+        "3_ANN_to_SNN/implementation/convert_h2pro.ps1",
+        "3_ANN_to_SNN/implementation/diagnose_h2pro_proposal.ps1",
+        "3_ANN_to_SNN/implementation/pyproject.toml",
+        "3_ANN_to_SNN/implementation/results/h2pro_calibration_v1_implementation_20261013.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_direct_v1_implementation_20261013.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_proposal_diagnosis_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_proposal_transfer_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_snn_foundation.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_task_calibration_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_calibrate.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_convert.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_component.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_diagnose.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_transfer.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_snn.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_task_calibrate.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_calibration.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_direct.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_foundation.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_component.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_diagnosis.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_transfer.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_stream.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_task_calibration.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_torch.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/cache_worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/calibration.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/cache_worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/cache.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/experiments.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/validation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/verify.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/pipeline.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/validation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/ann_worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/baseline_lock.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/cache_worker.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/costs.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/refiner.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/stream_data.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/torch_cell.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/training.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/transport.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/calibration.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/train_local_4060.ps1",
+        "3_ANN_to_SNN/implementation/transfer_h2pro_proposal.ps1"
+      ]
+    },
+    {
+      "batch": 2,
+      "commit": "0f53b80fd30ff0e8687c56c3a716f9a5d6c19f6a",
+      "title": "加入监督蒸馏、校准诊断与可恢复训练对照",
+      "tree": "ad57138fe35e6c2160387026fcab4c573005ada2",
+      "checks": [
+        {
+          "label": "tests",
+          "exit_code": 0,
+          "seconds": 80.516,
+          "log": "batch_2_tests_1792090782418218000.log"
+        }
+      ],
+      "files": [
+        "3_ANN_to_SNN/implementation/calibrate_h2pro_channel.ps1",
+        "3_ANN_to_SNN/implementation/calibrate_h2pro_m0.ps1",
+        "3_ANN_to_SNN/implementation/results/h2pro_ann_readout_v1_epoch1_review_20261012.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_channel_calibration_v1_comparison_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_channel_calibration_v1_implementation_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch100_curves_20261014.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch100_review_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch5_review_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_longtrain_preparation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_distill_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_fixed_diagnosis_v1_curves_20261014.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_fixed_diagnosis_v1_review_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_epoch20_curves_20261014.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_epoch20_review_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_linear_pair_epoch5_review_20261013.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_m0_calibration_v2_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_epoch50_curves_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_epoch50_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_implementation_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1_train_v1_implementation_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch200_curves_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch200_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch5_curves_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch5_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_s42_review_20261011.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_epoch1_review_20261011.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_epoch2_failure_review_20261011.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_implementation.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_2_epoch1_review_20261012.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_2_implementation.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_implementation.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_refiner_implementation.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_state_readout_diagnosis_20261012.json",
+        "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_fixed.py",
+        "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_state.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_calibrate_m0.py",
+        "3_ANN_to_SNN/implementation/software/scripts/h2pro_channel_calibrate.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_ann_readout.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_ann_state.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_distill.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_hardcase.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_long.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_long_v1_1.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_r1.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_r1_lr.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2_1.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2_2.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_short.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_readout.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_readout_diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_state.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_state_diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_channel_calibration.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_distill.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_fixed_diagnosis.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_hardcase.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_longtrain.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_longtrain_v1_1.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_m0_calibration.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_r1_lr.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_r1_train.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2_1.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2_2.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_shorttrain.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_signed_head.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_transport.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/audit.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/refiner.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/training.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/audit.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/probe.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/refiner.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/stress.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/training.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/search.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/data.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/evaluation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/model.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/prepare.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/thresholds.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/evaluation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/objective.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/data.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/models.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/storage.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/migration.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/models.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/search.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/comparison.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/data.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/evaluation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/model.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_shorttrain.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/neurons.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/refiner.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/training.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/training.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/diagnostics.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/foundation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/local_4060.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/monitor.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/protocol.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/refiner.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/training.py",
+        "3_ANN_to_SNN/implementation/train_local_4060_ann_readout.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_ann_state.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_distill.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_hardcase.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_long.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_long_v1_1.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_r1.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_r1_lr.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_short.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_v2.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_v2_1.ps1",
+        "3_ANN_to_SNN/implementation/train_local_4060_v2_2.ps1"
+      ]
+    },
+    {
+      "batch": 3,
+      "commit": "c3939f3f0f79c70dc11709de72ba29bafc2b8ea3",
+      "title": "加入自适应时间步与多时间步联合训练",
+      "tree": "f0f7d95b3d37898b9fddf08c35fcc734afb7343c",
+      "checks": [
+        {
+          "label": "test_h2pro_adaptive_t",
+          "exit_code": 0,
+          "seconds": 2.75,
+          "log": "batch_3_test_h2pro_adaptive_t.log"
+        },
+        {
+          "label": "test_h2pro_adaptive_t_v2",
+          "exit_code": 0,
+          "seconds": 4.282,
+          "log": "batch_3_test_h2pro_adaptive_t_v2.log"
+        },
+        {
+          "label": "test_h2pro_adaptive_t_v3",
+          "exit_code": 0,
+          "seconds": 2.703,
+          "log": "batch_3_test_h2pro_adaptive_t_v3.log"
+        },
+        {
+          "label": "test_h2pro_frozen_test",
+          "exit_code": 0,
+          "seconds": 16.859,
+          "log": "batch_3_test_h2pro_frozen_test.log"
+        },
+        {
+          "label": "test_h2pro_multit",
+          "exit_code": 0,
+          "seconds": 20.328,
+          "log": "batch_3_test_h2pro_multit.log"
+        }
+      ],
+      "files": [
+        "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t.ps1",
+        "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t_v2.ps1",
+        "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t_v3.ps1",
+        "3_ANN_to_SNN/implementation/evaluate_h2pro_frozen_test.ps1",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v1_comparison_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v1_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v2_comparison_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v2_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v3_comparison_20261015.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v3_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_frozen_test_v1_review_20261016.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_epoch5_curves_20261016.png",
+        "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_epoch5_review_20261016.json",
+        "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_implementation_20261016.json",
+        "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_adaptive_t_v2_alternatives.py",
+        "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t.py",
+        "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t_v2.py",
+        "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t_v3.py",
+        "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_frozen_test.py",
+        "3_ANN_to_SNN/implementation/software/scripts/review_h2pro_multit.py",
+        "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_multit.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t_v2.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t_v3.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_frozen_test.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_h2pro_multit.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/experiment.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/selection.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/experiment.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/scoring.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/search.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/analysis.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/experiment.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/selection.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/checks.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/common.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/comparison.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/evaluation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/model.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/runtime.py",
+        "3_ANN_to_SNN/implementation/train_local_4060_multit.ps1"
+      ]
+    },
+    {
+      "batch": 4,
+      "commit": "7ae6aaa71a00a58bd4e7f74eadb1290f815c7cd0",
+      "title": "加入 FRED 外部事件适配与冻结评估",
+      "tree": "6520673fb5c5eb0621f17af825ee5c1df5967ac6",
+      "checks": [
+        {
+          "label": "test_fred_adapter",
+          "interpreter": "C:\\Anaconda\\python.exe",
+          "exit_code": 0,
+          "seconds": 5.047,
+          "log": "batch_4_test_fred_adapter_1792091129132898800.log"
+        },
+        {
+          "label": "test_fred_frozen_evaluation",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 5.469,
+          "log": "batch_4_test_fred_frozen_evaluation_1792091154302946500.log"
+        },
+        {
+          "label": "test_fred_input_diagnosis",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 0.859,
+          "log": "batch_4_test_fred_input_diagnosis.log"
+        },
+        {
+          "label": "test_fred_statistics_adaptation",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 0.578,
+          "log": "batch_4_test_fred_statistics_adaptation.log"
+        }
+      ],
+      "files": [
+        "3_ANN_to_SNN/implementation/prepare_fred.ps1",
+        "3_ANN_to_SNN/implementation/results/fred_external_v1_implementation_20261014.json",
+        "3_ANN_to_SNN/implementation/results/fred_frozen_three_v1_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/fred_input_diagnosis_v1_review_20261015.json",
+        "3_ANN_to_SNN/implementation/results/fred_statistics_adaptation_v1_review_20261015.json",
+        "3_ANN_to_SNN/implementation/software/scripts/adapt_fred_statistics.py",
+        "3_ANN_to_SNN/implementation/software/scripts/check_fred_model.py",
+        "3_ANN_to_SNN/implementation/software/scripts/diagnose_fred_inputs.py",
+        "3_ANN_to_SNN/implementation/software/scripts/evaluate_fred_frozen.py",
+        "3_ANN_to_SNN/implementation/software/scripts/prepare_fred.py",
+        "3_ANN_to_SNN/implementation/software/scripts/prepare_fred_diagnosis.py",
+        "3_ANN_to_SNN/implementation/software/scripts/prepare_fred_statistics.py",
+        "3_ANN_to_SNN/implementation/software/scripts/review_fred_frozen.py",
+        "3_ANN_to_SNN/implementation/software/scripts/review_fred_inputs.py",
+        "3_ANN_to_SNN/implementation/software/scripts/review_fred_statistics.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_fred_adapter.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_fred_frozen_evaluation.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_fred_input_diagnosis.py",
+        "3_ANN_to_SNN/implementation/software/tests/test_fred_statistics_adaptation.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/core.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/download.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/ecf.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/ecf_bridge.cpp",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/LICENSE",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec.cpp",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec.h",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec_export.h",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/source.json",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/verify.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/workflow.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_statistics_v1/__init__.py",
+        "3_ANN_to_SNN/implementation/software/wangdao/fred_statistics_v1/neighborhood.py"
+      ]
+    },
+    {
+      "batch": 5,
+      "commit": "65596157eb20ce6a0781367b9f6807f92355b5ea",
+      "title": "加入 ANN 动态窗口研究与配对训练",
+      "tree": "79a58ee1c2e7208b480f88e7ec0220ee76ec4285",
+      "checks": [
+        {
+          "label": "H2-pro_dynamic_window_v1",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 1.468,
+          "log": "batch_5_H2-pro_dynamic_window_v1_1792091228146207600.log"
+        },
+        {
+          "label": "H2-pro_dynamic_train_v1",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 6.64,
+          "log": "batch_5_H2-pro_dynamic_train_v1_1792091295464314300.log"
+        }
+      ],
+      "files": [
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/.gitignore",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/audit_preparation.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/__init__.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/checks.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/common.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/data.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/evaluation.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/model.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/preservation.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/runtime.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/storage.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/synthetic.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/protocol.json",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/learning_curves.png",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/summary.json",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/learning_curves.png",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/review.json",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/review_epoch200.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/review_epoch5.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/run.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/tests/test_dynamic_ann.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/train_local_4060.ps1",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/.gitignore",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/diagnose.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/protocol.json",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/run.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/__init__.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/core.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/workflow.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/tests/test_dynamic_window.py"
+      ]
+    },
+    {
+      "batch": 6,
+      "title": "统一评测标准与交接文档并隔离本地产物",
+      "commit": "The commit containing this receipt; inspect git log --oneline",
+      "checks": [
+        {
+          "label": "evaluation_v2",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 2.297,
+          "log": "batch_6_evaluation_v2.log",
+          "batch": 6,
+          "tests": 17
+        },
+        {
+          "label": "evaluation_layout",
+          "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+          "exit_code": 0,
+          "seconds": 1.922,
+          "log": "batch_6_evaluation_layout_1792091742626940900.log",
+          "batch": 6,
+          "tests": 4
+        }
+      ],
+      "files": [
+        ".gitattributes",
+        ".gitignore",
+        "1_H2_model_improvement/implementation/AGENTS.md",
+        "1_H2_model_improvement/implementation/DELIVERY_MANIFEST.json",
+        "1_H2_model_improvement/implementation/README.md",
+        "1_H2_model_improvement/implementation/software/scripts/evaluation_contract.py",
+        "1_H2_model_improvement/implementation/software/scripts/import_ev_spsegnet_results.py",
+        "1_H2_model_improvement/implementation/software/scripts/rebuild_evaluation_tables.py",
+        "1_H2_model_improvement/implementation/software/scripts/recompute_localization_v2.py",
+        "1_H2_model_improvement/implementation/software/scripts/test_evaluation_layout.py",
+        "1_H2_model_improvement/implementation/software/tests/test_evaluation_v2.py",
+        "1_H2_model_improvement/implementation/software/wangdao/localization_v2.py",
+        "1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_uncertainty.json",
+        "3_ANN_to_SNN/PLAN.md",
+        "3_ANN_to_SNN/README.md",
+        "3_ANN_to_SNN/implementation/AGENTS.md",
+        "3_ANN_to_SNN/implementation/MIGRATION_MANIFEST.md",
+        "3_ANN_to_SNN/implementation/README.md",
+        "3_ANN_to_SNN/implementation/results/git_handoff_commits_20261016.json",
+        "3_ANN_to_SNN/implementation/results/git_handoff_review_20261016.json",
+        "3_ANN_to_SNN/model_selection_metrics/README.md",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A01_event_ap/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A01_event_ap/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A02_event_iou/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A02_event_iou/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A03_precision/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A03_precision/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/README.md",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A05_f1/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A05_f1/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/README.md",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/README.md",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A08_macro_sequence_recall/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A08_macro_sequence_recall/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A09_high_density_recall/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A09_high_density_recall/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A10_ordinary_density_recall/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A10_ordinary_density_recall/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A11_detected_target_events/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A11_detected_target_events/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A12_missed_target_events/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A12_missed_target_events/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A13_target_events/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A13_target_events/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A14_hota/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A14_hota/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A15_deta/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A15_deta/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A16_detre/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A16_detre/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A17_detpr/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A17_detpr/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A18_assa/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A18_assa/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A19_assre/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A19_assre/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A20_asspr/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A20_asspr/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A21_loca/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A21_loca/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A22_longest_miss_p95_ms/test.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A22_longest_miss_p95_ms/validation.csv",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/uncertainty/README.md",
+        "5_model_evaluation/A_model_accuracy/01_metric_comparisons/uncertainty/paired_iou_delta.csv",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/EV-SpSegNet/measured_status.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/EV-SpSegNet/paper_reference.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/test/event_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/test/target_track_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/validation/event_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/validation/target_track_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/test/event_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/test/target_track_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/validation/event_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/validation/target_track_level/summary.json",
+        "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/frozen_predictions_manifest.template.json",
+        "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/localization_v2_protocol.md",
+        "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+        "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/statistical_reporting_protocol.md",
+        "5_model_evaluation/A_model_accuracy/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B01_parameter_count/common.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B02_static_storage/common.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B03_dense_mac/test.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B03_dense_mac/validation.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/test.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/validation.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/test.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/validation.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/test.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/validation.csv",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B05_persistent_state_memory/README.md",
+        "5_model_evaluation/B_model_complexity/01_metric_comparisons/B05_persistent_state_memory/common.csv",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/EV-SpSegNet/common/paper_reference.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/common/model_profile.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/test/summary.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/validation/summary.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/common/model_profile.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/test/summary.json",
+        "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/validation/summary.json",
+        "5_model_evaluation/B_model_complexity/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+        "5_model_evaluation/B_model_complexity/README.md",
+        "5_model_evaluation/COMPLETENESS_AUDIT_20261010.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01a_mean/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01b_p50/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01c_p95/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01d_p99/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02a_mean/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02b_p50/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02c_p95/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02d_p99/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03a_sequence_throughput/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03b_event_throughput/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03c_realtime_factor/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03d_timeout_rate/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04a_idle_power/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04b_run_power/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04c_dynamic_power/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C05_energy/C05a_total_energy_per_sequence/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C05_energy/C05b_dynamic_energy_per_sequence/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06a_lut/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06b_ff/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06c_bram36k/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06d_dsp/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06e_clock_frequency/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/test.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/validation.csv",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10a_exact_agreement/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10b_max_abs_error/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10c_rmse/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10d_prediction_agreement/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10e_overflow_rate/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10f_clipping_rate/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/02_model_records/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/README.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/runtime_measurement_protocol.md",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/runtime_record.template.json",
+        "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md",
+        "5_model_evaluation/EVALUATION_STANDARD_V2.md",
+        "5_model_evaluation/README.md",
+        "5_model_evaluation/comparison_contract.json",
+        "5_model_evaluation/evaluation_coverage.csv",
+        "README.md"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "label": "tests",
+      "exit_code": 0,
+      "seconds": 18.61,
+      "log": "batch_1_tests_1792090598159046100.log",
+      "tests": 104,
+      "batch": 1
+    },
+    {
+      "label": "tests",
+      "exit_code": 0,
+      "seconds": 80.516,
+      "log": "batch_2_tests_1792090782418218000.log",
+      "tests": 297,
+      "batch": 2
+    },
+    {
+      "label": "test_h2pro_adaptive_t",
+      "exit_code": 0,
+      "seconds": 2.75,
+      "log": "batch_3_test_h2pro_adaptive_t.log",
+      "tests": 20,
+      "batch": 3
+    },
+    {
+      "label": "test_h2pro_adaptive_t_v2",
+      "exit_code": 0,
+      "seconds": 4.282,
+      "log": "batch_3_test_h2pro_adaptive_t_v2.log",
+      "tests": 22,
+      "batch": 3
+    },
+    {
+      "label": "test_h2pro_adaptive_t_v3",
+      "exit_code": 0,
+      "seconds": 2.703,
+      "log": "batch_3_test_h2pro_adaptive_t_v3.log",
+      "tests": 11,
+      "batch": 3
+    },
+    {
+      "label": "test_h2pro_frozen_test",
+      "exit_code": 0,
+      "seconds": 16.859,
+      "log": "batch_3_test_h2pro_frozen_test.log",
+      "tests": 8,
+      "batch": 3
+    },
+    {
+      "label": "test_h2pro_multit",
+      "exit_code": 0,
+      "seconds": 20.328,
+      "log": "batch_3_test_h2pro_multit.log",
+      "tests": 21,
+      "batch": 3
+    },
+    {
+      "label": "test_fred_adapter",
+      "interpreter": "C:\\Anaconda\\python.exe",
+      "exit_code": 0,
+      "seconds": 5.047,
+      "log": "batch_4_test_fred_adapter_1792091129132898800.log",
+      "tests": 12,
+      "batch": 4
+    },
+    {
+      "label": "test_fred_frozen_evaluation",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 5.469,
+      "log": "batch_4_test_fred_frozen_evaluation_1792091154302946500.log",
+      "tests": 5,
+      "batch": 4
+    },
+    {
+      "label": "test_fred_input_diagnosis",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 0.859,
+      "log": "batch_4_test_fred_input_diagnosis.log",
+      "tests": 6,
+      "batch": 4
+    },
+    {
+      "label": "test_fred_statistics_adaptation",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 0.578,
+      "log": "batch_4_test_fred_statistics_adaptation.log",
+      "tests": 8,
+      "batch": 4
+    },
+    {
+      "label": "H2-pro_dynamic_window_v1",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 1.468,
+      "log": "batch_5_H2-pro_dynamic_window_v1_1792091228146207600.log",
+      "tests": 15,
+      "batch": 5
+    },
+    {
+      "label": "H2-pro_dynamic_train_v1",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 6.64,
+      "log": "batch_5_H2-pro_dynamic_train_v1_1792091295464314300.log",
+      "tests": 18,
+      "batch": 5
+    },
+    {
+      "label": "evaluation_v2",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 2.297,
+      "log": "batch_6_evaluation_v2.log",
+      "batch": 6,
+      "tests": 17
+    },
+    {
+      "label": "evaluation_layout",
+      "interpreter": "C:\\Anaconda\\envs\\gazelle-train\\python.exe",
+      "exit_code": 0,
+      "seconds": 1.922,
+      "log": "batch_6_evaluation_layout_1792091742626940900.log",
+      "batch": 6,
+      "tests": 4
+    }
+  ],
+  "powershell_parse": {
+    "parsed": 27,
+    "errors": 0
+  },
+  "source_bytes_unchanged": 295,
+  "excluded_artifacts_count": 84,
+  "excluded_artifacts_sha256_verified": true,
+  "excluded_artifacts": [
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/concurrent_changes.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/delivery_check.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/.run.lock",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_dev_predictions.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_metrics.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_dev_predictions.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_metrics.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/identity.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/initial.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preparation_audit.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_after.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_before.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_review.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/reuse_before.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/reuse_verified.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/five_epoch_snapshot_before.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/run_before.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/delivery_check.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/.run.lock",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/best.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/best_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_dev_predictions.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_metrics.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/last.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/progress.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/progress.jsonl",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/training.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/best.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/best_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005_dev.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_dev_predictions.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_int8.npz",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_metrics.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/last.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/progress.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/progress.jsonl",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/training.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/identity.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/initial.pt",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/ready.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/suite_progress.json",
+    "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/run_before.json"
+  ],
+  "preservation": {
+    "before_files": 11983,
+    "missing": [],
+    "changed": [
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/suite_status.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/last.pt",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/progress.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/progress.jsonl",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/training.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/last.pt",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/progress.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/progress.jsonl",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/training.json"
+    ],
+    "added_files": 251,
+    "status": "preserved_with_observed_external_continuation",
+    "expected_mutable_continuation_files": [
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/last.pt",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/progress.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/progress.jsonl",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/control/training.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/last.pt",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/progress.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/progress.jsonl",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/multit/training.json",
+      "3_ANN_to_SNN/implementation/results/runs/h2pro_multit_v1_s42_ep159/suite_status.json"
+    ],
+    "unchanged_preexisting_files": 11974,
+    "source_epoch": 159,
+    "completed_additional_epochs_per_arm": 50,
+    "note": "This agent ran staged-copy checks only. Original suite continued to +50 separately; original epoch artifacts were not rewritten. No rollback or replacement was performed."
+  },
+  "validation_artifact_copies": {
+    "2": [
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_fit/calibration.json",
+        "sha256": "9d72f29a38a510b6dd2c17f1faf69ba0184f87af8647621907ec38c8ac9b9027",
+        "bytes": 11160562
+      },
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_dev/r1_t16_task_rescore.json",
+        "sha256": "2663279373876ea5e9ed9311247d9fe94627a280efb40933bafed4a4c8b80c7a",
+        "bytes": 25120
+      }
+    ],
+    "3": [
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_fit/calibration.json",
+        "sha256": "9d72f29a38a510b6dd2c17f1faf69ba0184f87af8647621907ec38c8ac9b9027",
+        "bytes": 11160562
+      },
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_dev/r1_t16_task_rescore.json",
+        "sha256": "2663279373876ea5e9ed9311247d9fe94627a280efb40933bafed4a4c8b80c7a",
+        "bytes": 25120
+      },
+      {
+        "path": "results/runs/h2pro_r1t16_train_v1_s42/epochs/epoch_159_int8.npz",
+        "sha256": "e8a336ccab6553a59bc72c6b112813008c454e8064a7dd554b0b751ca93d188b",
+        "bytes": 9028
+      },
+      {
+        "path": "results/runs/h2pro_adaptive_t_v1_s42_ep159/comparison.json",
+        "sha256": "317ef062966f2e45d63b09920a363c9a2e8659de11771eb0fcd37f6f764a7a3d",
+        "bytes": 131679
+      },
+      {
+        "path": "results/runs/h2pro_adaptive_t_v2_alternatives_s42_ep159/comparison.json",
+        "sha256": "cbb9573955fb639998e6020279114e6c00d9e5ba83e5b8ec684ab8c5c1eaa96a",
+        "bytes": 103096
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/manifest.json",
+        "sha256": "484f3243681ff62e7fb9160a558662eb1ea58fb4631c35a4d84996ab5cafc759",
+        "bytes": 80021
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_002.npz",
+        "sha256": "5551b43588247e24a55331bfdc4e3146af53732c2d628aed889f03bcbc5e5c1e",
+        "bytes": 456354
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_020.npz",
+        "sha256": "2f833eccff07327c0b9d4daef8291593e22410496625946e5387c36dc4fd4986",
+        "bytes": 149832
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_034.npz",
+        "sha256": "0b7b5bac5ad42b7ec4c7a20114e271bc5c96243f452e7ad58b5bd322f19f2085",
+        "bytes": 498090
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_039.npz",
+        "sha256": "07fdacf46029dffaa08bbbd45b72a81bc877432b387b4bf2a941280a235bb7ac",
+        "bytes": 380556
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_041.npz",
+        "sha256": "a8f94ee8afe7d3e1dff0701edaf6dc4f60cc85121df6979739aab9114dd5d051",
+        "bytes": 403848
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_050.npz",
+        "sha256": "8882d94e0eaca2a65d301067bbaf6dffc3d6d5c88ae598ac2a213372eb570b99",
+        "bytes": 205340
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_060.npz",
+        "sha256": "8e4097183127a6e3715d05257a065199f98a72b6822645aa99eca34bb1df9b72",
+        "bytes": 767168
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_066.npz",
+        "sha256": "a6d18cd27ea418e3dec02600606a5e81c88af9641d40ec4d70a461cb4d7c63a8",
+        "bytes": 319038
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_089.npz",
+        "sha256": "b2115c78272fa07de8dc2781ae9a544396707aa153e527c7ae06e8e38e343010",
+        "bytes": 9086074
+      },
+      {
+        "path": "results/runs/h2pro_distill_v1_features/train_dev_train_092.npz",
+        "sha256": "aecdb52c45b5e773053ba72b163f64a07bd8e9fa999307be0d6137f9b6f75e34",
+        "bytes": 13013284
+      },
+      {
+        "path": "data/EV-UAV-dataset/train/train_002.npz",
+        "sha256": "907b21987d2c56c41ae8d26e1fb222ff3ff19c077866c4aa4c06d928953c0819",
+        "bytes": 667502
+      }
+    ],
+    "4": [
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_fit/calibration.json",
+        "sha256": "9d72f29a38a510b6dd2c17f1faf69ba0184f87af8647621907ec38c8ac9b9027",
+        "bytes": 11160562
+      },
+      {
+        "path": "results/runs/h2pro_task_calibration_v1_dev/r1_t16_task_rescore.json",
+        "sha256": "2663279373876ea5e9ed9311247d9fe94627a280efb40933bafed4a4c8b80c7a",
+        "bytes": 25120
+      },
+      {
+        "path": "results/runs/h2pro_distill_r2t8_v1_s42/best_int8.npz",
+        "sha256": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+        "bytes": 7804
+      },
+      {
+        "path": "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_088.json",
+        "sha256": "d2cb0fd64a1ca06b10041874e34622d7d9d5c2570beea4a75776b757bc2fe829",
+        "bytes": 9991
+      },
+      {
+        "path": "results/runs/h2pro_distill_r2t8_v1_s42/epochs/epoch_088_int8.npz",
+        "sha256": "4895e35c80e759a15edabdb648f0b669585fe5bd4a0db1b2fbb64aec3cecf4a7",
+        "bytes": 7804
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/manifest.json",
+        "sha256": "383f7b7061028a3e2621e989182f634eac717adaafb23f510ac7ee11b114a332",
+        "bytes": 7753
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_002.npz",
+        "sha256": "464bc2fddaa5675c419995d3801dd1e2ea186926d7a3d340c7b16039886176f1",
+        "bytes": 226827
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_020.npz",
+        "sha256": "033ad3510c2079b9e5e2a9074fc87ab9e44495a3f0cc95d4d96cd2283efa6e3e",
+        "bytes": 67531
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_034.npz",
+        "sha256": "0893954a2e83ea8f509b8efe46b29ce59910ead68717e63e10c649fe67dfbef3",
+        "bytes": 281444
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_039.npz",
+        "sha256": "f5249ec821e16f20ea2b8f476db0a26c75838e134d7b55c55d42d90e5f37732a",
+        "bytes": 203520
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_041.npz",
+        "sha256": "aedd8e373dfb0011fd006d812e77ef26609e69e3bc47349093eaeead452a2b6f",
+        "bytes": 197675
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_050.npz",
+        "sha256": "4106c7d5e7b35612ca6315035d4fc0a130814b7f910232f7d7f8015505e9d373",
+        "bytes": 107531
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_060.npz",
+        "sha256": "91f95a3bd656f0b2d1d2e626e9afd154e3afdc4e27aa0303d6ca93ebcf7f712a",
+        "bytes": 386140
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_066.npz",
+        "sha256": "bf8f1f0ecfb85a17a7bd2dbbbc4205ba8f6109917c39d6caa290927259ab66e8",
+        "bytes": 166018
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_089.npz",
+        "sha256": "87bcdd8988a964e55c9f5d35bf09b2a3249c8f3014d56589f3c7daff11e714f4",
+        "bytes": 5162640
+      },
+      {
+        "path": "results/runs/h2pro_direct_v1_features/train_092.npz",
+        "sha256": "cdc325a423c716541b43fd000cf822d3207234b0a9199752955768b8d4ee0558",
+        "bytes": 7544533
+      }
+    ],
+    "5": [
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_task_calibration_v1_fit/calibration.json",
+        "sha256": "9d72f29a38a510b6dd2c17f1faf69ba0184f87af8647621907ec38c8ac9b9027",
+        "bytes": 11160562
+      },
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_task_calibration_v1_dev/r1_t16_task_rescore.json",
+        "sha256": "2663279373876ea5e9ed9311247d9fe94627a280efb40933bafed4a4c8b80c7a",
+        "bytes": 25120
+      },
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_teacher_v1/manifest.json",
+        "sha256": "87f15a7150541a0f7cf7f1ef54fcd2e8dbdb935fa9e68b43f524b15f7cfc27ae",
+        "bytes": 43722
+      },
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_distill_v1_features/manifest.json",
+        "sha256": "484f3243681ff62e7fb9160a558662eb1ea58fb4631c35a4d84996ab5cafc759",
+        "bytes": 80021
+      },
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_teacher_v1/train_main_train_000.npz",
+        "sha256": "a4f6be8c0dbf9e9b66167e4d0eb9b362048f519db4bb596568844b357a423672",
+        "bytes": 254580
+      },
+      {
+        "path": "3_ANN_to_SNN/implementation/results/runs/h2pro_distill_v1_features/train_main_train_000.npz",
+        "sha256": "4177689ed029c00d68e568dc71acff3ed32fba9502e693ea8d3dba7eb3351e54",
+        "bytes": 363712
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/results/runs/frozen_ann_v1/identity.json",
+        "sha256": "377427d0031e7f6dda50edf9bfb238e8d8664c43031b77b8de28ff52d5255283",
+        "bytes": 5226
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/results/runs/frozen_ann_v1/selection.json",
+        "sha256": "66e5b96ceed8d9500bd3aa007934547942b3633cebd6d4dc65149542b0faccb7",
+        "bytes": 16894
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/results/runs/frozen_ann_v1/audit.json",
+        "sha256": "57e763e4c139f0abb0fb1f096a768fb50dd5ca74a5423a98d370374ef990d399",
+        "bytes": 353
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/results/runs/frozen_ann_v1/train_main_summary.json",
+        "sha256": "91bfd6d37636786df26dea9b18bf2795db3bf564a0d3f6ce29e846db8c62d06a",
+        "bytes": 21659
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/results/runs/frozen_ann_v1/train_dev_summary.json",
+        "sha256": "452b8b475d33ab771db56b31d1b5dfb5b6d5447f9d84b086b3316769e8df7583",
+        "bytes": 9780
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/manifest.json",
+        "sha256": "c69042a153d36095e849a2fecc02bb4cc799d2eb41e2c135a67cbbc1e9964112",
+        "bytes": 409244
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/identity.json",
+        "sha256": "2cdf1ba52096cfd88b40add70839ee24b12d307dd44be2dc68b50712e2256b45",
+        "bytes": 1022
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_000_fixed100.npz",
+        "sha256": "010294efc5a323c2ddda03a1648cf8ab8ec59c4bcc81baf65bd2bc08fab41f06",
+        "bytes": 100322
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_000_dynamic2000.npz",
+        "sha256": "010294efc5a323c2ddda03a1648cf8ab8ec59c4bcc81baf65bd2bc08fab41f06",
+        "bytes": 100322
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_001_fixed100.npz",
+        "sha256": "742778aea8eff229d28ea0f13076d7d37b2cc39f1ced22191217d5edfdea1074",
+        "bytes": 108311
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_001_dynamic2000.npz",
+        "sha256": "742778aea8eff229d28ea0f13076d7d37b2cc39f1ced22191217d5edfdea1074",
+        "bytes": 108311
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_003_fixed100.npz",
+        "sha256": "a48d9d2406872698726002b20afb27d81d3fa19ef06c50357c21f3813ac62e13",
+        "bytes": 149482
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_003_dynamic2000.npz",
+        "sha256": "a48d9d2406872698726002b20afb27d81d3fa19ef06c50357c21f3813ac62e13",
+        "bytes": 149482
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_004_fixed100.npz",
+        "sha256": "086b4ee238e14ca8bb414bb487083657265a80a2415bd610b9e578522a8a54f2",
+        "bytes": 88320
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_004_dynamic2000.npz",
+        "sha256": "086b4ee238e14ca8bb414bb487083657265a80a2415bd610b9e578522a8a54f2",
+        "bytes": 88320
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_005_fixed100.npz",
+        "sha256": "a3729ce5b9edd43a6f03a430a35195964917fa9cb9a971b0a274e70f03d544dc",
+        "bytes": 91163
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_005_dynamic2000.npz",
+        "sha256": "a3729ce5b9edd43a6f03a430a35195964917fa9cb9a971b0a274e70f03d544dc",
+        "bytes": 91163
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_006_fixed100.npz",
+        "sha256": "96ac8b9ccd97890ceaf9f194c1c0c2b5bea069d97818198a0f1d0ffbab6e605d",
+        "bytes": 107175
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_006_dynamic2000.npz",
+        "sha256": "96ac8b9ccd97890ceaf9f194c1c0c2b5bea069d97818198a0f1d0ffbab6e605d",
+        "bytes": 107175
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_007_fixed100.npz",
+        "sha256": "b464e2532a783b7ff1914be608c5e3d05346f895832b5685191f7b54cacabac5",
+        "bytes": 98476
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_007_dynamic2000.npz",
+        "sha256": "b464e2532a783b7ff1914be608c5e3d05346f895832b5685191f7b54cacabac5",
+        "bytes": 98476
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_008_fixed100.npz",
+        "sha256": "038f82e2532ab2cbaf37e17d70c52c8f4835cf723e9fab2aff99043eb03a89f6",
+        "bytes": 100146
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_008_dynamic2000.npz",
+        "sha256": "038f82e2532ab2cbaf37e17d70c52c8f4835cf723e9fab2aff99043eb03a89f6",
+        "bytes": 100146
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_009_fixed100.npz",
+        "sha256": "b068097edf8320233b33e0b3548bd74655d6e2930760b41b37e6dbdaada51198",
+        "bytes": 120344
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_009_dynamic2000.npz",
+        "sha256": "b068097edf8320233b33e0b3548bd74655d6e2930760b41b37e6dbdaada51198",
+        "bytes": 120344
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_010_fixed100.npz",
+        "sha256": "7d4bc338ae0fc63acd553e27743838cdea9aa9eeffaea3deb6187b7db8af0adb",
+        "bytes": 117006
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_010_dynamic2000.npz",
+        "sha256": "7d4bc338ae0fc63acd553e27743838cdea9aa9eeffaea3deb6187b7db8af0adb",
+        "bytes": 117006
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_011_fixed100.npz",
+        "sha256": "9f9a9d6ee55ebabd14a9d2f28bcb2bf3b4ec9435060fa27cab0624fe8fd6fb0b",
+        "bytes": 110790
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_011_dynamic2000.npz",
+        "sha256": "9f9a9d6ee55ebabd14a9d2f28bcb2bf3b4ec9435060fa27cab0624fe8fd6fb0b",
+        "bytes": 110790
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_012_fixed100.npz",
+        "sha256": "b6ae90bad4249d1664c9f0fdb96d84769131f7577240f121682bd76e619167ba",
+        "bytes": 106102
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_012_dynamic2000.npz",
+        "sha256": "b6ae90bad4249d1664c9f0fdb96d84769131f7577240f121682bd76e619167ba",
+        "bytes": 106102
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_013_fixed100.npz",
+        "sha256": "8dd725f13c874c609e42085f8cafcc0aaff3631b88d7a563644bc9c98ce4dce3",
+        "bytes": 126965
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_013_dynamic2000.npz",
+        "sha256": "8dd725f13c874c609e42085f8cafcc0aaff3631b88d7a563644bc9c98ce4dce3",
+        "bytes": 126965
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_014_fixed100.npz",
+        "sha256": "f76d1eeef798bea0a4a703bad507dad8fa6ce9b6f0c445a46032e3756095032d",
+        "bytes": 147153
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_014_dynamic2000.npz",
+        "sha256": "f76d1eeef798bea0a4a703bad507dad8fa6ce9b6f0c445a46032e3756095032d",
+        "bytes": 147153
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_015_fixed100.npz",
+        "sha256": "6504994ec07deab11459c6955e35f27f8807abef3410cc9ebc861f60556dd4f9",
+        "bytes": 50842
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_015_dynamic2000.npz",
+        "sha256": "6504994ec07deab11459c6955e35f27f8807abef3410cc9ebc861f60556dd4f9",
+        "bytes": 50842
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_016_fixed100.npz",
+        "sha256": "18d2b2d36b6ccfa4e60a5e3d5e7a821d0b9131db80d603c73e21e08c93dd404d",
+        "bytes": 52081
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_016_dynamic2000.npz",
+        "sha256": "18d2b2d36b6ccfa4e60a5e3d5e7a821d0b9131db80d603c73e21e08c93dd404d",
+        "bytes": 52081
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_017_fixed100.npz",
+        "sha256": "aff7cd65c85a5470b7e61b53cd192782432618ead9177c211d7b70cb808cbced",
+        "bytes": 56811
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_017_dynamic2000.npz",
+        "sha256": "aff7cd65c85a5470b7e61b53cd192782432618ead9177c211d7b70cb808cbced",
+        "bytes": 56811
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_018_fixed100.npz",
+        "sha256": "76e813db0ef60561a1ea430b7930c93988775dcf98cdfd2308b9f6637805b95a",
+        "bytes": 52144
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_018_dynamic2000.npz",
+        "sha256": "76e813db0ef60561a1ea430b7930c93988775dcf98cdfd2308b9f6637805b95a",
+        "bytes": 52144
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_019_fixed100.npz",
+        "sha256": "fe671cb42ebebcadf6f94ef2224f92b9948c2cc40442c2a581268dc88f256b1a",
+        "bytes": 38705
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_019_dynamic2000.npz",
+        "sha256": "fe671cb42ebebcadf6f94ef2224f92b9948c2cc40442c2a581268dc88f256b1a",
+        "bytes": 38705
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_021_fixed100.npz",
+        "sha256": "05127702267eadf253f7e56cd6260d4f86e84923f87a1edc16e5624ffbe81b06",
+        "bytes": 58793
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_021_dynamic2000.npz",
+        "sha256": "05127702267eadf253f7e56cd6260d4f86e84923f87a1edc16e5624ffbe81b06",
+        "bytes": 58793
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_023_fixed100.npz",
+        "sha256": "859083746c4733dd7e17ea53ae2a1639fcae8ae430586f1db7d3ea1fc6ce581e",
+        "bytes": 53328
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_023_dynamic2000.npz",
+        "sha256": "859083746c4733dd7e17ea53ae2a1639fcae8ae430586f1db7d3ea1fc6ce581e",
+        "bytes": 53328
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_024_fixed100.npz",
+        "sha256": "722f9fe6cd85098e0f89a1e879da25b969bb663e2ebf5caeb77c8358bf0dca4f",
+        "bytes": 50997
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_024_dynamic2000.npz",
+        "sha256": "722f9fe6cd85098e0f89a1e879da25b969bb663e2ebf5caeb77c8358bf0dca4f",
+        "bytes": 50997
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_025_fixed100.npz",
+        "sha256": "ad7d078cbd3eab9fab721051ce4ec3a9f3ddfa29e9b1a6dbb823decb5cd21ac2",
+        "bytes": 43684
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_025_dynamic2000.npz",
+        "sha256": "ad7d078cbd3eab9fab721051ce4ec3a9f3ddfa29e9b1a6dbb823decb5cd21ac2",
+        "bytes": 43684
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_026_fixed100.npz",
+        "sha256": "f191f08743fee36aead5bb9cbfef995e2424d4a270a2d442c882116372119935",
+        "bytes": 41881
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_026_dynamic2000.npz",
+        "sha256": "f191f08743fee36aead5bb9cbfef995e2424d4a270a2d442c882116372119935",
+        "bytes": 41881
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_027_fixed100.npz",
+        "sha256": "0e58d111f50e713d7f73639937c242bb77482515dbd210e8d82dca35e0470630",
+        "bytes": 42316
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_027_dynamic2000.npz",
+        "sha256": "0e58d111f50e713d7f73639937c242bb77482515dbd210e8d82dca35e0470630",
+        "bytes": 42316
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_028_fixed100.npz",
+        "sha256": "110fa85067858924115a8b3fee417447a43f45d36f95be91e2173db5bcb84fd6",
+        "bytes": 763697
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_028_dynamic2000.npz",
+        "sha256": "110fa85067858924115a8b3fee417447a43f45d36f95be91e2173db5bcb84fd6",
+        "bytes": 763697
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_029_fixed100.npz",
+        "sha256": "c3df4fdf499e7606d95859e9e9e6e2fadd17a9458a43bffb554e9d94f886870a",
+        "bytes": 804248
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_029_dynamic2000.npz",
+        "sha256": "c3df4fdf499e7606d95859e9e9e6e2fadd17a9458a43bffb554e9d94f886870a",
+        "bytes": 804248
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_030_fixed100.npz",
+        "sha256": "4846ee5eb4947d5b6a6077b3c9c9ee2ff4f58abcb2ab3843fede5710aa90f1b7",
+        "bytes": 738923
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_030_dynamic2000.npz",
+        "sha256": "4846ee5eb4947d5b6a6077b3c9c9ee2ff4f58abcb2ab3843fede5710aa90f1b7",
+        "bytes": 738923
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_031_fixed100.npz",
+        "sha256": "0b45618807736a54a3cd70ba8226bcd3b8fb47276319f2abab248ee2f45fad5b",
+        "bytes": 825647
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_031_dynamic2000.npz",
+        "sha256": "0b45618807736a54a3cd70ba8226bcd3b8fb47276319f2abab248ee2f45fad5b",
+        "bytes": 825647
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_032_fixed100.npz",
+        "sha256": "695548bb482fd0490fde66d46e585497eb2826f56b1a88a21cbf8a39edeb1ed0",
+        "bytes": 330746
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_032_dynamic2000.npz",
+        "sha256": "695548bb482fd0490fde66d46e585497eb2826f56b1a88a21cbf8a39edeb1ed0",
+        "bytes": 330746
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_033_fixed100.npz",
+        "sha256": "1eaee090b26057af5d52a85a0d3c80669a2a8b5ecb0d86ff97b35be0033c5e67",
+        "bytes": 273535
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_033_dynamic2000.npz",
+        "sha256": "1eaee090b26057af5d52a85a0d3c80669a2a8b5ecb0d86ff97b35be0033c5e67",
+        "bytes": 273535
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_035_fixed100.npz",
+        "sha256": "89a0d8c4f9e31cb30c58e7658a9464216d26bd0fa91daebaafcb3e06041875d4",
+        "bytes": 128583
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_035_dynamic2000.npz",
+        "sha256": "89a0d8c4f9e31cb30c58e7658a9464216d26bd0fa91daebaafcb3e06041875d4",
+        "bytes": 128583
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_036_fixed100.npz",
+        "sha256": "219207e658eb6f8edbd597bb512266456a725b13b9af76d1b906c440ab3cf2e1",
+        "bytes": 115150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_036_dynamic2000.npz",
+        "sha256": "219207e658eb6f8edbd597bb512266456a725b13b9af76d1b906c440ab3cf2e1",
+        "bytes": 115150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_037_fixed100.npz",
+        "sha256": "3437fd9d999976adde5136346b61843159b82e993bc623ceaaa34bd9998b0003",
+        "bytes": 147163
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_037_dynamic2000.npz",
+        "sha256": "3437fd9d999976adde5136346b61843159b82e993bc623ceaaa34bd9998b0003",
+        "bytes": 147163
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_038_fixed100.npz",
+        "sha256": "07952dfde411cfec247051b866ac59c17a2882d17970d1464909600e2a053098",
+        "bytes": 89614
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_038_dynamic2000.npz",
+        "sha256": "07952dfde411cfec247051b866ac59c17a2882d17970d1464909600e2a053098",
+        "bytes": 89614
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_040_fixed100.npz",
+        "sha256": "53c6122611eadd67e93684c8bde8851a3abbefa2552031dea99aa7ad91877cd7",
+        "bytes": 97972
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_040_dynamic2000.npz",
+        "sha256": "53c6122611eadd67e93684c8bde8851a3abbefa2552031dea99aa7ad91877cd7",
+        "bytes": 97972
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_042_fixed100.npz",
+        "sha256": "cf6ce861b75973fe52c470fe18963c6e79e2cbf1df53881da096187fc81504ff",
+        "bytes": 97714
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_042_dynamic2000.npz",
+        "sha256": "cf6ce861b75973fe52c470fe18963c6e79e2cbf1df53881da096187fc81504ff",
+        "bytes": 97714
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_043_fixed100.npz",
+        "sha256": "5a30c4961837588edb79eaf594fcd23278d412066ae13e7df1e49a8a6d6ce11e",
+        "bytes": 111092
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_043_dynamic2000.npz",
+        "sha256": "5a30c4961837588edb79eaf594fcd23278d412066ae13e7df1e49a8a6d6ce11e",
+        "bytes": 111092
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_044_fixed100.npz",
+        "sha256": "8516849eb68acb2323bbb68a87c950d8577891e7ff800b6caa5b08b017bcd8ee",
+        "bytes": 991186
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_044_dynamic2000.npz",
+        "sha256": "d54e0f5d527c1afc48850dfd27292a11ed4b8f1b0897a2bb94bcc8950773a609",
+        "bytes": 1051069
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_045_fixed100.npz",
+        "sha256": "e5716850875c7c8939c5535fea5deedfab169c47b6381f546c840d1dc394c2be",
+        "bytes": 683495
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_045_dynamic2000.npz",
+        "sha256": "02d0131332849d6c72acfe1f83f7a647b09a1ee45563495718d1f3eac46ab186",
+        "bytes": 1024114
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_046_fixed100.npz",
+        "sha256": "24e46855c4ce2a872f33da7893ca1dbd3d021599c0dcd751a2e3b2bfece24c0e",
+        "bytes": 771873
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_046_dynamic2000.npz",
+        "sha256": "cc545bcfe793ab97538b6fd072c008a791a76f9161ba8ea234f723d9cf6f8616",
+        "bytes": 1167910
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_047_fixed100.npz",
+        "sha256": "a78907b6048ab3533d031b7131d283071b6245db50a0e7b5eedb04043ef623f3",
+        "bytes": 548804
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_047_dynamic2000.npz",
+        "sha256": "750139d08b0616673726700ffbd2ce3d1df8543aada945e3efcf52c1d22d44fe",
+        "bytes": 706757
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_048_fixed100.npz",
+        "sha256": "61efda023396634bceb04f2223078cbf2bb7bd44f08201a1b40ad62ae002d134",
+        "bytes": 97585
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_048_dynamic2000.npz",
+        "sha256": "61efda023396634bceb04f2223078cbf2bb7bd44f08201a1b40ad62ae002d134",
+        "bytes": 97585
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_051_fixed100.npz",
+        "sha256": "5238c5b42f2bba1c72d9680fe426ff2e2774aaa814fdc1298ac27b5326f51bea",
+        "bytes": 56150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_051_dynamic2000.npz",
+        "sha256": "5238c5b42f2bba1c72d9680fe426ff2e2774aaa814fdc1298ac27b5326f51bea",
+        "bytes": 56150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_052_fixed100.npz",
+        "sha256": "d8c865f5807dc2f54559b82fabd875d6e20890346e196d1778667ba7aa0da712",
+        "bytes": 52077
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_052_dynamic2000.npz",
+        "sha256": "d8c865f5807dc2f54559b82fabd875d6e20890346e196d1778667ba7aa0da712",
+        "bytes": 52077
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_053_fixed100.npz",
+        "sha256": "fe2779a568860996156621d41545c27d066c72216c1ceb85d23a3d7f51066818",
+        "bytes": 48901
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_053_dynamic2000.npz",
+        "sha256": "fe2779a568860996156621d41545c27d066c72216c1ceb85d23a3d7f51066818",
+        "bytes": 48901
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_054_fixed100.npz",
+        "sha256": "8820fda47dc8484386cd2bd0a9b52b30785a384571fdd640f0b462fb0669beaf",
+        "bytes": 38938
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_054_dynamic2000.npz",
+        "sha256": "8820fda47dc8484386cd2bd0a9b52b30785a384571fdd640f0b462fb0669beaf",
+        "bytes": 38938
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_055_fixed100.npz",
+        "sha256": "1b67bfa3434f282cc8dad91ddd7476001fd2cdc41b0785747f5f08b2937c7a7b",
+        "bytes": 96125
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_055_dynamic2000.npz",
+        "sha256": "1b67bfa3434f282cc8dad91ddd7476001fd2cdc41b0785747f5f08b2937c7a7b",
+        "bytes": 96125
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_056_fixed100.npz",
+        "sha256": "af247bba1f3c06d1d1aa151e2b1dde283601e82de71c4eb7c5dd1568ee606a45",
+        "bytes": 178219
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_056_dynamic2000.npz",
+        "sha256": "d70a6c2161235ff02fcea88bb4d4f0e6da1a9f9b21c116fbff1c053d552b099a",
+        "bytes": 176199
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_057_fixed100.npz",
+        "sha256": "5c55ca3b3871c2a06a4ebfb74ba492904982b0821eac9dcd52e5f305db653e08",
+        "bytes": 72414
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_057_dynamic2000.npz",
+        "sha256": "5c55ca3b3871c2a06a4ebfb74ba492904982b0821eac9dcd52e5f305db653e08",
+        "bytes": 72414
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_061_fixed100.npz",
+        "sha256": "b63510e807eba63ccd59f4bf8fbc701361da1f94c6034c136560fafb3834c523",
+        "bytes": 217068
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_061_dynamic2000.npz",
+        "sha256": "b63510e807eba63ccd59f4bf8fbc701361da1f94c6034c136560fafb3834c523",
+        "bytes": 217068
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_062_fixed100.npz",
+        "sha256": "fb87a2cb76cc5bc1228cd26607203c4f1a9d6d66766ff380467bbb03885b3b1c",
+        "bytes": 143327
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_062_dynamic2000.npz",
+        "sha256": "fb87a2cb76cc5bc1228cd26607203c4f1a9d6d66766ff380467bbb03885b3b1c",
+        "bytes": 143327
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_063_fixed100.npz",
+        "sha256": "483c28354d89e8cb067e7f8c48038c01a2fef2af6bc1d4754b2bbd269cb8a549",
+        "bytes": 131558
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_063_dynamic2000.npz",
+        "sha256": "483c28354d89e8cb067e7f8c48038c01a2fef2af6bc1d4754b2bbd269cb8a549",
+        "bytes": 131558
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_064_fixed100.npz",
+        "sha256": "6c69d9483d7721cc98c493215c8bdbd5aa814be6cdbe24b77b48524463f992c3",
+        "bytes": 148140
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_064_dynamic2000.npz",
+        "sha256": "6c69d9483d7721cc98c493215c8bdbd5aa814be6cdbe24b77b48524463f992c3",
+        "bytes": 148140
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_068_fixed100.npz",
+        "sha256": "078d380821b6fd38d255a4454bcf212569bf0c6731f59b78f27b17aa6a1bd8fc",
+        "bytes": 119719
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_068_dynamic2000.npz",
+        "sha256": "078d380821b6fd38d255a4454bcf212569bf0c6731f59b78f27b17aa6a1bd8fc",
+        "bytes": 119719
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_069_fixed100.npz",
+        "sha256": "3e3e3cca78ce62a4ca2a17f150f6d30f11d7460b0728a0eddbe28698483f9b31",
+        "bytes": 115484
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_069_dynamic2000.npz",
+        "sha256": "3e3e3cca78ce62a4ca2a17f150f6d30f11d7460b0728a0eddbe28698483f9b31",
+        "bytes": 115484
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_070_fixed100.npz",
+        "sha256": "62034690812b0d83f94ca632f7670bf3e7f3258db80cf25c2ff645a31715b50a",
+        "bytes": 108804
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_070_dynamic2000.npz",
+        "sha256": "62034690812b0d83f94ca632f7670bf3e7f3258db80cf25c2ff645a31715b50a",
+        "bytes": 108804
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_072_fixed100.npz",
+        "sha256": "44de944aef0dd61a8b97705e4366119c443df096f5f085853bd82667d2111036",
+        "bytes": 191219
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_072_dynamic2000.npz",
+        "sha256": "44de944aef0dd61a8b97705e4366119c443df096f5f085853bd82667d2111036",
+        "bytes": 191219
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_073_fixed100.npz",
+        "sha256": "21b174831bb6bb378e95ef852149eba70ca45b47b797fd7acc9a98887022527e",
+        "bytes": 227429
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_073_dynamic2000.npz",
+        "sha256": "21b174831bb6bb378e95ef852149eba70ca45b47b797fd7acc9a98887022527e",
+        "bytes": 227429
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_074_fixed100.npz",
+        "sha256": "3c016abd37d25143b7c629c689c193ea49baceece4438e4cf8c6dc262cc037da",
+        "bytes": 312941
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_074_dynamic2000.npz",
+        "sha256": "3c016abd37d25143b7c629c689c193ea49baceece4438e4cf8c6dc262cc037da",
+        "bytes": 312941
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_075_fixed100.npz",
+        "sha256": "8c936fb578850cfe4b6daa3a872601769e3f8ea10d5af5ee6e5fa9603f48ab7b",
+        "bytes": 30812
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_075_dynamic2000.npz",
+        "sha256": "8c936fb578850cfe4b6daa3a872601769e3f8ea10d5af5ee6e5fa9603f48ab7b",
+        "bytes": 30812
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_076_fixed100.npz",
+        "sha256": "ccbd2103414102809e9b0703435b320b2134f56003e1d851cd56424f44858898",
+        "bytes": 32869
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_076_dynamic2000.npz",
+        "sha256": "ccbd2103414102809e9b0703435b320b2134f56003e1d851cd56424f44858898",
+        "bytes": 32869
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_077_fixed100.npz",
+        "sha256": "af50dcde5bef21932f7cc24f4ede84c67609dbb3d9963b917321226f6f1b280c",
+        "bytes": 33652
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_077_dynamic2000.npz",
+        "sha256": "af50dcde5bef21932f7cc24f4ede84c67609dbb3d9963b917321226f6f1b280c",
+        "bytes": 33652
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_078_fixed100.npz",
+        "sha256": "d15c49367b66cc42298fed73a41f77ad710336515e3c51639c8e4e4bc0a026cc",
+        "bytes": 36170
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_078_dynamic2000.npz",
+        "sha256": "d15c49367b66cc42298fed73a41f77ad710336515e3c51639c8e4e4bc0a026cc",
+        "bytes": 36170
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_080_fixed100.npz",
+        "sha256": "d96f1639a60ce905a22f4f66906117afd91c5e10bf0c0966e82572184e68a787",
+        "bytes": 30412
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_080_dynamic2000.npz",
+        "sha256": "d96f1639a60ce905a22f4f66906117afd91c5e10bf0c0966e82572184e68a787",
+        "bytes": 30412
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_082_fixed100.npz",
+        "sha256": "d282655711a15044ef814361d3247be8fd070e43d8051009a5823defda3f9db1",
+        "bytes": 48229
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_082_dynamic2000.npz",
+        "sha256": "d282655711a15044ef814361d3247be8fd070e43d8051009a5823defda3f9db1",
+        "bytes": 48229
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_083_fixed100.npz",
+        "sha256": "857c5b902d221e95e236c417efae001a7d402e50eb58db242d692cae3281b6fc",
+        "bytes": 39581
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_083_dynamic2000.npz",
+        "sha256": "857c5b902d221e95e236c417efae001a7d402e50eb58db242d692cae3281b6fc",
+        "bytes": 39581
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_084_fixed100.npz",
+        "sha256": "7e4275eb65c98aee4edba6b6b6b3baa8ef779fde5da7f994dd2517e23066a43c",
+        "bytes": 42713
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_084_dynamic2000.npz",
+        "sha256": "7e4275eb65c98aee4edba6b6b6b3baa8ef779fde5da7f994dd2517e23066a43c",
+        "bytes": 42713
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_085_fixed100.npz",
+        "sha256": "9b86752ca534cf57e579fbdc98dd9492574457523472fbbdc93922f89b927fa7",
+        "bytes": 37343
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_085_dynamic2000.npz",
+        "sha256": "9b86752ca534cf57e579fbdc98dd9492574457523472fbbdc93922f89b927fa7",
+        "bytes": 37343
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_086_fixed100.npz",
+        "sha256": "ab88aa073c3c2d2cd52de58987b3757bf65ef99dcb9324b5c5e88cbdbcc99f0a",
+        "bytes": 48138
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_086_dynamic2000.npz",
+        "sha256": "ab88aa073c3c2d2cd52de58987b3757bf65ef99dcb9324b5c5e88cbdbcc99f0a",
+        "bytes": 48138
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_087_fixed100.npz",
+        "sha256": "d8415b4e673182306bb08262b0791b28f3430d63e6d6013e5942e4bc198c1192",
+        "bytes": 53103
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_087_dynamic2000.npz",
+        "sha256": "d8415b4e673182306bb08262b0791b28f3430d63e6d6013e5942e4bc198c1192",
+        "bytes": 53103
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_088_fixed100.npz",
+        "sha256": "9ed6779859ca489119ca2db06d0056d5e385fabf7dab13ca90815df527d3b22f",
+        "bytes": 3190358
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_088_dynamic2000.npz",
+        "sha256": "0ec8a99e7f2cdc53a1648a67cbbd4cc800767fc92b620a647d3b9ab0bb7509f9",
+        "bytes": 4649678
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_090_fixed100.npz",
+        "sha256": "ec6975be2073496c7d76e419c402b992683d36615b73ddbae34fc52eb2912ec6",
+        "bytes": 3509569
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_090_dynamic2000.npz",
+        "sha256": "7181696b4258dab6f074a34dd389b19eb150204ef01ac5ca37418aa497dfb4f3",
+        "bytes": 4933283
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_091_fixed100.npz",
+        "sha256": "9971398351d9fbfaff6f2ae2e75831d0830885122e7b24dd00d9a84f4585dda4",
+        "bytes": 3386596
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_091_dynamic2000.npz",
+        "sha256": "29098268189390dec33cb6d9a3e6279a3c5148d98de3eac8fd34e209ac50370a",
+        "bytes": 4869413
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_094_fixed100.npz",
+        "sha256": "1074abfdfc5e53051c1b4122e658783cb15cee2e9de727fb33a79d0900927180",
+        "bytes": 4872276
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_094_dynamic2000.npz",
+        "sha256": "87d55619371092405c8796160bb612aacae5ab1f5b016031ed0aebee3639f619",
+        "bytes": 7645056
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_095_fixed100.npz",
+        "sha256": "a212ce377359c8066edf310a3efdf74f5302c14bbf8baa3d18111c5661587a22",
+        "bytes": 3136621
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_095_dynamic2000.npz",
+        "sha256": "e2d959f6669da277db52ff1a7e8440731b5a1099c12ff25dbc0bf7380566415d",
+        "bytes": 4877981
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_096_fixed100.npz",
+        "sha256": "0471cc925330a8e15755d4853c6ffe32cc36b5dd8ecbf8c4233653af27e8bc49",
+        "bytes": 4530806
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_096_dynamic2000.npz",
+        "sha256": "901939094c4027a7593862d1146cce6cf1e3aa321a524e4e4673c9599d859973",
+        "bytes": 7602149
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_097_fixed100.npz",
+        "sha256": "4f58098bdb3b7f30fc3362cd2386dc01e47423a6d4a986fff6f8cd0bda80cdae",
+        "bytes": 4484062
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_097_dynamic2000.npz",
+        "sha256": "6b1440266db15fa7a0782feb556df6e8d529e1b668fc384802e665f9ac8f8923",
+        "bytes": 7473261
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_098_fixed100.npz",
+        "sha256": "8d2aafd617bf49aa039285f3b5ae1b15f261e219e39e64de1f0cd94f49efbc47",
+        "bytes": 4415814
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_main_train_098_dynamic2000.npz",
+        "sha256": "61e048b188d94349ef4a04583b919bf0eaae85d7414180828aa6a00dda75066b",
+        "bytes": 7567292
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_002_fixed100.npz",
+        "sha256": "1a2f2b0fc67ae055353c69072d109027cee8611b4235f735d9793ef05d2a8f2f",
+        "bytes": 128278
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_002_dynamic2000.npz",
+        "sha256": "1a2f2b0fc67ae055353c69072d109027cee8611b4235f735d9793ef05d2a8f2f",
+        "bytes": 128278
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_020_fixed100.npz",
+        "sha256": "6d2db4e0cd5f0e8c86a2aff196ebbf69c46d1c848ac36abb596f3782ad6db363",
+        "bytes": 39367
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_020_dynamic2000.npz",
+        "sha256": "6d2db4e0cd5f0e8c86a2aff196ebbf69c46d1c848ac36abb596f3782ad6db363",
+        "bytes": 39367
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_034_fixed100.npz",
+        "sha256": "4eaa778558123bbae952ef0e97065519ee129ecca5e1c6986ed62e8ae4afb7d9",
+        "bytes": 161765
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_034_dynamic2000.npz",
+        "sha256": "4eaa778558123bbae952ef0e97065519ee129ecca5e1c6986ed62e8ae4afb7d9",
+        "bytes": 161765
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_039_fixed100.npz",
+        "sha256": "f51d1149fa11a44258cb53dac8646a265c51e1488daea9f896ebb1608f7e1744",
+        "bytes": 114235
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_039_dynamic2000.npz",
+        "sha256": "f51d1149fa11a44258cb53dac8646a265c51e1488daea9f896ebb1608f7e1744",
+        "bytes": 114235
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_041_fixed100.npz",
+        "sha256": "4f3b928020b777c92ef50556424992981846c8fbef9036cff0ce4620ab6c26c7",
+        "bytes": 113146
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_041_dynamic2000.npz",
+        "sha256": "4f3b928020b777c92ef50556424992981846c8fbef9036cff0ce4620ab6c26c7",
+        "bytes": 113146
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_050_fixed100.npz",
+        "sha256": "687920a8ffcfca1539301dede7859882c69a613429ebd9e19af7298e28ac3d43",
+        "bytes": 62516
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_050_dynamic2000.npz",
+        "sha256": "687920a8ffcfca1539301dede7859882c69a613429ebd9e19af7298e28ac3d43",
+        "bytes": 62516
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_060_fixed100.npz",
+        "sha256": "f428510722f487257f9c4b66e4c672e888ef70b6303b27355e64c23effb05ad7",
+        "bytes": 215107
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_060_dynamic2000.npz",
+        "sha256": "f428510722f487257f9c4b66e4c672e888ef70b6303b27355e64c23effb05ad7",
+        "bytes": 215107
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_066_fixed100.npz",
+        "sha256": "d80e088efebf6ff256e4139028c61b99cf567525b2289705d62f8cd8d02a9ef0",
+        "bytes": 95150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_066_dynamic2000.npz",
+        "sha256": "d80e088efebf6ff256e4139028c61b99cf567525b2289705d62f8cd8d02a9ef0",
+        "bytes": 95150
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_089_fixed100.npz",
+        "sha256": "95e76e07d63b38856908a39d66aef62deba053df6979cb2ca1413e7d1d43f9d5",
+        "bytes": 3271718
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_089_dynamic2000.npz",
+        "sha256": "5765ba10351e5ff630545ca3776c64a139b511952aafb982909d7d74b19c6534",
+        "bytes": 4660700
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_092_fixed100.npz",
+        "sha256": "93161311d59fcf7a24fe62b1c90a5e87bc65190727d77e70fc81c2005ed2f62b",
+        "bytes": 4745018
+      },
+      {
+        "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/cache/paired_features_v1/train_dev_train_092_dynamic2000.npz",
+        "sha256": "f4e0f89dfe97a12a85a1eae22fbe03e53585447acdd121d2518ea5aff8ceb2a4",
+        "bytes": 7183502
+      }
+    ]
+  },
+  "validation_scope": "Staged Git source plus explicitly listed local artifact copies; Main/Dev replay and synthetic resume only. Data adapter uses base Anaconda h5py; model checks use gazelle-train. No reserved event data read.",
+  "whitespace_exceptions": [
+    "h2pro_longtrain_v1_1/runtime.py EOF blank line",
+    "h2pro_multit_v1/checks.py EOF blank line"
+  ],
+  "whitespace_reason": "Keep checkpoint-bound source bytes unchanged; all other diff whitespace checks pass.",
+  "next_handoff": "Checkpoint/cache delivery and cross-machine continuation are separate work; this commit series does not make a portable run bundle.",
+  "observed_suite_state": {
+    "control_added_epochs": 50,
+    "multit_added_epochs": 50,
+    "adam_step_per_arm": 56639,
+    "review": "50-epoch performance not reviewed in this commit task; existing five-epoch analysis is retained."
+  },
+  "automated_unit_tests_passed": 564,
+  "evaluation_layout_checks_passed": 4,
+  "ann_delivery_manifest_verified_files": 85,
+  "evaluation_byte_preservation": [
+    {
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_uncertainty.json",
+      "sha256": "23468dd06d5f00569eb9958e886fd4b883ba68c990371372ae2a5ac43309fcad",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/EV-SpSegNet/measured_status.json",
+      "sha256": "2b48575a7e0d2098a894ada423a30054605d67931f968ccc80137ddc2a0dc140",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/EV-SpSegNet/paper_reference.json",
+      "sha256": "2d4f8d5a81c805d1228f28b6d54ef0b239a88c29ca23988511f1e0f1f8d241d7",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/test/event_level/summary.json",
+      "sha256": "1faae02ecec206c64f3004e153076db245a155f2f3ac7dea217e9a7d9aebead2",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/test/target_track_level/summary.json",
+      "sha256": "15cdc337d847c983963a64b3881136a503c3aa08a4a877fe3a5ac9366510649a",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/validation/event_level/summary.json",
+      "sha256": "db6fbf37adc1b79531865c06eaf63a62e04b08e10590cf73d08f25e3f0d6d9df",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2_pro__software_exact_int8/validation/target_track_level/summary.json",
+      "sha256": "8e75c70b01aed6217fd5a71f04daa2d054cdb43e35385229ff73437387743c42",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/test/event_level/summary.json",
+      "sha256": "6956200692b4612093e80efb8f47fef5a4461d828ca3ca5c6880db44c0e4a7d1",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/test/target_track_level/summary.json",
+      "sha256": "38caf63f06b9718a93e96aef7e9216626b2a6c95822016aff6f1ca6daa5c2168",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/validation/event_level/summary.json",
+      "sha256": "3fbd0db7efb619082bada9dbc53d80bd54966b21668f659c4c4c28ea5209ce11",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/A_model_accuracy/02_model_records/formal/h2__software_exact_int8/validation/target_track_level/summary.json",
+      "sha256": "f693dbe5cade1ee7e37aeb772592fc3dfe2532fcb2fa8050b2d1784ec049ab14",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/EV-SpSegNet/common/paper_reference.json",
+      "sha256": "929a107cf9c56008af988b8107c88c68ce3de4796413a29347ede97fff7f9e15",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/common/model_profile.json",
+      "sha256": "2a1f0717e304c7f0c7341156459b4a70b2ab16816dc9bb7c753a1b39d79c4be8",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/test/summary.json",
+      "sha256": "a91c093bd4ebeddff6b902873e3fb319dc6336aed24ee59cd729184bcedad791",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2_pro__software_exact_int8/validation/summary.json",
+      "sha256": "8d5ba63f230d427fd1be4c60d34a47bdf6681840bb8b293695e904649872272a",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/common/model_profile.json",
+      "sha256": "72c138816663423af97f1dbdd84b9163df86aea2a232b9c8a2880019cc0b7a88",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/test/summary.json",
+      "sha256": "aa5790961736b194b13fbe75dd4d851e0e529a9d25362ed22cd884a46f3b22f7",
+      "semantic_change": false
+    },
+    {
+      "path": "5_model_evaluation/B_model_complexity/02_model_records/formal/h2__software_exact_int8/validation/summary.json",
+      "sha256": "23d8da8877e4cbbb6d4a9e19f7f61689df493e1598ef074ce1640266822ed398",
+      "semantic_change": false
+    }
+  ],
+  "evaluation_byte_preservation_reason": "Git newline conversion changed raw source_sha256 despite identical metrics. -text preserves evidence bytes; derived CSV uses LF. Original local evidence files were not rewritten."
+}

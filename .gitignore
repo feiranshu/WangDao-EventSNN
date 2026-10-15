@@ -21,3 +21,6 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
+
+# Generated server delivery bundle; keep the source and local archive separately.
+/5_model_evaluation/EVSpSegNet_full_ab_server_20261008.zip

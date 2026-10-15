@@ -1,0 +1,53 @@
+{
+  "record_schema": "evaluation-record-v2",
+  "evaluation_id": null,
+  "platform_id": null,
+  "split": null,
+  "protocol_id": "deployment-measurement-v2",
+  "runtime_protocol_id": "full-sequence-runtime-v2",
+  "evidence_type": null,
+  "comparison": {
+    "scope_id": "full-input-sequence-v1",
+    "causality": null,
+    "numeric_path": null,
+    "threshold": null,
+    "sequence_ids": []
+  },
+  "provenance": {
+    "weight_sha256": null,
+    "config_sha256": null,
+    "index_sha256": null,
+    "artifacts": []
+  },
+  "measurement": {
+    "host_model": null,
+    "backend": null,
+    "precision": null,
+    "software_versions": {},
+    "threads": null,
+    "batch_size": 1,
+    "timer": "monotonic_wall",
+    "synchronization": null,
+    "state_reset_per_sequence": true,
+    "repeats": 5,
+    "warmup": {
+      "input_role": "synthetic",
+      "iterations": null
+    },
+    "transport": null,
+    "bitstream_sha256": null,
+    "clock_mhz": null
+  },
+  "metric_context": {
+    "C07": {
+      "definition_id": "C07-v2",
+      "raw_artifact": "runtime_per_sequence.csv"
+    }
+  },
+  "summary": {
+    "runtime_ms_per_sequence": null,
+    "runtime_p50_ms": null,
+    "runtime_p95_ms": null,
+    "runtime_std_ms": null
+  }
+}

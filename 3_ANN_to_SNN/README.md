@@ -1,19 +1,17 @@
-# MLP 转 SNN 与近似计算
+# ANN→SNN 转换与近似计算
 
-本部分是模型侧唯一主线，负责从冻结 ANN 教师到 SNN 的转换、训练、定点化、PoT、LOA 近似计算、软件黄金模型，以及围绕这些变体进行优化、消融和选型。KV260 工程、RTL、位流、板端驱动与实测步骤统一放在 `../4_model_deployment/`。
+本目录负责冻结 ANN 的 SNN 转换、数值近似、软件黄金模型，以及模型优化、消融和选型。ANN 改进见[目录 1](../1_H2_model_improvement/)，RTL 与板级部署见[目录 4](../4_model_deployment/)。
 
-## 当前内容
+**当前实现状态、各版本结果、操作命令、有效计划和变更记录统一维护在 [implementation/README.md](implementation/README.md)。**
 
-- `implementation/`：可运行的第一代 SNN 模型工程。
-- [`model_selection_metrics/`](model_selection_metrics/README.md)：S01 时间步—效果—成本曲线与 S02 转换/数值近似效果损失；它们由原模型评测 D 类迁入，只用于优化、消融和选型。
-- `migration_references/`：早期 SNN 加速器与独立验证工程，只作参考。
+| 入口 | 用途 |
+| --- | --- |
+| [implementation/README.md](implementation/README.md) | 唯一实现状态文档 |
+| [implementation/AGENTS.md](implementation/AGENTS.md) | 长期协作规则 |
+| [implementation/software](implementation/software/) | 模型、数值参考、运行脚本、权重和测试 |
+| [implementation/results](implementation/results/) | 原始实验报告；本地 runs 保存训练日志、缓存与断点 |
+| [model_selection_metrics/README.md](model_selection_metrics/README.md) | S01/S02 指标定义与使用规则 |
+| [migration_references](migration_references/) | 工程来源与迁移参考材料 |
+| [正式评测目录](../5_model_evaluation/README.md) | 入选模型的 A/B/C 评测规则与证据 |
 
-拆分前历史、被新实现替换的文件和研究材料统一保存在根级本地目录`../archive/3_ANN_to_SNN/`，不属于 GitHub 发布内容。
-
-第一代模型覆盖 S0-P、S0-R、S1 定点、S2 混合 PoT、S3 LOA，以及 STC、Refiner 适配、独立时空 SNN、读出方式和数据加载优化的正负实验。正式代码、冻结权重和软件结果位于 `implementation/`；迁移与替换记录见 `implementation/MIGRATION_MANIFEST.md`。
-
-## 与正式评测和上板的边界
-
-S01/S02 是研究决策指标，不进入 `5_model_evaluation` 的正式分指标比较。软件筛选通过的正式模型必须完成 A+B；实际部署到开发板的正式配置使用独立 `evaluation_id`，必须完成 A+C。
-
-模型结构、权重、阈值、时间步、定点格式和近似规则在这里冻结；上板部分只消费冻结契约，不在板级调试时反向修改模型。第一代 KV260 部署入口见 `../4_model_deployment/01_first_generation_baseline/README.md`。
+原 PLAN.md 与 implementation/MIGRATION_MANIFEST.md 的有效内容已合并到实现 README；历史文档保存在仓库根级[本地归档](../archive/3_ANN_to_SNN/document_consolidation_20261014/README.md)，不再作为当前操作依据。归档、运行日志和缓存遵守已有 Git 忽略规则，可能只在原机器存在。

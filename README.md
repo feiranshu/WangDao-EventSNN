@@ -1,6 +1,6 @@
 # WangDao_EventSNN
 
-本项目围绕事件相机目标检测模型的 ANN 改进、SNN 转换、近似计算和 FPGA 部署展开。当前主线以原始两级 MLP/H2 为冻结基线，先完成 ANN 改进与统一评测，再转换为 SNN，并面向 KV260 开发板开展硬件实现。
+本项目围绕事件相机目标检测模型的 ANN 改进、SNN 转换、近似计算和 FPGA 部署展开。原始两级 MLP/H2 保留为历史基线；H2-pro 是后续转换使用的冻结 ANN。各子项目的实现状态以对应入口文档为准。
 
 ## 当前进展
 
@@ -9,13 +9,13 @@
 | 0 | `0_mlp_original_project/` | 已完成 | 保存最初的两级 MLP/H2 参考工程。 |
 | 1 | `1_H2_model_improvement/` | 已完成 | 保存 H2 ANN 七步研究、H2-pro 因果最终版和完整证据。 |
 | 2 | `2_KV260_bring_up_tests/` | 进行中 | KV260 环境、启动流程和基础上板测试。 |
-| 3 | `3_ANN_to_SNN/` | 第一代已完成，后续进行中 | SNN 转换、定点、PoT/LOA、模型优化/消融/选型指标和软件黄金模型。 |
+| 3 | `3_ANN_to_SNN/` | [统一实现状态](3_ANN_to_SNN/implementation/README.md) | SNN 转换、定点、PoT/LOA、模型优化/消融/选型指标和软件黄金模型。 |
 | 4 | `4_model_deployment/` | 进行中 | FPGA 部署、仿真、综合和板级验证。 |
-| 5 | `5_model_evaluation/` | H2 系列 A/B 已完成，对比模型补测中，C 待上板 | 只按准确度、模型复杂度、部署效率与硬件成本三类正式评测入选模型。 |
+| 5 | `5_model_evaluation/` | v2 标准已修订；Pd/Fa 重算、状态内存清单及部署测量待补齐 | 按准确度、模型复杂度、部署效率与硬件成本三类评测；历史数值保留。 |
 
 ## 当前模型结论
 
-- H2 是冻结 ANN 基线，也是后续 SNN 研究的教师模型。
+- H2 是第一代 SNN 的历史教师；H2-pro 转换的当前状态、版本结果与有效计划统一见 [ANN→SNN 实现说明](3_ANN_to_SNN/implementation/README.md)。
 - H2-pro 是最终入选改进模型：C1 历史 Proposal 运动特征替换非因果全序列时间维度，seed42 epoch10，exact-int8，阈值 0.35。H2-plus/A4-2 已归入七步研究 Step7 中间模型。
 - 正式 H2/H2-pro A/B 比较使用同一闭合 100 ms 窗口前缀。H2 阈值 0.30；H2 旧评分由全序列结果裁剪，仍含非因果时间输入。Validation/Test 不用于重新选择模型或阈值。
 - EV-SpSegNet 已注册为软件正式对比模型，等待同口径 CUDA 服务器补测；论文值不冒充本项目完整实测。
@@ -23,13 +23,13 @@
 
 ## 统一模型评测体系
 
-目录 5 只保留 A/B/C 三类。H2 与 H2-pro 已完成正式软件评测；EV-SpSegNet 已注册但覆盖率仍为 `incomplete`。跨模型比较统一使用 CSV。
+目录 5 保留 A/B/C 三类，现行规则见 [评价标准 v2](5_model_evaluation/EVALUATION_STANDARD_V2.md)。H2/H2-pro 原软件结果保留；新版 Pd/Fa 和 B05 尚待补齐，因此当前准入为 `incomplete`。EV-SpSegNet 仍待同协议补测，跨模型比较使用 CSV。
 
 | 类别 | 评测内容 | 当前状态 |
 | --- | --- | --- |
-| [A_model_accuracy](5_model_evaluation/A_model_accuracy/README.md) | 事件级与可观测事件轨迹指标。 | H2/H2-pro 的 Validation、Test 已完成；EV-SpSegNet 待同口径补测。 |
-| [B_model_complexity](5_model_evaluation/B_model_complexity/README.md) | B01 参数量、B02 静态存储、B03 稠密 MAC、B04 有效 MAC/AC。 | H2/H2-pro 已完成；EV-SpSegNet 待冻结模型补测。 |
-| [C_deployment_efficiency_and_hardware_cost](5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md) | C01—C07：延迟、吞吐、功耗、能耗、硬件资源/面积和完整序列 Runtime。 | C01—C06 等待正式上板；C07 已建立软件与板端共用定义，当前软件模型均待实测。 |
+| [A_model_accuracy](5_model_evaluation/A_model_accuracy/README.md) | A01–A22，及配对不确定性。 | 旧 Pd/Fa 为 legacy_only；统一 v2 重算及 EV-SpSegNet 同前缀补测待完成。 |
+| [B_model_complexity](5_model_evaluation/B_model_complexity/README.md) | B01/B02 存储参数、B03 结构连接、B04 理论非零运算、B05 持久状态。 | H2/H2-pro 原 B01–B04 保留；B05 完整清单待补。 |
+| [C_deployment_efficiency_and_hardware_cost](5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md) | C01–C10：延迟、吞吐、功耗、能耗、资源、runtime、内存、覆盖/积压、数值一致性。 | 协议与待测位置已建立，未生成虚构实测。 |
 
 原 D 类正式取消，其 C01/C02 已迁入 [3_ANN_to_SNN/model_selection_metrics](3_ANN_to_SNN/model_selection_metrics/README.md)，重编号为 S01/S02，用于模型优化、消融和选型。中间模型、旧图表、旧 XLSX 和历史入口统一保存在本地根归档区 `archive/5_model_evaluation/`，不再在各子目录内设置 `archive/`。
 

@@ -1,0 +1,4445 @@
+{
+  "status": "review_only_no_git_mutations",
+  "repository": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\WangDao-EventSNN",
+  "branch": "main",
+  "local_head": "5a06ffe3c0b87af83903c5cc62dc2c171c2c51b1",
+  "remote": "https://github.com/feiranshu/WangDao-EventSNN.git",
+  "local_upstream_status": "## main...origin/main [ahead 2]",
+  "remote_ref_freshness": "Local cached origin/main only; no fetch performed",
+  "unpushed_local_commits": [
+    "5a06ffe 合并 H2-pro 正式模型并保留 Runtime 评测指标",
+    "7e65382 新增完整序列 Runtime 评测指标及测量协议"
+  ],
+  "staged_files": [],
+  "changes": [
+    {
+      "status": " M",
+      "path": ".gitattributes",
+      "old_path": null,
+      "bytes": 1383,
+      "category": "navigation_docs_line_endings"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/AGENTS.md",
+      "old_path": null,
+      "bytes": 4563,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/DELIVERY_MANIFEST.json",
+      "old_path": null,
+      "bytes": 15125,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/README.md",
+      "old_path": null,
+      "bytes": 1530,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/software/scripts/import_ev_spsegnet_results.py",
+      "old_path": null,
+      "bytes": 10092,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/software/scripts/rebuild_evaluation_tables.py",
+      "old_path": null,
+      "bytes": 32888,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "1_H2_model_improvement/implementation/software/scripts/test_evaluation_layout.py",
+      "old_path": null,
+      "bytes": 6136,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " D",
+      "path": "3_ANN_to_SNN/PLAN.md",
+      "old_path": null,
+      "bytes": 0,
+      "category": "navigation_docs_line_endings"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/README.md",
+      "old_path": null,
+      "bytes": 1504,
+      "category": "navigation_docs_line_endings"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/implementation/AGENTS.md",
+      "old_path": null,
+      "bytes": 3225,
+      "category": "snn_docs_packaging"
+    },
+    {
+      "status": " D",
+      "path": "3_ANN_to_SNN/implementation/MIGRATION_MANIFEST.md",
+      "old_path": null,
+      "bytes": 0,
+      "category": "snn_docs_packaging"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/implementation/README.md",
+      "old_path": null,
+      "bytes": 363033,
+      "category": "snn_docs_packaging"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/implementation/data/index.json",
+      "old_path": null,
+      "bytes": 36663,
+      "category": "snn_docs_packaging"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/implementation/pyproject.toml",
+      "old_path": null,
+      "bytes": 1096,
+      "category": "snn_docs_packaging"
+    },
+    {
+      "status": " M",
+      "path": "3_ANN_to_SNN/model_selection_metrics/README.md",
+      "old_path": null,
+      "bytes": 2898,
+      "category": "navigation_docs_line_endings"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A01_event_ap/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A01_event_ap/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A02_event_iou/test.csv",
+      "old_path": null,
+      "bytes": 1367,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A02_event_iou/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A03_precision/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A03_precision/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/README.md",
+      "old_path": null,
+      "bytes": 212,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/test.csv",
+      "old_path": null,
+      "bytes": 1366,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A04_target_event_recall_acc/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A05_f1/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A05_f1/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/README.md",
+      "old_path": null,
+      "bytes": 305,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/test.csv",
+      "old_path": null,
+      "bytes": 1627,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A06_pd/validation.csv",
+      "old_path": null,
+      "bytes": 1568,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/README.md",
+      "old_path": null,
+      "bytes": 305,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/test.csv",
+      "old_path": null,
+      "bytes": 1691,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A07_fa/validation.csv",
+      "old_path": null,
+      "bytes": 1628,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A08_macro_sequence_recall/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A08_macro_sequence_recall/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A09_high_density_recall/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A09_high_density_recall/validation.csv",
+      "old_path": null,
+      "bytes": 1309,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A10_ordinary_density_recall/test.csv",
+      "old_path": null,
+      "bytes": 1290,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A10_ordinary_density_recall/validation.csv",
+      "old_path": null,
+      "bytes": 1308,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A11_detected_target_events/test.csv",
+      "old_path": null,
+      "bytes": 1267,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A11_detected_target_events/validation.csv",
+      "old_path": null,
+      "bytes": 1285,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A12_missed_target_events/test.csv",
+      "old_path": null,
+      "bytes": 1265,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A12_missed_target_events/validation.csv",
+      "old_path": null,
+      "bytes": 1283,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A13_target_events/test.csv",
+      "old_path": null,
+      "bytes": 1267,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/01_event_level/A13_target_events/validation.csv",
+      "old_path": null,
+      "bytes": 1285,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A14_hota/test.csv",
+      "old_path": null,
+      "bytes": 1256,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A14_hota/validation.csv",
+      "old_path": null,
+      "bytes": 1275,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A15_deta/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A15_deta/validation.csv",
+      "old_path": null,
+      "bytes": 1273,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A16_detre/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A16_detre/validation.csv",
+      "old_path": null,
+      "bytes": 1273,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A17_detpr/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A17_detpr/validation.csv",
+      "old_path": null,
+      "bytes": 1273,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A18_assa/test.csv",
+      "old_path": null,
+      "bytes": 1257,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A18_assa/validation.csv",
+      "old_path": null,
+      "bytes": 1274,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A19_assre/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A19_assre/validation.csv",
+      "old_path": null,
+      "bytes": 1274,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A20_asspr/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A20_asspr/validation.csv",
+      "old_path": null,
+      "bytes": 1272,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A21_loca/test.csv",
+      "old_path": null,
+      "bytes": 1255,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A21_loca/validation.csv",
+      "old_path": null,
+      "bytes": 1273,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A22_longest_miss_p95_ms/test.csv",
+      "old_path": null,
+      "bytes": 1235,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/02_target_track_level/A22_longest_miss_p95_ms/validation.csv",
+      "old_path": null,
+      "bytes": 1267,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+      "old_path": null,
+      "bytes": 4030,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/A_model_accuracy/README.md",
+      "old_path": null,
+      "bytes": 1068,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B01_parameter_count/common.csv",
+      "old_path": null,
+      "bytes": 1326,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B02_static_storage/common.csv",
+      "old_path": null,
+      "bytes": 1276,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B03_dense_mac/test.csv",
+      "old_path": null,
+      "bytes": 1327,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B03_dense_mac/validation.csv",
+      "old_path": null,
+      "bytes": 1345,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/README.md",
+      "old_path": null,
+      "bytes": 311,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/test.csv",
+      "old_path": null,
+      "bytes": 1551,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04a_effective_mac/validation.csv",
+      "old_path": null,
+      "bytes": 1561,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/README.md",
+      "old_path": null,
+      "bytes": 306,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/test.csv",
+      "old_path": null,
+      "bytes": 1465,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04b_effective_ac/validation.csv",
+      "old_path": null,
+      "bytes": 1477,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/README.md",
+      "old_path": null,
+      "bytes": 305,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/test.csv",
+      "old_path": null,
+      "bytes": 1759,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/B04c_mac_plus_ac/validation.csv",
+      "old_path": null,
+      "bytes": 1769,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B04_effective_operations/README.md",
+      "old_path": null,
+      "bytes": 218,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+      "old_path": null,
+      "bytes": 2537,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/B_model_complexity/README.md",
+      "old_path": null,
+      "bytes": 512,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/COMPLETENESS_AUDIT_20261010.md",
+      "old_path": null,
+      "bytes": 1020,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01a_mean/README.md",
+      "old_path": null,
+      "bytes": 438,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01b_p50/README.md",
+      "old_path": null,
+      "bytes": 436,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01c_p95/README.md",
+      "old_path": null,
+      "bytes": 436,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C01_kernel_latency/C01d_p99/README.md",
+      "old_path": null,
+      "bytes": 436,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02a_mean/README.md",
+      "old_path": null,
+      "bytes": 446,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02b_p50/README.md",
+      "old_path": null,
+      "bytes": 444,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02c_p95/README.md",
+      "old_path": null,
+      "bytes": 444,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C02_end_to_end_latency/C02d_p99/README.md",
+      "old_path": null,
+      "bytes": 444,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03a_sequence_throughput/README.md",
+      "old_path": null,
+      "bytes": 440,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03b_event_throughput/README.md",
+      "old_path": null,
+      "bytes": 431,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03c_realtime_factor/README.md",
+      "old_path": null,
+      "bytes": 427,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C03_throughput_and_realtime/C03d_timeout_rate/README.md",
+      "old_path": null,
+      "bytes": 420,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04a_idle_power/README.md",
+      "old_path": null,
+      "bytes": 418,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04b_run_power/README.md",
+      "old_path": null,
+      "bytes": 415,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C04_power/C04c_dynamic_power/README.md",
+      "old_path": null,
+      "bytes": 423,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C05_energy/C05a_total_energy_per_sequence/README.md",
+      "old_path": null,
+      "bytes": 456,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C05_energy/C05b_dynamic_energy_per_sequence/README.md",
+      "old_path": null,
+      "bytes": 460,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06a_lut/README.md",
+      "old_path": null,
+      "bytes": 404,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06b_ff/README.md",
+      "old_path": null,
+      "bytes": 402,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06c_bram36k/README.md",
+      "old_path": null,
+      "bytes": 412,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06d_dsp/README.md",
+      "old_path": null,
+      "bytes": 404,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C06_hardware_resources/C06e_clock_frequency/README.md",
+      "old_path": null,
+      "bytes": 434,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/README.md",
+      "old_path": null,
+      "bytes": 434,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/test.csv",
+      "old_path": null,
+      "bytes": 1118,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C07_runtime/validation.csv",
+      "old_path": null,
+      "bytes": 1136,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/02_model_records/README.md",
+      "old_path": null,
+      "bytes": 419,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/README.md",
+      "old_path": null,
+      "bytes": 416,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/runtime_measurement_protocol.md",
+      "old_path": null,
+      "bytes": 3381,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/README.md",
+      "old_path": null,
+      "bytes": 893,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/README.md",
+      "old_path": null,
+      "bytes": 1959,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "5_model_evaluation/evaluation_coverage.csv",
+      "old_path": null,
+      "bytes": 883,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": " M",
+      "path": "README.md",
+      "old_path": null,
+      "bytes": 5604,
+      "category": "navigation_docs_line_endings"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/implementation/software/scripts/evaluation_contract.py",
+      "old_path": null,
+      "bytes": 20257,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/implementation/software/scripts/recompute_localization_v2.py",
+      "old_path": null,
+      "bytes": 4888,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/implementation/software/tests/test_evaluation_v2.py",
+      "old_path": null,
+      "bytes": 14581,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/implementation/software/wangdao/localization_v2.py",
+      "old_path": null,
+      "bytes": 4684,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/.gitignore",
+      "old_path": null,
+      "bytes": 67,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/audit_preparation.py",
+      "old_path": null,
+      "bytes": 8207,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/__init__.py",
+      "old_path": null,
+      "bytes": 85,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/checks.py",
+      "old_path": null,
+      "bytes": 8054,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/common.py",
+      "old_path": null,
+      "bytes": 5373,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/data.py",
+      "old_path": null,
+      "bytes": 9221,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/evaluation.py",
+      "old_path": null,
+      "bytes": 3977,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/model.py",
+      "old_path": null,
+      "bytes": 3843,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/preservation.py",
+      "old_path": null,
+      "bytes": 1976,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/runtime.py",
+      "old_path": null,
+      "bytes": 11400,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/storage.py",
+      "old_path": null,
+      "bytes": 2669,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/dynamic_ann/synthetic.py",
+      "old_path": null,
+      "bytes": 6014,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/protocol.json",
+      "old_path": null,
+      "bytes": 3099,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/concurrent_changes.json",
+      "old_path": null,
+      "bytes": 765,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/delivery_check.json",
+      "old_path": null,
+      "bytes": 618,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/.run.lock",
+      "old_path": null,
+      "bytes": 1,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_dev_predictions.npz",
+      "old_path": null,
+      "bytes": 4343065,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_int8.npz",
+      "old_path": null,
+      "bytes": 7104,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/dynamic2000/initial_metrics.json",
+      "old_path": null,
+      "bytes": 15419,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_dev_predictions.npz",
+      "old_path": null,
+      "bytes": 3099491,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_int8.npz",
+      "old_path": null,
+      "bytes": 7098,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/fixed100/initial_metrics.json",
+      "old_path": null,
+      "bytes": 15370,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/identity.json",
+      "old_path": null,
+      "bytes": 5879,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preflight_attempt1/initial.pt",
+      "old_path": null,
+      "bytes": 38984,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preparation_audit.json",
+      "old_path": null,
+      "bytes": 2391,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_after.json",
+      "old_path": null,
+      "bytes": 268,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_before.json",
+      "old_path": null,
+      "bytes": 2262397,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/preservation_review.json",
+      "old_path": null,
+      "bytes": 1062,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/reuse_before.json",
+      "old_path": null,
+      "bytes": 101509,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/checks/reuse_verified.json",
+      "old_path": null,
+      "bytes": 83,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/five_epoch_snapshot_before.json",
+      "old_path": null,
+      "bytes": 11842,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/learning_curves.png",
+      "old_path": null,
+      "bytes": 642840,
+      "category": "ann_dynamic_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/review.json",
+      "old_path": null,
+      "bytes": 8235999,
+      "category": "ann_dynamic_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch200_20261016/run_before.json",
+      "old_path": null,
+      "bytes": 307131,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/delivery_check.json",
+      "old_path": null,
+      "bytes": 404,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/.run.lock",
+      "old_path": null,
+      "bytes": 1,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/best.pt",
+      "old_path": null,
+      "bytes": 105888,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/best_int8.npz",
+      "old_path": null,
+      "bytes": 7106,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001.json",
+      "old_path": null,
+      "bytes": 17630,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001.pt",
+      "old_path": null,
+      "bytes": 84768,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001_dev.npz",
+      "old_path": null,
+      "bytes": 4340192,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_001_int8.npz",
+      "old_path": null,
+      "bytes": 7107,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002.json",
+      "old_path": null,
+      "bytes": 17625,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002.pt",
+      "old_path": null,
+      "bytes": 90080,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002_dev.npz",
+      "old_path": null,
+      "bytes": 4341358,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_002_int8.npz",
+      "old_path": null,
+      "bytes": 7105,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003.json",
+      "old_path": null,
+      "bytes": 17627,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003.pt",
+      "old_path": null,
+      "bytes": 95328,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003_dev.npz",
+      "old_path": null,
+      "bytes": 4351289,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_003_int8.npz",
+      "old_path": null,
+      "bytes": 7109,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004.json",
+      "old_path": null,
+      "bytes": 17611,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004.pt",
+      "old_path": null,
+      "bytes": 100640,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004_dev.npz",
+      "old_path": null,
+      "bytes": 4352472,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_004_int8.npz",
+      "old_path": null,
+      "bytes": 7107,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005.json",
+      "old_path": null,
+      "bytes": 17643,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005.pt",
+      "old_path": null,
+      "bytes": 105888,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005_dev.npz",
+      "old_path": null,
+      "bytes": 4354737,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/epochs/epoch_005_int8.npz",
+      "old_path": null,
+      "bytes": 7106,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_dev_predictions.npz",
+      "old_path": null,
+      "bytes": 4343065,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_int8.npz",
+      "old_path": null,
+      "bytes": 7104,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/initial_metrics.json",
+      "old_path": null,
+      "bytes": 15419,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/last.pt",
+      "old_path": null,
+      "bytes": 105888,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/progress.json",
+      "old_path": null,
+      "bytes": 1259,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/progress.jsonl",
+      "old_path": null,
+      "bytes": 133148,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/dynamic2000/training.json",
+      "old_path": null,
+      "bytes": 122282,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/best.pt",
+      "old_path": null,
+      "bytes": 90016,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/best_int8.npz",
+      "old_path": null,
+      "bytes": 7099,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001.json",
+      "old_path": null,
+      "bytes": 17602,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001.pt",
+      "old_path": null,
+      "bytes": 84768,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001_dev.npz",
+      "old_path": null,
+      "bytes": 3100186,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_001_int8.npz",
+      "old_path": null,
+      "bytes": 7101,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002.json",
+      "old_path": null,
+      "bytes": 17588,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002.pt",
+      "old_path": null,
+      "bytes": 90016,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002_dev.npz",
+      "old_path": null,
+      "bytes": 3098719,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_002_int8.npz",
+      "old_path": null,
+      "bytes": 7099,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003.json",
+      "old_path": null,
+      "bytes": 17587,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003.pt",
+      "old_path": null,
+      "bytes": 95264,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003_dev.npz",
+      "old_path": null,
+      "bytes": 3099439,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_003_int8.npz",
+      "old_path": null,
+      "bytes": 7102,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004.json",
+      "old_path": null,
+      "bytes": 17587,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004.pt",
+      "old_path": null,
+      "bytes": 100512,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004_dev.npz",
+      "old_path": null,
+      "bytes": 3101757,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_004_int8.npz",
+      "old_path": null,
+      "bytes": 7101,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005.json",
+      "old_path": null,
+      "bytes": 17602,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005.pt",
+      "old_path": null,
+      "bytes": 105760,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005_dev.npz",
+      "old_path": null,
+      "bytes": 3100690,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/epochs/epoch_005_int8.npz",
+      "old_path": null,
+      "bytes": 7102,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_dev_predictions.npz",
+      "old_path": null,
+      "bytes": 3099491,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_int8.npz",
+      "old_path": null,
+      "bytes": 7098,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/initial_metrics.json",
+      "old_path": null,
+      "bytes": 15371,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/last.pt",
+      "old_path": null,
+      "bytes": 105760,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/progress.json",
+      "old_path": null,
+      "bytes": 1253,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/progress.jsonl",
+      "old_path": null,
+      "bytes": 132474,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/fixed100/training.json",
+      "old_path": null,
+      "bytes": 122061,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/identity.json",
+      "old_path": null,
+      "bytes": 5983,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/initial.pt",
+      "old_path": null,
+      "bytes": 39112,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/ready.json",
+      "old_path": null,
+      "bytes": 48372,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/five_epoch_snapshot/suite_progress.json",
+      "old_path": null,
+      "bytes": 3078,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/learning_curves.png",
+      "old_path": null,
+      "bytes": 163612,
+      "category": "ann_dynamic_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/review.json",
+      "old_path": null,
+      "bytes": 260750,
+      "category": "ann_dynamic_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/results/reviews/epoch5_20261015/run_before.json",
+      "old_path": null,
+      "bytes": 11842,
+      "category": "exclude_ann_local_artifacts"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/review_epoch200.py",
+      "old_path": null,
+      "bytes": 19711,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/review_epoch5.py",
+      "old_path": null,
+      "bytes": 16943,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/run.py",
+      "old_path": null,
+      "bytes": 2398,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/tests/test_dynamic_ann.py",
+      "old_path": null,
+      "bytes": 11882,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_train_v1/train_local_4060.ps1",
+      "old_path": null,
+      "bytes": 1372,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/.gitignore",
+      "old_path": null,
+      "bytes": 52,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/diagnose.py",
+      "old_path": null,
+      "bytes": 4923,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/protocol.json",
+      "old_path": null,
+      "bytes": 2911,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/run.py",
+      "old_path": null,
+      "bytes": 1083,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/__init__.py",
+      "old_path": null,
+      "bytes": 83,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/core.py",
+      "old_path": null,
+      "bytes": 14193,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/src/workflow.py",
+      "old_path": null,
+      "bytes": 23070,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "1_H2_model_improvement/seven_step_improvement_study/H2-pro_dynamic_window_v1/tests/test_dynamic_window.py",
+      "old_path": null,
+      "bytes": 10020,
+      "category": "ann_dynamic_source"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/calibrate_h2pro.ps1",
+      "old_path": null,
+      "bytes": 1337,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/calibrate_h2pro_channel.ps1",
+      "old_path": null,
+      "bytes": 962,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/calibrate_h2pro_m0.ps1",
+      "old_path": null,
+      "bytes": 930,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/calibrate_h2pro_task.ps1",
+      "old_path": null,
+      "bytes": 1273,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/convert_h2pro.ps1",
+      "old_path": null,
+      "bytes": 1262,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/diagnose_h2pro_proposal.ps1",
+      "old_path": null,
+      "bytes": 802,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t.ps1",
+      "old_path": null,
+      "bytes": 666,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t_v2.ps1",
+      "old_path": null,
+      "bytes": 611,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/evaluate_h2pro_adaptive_t_v3.ps1",
+      "old_path": null,
+      "bytes": 602,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/evaluate_h2pro_frozen_test.ps1",
+      "old_path": null,
+      "bytes": 595,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/prepare_fred.ps1",
+      "old_path": null,
+      "bytes": 2471,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/fred_external_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 4279,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/fred_frozen_three_v1_review_20261015.json",
+      "old_path": null,
+      "bytes": 20708,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/fred_input_diagnosis_v1_review_20261015.json",
+      "old_path": null,
+      "bytes": 20506,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/fred_statistics_adaptation_v1_review_20261015.json",
+      "old_path": null,
+      "bytes": 9487,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/git_handoff_review_20261016.json",
+      "old_path": null,
+      "bytes": 156512,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v1_comparison_20261015.png",
+      "old_path": null,
+      "bytes": 143697,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v1_review_20261015.json",
+      "old_path": null,
+      "bytes": 16059,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v2_comparison_20261015.png",
+      "old_path": null,
+      "bytes": 183297,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v2_review_20261015.json",
+      "old_path": null,
+      "bytes": 267981,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v3_comparison_20261015.png",
+      "old_path": null,
+      "bytes": 165050,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_adaptive_t_v3_review_20261015.json",
+      "old_path": null,
+      "bytes": 203887,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_ann_readout_v1_epoch1_review_20261012.json",
+      "old_path": null,
+      "bytes": 210446,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_calibration_v1_implementation_20261013.json",
+      "old_path": null,
+      "bytes": 84289,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_channel_calibration_v1_comparison_20261015.png",
+      "old_path": null,
+      "bytes": 209773,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_channel_calibration_v1_implementation_20261015.json",
+      "old_path": null,
+      "bytes": 415556,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_direct_v1_implementation_20261013.json",
+      "old_path": null,
+      "bytes": 72950,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch100_curves_20261014.png",
+      "old_path": null,
+      "bytes": 397411,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch100_review_20261014.json",
+      "old_path": null,
+      "bytes": 183267,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_epoch5_review_20261014.json",
+      "old_path": null,
+      "bytes": 84102,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_distill_r2t8_v1_longtrain_preparation_20261014.json",
+      "old_path": null,
+      "bytes": 6519,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_distill_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 27964,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_fixed_diagnosis_v1_curves_20261014.png",
+      "old_path": null,
+      "bytes": 437863,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_fixed_diagnosis_v1_review_20261014.json",
+      "old_path": null,
+      "bytes": 924991,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_frozen_test_v1_review_20261016.json",
+      "old_path": null,
+      "bytes": 20034,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_epoch20_curves_20261014.png",
+      "old_path": null,
+      "bytes": 447760,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_epoch20_review_20261014.json",
+      "old_path": null,
+      "bytes": 1713165,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_hardcase_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 35167,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_linear_pair_epoch5_review_20261013.json",
+      "old_path": null,
+      "bytes": 111706,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_m0_calibration_v2_review_20261015.json",
+      "old_path": null,
+      "bytes": 452065,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_epoch5_curves_20261016.png",
+      "old_path": null,
+      "bytes": 295367,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_epoch5_review_20261016.json",
+      "old_path": null,
+      "bytes": 836989,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_multit_v1_implementation_20261016.json",
+      "old_path": null,
+      "bytes": 3322,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_proposal_diagnosis_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 51327,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_proposal_transfer_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 24345,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_epoch50_curves_20261015.png",
+      "old_path": null,
+      "bytes": 597151,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_epoch50_review_20261015.json",
+      "old_path": null,
+      "bytes": 256175,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1_lr_v1_implementation_20261015.json",
+      "old_path": null,
+      "bytes": 5547,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1_train_v1_implementation_20261015.json",
+      "old_path": null,
+      "bytes": 20797,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch200_curves_20261015.png",
+      "old_path": null,
+      "bytes": 570559,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch200_review_20261015.json",
+      "old_path": null,
+      "bytes": 468110,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch5_curves_20261015.png",
+      "old_path": null,
+      "bytes": 197130,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_r1t16_train_v1_epoch5_review_20261015.json",
+      "old_path": null,
+      "bytes": 12286,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_s42_review_20261011.json",
+      "old_path": null,
+      "bytes": 43398,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_epoch1_review_20261011.json",
+      "old_path": null,
+      "bytes": 87218,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_epoch2_failure_review_20261011.json",
+      "old_path": null,
+      "bytes": 42882,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_1_implementation.json",
+      "old_path": null,
+      "bytes": 29728,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_2_epoch1_review_20261012.json",
+      "old_path": null,
+      "bytes": 29217,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_2_implementation.json",
+      "old_path": null,
+      "bytes": 54869,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_fixed_v2_implementation.json",
+      "old_path": null,
+      "bytes": 27041,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_refiner_implementation.json",
+      "old_path": null,
+      "bytes": 8725,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_snn_foundation.json",
+      "old_path": null,
+      "bytes": 8614,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_state_readout_diagnosis_20261012.json",
+      "old_path": null,
+      "bytes": 956142,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/results/h2pro_task_calibration_v1_implementation_20261014.json",
+      "old_path": null,
+      "bytes": 124455,
+      "category": "snn_curated_evidence"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/adapt_fred_statistics.py",
+      "old_path": null,
+      "bytes": 15150,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/check_fred_model.py",
+      "old_path": null,
+      "bytes": 7412,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/diagnose_fred_inputs.py",
+      "old_path": null,
+      "bytes": 16646,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_adaptive_t_v2_alternatives.py",
+      "old_path": null,
+      "bytes": 7494,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_fixed.py",
+      "old_path": null,
+      "bytes": 1167,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/diagnose_h2pro_state.py",
+      "old_path": null,
+      "bytes": 4471,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/evaluate_fred_frozen.py",
+      "old_path": null,
+      "bytes": 26165,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t.py",
+      "old_path": null,
+      "bytes": 879,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t_v2.py",
+      "old_path": null,
+      "bytes": 804,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_adaptive_t_v3.py",
+      "old_path": null,
+      "bytes": 811,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/evaluate_h2pro_frozen_test.py",
+      "old_path": null,
+      "bytes": 18677,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_calibrate.py",
+      "old_path": null,
+      "bytes": 3156,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_calibrate_m0.py",
+      "old_path": null,
+      "bytes": 1248,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_channel_calibrate.py",
+      "old_path": null,
+      "bytes": 1672,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_convert.py",
+      "old_path": null,
+      "bytes": 2440,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_component.py",
+      "old_path": null,
+      "bytes": 15498,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_diagnose.py",
+      "old_path": null,
+      "bytes": 1418,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_proposal_transfer.py",
+      "old_path": null,
+      "bytes": 1444,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_snn.py",
+      "old_path": null,
+      "bytes": 3229,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/h2pro_task_calibrate.py",
+      "old_path": null,
+      "bytes": 2852,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/prepare_fred.py",
+      "old_path": null,
+      "bytes": 2172,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/prepare_fred_diagnosis.py",
+      "old_path": null,
+      "bytes": 11358,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/prepare_fred_statistics.py",
+      "old_path": null,
+      "bytes": 1488,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/review_fred_frozen.py",
+      "old_path": null,
+      "bytes": 9100,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/review_fred_inputs.py",
+      "old_path": null,
+      "bytes": 35182,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/review_fred_statistics.py",
+      "old_path": null,
+      "bytes": 18937,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/review_h2pro_multit.py",
+      "old_path": null,
+      "bytes": 16499,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_ann_readout.py",
+      "old_path": null,
+      "bytes": 2992,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_ann_state.py",
+      "old_path": null,
+      "bytes": 2980,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_distill.py",
+      "old_path": null,
+      "bytes": 3491,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_hardcase.py",
+      "old_path": null,
+      "bytes": 2404,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_long.py",
+      "old_path": null,
+      "bytes": 2929,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_long_v1_1.py",
+      "old_path": null,
+      "bytes": 3418,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_multit.py",
+      "old_path": null,
+      "bytes": 2092,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_r1.py",
+      "old_path": null,
+      "bytes": 3496,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_r1_lr.py",
+      "old_path": null,
+      "bytes": 2401,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner.py",
+      "old_path": null,
+      "bytes": 4442,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2.py",
+      "old_path": null,
+      "bytes": 2734,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2_1.py",
+      "old_path": null,
+      "bytes": 2794,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_refiner_v2_2.py",
+      "old_path": null,
+      "bytes": 2977,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/scripts/train_h2pro_short.py",
+      "old_path": null,
+      "bytes": 2520,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_fred_adapter.py",
+      "old_path": null,
+      "bytes": 6924,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_fred_frozen_evaluation.py",
+      "old_path": null,
+      "bytes": 6059,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_fred_input_diagnosis.py",
+      "old_path": null,
+      "bytes": 4316,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_fred_statistics_adaptation.py",
+      "old_path": null,
+      "bytes": 5476,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t.py",
+      "old_path": null,
+      "bytes": 11632,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t_v2.py",
+      "old_path": null,
+      "bytes": 13163,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_adaptive_t_v3.py",
+      "old_path": null,
+      "bytes": 8059,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_readout.py",
+      "old_path": null,
+      "bytes": 9610,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_readout_diagnostics.py",
+      "old_path": null,
+      "bytes": 21755,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_state.py",
+      "old_path": null,
+      "bytes": 7070,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_ann_state_diagnostics.py",
+      "old_path": null,
+      "bytes": 21895,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_calibration.py",
+      "old_path": null,
+      "bytes": 10309,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_channel_calibration.py",
+      "old_path": null,
+      "bytes": 12940,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_direct.py",
+      "old_path": null,
+      "bytes": 7334,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_distill.py",
+      "old_path": null,
+      "bytes": 17302,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_fixed_diagnosis.py",
+      "old_path": null,
+      "bytes": 6065,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_foundation.py",
+      "old_path": null,
+      "bytes": 6356,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_frozen_test.py",
+      "old_path": null,
+      "bytes": 6273,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_hardcase.py",
+      "old_path": null,
+      "bytes": 16534,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_longtrain.py",
+      "old_path": null,
+      "bytes": 13951,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_longtrain_v1_1.py",
+      "old_path": null,
+      "bytes": 12320,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_m0_calibration.py",
+      "old_path": null,
+      "bytes": 9365,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_multit.py",
+      "old_path": null,
+      "bytes": 19322,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_component.py",
+      "old_path": null,
+      "bytes": 911,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_diagnosis.py",
+      "old_path": null,
+      "bytes": 2185,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_proposal_transfer.py",
+      "old_path": null,
+      "bytes": 10107,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_r1_lr.py",
+      "old_path": null,
+      "bytes": 18934,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_r1_train.py",
+      "old_path": null,
+      "bytes": 19806,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner.py",
+      "old_path": null,
+      "bytes": 22302,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2.py",
+      "old_path": null,
+      "bytes": 15468,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2_1.py",
+      "old_path": null,
+      "bytes": 21424,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_refiner_v2_2.py",
+      "old_path": null,
+      "bytes": 21902,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_shorttrain.py",
+      "old_path": null,
+      "bytes": 6731,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_signed_head.py",
+      "old_path": null,
+      "bytes": 6268,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_stream.py",
+      "old_path": null,
+      "bytes": 3111,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_task_calibration.py",
+      "old_path": null,
+      "bytes": 12191,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_torch.py",
+      "old_path": null,
+      "bytes": 3200,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/tests/test_h2pro_transport.py",
+      "old_path": null,
+      "bytes": 6815,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/__init__.py",
+      "old_path": null,
+      "bytes": 79,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/core.py",
+      "old_path": null,
+      "bytes": 7576,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/download.py",
+      "old_path": null,
+      "bytes": 6447,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/ecf.py",
+      "old_path": null,
+      "bytes": 4132,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/ecf_bridge.cpp",
+      "old_path": null,
+      "bytes": 1366,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/LICENSE",
+      "old_path": null,
+      "bytes": 10606,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec.cpp",
+      "old_path": null,
+      "bytes": 16489,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec.h",
+      "old_path": null,
+      "bytes": 3245,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/ecf_codec_export.h",
+      "old_path": null,
+      "bytes": 114,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/vendor/source.json",
+      "old_path": null,
+      "bytes": 123,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/verify.py",
+      "old_path": null,
+      "bytes": 10200,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_adapter_v1/workflow.py",
+      "old_path": null,
+      "bytes": 10868,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_statistics_v1/__init__.py",
+      "old_path": null,
+      "bytes": 77,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/fred_statistics_v1/neighborhood.py",
+      "old_path": null,
+      "bytes": 4432,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/__init__.py",
+      "old_path": null,
+      "bytes": 78,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/common.py",
+      "old_path": null,
+      "bytes": 5336,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/core.py",
+      "old_path": null,
+      "bytes": 10197,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/experiment.py",
+      "old_path": null,
+      "bytes": 13049,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v1/selection.py",
+      "old_path": null,
+      "bytes": 6760,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/__init__.py",
+      "old_path": null,
+      "bytes": 72,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/common.py",
+      "old_path": null,
+      "bytes": 3793,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/core.py",
+      "old_path": null,
+      "bytes": 5385,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/experiment.py",
+      "old_path": null,
+      "bytes": 11252,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/scoring.py",
+      "old_path": null,
+      "bytes": 2821,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v2/search.py",
+      "old_path": null,
+      "bytes": 8507,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/__init__.py",
+      "old_path": null,
+      "bytes": 75,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/analysis.py",
+      "old_path": null,
+      "bytes": 2081,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/common.py",
+      "old_path": null,
+      "bytes": 4203,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/experiment.py",
+      "old_path": null,
+      "bytes": 6264,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_adaptive_t_v3/selection.py",
+      "old_path": null,
+      "bytes": 3085,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/__init__.py",
+      "old_path": null,
+      "bytes": 79,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/audit.py",
+      "old_path": null,
+      "bytes": 5399,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/diagnostics.py",
+      "old_path": null,
+      "bytes": 14303,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/foundation.py",
+      "old_path": null,
+      "bytes": 780,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/local_4060.json",
+      "old_path": null,
+      "bytes": 1860,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/monitor.py",
+      "old_path": null,
+      "bytes": 7900,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/protocol.json",
+      "old_path": null,
+      "bytes": 1962,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/refiner.py",
+      "old_path": null,
+      "bytes": 6492,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_readout_v1/training.py",
+      "old_path": null,
+      "bytes": 34521,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/__init__.py",
+      "old_path": null,
+      "bytes": 76,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/audit.py",
+      "old_path": null,
+      "bytes": 12502,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/diagnostics.py",
+      "old_path": null,
+      "bytes": 13674,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/foundation.py",
+      "old_path": null,
+      "bytes": 765,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/local_4060.json",
+      "old_path": null,
+      "bytes": 1778,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/monitor.py",
+      "old_path": null,
+      "bytes": 7007,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/probe.py",
+      "old_path": null,
+      "bytes": 6189,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/protocol.json",
+      "old_path": null,
+      "bytes": 1265,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/refiner.py",
+      "old_path": null,
+      "bytes": 2598,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/stress.py",
+      "old_path": null,
+      "bytes": 3339,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_ann_state_v1/training.py",
+      "old_path": null,
+      "bytes": 34402,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/__init__.py",
+      "old_path": null,
+      "bytes": 75,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/cache_worker.py",
+      "old_path": null,
+      "bytes": 7155,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/calibration.py",
+      "old_path": null,
+      "bytes": 7891,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/common.py",
+      "old_path": null,
+      "bytes": 3673,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/core.py",
+      "old_path": null,
+      "bytes": 5172,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/protocol.json",
+      "old_path": null,
+      "bytes": 2961,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_calibration_v1/workflow.py",
+      "old_path": null,
+      "bytes": 12213,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/__init__.py",
+      "old_path": null,
+      "bytes": 67,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/common.py",
+      "old_path": null,
+      "bytes": 6460,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/core.py",
+      "old_path": null,
+      "bytes": 8032,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/search.py",
+      "old_path": null,
+      "bytes": 12066,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_channel_calibration_v1/workflow.py",
+      "old_path": null,
+      "bytes": 17805,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/__init__.py",
+      "old_path": null,
+      "bytes": 79,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/cache_worker.py",
+      "old_path": null,
+      "bytes": 7455,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/common.py",
+      "old_path": null,
+      "bytes": 2517,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/core.py",
+      "old_path": null,
+      "bytes": 7121,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/protocol.json",
+      "old_path": null,
+      "bytes": 2527,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_direct_v1/workflow.py",
+      "old_path": null,
+      "bytes": 10956,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/__init__.py",
+      "old_path": null,
+      "bytes": 76,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/checks.py",
+      "old_path": null,
+      "bytes": 7874,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/common.py",
+      "old_path": null,
+      "bytes": 4307,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/data.py",
+      "old_path": null,
+      "bytes": 4665,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/evaluation.py",
+      "old_path": null,
+      "bytes": 5676,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/model.py",
+      "old_path": null,
+      "bytes": 4554,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/prepare.py",
+      "old_path": null,
+      "bytes": 6096,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_distill_v1/runtime.py",
+      "old_path": null,
+      "bytes": 12344,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/__init__.py",
+      "old_path": null,
+      "bytes": 81,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/thresholds.py",
+      "old_path": null,
+      "bytes": 7089,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_fixed_diagnosis_v1/workflow.py",
+      "old_path": null,
+      "bytes": 17945,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/__init__.py",
+      "old_path": null,
+      "bytes": 80,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/checks.py",
+      "old_path": null,
+      "bytes": 8489,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/common.py",
+      "old_path": null,
+      "bytes": 7079,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/evaluation.py",
+      "old_path": null,
+      "bytes": 4221,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/objective.py",
+      "old_path": null,
+      "bytes": 3218,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_hardcase_v1/runtime.py",
+      "old_path": null,
+      "bytes": 15622,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/__init__.py",
+      "old_path": null,
+      "bytes": 112,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/checks.py",
+      "old_path": null,
+      "bytes": 10447,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/data.py",
+      "old_path": null,
+      "bytes": 10236,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/models.py",
+      "old_path": null,
+      "bytes": 2902,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/runtime.py",
+      "old_path": null,
+      "bytes": 24987,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1/storage.py",
+      "old_path": null,
+      "bytes": 3227,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/__init__.py",
+      "old_path": null,
+      "bytes": 119,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/checks.py",
+      "old_path": null,
+      "bytes": 9007,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/migration.py",
+      "old_path": null,
+      "bytes": 10006,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/models.py",
+      "old_path": null,
+      "bytes": 901,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/monitor.py",
+      "old_path": null,
+      "bytes": 3691,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_longtrain_v1_1/runtime.py",
+      "old_path": null,
+      "bytes": 16189,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/__init__.py",
+      "old_path": null,
+      "bytes": 76,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/common.py",
+      "old_path": null,
+      "bytes": 8747,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/search.py",
+      "old_path": null,
+      "bytes": 4686,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_m0_calibration_v2/workflow.py",
+      "old_path": null,
+      "bytes": 12716,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/__init__.py",
+      "old_path": null,
+      "bytes": 81,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/checks.py",
+      "old_path": null,
+      "bytes": 13773,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/common.py",
+      "old_path": null,
+      "bytes": 5904,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/comparison.py",
+      "old_path": null,
+      "bytes": 3403,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/evaluation.py",
+      "old_path": null,
+      "bytes": 4813,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/model.py",
+      "old_path": null,
+      "bytes": 3121,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_multit_v1/runtime.py",
+      "old_path": null,
+      "bytes": 14822,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/__init__.py",
+      "old_path": null,
+      "bytes": 83,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/cache.py",
+      "old_path": null,
+      "bytes": 6018,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/common.py",
+      "old_path": null,
+      "bytes": 3810,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/core.py",
+      "old_path": null,
+      "bytes": 6158,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/experiments.py",
+      "old_path": null,
+      "bytes": 6441,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/validation.py",
+      "old_path": null,
+      "bytes": 6076,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/verify.py",
+      "old_path": null,
+      "bytes": 4248,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/worker.py",
+      "old_path": null,
+      "bytes": 1665,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_diagnosis_v1/workflow.py",
+      "old_path": null,
+      "bytes": 11848,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/__init__.py",
+      "old_path": null,
+      "bytes": 75,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/common.py",
+      "old_path": null,
+      "bytes": 6448,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/core.py",
+      "old_path": null,
+      "bytes": 8457,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/pipeline.py",
+      "old_path": null,
+      "bytes": 4915,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/validation.py",
+      "old_path": null,
+      "bytes": 7767,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/worker.py",
+      "old_path": null,
+      "bytes": 1752,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_proposal_transfer_v1/workflow.py",
+      "old_path": null,
+      "bytes": 11855,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/__init__.py",
+      "old_path": null,
+      "bytes": 85,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/checks.py",
+      "old_path": null,
+      "bytes": 10058,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/common.py",
+      "old_path": null,
+      "bytes": 7312,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/comparison.py",
+      "old_path": null,
+      "bytes": 3873,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_lr_v1/runtime.py",
+      "old_path": null,
+      "bytes": 13778,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/__init__.py",
+      "old_path": null,
+      "bytes": 79,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/checks.py",
+      "old_path": null,
+      "bytes": 10692,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/common.py",
+      "old_path": null,
+      "bytes": 4772,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/data.py",
+      "old_path": null,
+      "bytes": 4665,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/evaluation.py",
+      "old_path": null,
+      "bytes": 7264,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/model.py",
+      "old_path": null,
+      "bytes": 4937,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_r1_train_v1/runtime.py",
+      "old_path": null,
+      "bytes": 12675,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_shorttrain.py",
+      "old_path": null,
+      "bytes": 6605,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/__init__.py",
+      "old_path": null,
+      "bytes": 118,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/ann_worker.py",
+      "old_path": null,
+      "bytes": 7300,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/baseline_lock.json",
+      "old_path": null,
+      "bytes": 2512,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/cache_worker.py",
+      "old_path": null,
+      "bytes": 7403,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/costs.py",
+      "old_path": null,
+      "bytes": 3073,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/diagnostics.py",
+      "old_path": null,
+      "bytes": 4392,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/foundation.py",
+      "old_path": null,
+      "bytes": 5717,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/local_4060.json",
+      "old_path": null,
+      "bytes": 951,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/protocol.json",
+      "old_path": null,
+      "bytes": 3512,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/refiner.py",
+      "old_path": null,
+      "bytes": 9655,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/stream_data.py",
+      "old_path": null,
+      "bytes": 11135,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/torch_cell.py",
+      "old_path": null,
+      "bytes": 3742,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/training.py",
+      "old_path": null,
+      "bytes": 25457,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/transport.py",
+      "old_path": null,
+      "bytes": 9083,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/__init__.py",
+      "old_path": null,
+      "bytes": 77,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/foundation.py",
+      "old_path": null,
+      "bytes": 777,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/local_4060.json",
+      "old_path": null,
+      "bytes": 1584,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/monitor.py",
+      "old_path": null,
+      "bytes": 5469,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/neurons.py",
+      "old_path": null,
+      "bytes": 1203,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/protocol.json",
+      "old_path": null,
+      "bytes": 1860,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/refiner.py",
+      "old_path": null,
+      "bytes": 8974,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2/training.py",
+      "old_path": null,
+      "bytes": 27661,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/__init__.py",
+      "old_path": null,
+      "bytes": 82,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/diagnostics.py",
+      "old_path": null,
+      "bytes": 13020,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/foundation.py",
+      "old_path": null,
+      "bytes": 790,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/local_4060.json",
+      "old_path": null,
+      "bytes": 1729,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/monitor.py",
+      "old_path": null,
+      "bytes": 6967,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/protocol.json",
+      "old_path": null,
+      "bytes": 2420,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_1/training.py",
+      "old_path": null,
+      "bytes": 33945,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/__init__.py",
+      "old_path": null,
+      "bytes": 60,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/diagnostics.py",
+      "old_path": null,
+      "bytes": 13609,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/foundation.py",
+      "old_path": null,
+      "bytes": 801,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/local_4060.json",
+      "old_path": null,
+      "bytes": 1831,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/monitor.py",
+      "old_path": null,
+      "bytes": 6967,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/protocol.json",
+      "old_path": null,
+      "bytes": 2474,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/refiner.py",
+      "old_path": null,
+      "bytes": 10328,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn_v2_2/training.py",
+      "old_path": null,
+      "bytes": 34911,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/__init__.py",
+      "old_path": null,
+      "bytes": 75,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/calibration.py",
+      "old_path": null,
+      "bytes": 14676,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/common.py",
+      "old_path": null,
+      "bytes": 2346,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/protocol.json",
+      "old_path": null,
+      "bytes": 3068,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/software/wangdao/h2pro_task_calibration_v1/workflow.py",
+      "old_path": null,
+      "bytes": 7462,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060.ps1",
+      "old_path": null,
+      "bytes": 2243,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_ann_readout.ps1",
+      "old_path": null,
+      "bytes": 2140,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_ann_state.ps1",
+      "old_path": null,
+      "bytes": 2132,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_distill.ps1",
+      "old_path": null,
+      "bytes": 1503,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_hardcase.ps1",
+      "old_path": null,
+      "bytes": 1272,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_long.ps1",
+      "old_path": null,
+      "bytes": 1414,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_long_v1_1.ps1",
+      "old_path": null,
+      "bytes": 1517,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_multit.ps1",
+      "old_path": null,
+      "bytes": 1156,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_r1.ps1",
+      "old_path": null,
+      "bytes": 1498,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_r1_lr.ps1",
+      "old_path": null,
+      "bytes": 1179,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_short.ps1",
+      "old_path": null,
+      "bytes": 1328,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_v2.ps1",
+      "old_path": null,
+      "bytes": 2016,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_v2_1.ps1",
+      "old_path": null,
+      "bytes": 2069,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/train_local_4060_v2_2.ps1",
+      "old_path": null,
+      "bytes": 2134,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "3_ANN_to_SNN/implementation/transfer_h2pro_proposal.ps1",
+      "old_path": null,
+      "bytes": 819,
+      "category": "snn_source_tests_launchers"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/uncertainty/README.md",
+      "old_path": null,
+      "bytes": 446,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/A_model_accuracy/01_metric_comparisons/uncertainty/paired_iou_delta.csv",
+      "old_path": null,
+      "bytes": 1240,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/frozen_predictions_manifest.template.json",
+      "old_path": null,
+      "bytes": 617,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/localization_v2_protocol.md",
+      "old_path": null,
+      "bytes": 3465,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/A_model_accuracy/03_rules_and_protocols/statistical_reporting_protocol.md",
+      "old_path": null,
+      "bytes": 2691,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B05_persistent_state_memory/README.md",
+      "old_path": null,
+      "bytes": 346,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/B_model_complexity/01_metric_comparisons/B05_persistent_state_memory/common.csv",
+      "old_path": null,
+      "bytes": 1301,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/README.md",
+      "old_path": null,
+      "bytes": 434,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/test.csv",
+      "old_path": null,
+      "bytes": 1139,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08a_host_peak_rss/validation.csv",
+      "old_path": null,
+      "bytes": 1157,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/README.md",
+      "old_path": null,
+      "bytes": 452,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/test.csv",
+      "old_path": null,
+      "bytes": 1139,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C08_runtime_memory/C08b_device_peak_allocation/validation.csv",
+      "old_path": null,
+      "bytes": 1157,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/README.md",
+      "old_path": null,
+      "bytes": 434,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/test.csv",
+      "old_path": null,
+      "bytes": 1139,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09a_processing_coverage/validation.csv",
+      "old_path": null,
+      "bytes": 1157,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/README.md",
+      "old_path": null,
+      "bytes": 426,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/test.csv",
+      "old_path": null,
+      "bytes": 1139,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09b_output_coverage/validation.csv",
+      "old_path": null,
+      "bytes": 1157,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/README.md",
+      "old_path": null,
+      "bytes": 432,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/test.csv",
+      "old_path": null,
+      "bytes": 1139,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09c_dropped_event_rate/validation.csv",
+      "old_path": null,
+      "bytes": 1157,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/README.md",
+      "old_path": null,
+      "bytes": 433,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/test.csv",
+      "old_path": null,
+      "bytes": 1142,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C09_coverage_and_backlog/C09d_max_backlog_events/validation.csv",
+      "old_path": null,
+      "bytes": 1160,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10a_exact_agreement/README.md",
+      "old_path": null,
+      "bytes": 426,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10b_max_abs_error/README.md",
+      "old_path": null,
+      "bytes": 423,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10c_rmse/README.md",
+      "old_path": null,
+      "bytes": 405,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10d_prediction_agreement/README.md",
+      "old_path": null,
+      "bytes": 436,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10e_overflow_rate/README.md",
+      "old_path": null,
+      "bytes": 422,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/01_metric_comparisons/C10_numerical_equivalence/C10f_clipping_rate/README.md",
+      "old_path": null,
+      "bytes": 422,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/metric_definitions_and_evaluation_rules.md",
+      "old_path": null,
+      "bytes": 5614,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/C_deployment_efficiency_and_hardware_cost/03_rules_and_protocols/runtime_record.template.json",
+      "old_path": null,
+      "bytes": 1221,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/EVALUATION_STANDARD_V2.md",
+      "old_path": null,
+      "bytes": 4385,
+      "category": "evaluation_v2_source_contract_tables"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/EVSpSegNet_full_ab_server_20261008.zip",
+      "old_path": null,
+      "bytes": 62568,
+      "category": "exclude_generated_bundle"
+    },
+    {
+      "status": "??",
+      "path": "5_model_evaluation/comparison_contract.json",
+      "old_path": null,
+      "bytes": 15878,
+      "category": "evaluation_v2_source_contract_tables"
+    }
+  ],
+  "status_counts": {
+    " M": 111,
+    " D": 2,
+    "??": 491
+  },
+  "categories": {
+    "navigation_docs_line_endings": {
+      "files": 5,
+      "bytes": 11389
+    },
+    "evaluation_v2_source_contract_tables": {
+      "files": 142,
+      "bytes": 274805
+    },
+    "snn_docs_packaging": {
+      "files": 5,
+      "bytes": 404017
+    },
+    "ann_dynamic_source": {
+      "files": 26,
+      "bytes": 172626
+    },
+    "exclude_ann_local_artifacts": {
+      "files": 84,
+      "bytes": 57192055
+    },
+    "ann_dynamic_curated_evidence": {
+      "files": 4,
+      "bytes": 9303201
+    },
+    "snn_source_tests_launchers": {
+      "files": 284,
+      "bytes": 1907192
+    },
+    "snn_curated_evidence": {
+      "files": 53,
+      "bytes": 11777885
+    },
+    "exclude_generated_bundle": {
+      "files": 1,
+      "bytes": 62568
+    }
+  },
+  "dependency_audit": {
+    "static_python_modules": [
+      "wangdao.h2pro_adaptive_t_v1.common",
+      "wangdao.h2pro_adaptive_t_v1.core",
+      "wangdao.h2pro_adaptive_t_v1.selection",
+      "wangdao.h2pro_adaptive_t_v2.core",
+      "wangdao.h2pro_adaptive_t_v2.scoring",
+      "wangdao.h2pro_calibration_v1.core",
+      "wangdao.h2pro_direct_v1.common",
+      "wangdao.h2pro_direct_v1.core",
+      "wangdao.h2pro_distill_v1.common",
+      "wangdao.h2pro_longtrain_v1.storage",
+      "wangdao.h2pro_multit_v1",
+      "wangdao.h2pro_multit_v1.checks",
+      "wangdao.h2pro_multit_v1.common",
+      "wangdao.h2pro_multit_v1.comparison",
+      "wangdao.h2pro_multit_v1.evaluation",
+      "wangdao.h2pro_multit_v1.model",
+      "wangdao.h2pro_multit_v1.runtime",
+      "wangdao.h2pro_r1_lr_v1.common",
+      "wangdao.h2pro_r1_train_v1.checks",
+      "wangdao.h2pro_r1_train_v1.common",
+      "wangdao.h2pro_r1_train_v1.data",
+      "wangdao.h2pro_r1_train_v1.evaluation",
+      "wangdao.h2pro_r1_train_v1.model",
+      "wangdao.h2pro_r1_train_v1.runtime",
+      "wangdao.h2pro_snn.costs",
+      "wangdao.h2pro_snn.diagnostics",
+      "wangdao.h2pro_snn.foundation",
+      "wangdao.h2pro_snn.refiner",
+      "wangdao.h2pro_snn.stream_data",
+      "wangdao.h2pro_snn.torch_cell",
+      "wangdao.h2pro_snn.training",
+      "wangdao.h2pro_snn.transport"
+    ],
+    "packages": [
+      "h2pro_adaptive_t_v1",
+      "h2pro_adaptive_t_v2",
+      "h2pro_calibration_v1",
+      "h2pro_direct_v1",
+      "h2pro_distill_v1",
+      "h2pro_longtrain_v1",
+      "h2pro_multit_v1",
+      "h2pro_r1_lr_v1",
+      "h2pro_r1_train_v1",
+      "h2pro_snn"
+    ],
+    "parsed_python_files": 180,
+    "scope": "Static Python imports; source-hash lists, dynamic ANN imports and data artifacts require separate inclusion"
+  },
+  "legacy_repository": {
+    "path": "C:\\Users\\markz\\Desktop\\FDUROP\\Project\\Wangdao-project",
+    "status": "",
+    "branch": "## main...origin/main"
+  },
+  "portable_handoff": {
+    "checkpoint_example_files": [
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\identity.json",
+        "bytes": 9034
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\ready.json",
+        "bytes": 25417
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\epochs\\epoch_159.pt",
+        "bytes": 569955
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\epochs\\epoch_159.json",
+        "bytes": 9922
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_r1t16_train_v1_s42\\epochs\\epoch_159_int8.npz",
+        "bytes": 9028
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\identity.json",
+        "bytes": 16491
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\initial.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\last.pt",
+        "bytes": 177571
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\best.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\best_adaptive.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\best_int8.npz",
+        "bytes": 8946
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\control\\best_adaptive_int8.npz",
+        "bytes": 8946
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\identity.json",
+        "bytes": 16504
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\initial.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\last.pt",
+        "bytes": 177571
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\best.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\best_adaptive.pt",
+        "bytes": 88867
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\best_int8.npz",
+        "bytes": 8946
+      },
+      {
+        "path": "3_ANN_to_SNN\\implementation\\results\\runs\\h2pro_multit_v1_s42_ep159\\multit\\best_adaptive_int8.npz",
+        "bytes": 8946
+      }
+    ],
+    "additional_required_artifacts": [
+      "h2pro_distill_v1_features (89 cached sequences + manifest/identity)",
+      "h2pro_task_calibration_v1_fit/calibration.json and h2pro_task_calibration_v1_dev/r1_t16_task_rescore.json",
+      "h2pro_adaptive_t_v1_s42_ep159/comparison.json and all train_dev traces/receipts",
+      "h2pro_adaptive_t_v2_alternatives_s42_ep159 selection/main_seal/comparison",
+      "multi-T suite ready/identity/initial predictions and per-arm training/progress/epoch records"
+    ],
+    "needs_compatibility_work": "Suite identities bind absolute paths, torch/numpy/CUDA and GPU model. Cross-machine continuation is not yet validated; do not edit sealed identities to bypass checks."
+  },
+  "proposed_commits": [
+    "冻结H2-pro契约及原结构转换/校准基础，包含被复用的旧共享模块",
+    "原结构r1/r2监督蒸馏与断点训练、难例和学习率对照",
+    "自适应4/8/16推理、固定策略评估及多时间步配对训练",
+    "FRED输入适配与独立评估，保留第三方LICENSE和source.json",
+    "ANN动态窗口及配对训练源码/协议/测试和精选结果",
+    "评测标准v2及生成/校验脚本、配套表格与统一文档导航"
+  ],
+  "prerequisites": [
+    "Repair dynamic ANN ignore coverage before any broad add",
+    "Keep source dependencies together; old experiments are not all removable dead code",
+    "Curate named result summaries/figures; do not add runs/caches/predictions/failed preparations",
+    "Transfer checkpoint/cache evidence separately through a versioned artifact package",
+    "Check each proposed staged diff and run its focused checks; the whole dirty tree has not been release-validated"
+  ]
+}

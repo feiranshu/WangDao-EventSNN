@@ -17,3 +17,9 @@
 1_H2_model_improvement/seven_step_improvement_study/H2-pro/protocol.json text eol=lf
 3_ANN_to_SNN/implementation/data/index.json text eol=lf
 3_ANN_to_SNN/implementation/software/wangdao/h2pro_snn/** text=auto eol=lf
+
+# Evaluation CSVs contain byte-level SHA-256 references to these evidence files.
+# Preserve the original JSON bytes; generated tables use stable LF on every host.
+5_model_evaluation/**/02_model_records/**/*.json -text whitespace=cr-at-eol
+1_H2_model_improvement/seven_step_improvement_study/H2-pro/reports/ab_same_prefix_uncertainty.json -text whitespace=cr-at-eol
+5_model_evaluation/**/*.csv text eol=lf

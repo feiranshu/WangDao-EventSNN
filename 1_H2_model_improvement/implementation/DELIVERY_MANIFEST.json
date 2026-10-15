@@ -14,12 +14,12 @@
     "*.pyc",
     "DELIVERY_MANIFEST.json"
   ],
-  "file_count": 81,
+  "file_count": 85,
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 4234,
-      "sha256": "0e4ffe6d0b665d61d32d7c0d46194128246fe3af0754bd6cadee0705a7932c86"
+      "bytes": 4563,
+      "sha256": "ad8d2ecaddc76aaf3af7405f760a4bd1a0745ee75404c9cc1ef194e9eb083d1e"
     },
     {
       "path": "MODEL_CARD.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 1130,
-      "sha256": "d16a05362b9c2013299643b7daaebbdf820012cb35c5197c21dbfd6e6f6c4c82"
+      "bytes": 1530,
+      "sha256": "713c8d2fb600afe6d5bd05e44a60af7fdbbc1b23de77908a8afe39d67fc26f9d"
     },
     {
       "path": "README_SERVER.md",
@@ -142,6 +142,11 @@
       "sha256": "aceb3c77fac0a429ac1d2a0fcacf51a60cdf5fef1c80d56ddc8c470a6b454e23"
     },
     {
+      "path": "software/scripts/evaluation_contract.py",
+      "bytes": 20257,
+      "sha256": "25b8cef38a0335c19b0443674b65c2c81ce883960e42682b7ff786173311f138"
+    },
+    {
       "path": "software/scripts/freeze_phase1.py",
       "bytes": 7199,
       "sha256": "176c4fc8b4f622d6ea938ab5a3d2d8f923c860a28114a5c5090ea609658da12e"
@@ -153,13 +158,18 @@
     },
     {
       "path": "software/scripts/import_ev_spsegnet_results.py",
-      "bytes": 6481,
-      "sha256": "ba7eb0c2e22900f463d832b23bbf3f00d195e5750b6c33c743245ad5c6e3ca75"
+      "bytes": 10092,
+      "sha256": "c96c303f44601e87ba5e74ff483e40c338a01e511c978814021848528c8b247f"
     },
     {
       "path": "software/scripts/rebuild_evaluation_tables.py",
-      "bytes": 25011,
-      "sha256": "8bbe2fefe863bc81c57fd14220b827fc3e62baccba5be030a4bcb0e7aa3d5f5b"
+      "bytes": 32888,
+      "sha256": "3a5fcd7b362e0a324c8cf43f5d8ccbe650787669af218d9a94174fbf29e9b092"
+    },
+    {
+      "path": "software/scripts/recompute_localization_v2.py",
+      "bytes": 4888,
+      "sha256": "aaa652e61c3eba641293442e6a557a4deddeb9da20531891a776398429026d59"
     },
     {
       "path": "software/scripts/release_h2_family.py",
@@ -173,8 +183,8 @@
     },
     {
       "path": "software/scripts/test_evaluation_layout.py",
-      "bytes": 5431,
-      "sha256": "1f4725d6a42f7b224e26f415ef7cb3e77c07b322257d0126b1c9bbd240985dd3"
+      "bytes": 6136,
+      "sha256": "65120892e839f6b1b57fcf48b7a5fde8f2cf4d230c5cae1e2c0c233ec21d4f18"
     },
     {
       "path": "software/scripts/train_causal.py",
@@ -220,6 +230,11 @@
       "path": "software/tests/test_core.py",
       "bytes": 4769,
       "sha256": "58f8913a45aaaa096734d4ed7e67cab633ccee97a5a621e04bb69e3ac300eddc"
+    },
+    {
+      "path": "software/tests/test_evaluation_v2.py",
+      "bytes": 14581,
+      "sha256": "638765bc21c03a5fce8030a9ea20cd4ee73d8d392ba52d2ee28f335bd9f12ccd"
     },
     {
       "path": "software/tests/test_h2_pro_runtime.py",
@@ -375,6 +390,11 @@
       "path": "software/wangdao/h2_students.py",
       "bytes": 9301,
       "sha256": "8ce9b086f87c0885b90e95ccd99020b08be95c178e0e08f9a8671ade9f25c642"
+    },
+    {
+      "path": "software/wangdao/localization_v2.py",
+      "bytes": 4684,
+      "sha256": "d2be679541b7fdcaaff3cef07a06dd8601007d3f3e9fa545f4c9392700152849"
     },
     {
       "path": "software/wangdao/metrics.py",

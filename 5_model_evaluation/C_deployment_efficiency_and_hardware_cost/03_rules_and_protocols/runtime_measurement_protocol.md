@@ -1,61 +1,31 @@
-# C07 完整序列 runtime 测量协议
+# C07 完整序列运行时间 v2
 
-协议 ID：`full-sequence-runtime-v1`。本协议定义计时指标与记录位置，不自动启动模型评测或补跑 Validation/Test。
+记录协议 deployment-measurement-v2；runtime_protocol_id=full-sequence-runtime-v2，保留 ms/sequence。旧 v1 不得只换标签升级，当前尚无合格实测。
 
-## 定义与统计
+## 固定边界
 
-C07 是固定平台上处理一条完整输入序列的模型推理运行时间，单位 `ms/sequence`。分别统计冻结 Validation、Test 全部序列，不能只选含目标窗口或低事件密度片段。当前两套划分各含 24 条完整 8 s 序列；以冻结数据索引为准。
+起点：完整原始事件已在主机内存、模型加载并预热、状态复位，即将调用完整流水线。终点：输入处理和收尾完成，冻结协议要求的原生输出在主机可读，设备任务和必要传输全部结束。
 
-当前 H2/H2-pro 的 A/B 表使用相同闭合窗口前缀；C07 仍要求完整输入记录经过各自冻结的推理流程，不能把已裁剪预测的评测耗时当作推理耗时。H2-pro 只发布已闭合的 100 ms 窗口，末尾未闭合窗口按冻结协议保留为未发布尾段；逐序列记录起始锚点、最终 watermark、闭合窗口数、有效输出前缀时长及尾段事件数，不为计时额外补齐尾窗或提前截断输入。比较 runtime 时同时披露输出覆盖和因果性差异；若另测同前缀输入，必须另设协议 ID，不能混入本项完整输入记录的均值。
+计入特征/编码、Proposal、实际触发的 Refiner、全部 SNN 时间步、状态更新、调度、模型必需解码、MMIO/XRT 提交/等待/搬运。不计加载、预热、文件读取、真实采集等待、评测器额外聚类/跟踪、准确度计算和写日志。用单调墙钟，开始前清空任务，结束等待异步执行和输出拷回，不能只测提交。
 
-每条序列保存一条墙钟计时记录 `runtime_ms`，汇总为：
+序列 batch=1、串行，每次每序列复位，不复用状态或缓存预测。固定线程、内部批处理、设备时钟和实现。H2-pro 只发布闭合 100 ms 窗，尾段保留未发布，不能为计时补窗/截断输入。scope_id=full-input-sequence-v1；A/B 同前缀准确度不证明完整输入输出覆盖。
 
-`runtime_ms_per_sequence = sum(runtime_ms) / n_sequences`
+## 预热、重复和统计
 
-分母是完整序列数，不是事件数、窗口数或 patch 数；不按事件数量加权。保留序列 ID、输入时长、事件数和实际处理窗口数，便于检查覆盖范围。主指标只报告均值，逐序列明细保留在源记录目录。
+预热用预先固定的 synthetic/Train-dev 输入，iterations≥1。固定 5 次完整划分遍历，每次全部 24 序列；次数、顺序和配置在查看耗时前锁定。不挑最快轮次、不按 Test 调参数。准确度冻结验收仍只做一次；重复纯计时不改变模型、阈值、样本或参与选型。
 
-## 计时边界
+主值=Σ每序列每重复 runtime_ms/(序列数×5)。源记录另报全部样本中位数、P95、标准差及每序列 5 次均值/波动，区分序列差异和重复噪声。P95 从原始样本合并计算，不平均序列 P95；冷启动另记。
 
-- 起点：该序列原始事件已载入主机内存，模型已加载、完成预热，序列初始状态已复位；即将调用完整模型推理流程。
-- 终点：完整输入已处理并完成序列收尾，冻结协议要求发布的全部模型原生输出（事件分数、掩码或检测框）已在主机内存中可读取，相关设备执行及必需数据传输全部完成；H2-pro 须同时记录未发布尾段。
-- 计入：模型输入编码/特征构造、完整网络执行、模型内部状态更新与调度、模型自身输出解码，以及必需的主机与设备间输入/输出传输。H2/H2-pro 必须包含 Proposal 和按冻结条件实际触发的 Refiner；SNN 必须包含全部约定时间步。
-- 不计入：模型/权重加载、预热、原始文件读取、等待真实事件采集、评测适配器中的框到事件映射、共享连通域/跟踪评测、准确率指标计算、日志与结果文件写盘。模型内部必需的解码不能移到计时区间外。
-- 使用单调高精度墙钟计时；在起点前清空待执行任务，终点等待异步 GPU/FPGA 工作及输出传输完成。仅记录异步提交调用耗时不合格。MMIO 或 XRT 的提交、等待与必需数据搬运，只要位于上述边界内，均应计入。
+汇总字段为 runtime_ms_per_sequence、runtime_p50_ms、runtime_p95_ms、runtime_std_ms；标准差采用总体标准差（ddof=0），分位数采用线性插值。重建器会与原始 CSV 对账。
 
-默认按序列串行处理，序列 batch size 为 1；模型原有窗口划分、时间步和内部批处理策略须固定并记录。不得将不同序列的并发吞吐折算为本项 runtime。序列间复位模型状态，禁止跨序列缓存预测或沿用 SNN 膜电位。
+## 必需记录
 
-预热使用预先固定的合成输入或 Train-dev 输入，记录预热方式与次数；不使用 Validation/Test 选择预热或优化参数。计时随每个划分一次正式完整遍历采集，遵守冻结评测规则；本指标的建立不授权额外反复运行受保护划分，也不能根据其结果改变模型、阈值或测试数据。
+优先使用 02_model_records/formal/<evaluation_id>/<validation|test>/runtime.json，summary.runtime_ms_per_sequence 存主值。原始 CSV 字段：sequence_id,repeat,runtime_ms,input_events,processed_events,tail_events,dropped_events,output_events。
 
-## 与已有指标的关系
+repeat=1–5，每序列每次恰好一行。计数非负整数，input=processed+tail+dropped、output≤processed。另保留 t0、最终 watermark、闭合窗数、有效输出前缀和原始事件哈希的覆盖日志，不能隐藏尾段。
 
-| 指标 | 主要回答的问题 | 与 C07 的区别 |
-| --- | --- | --- |
-| C01 kernel latency | 一次规定的加速核调用花多长时间？ | 可只覆盖局部加速核；不代表整条序列或完整模型。 |
-| C02 end-to-end latency | 从应用输入到应用最终输出要多久？ | 还可能包含采集、队列、文件 I/O 和后处理；须注明应用边界及一次请求的粒度。 |
-| C03 throughput/realtime | 单位时间处理多少输入，能否跟上输入速率？ | 是处理速率或实时性，受并发与流水线影响；不能无条件取倒数当作 C07。 |
-| C07 runtime | 内存中的完整序列通过完整模型路径需多久？ | 固定序列粒度与上述推理边界，支持软件和板端。 |
+填写 evaluation-record-v2 身份/comparison/provenance。measurement 另含 timer=monotonic_wall、synchronization（具体等待/拷回方法）、state_reset_per_sequence=true、repeats=5、warmup={input_role,iterations}；平台和板端字段遵守 C 总协议。metric_context.C07 的 definition_id=C07-v2、raw_artifact=runtime_per_sequence.csv，CSV 必须列入 artifacts 并哈希。
 
-若已有 C02 恰好使用完全相同的序列粒度和计时边界，可引用同一原始计时记录并说明，不能把两项相加。输入序列的 8 s 时长、训练总耗时、整个评测脚本耗时、MAC/AC 推算耗时及不同协议论文值均不能直接作为 C07。
+重建器核验全集、5 次重复、样本/覆盖恒等式和主均值；缺协议/平台/证据为 unverified，不自动补实测标签或协议。窗口 CPU benchmark、论文 runtime、8 s 输入时长不能填 C07。
 
-H2-pro 研究目录中的 `cpu_benchmark_smoke.json`、`cpu_benchmark_trainmain.json` 是其他划分上的窗口级 CPU 计时，计时边界也不同；不能折算或直接导入本项 Validation/Test 完整序列结果。
-
-## 源记录与重建
-
-路径：`C_deployment_efficiency_and_hardware_cost/02_model_records/formal/<evaluation_id>/<validation|test>/summary.json`。逐序列明细建议命名为 `runtime_per_sequence.csv`，与汇总记录同目录。
-
-下列仅为字段示例，`null` 表示尚未测量，不能标记为完成：
-
-```json
-{
-  "runtime_protocol_id": "full-sequence-runtime-v1",
-  "summary": {
-    "runtime_ms_per_sequence": null
-  }
-}
-```
-
-提交实测源记录时，另附完整平台与复现信息：`evaluation_id`、`platform_id`、数据划分与索引哈希、序列清单、权重/配置哈希、数值精度、实际执行后端、CPU/GPU/FPGA 型号、软件及驱动版本、线程数、batch 设置、同步方式、预热设置、计时脚本版本；板端还须记录时钟、bitstream 哈希及 MMIO/XRT 路径。仅有 `software_reference_numpy` 等逻辑平台名不足以复现实测，应在源记录中写明实际机器。变更平台或执行配置时使用独立的 `evaluation_id`，不能覆盖另一配置的耗时。
-
-运行 `rebuild_evaluation_tables.py --category deployment`，重建器按模型注册顺序读取 `summary.runtime_ms_per_sequence`（兼容 `metrics` 容器及 `C07` 键），生成 C07 Validation/Test CSV。C07 优先使用 `runtime_protocol_id`，其次使用记录中的 `protocol_id`/`protocol`，未提供时使用本协议 ID；实测必须核实符合该边界。源值缺失时保持 `pending`，数值必须为有限正数，禁止用 0 代替未测量。默认实测证据类型为 `software_measured` 或 `board_measured`。
-
-重建器检查字段与生成表格，不执行计时，也不自动证明平台信息、完整覆盖及同步方式合格；这些需要结合逐序列明细与运行日志复核。当前软件 C07 是补充项，不改变软件 A+B 完整性；板端 C07 参与 C 类覆盖率检查。
+C01 是纯核时间，C02 是含等窗/排队的事件响应，C03 是吞吐/实时性，C07 是预载完整序列模型耗时，不能相加或无条件取倒数互换。不同输出覆盖和因果性必须随结果披露。

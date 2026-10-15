@@ -10,10 +10,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+from evaluation_contract import (
+    LOCALIZATION_PROTOCOL, RUNTIME_PROTOCOL, PREFIX_SCOPE, FULL_SCOPE,
+    content_sha256, deployment_issues, finite, policy_at, protocol_of, sha256,
+    state_inventory_issues, validate_value, verify_record,
+)
+
 
 CSV_FIELDS = (
     "evaluation_id", "model_name", "evaluation_track", "model_role", "platform_id",
     "value", "unit", "status", "evidence_type", "protocol_id", "source_file", "notes",
+    "source_sha256", "verification_status", "comparison_scope", "causality",
 )
 
 
@@ -37,7 +44,7 @@ A_METRICS = (
     Metric("A04", "target_event_recall_acc", "ACC / Target-event Recall", "rate", "01_event_level"),
     Metric("A05", "f1", "F1", "rate", "01_event_level"),
     Metric("A06", "pd", "Pd", "rate", "01_event_level"),
-    Metric("A07", "fa", "Fa", "rate", "01_event_level"),
+    Metric("A07", "fa", "Fa", "component/pixel/window", "01_event_level"),
     Metric("A08", "macro_sequence_recall", "Macro sequence recall", "rate", "01_event_level"),
     Metric("A09", "high_density_recall", "High-density recall", "rate", "01_event_level"),
     Metric("A10", "ordinary_density_recall", "Ordinary-density recall", "rate", "01_event_level"),
@@ -62,15 +69,16 @@ B_METRICS = (
     Metric("B04a", "effective_mac", "effective_macs_per_sequence", "MAC/sequence", "B04_effective_operations"),
     Metric("B04b", "effective_ac", "effective_acs_per_sequence", "AC/sequence", "B04_effective_operations"),
     Metric("B04c", "mac_plus_ac", "effective_ops_per_sequence", "op/sequence", "B04_effective_operations"),
+    Metric("B05", "persistent_state_memory", "persistent_state_bytes", "byte", ""),
 )
 
 C_COMMON = ("C04a", "C06a", "C06b", "C06c", "C06d", "C06e")
 C_SPLIT = (
     "C01a", "C01b", "C01c", "C01d", "C02a", "C02b", "C02c", "C02d",
     "C03a", "C03b", "C03c", "C03d", "C04b", "C04c", "C05a", "C05b", "C07",
+    "C08a", "C08b", "C09a", "C09b", "C09c", "C09d",
+    "C10a", "C10b", "C10c", "C10d", "C10e", "C10f",
 )
-
-RUNTIME_PROTOCOL = "full-sequence-runtime-v1"
 
 C_METRICS = (
     ("C01a", "C01_kernel_latency/C01a_mean", "kernel_latency_mean_ms", "ms", "split"),
@@ -96,6 +104,18 @@ C_METRICS = (
     ("C06d", "C06_hardware_resources/C06d_dsp", "dsp", "count", "common"),
     ("C06e", "C06_hardware_resources/C06e_clock_frequency", "clock_frequency_mhz", "MHz", "common"),
     ("C07", "C07_runtime", "runtime_ms_per_sequence", "ms/sequence", "split"),
+    ("C08a", "C08_runtime_memory/C08a_host_peak_rss", "host_peak_rss_bytes", "byte", "split"),
+    ("C08b", "C08_runtime_memory/C08b_device_peak_allocation", "device_peak_allocation_bytes", "byte", "split"),
+    ("C09a", "C09_coverage_and_backlog/C09a_processing_coverage", "processing_coverage", "rate", "split"),
+    ("C09b", "C09_coverage_and_backlog/C09b_output_coverage", "output_coverage", "rate", "split"),
+    ("C09c", "C09_coverage_and_backlog/C09c_dropped_event_rate", "dropped_event_rate", "rate", "split"),
+    ("C09d", "C09_coverage_and_backlog/C09d_max_backlog_events", "max_backlog_events", "count", "split"),
+    ("C10a", "C10_numerical_equivalence/C10a_exact_agreement", "exact_agreement", "rate", "split"),
+    ("C10b", "C10_numerical_equivalence/C10b_max_abs_error", "max_abs_error", "score", "split"),
+    ("C10c", "C10_numerical_equivalence/C10c_rmse", "rmse", "score", "split"),
+    ("C10d", "C10_numerical_equivalence/C10d_prediction_agreement", "prediction_agreement", "rate", "split"),
+    ("C10e", "C10_numerical_equivalence/C10e_overflow_rate", "overflow_rate", "rate", "split"),
+    ("C10f", "C10_numerical_equivalence/C10f_clipping_rate", "clipping_rate", "rate", "split"),
 )
 
 
@@ -133,21 +153,68 @@ def make_row(model: dict[str, str], value: Any, unit: str, status: str,
     }
 
 
+def checked_row(root, model, code, split, family, source, value, unit,
+                status, evidence, protocol, notes=""):
+    """Attach source identity and gate complete on source/protocol validation."""
+    validate_value(value, code, unit)
+    source = Path(source)
+    scope = FULL_SCOPE if code == "C07" else PREFIX_SCOPE
+    policy = policy_at(root)
+    data = read_json(source) if source.is_file() else {}
+    comparison = data.get("comparison", {})
+    context = policy.get("model_context", {}).get(model["evaluation_id"], {})
+    check = status
+    if status == "complete":
+        if code == "B04b" and evidence == "architecture_defined":
+            errors = [] if value == 0 and data.get("paper", {}).get("architecture") == "ANN" else ["invalid_architecture_zero"]
+        elif family == "deployment":
+            errors = deployment_issues(root, source, model, split, code)
+        else:
+            errors = verify_record(root, source, model, split, family, scope)
+        if code == "B05" and not errors:
+            errors.extend(state_inventory_issues(data))
+        if errors:
+            status = "unverified"
+            check = ";".join(errors)
+            notes = (notes + "；" if notes else "") + "未通过源记录/协议检查：" + check
+        else:
+            check = "verified"
+    try:
+        shown = source.relative_to(root).as_posix()
+    except ValueError:
+        shown = source.as_posix()
+    row = make_row(model, value, unit, status, evidence, protocol, shown, notes)
+    legacy = policy.get("reviewed_legacy_sources", {}).get(shown, {})
+    row.update(source_sha256=sha256(source) if source.is_file() else "",
+               verification_status=check,
+               comparison_scope=comparison.get("scope_id", legacy.get("scope_id", "unknown" if source.is_file() else scope)),
+               causality=comparison.get("causality", context.get("causality", "unknown")))
+    return row
+
+
 def event_metrics(path: Path) -> tuple[dict[str, Any], str]:
     data = read_json(path)
     working = data["working_point"]
     event = working["overall"]["event"]
     localization = working["overall"]["localization"]
-    recalls = [float(row["event"]["recall"]) for row in working["per_sequence"].values()]
-    macro_recall = (float(working["macro_sequence_recall"])
-                    if "macro_sequence_recall" in working else sum(recalls) / len(recalls))
+    def number(value):
+        if value is None: return None
+        if not finite(value): raise ValueError(f"{path}: invalid event metric {value!r}")
+        return float(value)
+    if any(not finite(event[k], integer=True) for k in ("tp", "fp", "fn", "tn")):
+        raise ValueError(f"{path}: confusion counts must be nonnegative integers")
+    per_sequence = working.get("per_sequence", {})
+    per_sequence = per_sequence.values() if isinstance(per_sequence, dict) else per_sequence
+    recalls = [float(row["event"]["recall"]) for row in per_sequence if row.get("event", {}).get("recall") is not None]
+    macro_recall = (number(working["macro_sequence_recall"])
+                    if "macro_sequence_recall" in working else sum(recalls) / len(recalls) if recalls else None)
     values = {
-        "Event AP": float(working["average_precision"]), "Event IoU": float(event["iou"]),
-        "Precision": float(event["precision"]), "ACC / Target-event Recall": float(event["recall"]),
-        "F1": float(event["f1"]), "Pd": float(localization["pd"]), "Fa": float(localization["fa"]),
+        "Event AP": number(working["average_precision"]), "Event IoU": number(event["iou"]),
+        "Precision": number(event["precision"]), "ACC / Target-event Recall": number(event["recall"]),
+        "F1": number(event["f1"]), "Pd": localization.get("pd"), "Fa": localization.get("fa"),
         "Macro sequence recall": macro_recall,
-        "High-density recall": float(working["high_density"]["event"]["recall"]),
-        "Ordinary-density recall": float(working["ordinary_density"]["event"]["recall"]),
+        "High-density recall": number(working["high_density"]["event"]["recall"]),
+        "Ordinary-density recall": number(working["ordinary_density"]["event"]["recall"]),
         "Detected target events": int(event["tp"]), "Missed target events": int(event["fn"]),
         "Target events": int(event["tp"] + event["fn"]),
     }
@@ -186,70 +253,42 @@ def paper_accuracy(model_root: Path, split: str) -> tuple[dict[str, Any], dict[s
 
 def build_accuracy(root: Path) -> list[Path]:
     category = root / "A_model_accuracy"
-    registry = read_registry(root)
-    outputs: list[Path] = []
+    outputs = []
     for split in ("validation", "test"):
-        cache: dict[str, tuple[dict[str, Any], dict[str, str], str]] = {}
-        for model in registry:
-            base = record_root(category, model)
-            if model["model_role"] == "external_reference":
-                values, statuses = paper_accuracy(base, split)
-                cache[model["evaluation_id"]] = (values, statuses, "ICCV-2025-EV-UAV-Table-2")
-                continue
-            event_path = base / split / "event_level" / "summary.json"
-            track_path = base / split / "target_track_level" / "summary.json"
-            values: dict[str, Any] = {}
-            protocols = []
-            if event_path.exists():
-                event_values, event_protocol = event_metrics(event_path)
-                values.update(event_values); protocols.append(event_protocol)
-            if track_path.exists():
-                track_values, track_protocol = track_metrics(track_path)
-                values.update(track_values); protocols.append(track_protocol)
-            paper_values: dict[str, Any] = {}
-            paper_statuses: dict[str, str] = {}
-            if (base / "paper_reference.json").exists():
-                paper_values, paper_statuses = paper_accuracy(base, split)
-                for key, value in paper_values.items():
-                    if key not in values and value is not None:
-                        values[key] = value
-            statuses = {}
-            for metric in A_METRICS:
-                if ((metric.level == "01_event_level" and event_path.exists()) or
-                        (metric.level == "02_target_track_level" and track_path.exists())) and metric.source_key in values:
-                    statuses[metric.source_key] = "complete"
-                elif paper_statuses.get(metric.source_key) == "paper_reported":
-                    statuses[metric.source_key] = "paper_reported"
-                else:
-                    statuses[metric.source_key] = "pending"
-            cache[model["evaluation_id"]] = (values, statuses, ";".join(protocols))
-
         for metric in A_METRICS:
             rows = []
-            for model in registry:
-                values, statuses, protocol = cache[model["evaluation_id"]]
+            for model in read_registry(root):
                 base = record_root(category, model)
-                status = statuses[metric.source_key]
-                if status == "paper_reported":
-                    source = base / "paper_reference.json"
-                elif model["model_role"] == "external_reference":
-                    source = base / ("measured_status.json" if metric.level == "02_target_track_level" else "paper_reference.json")
-                else:
-                    source = base / split / ("target_track_level" if metric.level == "02_target_track_level" else "event_level") / "summary.json"
-                evidence = "paper_reported" if status == "paper_reported" else ("pending_import" if status == "pending" else ("measured" if status == "complete" else "not_reported"))
-                if status == "paper_reported":
-                    row_protocol = "ICCV-2025-EV-UAV-Table-2"
-                elif status == "pending" and metric.level == "02_target_track_level":
-                    row_protocol = "evuav-observable-event-track-hota-v1"
-                elif status == "pending" and model["evaluation_id"] == "EV-SpSegNet":
-                    row_protocol = "evuav-33e2aff-official-compatible-v1+step3-density-20000"
-                else:
-                    row_protocol = protocol
-                if status == "pending":
-                    notes = "待服务器导入同口径逐事件概率"
-                else:
-                    notes = "论文 Test 表 2 直接报告；服务器实测后由同口径结果替换" if status == "paper_reported" else ""
-                rows.append(make_row(model, values.get(metric.source_key), metric.unit, status, evidence, row_protocol, source, notes))
+                family = "track" if metric.level == "02_target_track_level" else "event"
+                source = base / split / ("target_track_level" if family == "track" else "event_level") / "summary.json"
+                value, status, evidence, protocol, note = None, "pending", "pending_evaluation", "", "待冻结协议源记录"
+                if source.is_file():
+                    values, protocol = track_metrics(source) if family == "track" else event_metrics(source)
+                    value = values.get(metric.source_key)
+                    status = "complete" if value is not None else "not_applicable"
+                    evidence, note = "measured", ""
+                elif (base / "paper_reference.json").is_file():
+                    values, statuses = paper_accuracy(base, split)
+                    value = values.get(metric.source_key)
+                    status = statuses.get(metric.source_key, "pending")
+                    if value is not None:
+                        source = base / "paper_reference.json"
+                        evidence, protocol = "paper_reported", "ICCV-2025-EV-UAV-Table-2"
+                        note = "论文参照；不参与同协议完成判定"
+                if metric.code in {"A06", "A07"}:
+                    modern = base / split / "event_level" / "localization_v2.json"
+                    if modern.is_file():
+                        source = modern
+                        data = read_json(source)
+                        value = data["summary"].get("pd" if metric.code == "A06" else "fa")
+                        protocol, family = protocol_of(data), "localization"
+                        status = "complete" if value is not None else "not_applicable"
+                        evidence, note = "recomputed_frozen_predictions", "统一半开窗工程口径；宽松 Pd 不代表框定位准确率"
+                    elif status == "complete":
+                        status, evidence = "legacy_only", "historical_evaluator"
+                        note = "保留旧数值，不能作为 v2 完成；待使用冻结逐事件输出重新统计，禁止仅换协议标签"
+                rows.append(checked_row(root, model, metric.code, split, family, source,
+                                        value, metric.unit, status, evidence, protocol, note))
             path = category / "01_metric_comparisons" / metric.level / metric.directory / f"{split}.csv"
             write_csv(path, rows); outputs.append(path)
     return outputs
@@ -266,6 +305,7 @@ def load_complexity_values(category: Path, model: dict[str, str], split: str) ->
         if not path.exists() and (base / "common" / "paper_reference.json").exists():
             paper_path = base / "common" / "paper_reference.json"; paper = read_json(paper_path)
             return {"total_weight_parameters": paper["paper"]["reported_weight_parameters"]}, "ICCV-2025-EV-UAV-Table-2", paper_path
+        if not path.exists(): return {}, "", path
         data = read_json(path)
         return data["summary"], data["protocol"], path
     path = base / split / "summary.json"
@@ -285,8 +325,11 @@ def load_complexity_values(category: Path, model: dict[str, str], split: str) ->
         return fallback, protocol, paper_path if paper_path.exists() else path
     data = read_json(path)
     values = dict(data["summary"]); sequences = int(values["sequences"])
-    values.setdefault("effective_acs_per_sequence", float(values.get("effective_acs", 0)) / sequences)
-    values["effective_ops_per_sequence"] = float(values["effective_macs_per_sequence"]) + float(values["effective_acs_per_sequence"])
+    if sequences <= 0: raise ValueError("Complexity records require positive sequence counts")
+    if "effective_acs_per_sequence" not in values and "effective_acs" in values:
+        values["effective_acs_per_sequence"] = float(values["effective_acs"]) / sequences
+    if values.get("effective_macs_per_sequence") is not None and values.get("effective_acs_per_sequence") is not None:
+        values["effective_ops_per_sequence"] = float(values["effective_macs_per_sequence"]) + float(values["effective_acs_per_sequence"])
     return values, data["protocol"], path
 
 
@@ -300,55 +343,62 @@ def build_complexity(root: Path) -> list[Path]:
     registry = [model for model in read_registry(root) if model["evaluation_track"] == "software" or model["model_role"] == "external_reference"]
     outputs = []
     for metric in B_METRICS:
-        splits = ("common",) if metric.code in {"B01", "B02"} else ("validation", "test")
+        splits = ("common",) if metric.code in {"B01", "B02", "B05"} else ("validation", "test")
         for split in splits:
             rows = []
             for model in registry:
-                values, protocol, source = load_complexity_values(category, model, split)
+                if metric.code == "B05":
+                    source = record_root(category, model) / "common" / "state_memory.json"
+                    data = read_json(source) if source.is_file() else {}
+                    values, protocol = data.get("summary", {}), protocol_of(data)
+                else:
+                    values, protocol, source = load_complexity_values(category, model, split)
                 value = values.get(metric.source_key)
                 paper_source = source.name == "paper_reference.json"
                 architecture_defined = metric.code == "B04b" and paper_source and value == 0 and model["model_role"] == "formal"
                 status = "complete" if architecture_defined else ("paper_reported" if paper_source and value is not None else ("complete" if value is not None else ("pending" if model["model_role"] == "formal" else "not_reported")))
                 evidence = "architecture_defined" if architecture_defined else ("paper_reported" if status == "paper_reported" else ("pending_cuda_evaluation" if status == "pending" else ("derived" if metric.code == "B04c" and status == "complete" else ("measured" if status == "complete" else "not_reported"))))
-                note = "B04c = B04a + B04b；这是与 B03 稠密 MAC 的正式对比口径" if metric.code == "B04c" else ""
+                note = "非零连接理论运算量；不证明实际跳零、加速或节能" if metric.code.startswith("B04") else ""
+                if metric.code == "B04c": note += "；MAC+AC 为未加权计数，不作为跨位宽/架构成本主排名"
+                if metric.code == "B05": note = "需完整持久状态清单；历史 Proposal 分量不是全部运行内存"
                 if status == "paper_reported": note = "论文约数；服务器严格加载 checkpoint 后以实测 B01 替换"
-                if status == "pending": note = (note + "；" if note else "") + "待冻结模型 CUDA 服务器包实测导入"
+                if status == "pending":
+                    if metric.code == "B05":
+                        evidence = "pending_state_inventory"
+                        note += "；待完整状态清单与证据导出"
+                    else:
+                        note = (note + "；" if note else "") + "待冻结模型同协议统计导入"
                 if architecture_defined: note = "普通 ANN 不执行 SNN 脉冲累加 AC；按定义为 0"
-                rows.append(make_row(model, value, metric.unit, status, evidence, protocol, source, note))
+                rows.append(checked_row(root, model, metric.code, split, "complexity", source,
+                                        value, metric.unit, status, evidence, protocol, note))
             path = b_metric_path(category, metric, split); write_csv(path, rows); outputs.append(path)
     return outputs
 
 
 def build_deployment(root: Path) -> list[Path]:
-    """Build board C tables, plus C07 runtime for formal software and board models."""
     category = root / "C_deployment_efficiency_and_hardware_cost"
-    formal_models = [model for model in read_registry(root) if model["model_role"] == "formal" and model["evaluation_track"] in {"software", "board"}]
-    outputs: list[Path] = []
+    formal = [m for m in read_registry(root) if m["model_role"] == "formal"]
+    outputs = []
     for code, folder, source_key, unit, scope in C_METRICS:
-        models = [model for model in formal_models if code == "C07" or model["evaluation_track"] == "board"]
-        if not models:
-            continue
-        splits = ("common",) if scope == "common" else ("validation", "test")
-        for split in splits:
+        models = [m for m in formal if m["evaluation_track"] == "board" or
+                  (m["evaluation_track"] == "software" and (code == "C07" or code.startswith(("C08", "C09"))))]
+        if not models: continue
+        for split in (("common",) if scope == "common" else ("validation", "test")):
             rows = []
             for model in models:
                 source = record_root(category, model) / split / "summary.json"
-                data = read_json(source) if source.exists() else {}
+                runtime_source = source.with_name("runtime.json")
+                if code == "C07" and runtime_source.is_file(): source = runtime_source
+                data = read_json(source) if source.is_file() else {}
                 summary = data.get("summary", data.get("metrics", {}))
                 value = summary.get(source_key, summary.get(code))
-                if code == "C07" and value is not None:
-                    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
-                        raise ValueError(f"{source}: runtime_ms_per_sequence must be a finite positive number or null")
                 status = "complete" if value is not None else "pending"
-                measured_evidence = "software_measured" if model["evaluation_track"] == "software" else "board_measured"
-                pending_evidence = "pending_runtime_measurement" if code == "C07" else "pending_board_measurement"
-                evidence = data.get("evidence_type", measured_evidence if status == "complete" else pending_evidence)
-                protocol = data.get("protocol_id", data.get("protocol", ""))
-                if code == "C07":
-                    protocol = data.get("runtime_protocol_id", protocol or RUNTIME_PROTOCOL)
-                missing_note = "待固定平台完整序列 runtime 实测；当前无源记录或指标值" if code == "C07" else "缺少板端正式源记录或指标值"
-                rows.append(make_row(model, value, unit, status, evidence, protocol, source, "" if status == "complete" else missing_note))
-            path = category / "01_metric_comparisons" / Path(folder) / f"{split}.csv"
+                evidence = data.get("evidence_type", "unverified" if value is not None else "pending_measurement")
+                protocol = data.get("runtime_protocol_id", "") if code == "C07" else protocol_of(data)
+                rows.append(checked_row(root, model, code, split, "deployment", source,
+                                        value, unit, status, evidence, protocol,
+                                        "" if value is not None else "待符合 v2 协议的实测；空值不代表零"))
+            path = category / "01_metric_comparisons" / folder / f"{split}.csv"
             write_csv(path, rows); outputs.append(path)
     return outputs
 
@@ -359,9 +409,79 @@ def find_metric_file(category: Path, code: str, split: str) -> Path | None:
 
 
 def row_is_complete(path: Path | None, evaluation_id: str) -> bool:
-    if path is None or not path.exists(): return False
+    if path is None or not path.is_file(): return False
+    root = next((p for p in path.parents if (p / "model_registry.csv").is_file()), None)
+    if root is None: return False
+    model = next((m for m in read_registry(root) if m["evaluation_id"] == evaluation_id), None)
+    if model is None: return False
     with path.open(encoding="utf-8-sig", newline="") as stream:
-        return any(row["evaluation_id"] == evaluation_id and row["status"] == "complete" and row["value"] != "" for row in csv.DictReader(stream))
+        matches = [r for r in csv.DictReader(stream) if r["evaluation_id"] == evaluation_id]
+    if len(matches) != 1: return False
+    row = matches[0]
+    if row.get("status") != "complete" or row.get("verification_status") != "verified": return False
+    code, split = path.parent.name.split("_", 1)[0], path.stem
+    source = Path(row["source_file"])
+    source = source if source.is_absolute() else root / source
+    if not source.is_file() or row.get("source_sha256") != sha256(source): return False
+    try:
+        if code.startswith("A"):
+            metric = next(m for m in A_METRICS if m.code == code)
+            family = "track" if metric.level == "02_target_track_level" else "event"
+            if code in {"A06", "A07"}:
+                data = read_json(source); family = "localization"
+                expected = data["summary"]["pd" if code == "A06" else "fa"]
+            else:
+                expected = (track_metrics(source) if family == "track" else event_metrics(source))[0][metric.source_key]
+            unit = metric.unit
+            expected_protocol = protocol_of(read_json(source))
+        elif code.startswith("B"):
+            metric = next(m for m in B_METRICS if m.code == code)
+            family, unit = "complexity", metric.unit
+            if code == "B05":
+                expected = read_json(source)["summary"][metric.source_key]
+                expected_protocol = protocol_of(read_json(source))
+            else:
+                values, expected_protocol, expected_source = load_complexity_values(root / "B_model_complexity", model, split)
+                if source.absolute() != expected_source.absolute(): return False
+                expected = values[metric.source_key]
+        else:
+            spec = next(m for m in C_METRICS if m[0] == code)
+            data = read_json(source); summary = data.get("summary", data.get("metrics", {}))
+            expected, unit, family = summary.get(spec[2], summary.get(code)), spec[3], "deployment"
+            expected_protocol = data.get("runtime_protocol_id", "") if code == "C07" else protocol_of(data)
+        if row["protocol_id"] != expected_protocol: return False
+        if row["unit"] != unit or expected is None or not math.isclose(float(row["value"]), expected, rel_tol=1e-12, abs_tol=1e-12): return False
+        fresh = checked_row(root, model, code, split, family, source, expected, unit,
+                            "complete", row["evidence_type"], row["protocol_id"])
+        return fresh["status"] == "complete" and all(row.get(k) == fresh[k] for k in ("comparison_scope", "causality"))
+    except (ValueError, KeyError, TypeError, StopIteration, OSError):
+        return False
+
+
+def build_uncertainty(root: Path) -> Path:
+    """Expose existing paired IoU intervals; never manufacture absolute CIs."""
+    policy = policy_at(root)
+    reference = policy.get("reviewed_uncertainty", {})
+    source = root.parent / reference.get("source_file", "missing")
+    data = read_json(source) if source.is_file() and content_sha256(source) == reference.get("content_sha256") else {}
+    rows = []
+    for split in ("validation", "test"):
+        result = data.get(split, {})
+        delta = result.get("delta_pro_minus_reference", {}).get("H2", {})
+        interval = delta.get("95_interval", [None, None, None])
+        rows.append({"evaluation_id": reference.get("evaluation_id", ""),
+                     "reference_evaluation_id": reference.get("reference_evaluation_id", ""),
+                     "split": split, "metric": "Event IoU", "delta": delta.get("point"),
+                     "ci95_lower": interval[0], "ci95_upper": interval[2],
+                     "unit": "fraction_difference", "sequence_count": len(policy.get("sequence_ids", {}).get(split, [])),
+                     "bootstrap_repeats": result.get("repeats"), "method": result.get("method", ""),
+                     "status": "historical_verified" if delta else "pending",
+                     "source_file": reference.get("source_file", ""),
+                     "source_sha256": sha256(source) if source.is_file() else "",
+                     "notes": "同评分前缀的配对差值；H2 非因果、H2-pro 因果；不是同实时条件下的因果收益；并非绝对指标 CI"})
+    path = root / "A_model_accuracy/01_metric_comparisons/uncertainty/paired_iou_delta.csv"
+    write_csv(path, rows, tuple(rows[0]))
+    return path
 
 
 def group_status(category: Path, codes: Iterable[str], split: str, evaluation_id: str) -> str:
@@ -380,15 +500,15 @@ def build_coverage(root: Path, fail_on_incomplete: bool = True) -> tuple[Path, b
         a_val = group_status(a_root, (m.code for m in A_METRICS), "validation", evaluation_id)
         a_test = group_status(a_root, (m.code for m in A_METRICS), "test", evaluation_id)
         if model["evaluation_track"] == "software":
-            b_common = group_status(b_root, ("B01", "B02"), "common", evaluation_id)
+            b_common = group_status(b_root, ("B01", "B02", "B05"), "common", evaluation_id)
             b_val = group_status(b_root, ("B03", "B04a", "B04b", "B04c"), "validation", evaluation_id)
             b_test = group_status(b_root, ("B03", "B04a", "B04b", "B04c"), "test", evaluation_id)
             c_common = c_val = c_test = "not_required"; required = (a_val, a_test, b_common, b_val, b_test)
-            details = "软件正式模型必测 A(Validation/Test)+B(Common/Validation/Test)"
+            details = "v2：软件要求 A+B；旧 Pd/Fa 与缺少 B05 清单会使准入 incomplete；C 为补充项"
         elif model["evaluation_track"] == "board":
             b_common = b_val = b_test = "not_required"
             c_common = group_status(c_root, C_COMMON, "common", evaluation_id); c_val = group_status(c_root, C_SPLIT, "validation", evaluation_id); c_test = group_status(c_root, C_SPLIT, "test", evaluation_id)
-            required = (a_val, a_test, c_common, c_val, c_test); details = "板端正式模型必测 A(Validation/Test)+C(Common/Validation/Test)"
+            required = (a_val, a_test, c_common, c_val, c_test); details = "v2：板端要求 A+C01–C10，并核验源记录、协议及证据哈希"
         else: raise ValueError(f"Unknown evaluation_track: {model['evaluation_track']}")
         overall = "complete" if all(item == "complete" for item in required) else "incomplete"; all_ok &= overall == "complete"
         rows.append({**identity, "a_validation": a_val, "a_test": a_test, "b_common": b_common, "b_validation": b_val, "b_test": b_test, "c_common": c_common, "c_validation": c_val, "c_test": c_test, "overall_status": overall, "details": details})
@@ -399,7 +519,7 @@ def build_coverage(root: Path, fail_on_incomplete: bool = True) -> tuple[Path, b
 
 def main() -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path(__file__).absolute().parents[4] / "5_model_evaluation"); parser.add_argument("--category", choices=("all", "accuracy", "complexity", "deployment", "coverage"), default="all"); parser.add_argument("--allow-incomplete", action="store_true"); args = parser.parse_args()
-    if args.category in {"all", "accuracy"}: build_accuracy(args.root)
+    if args.category in {"all", "accuracy"}: build_accuracy(args.root); build_uncertainty(args.root)
     if args.category in {"all", "complexity"}: build_complexity(args.root)
     if args.category in {"all", "deployment"}: build_deployment(args.root)
     if args.category in {"all", "coverage"}:

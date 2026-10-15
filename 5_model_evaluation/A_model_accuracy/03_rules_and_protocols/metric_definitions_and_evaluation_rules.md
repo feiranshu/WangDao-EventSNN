@@ -15,12 +15,12 @@
 | Event AP | 事件级 Precision–Recall 曲线面积，不使用背景 TN；不等同于边界框 COCO mAP。 | 越高越好 |
 | Event IoU | `TP/(TP+FP+FN)`。 | 越高越好 |
 | Precision | `TP/(TP+FP)`。 | 越高越好 |
-| ACC / Target-event Recall | `TP/(TP+FN)`；本项目与 EV-UAV 兼容的 ACC 口径。 | 越高越好 |
+| Target-event Recall（论文别名 ACC） | `TP/(TP+FN)`，不是总体 Accuracy。 | 越高越好 |
 | F1 | Precision 与 Recall 的调和平均。 | 越高越好 |
-| Pd | 50 ms 目标窗检出率，用于和 EV-UAV 原论文对齐；判定较宽松，需结合 AP、Recall 和 Fa。 | 越高越好 |
-| Fa | 按官方兼容实现统计的虚警率。 | 越低越好 |
+| Pd | v2 半开 50 ms 目标窗检出率，目标事件命中比例≥0.0001；宽松诊断，无目标为 null。旧值仅作 legacy_only。 | 越高越好 |
+| Fa | v2 每完整像素窗的背景虚警连通域数，单位 component/pixel/window；旧兼容值与新版分开。 | 越低越好 |
 
-序列宏平均、高密度和普通密度 Recall 用于定位模型在不同事件密度下的差异。所有正式汇总按 Validation、Test 分开呈现。
+序列宏平均、高密度和普通密度 Recall 用于定位差异。Validation/Test 分开呈现；精确边界和重算见 [Pd/Fa v2](localization_v2_protocol.md)，汇总、空分组、置信区间和可选应用指标见 [统计协议](statistical_reporting_protocol.md)。历史事件协议保留追溯，不用于替代新 Pd/Fa。
 
 ## 可观测事件轨迹 HOTA
 

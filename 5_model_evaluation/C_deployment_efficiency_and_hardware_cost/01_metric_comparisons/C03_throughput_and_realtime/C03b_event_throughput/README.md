@@ -1,5 +1,5 @@
-# C03b event throughput
+# C03b: event_throughput
 
-本目录只比较 `C03b`，单位为 `event/s`；数据划分规则为 `validation/test`。正式数值只读取本目录 CSV，模型顺序由根目录 `model_registry.csv` 决定。
+Unit: event/s. Split: split. Source field: summary.event_throughput.
 
-缺值必须保留空白，并用 `status=not_reported`、`pending` 或 `not_applicable` 解释，禁止填 0。`source_file` 必须指向同一数据划分的模型源记录。
+Follow the [v2 definition and measurement protocol](../../../03_rules_and_protocols/metric_definitions_and_evaluation_rules.md). A nonempty value is not proof of measurement. Records require identity, compatible scope/protocol, raw evidence and hashes. Missing measurements remain pending; unverified records do not satisfy admission.

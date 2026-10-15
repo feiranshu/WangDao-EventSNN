@@ -1,5 +1,5 @@
 # B 模型复杂度
 
-B01 参数量、B02 模型 tensor payload 字节数为 Common；B03 稠密 MAC、B04a 有效 MAC、B04b AC、B04c MAC+AC 分 Validation/Test。H2 与 H2-pro 已在同一闭合窗口前缀上完成。B03/B04 仅覆盖 Proposal 和条件 Refiner 的 exact-int8 计算，未覆盖特征构建、路由、后处理、延迟及内存工作区。普通 ANN 的 B04b 为 0。
+B01/B02 为参数与静态张量，B03 为条件前向结构连接 MAC，B04 为理论非零 MAC/突触 AC 及未加权和，新增 B05 为持久状态内存。旧 H2/H2-pro 计数保留；B05 完整清单待补，因此现行 v2 的 B Common 尚未完成。
 
-H2-plus 旧记录已归入 Step7 中间模型。EV-SpSegNet 的论文参数量只标记 `paper_reported`，其余 B 项待官方 checkpoint 的同口径 CUDA 测量。正式比较只见 `01_metric_comparisons/` CSV。
+[B 类规则](03_rules_and_protocols/metric_definitions_and_evaluation_rules.md)明确实际执行与理论计数的区别。EV-SpSegNet 论文值保留 paper_reported。只读取逐指标 CSV，不手工回填缺失测量。

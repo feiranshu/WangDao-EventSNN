@@ -1,5 +1,5 @@
-# C02a end-to-end latency mean
+# C02a: end_to_end_latency_mean_ms
 
-本目录只比较 `C02a`，单位为 `ms`；数据划分规则为 `validation/test`。正式数值只读取本目录 CSV，模型顺序由根目录 `model_registry.csv` 决定。
+Unit: ms. Split: split. Source field: summary.end_to_end_latency_mean_ms.
 
-缺值必须保留空白，并用 `status=not_reported`、`pending` 或 `not_applicable` 解释，禁止填 0。`source_file` 必须指向同一数据划分的模型源记录。
+Follow the [v2 definition and measurement protocol](../../../03_rules_and_protocols/metric_definitions_and_evaluation_rules.md). A nonempty value is not proof of measurement. Records require identity, compatible scope/protocol, raw evidence and hashes. Missing measurements remain pending; unverified records do not satisfy admission.

@@ -1,3 +1,3 @@
-# B04 有效运算
+# B04: theoretical nonzero operations
 
-B04a 有效 MAC 与 B04b 有效 AC 分开记录；B04c 对同模型、同数据划分、同统计边界逐行求和。只有 B04c 才与 B03 稠密 MAC 作正式横向比较。
+MAC and synaptic AC are recorded separately. Their unweighted sum is diagnostic only. See the [v2 rules](../../03_rules_and_protocols/metric_definitions_and_evaluation_rules.md).

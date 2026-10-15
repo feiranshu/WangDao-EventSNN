@@ -1,5 +1,3 @@
-# A04 ACC / target-event recall
+# A04: Target-event Recall (paper alias ACC)
 
-本目录只比较 `A04`，单位为 `rate`；数据划分规则为 `validation.csv + test.csv`。正式数值只读取本目录 CSV，模型顺序由根目录 `model_registry.csv` 决定。
-
-缺值必须保留空白，并用 `status=not_reported`、`pending` 或 `not_applicable` 解释，禁止填 0。`source_file` 必须指向同一数据划分的模型源记录。
+TP/(TP+FN), not overall accuracy. Undefined denominators are null. See the [statistical protocol](../../../03_rules_and_protocols/statistical_reporting_protocol.md).

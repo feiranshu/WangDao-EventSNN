@@ -1,5 +1,3 @@
-# B04b effective AC
+# B04b: Spike synaptic AC (theoretical)
 
-本目录只比较 `B04b`，单位为 `AC/sequence`；数据划分规则为 `validation.csv + test.csv`。正式数值只读取本目录 CSV，模型顺序由根目录 `model_registry.csv` 决定。
-
-缺值必须保留空白，并用 `status=not_reported`、`pending` 或 `not_applicable` 解释，禁止填 0。`source_file` 必须指向同一数据划分的模型源记录。
+See the [B v2 rules](../../../03_rules_and_protocols/metric_definitions_and_evaluation_rules.md). These counts do not establish executed zero-skipping, speed or energy savings. MAC and AC remain separate; their unweighted sum is not a cross-precision cost ranking.
